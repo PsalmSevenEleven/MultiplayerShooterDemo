@@ -9,6 +9,20 @@
 				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Content/ThirdPerson/Maps/LobbyDefaultMap.umap",
 				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Plugins/MultiplayerSessions/Content/WBP_Menu.uasset",
 				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Content/ThirdPerson/Maps/ThirdPersonMap.umap",
+				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Content/BP_MSDCharacter.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Content/EnhancedInput/FirstPersonMappingContext.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Content/EnhancedInput/Actions/Moveforward.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Content/EnhancedInput/Actions/MoveRight.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Content/GAS/Abilities/GA_Move.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Content/MSD_DefaultPlayerAbilities.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Content/GameModes/BP_HordeShooterGameMode.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Content/NewBlueprint.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Content/BP_MSDPlayerController.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Content/ThirdPerson/Input/Actions/IA_Jump.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Content/ThirdPerson/Input/Actions/IA_Look.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Content/ThirdPerson/Input/Actions/IA_Move.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Content/GAS/Abilities/GA_Look.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Content/GAS/Abilities/GA_Jump.uasset",
 				"C:/Users/Caleb/Documents/Unreal Projects/HordeShooter/Content/StarterContent/Props/MaterialSphere.uasset"
 			]
 		}

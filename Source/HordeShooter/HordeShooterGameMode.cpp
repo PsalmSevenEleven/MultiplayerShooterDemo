@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "HordeShooterGameMode.h"
-#include "HordeShooterCharacter.h"
+#include "MSDCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 
 AHordeShooterGameMode::AHordeShooterGameMode()
