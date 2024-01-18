@@ -902,6 +902,12 @@
 			]
 		},
 		{
+			"ShaderMapHash": "BAFE0FEDE4B49C46826A735A271AB7B047C287D9",
+			"Assets": [
+				"/Engine/BasicShapes/BasicShapeMaterial"
+			]
+		},
+		{
 			"ShaderMapHash": "4927A6EE827CB91675EF41CFDDA067ADA2E25093",
 			"Assets": [
 				"/Interchange/gltf/MaterialInstances/MI_Default_Mask"
