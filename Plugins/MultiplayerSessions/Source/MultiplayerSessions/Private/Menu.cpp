@@ -144,6 +144,7 @@ void UMenu::HostButtonClicked()
 {
 	if(MultiplayerSessionsGISubsystem)
 	{
+		
 		MultiplayerSessionsGISubsystem->CreateSession(NumPublicConnections, MatchType);
 	}
 }

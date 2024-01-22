@@ -83,11 +83,7 @@ void AMSDCharacter::PossessedBy(AController* NewController)
 	AMSDPlayerState* MSDPlayerState = GetPlayerState<AMSDPlayerState>();
 	if(MSDPlayerState)
 	{
-
 		AbilitySystemComponent = MSDPlayerState->GetAbilitySystemComponent();
-
-		GEngine->AddOnScreenDebugMessage(-1, 50.f, FColor::Green, FString::Printf(TEXT("Ability system component is %s"), AbilitySystemComponent ? TEXT("valid") : TEXT("invalid")));
-		
 		AbilitySystemComponent->InitAbilityActorInfo(MSDPlayerState, this);
 
 		ensure(DefaultAbilities);
@@ -180,11 +176,12 @@ void AMSDCharacter::BindGASInputs(UInputComponent* PlayerInputComponent)
 }
 
 //While it is technically possible to do everything in GAS and I got it to work during my experimenting,
-//the GAS abilities ended up being hacky and dirty and gave me the sad.
+//the GAS abilities ended up being hacky and dirty and gave me The Sad.
 
 //From what I can tell, for anything that has to trigger repeatedly while an input is held down (look, move, etc)
-//it's simpler to make a native function and manually bind it to an InputAction which is manually set on the character BP
-//(which is how Lyra handles it).
+//it's simpler to make a native function and manually bind it to an InputAction
+//which is manually set on the character BP
+//(how Lyra handles it).
 
 //This won't automagically handle new abilities like BindGASInputs(), but hopefully we won't need very many native inputs.
 void AMSDCharacter::BindNativeInputs(UInputComponent* PlayerInputComponent)
@@ -213,7 +210,6 @@ void AMSDCharacter::ActivateGASAbility(int32 Index, bool bOn)
 	
 	if (IsValid(PlayerEnhancedInputComponent) && AbilitySystemComponent)
 	{
-
 		if(bOn)
 		{
 			AbilitySystemComponent->PressInputID(Index);

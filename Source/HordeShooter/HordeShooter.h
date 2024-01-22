@@ -12,6 +12,7 @@ enum class EPlayerAbilityInputID: uint8
 	Move UMETA(DisplayName = "Move"),
 	Look UMETA(DisplayName = "Look"),
 	Jump UMETA(DisplayName = "Jump"),
+	Pause UMETA(DisplayName = "Pause"),
 	// PrimaryFire UMETA(DisplayName = "PrimaryFire"),
 	// SecondaryFire UMETA(DisplayName = "SecondaryFire"),
 	// SupportAbility UMETA(DisplayName = "SupportAbility"),

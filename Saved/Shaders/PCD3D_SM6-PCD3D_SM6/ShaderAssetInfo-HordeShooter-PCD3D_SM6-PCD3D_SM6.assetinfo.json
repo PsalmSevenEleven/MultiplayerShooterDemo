@@ -239,15 +239,15 @@
 		{
 			"ShaderMapHash": "59BB4C3D7B10FEC123D53D902879A89DC57A7B3D",
 			"Assets": [
-				"/Game/Characters/Mannequins/Materials/Instances/Manny/MI_Manny_02",
-				"/Game/Characters/Mannequins/Materials/Instances/Quinn/MI_Quinn_02"
+				"/Game/Mannequins/Mannequins/Materials/Instances/Manny/MI_Manny_02",
+				"/Game/Mannequins/Mannequins/Materials/Instances/Quinn/MI_Quinn_02"
 			]
 		},
 		{
 			"ShaderMapHash": "C86F7C44B386018412F7827E213D76EB64473453",
 			"Assets": [
-				"/Game/Characters/Mannequins/Materials/Instances/Manny/MI_Manny_01",
-				"/Game/Characters/Mannequins/Materials/M_Mannequin"
+				"/Game/Mannequins/Mannequins/Materials/Instances/Manny/MI_Manny_01",
+				"/Game/Mannequins/Mannequins/Materials/M_Mannequin"
 			]
 		},
 		{
@@ -434,7 +434,7 @@
 		{
 			"ShaderMapHash": "4FEFCA7E89313FFB568F3DAD265220DE93FF34A3",
 			"Assets": [
-				"/Game/Characters/Mannequin_UE4/Materials/M_MannequinUE4_Body"
+				"/Game/Mannequins/Mannequin_UE4/Materials/M_MannequinUE4_Body"
 			]
 		},
 		{
@@ -765,7 +765,7 @@
 		{
 			"ShaderMapHash": "2539B4D0EB37C19AFEB2B422165E15EF6D648205",
 			"Assets": [
-				"/Game/Characters/Mannequin_UE4/Materials/M_MannequinUE4_ChestLogo"
+				"/Game/Mannequins/Mannequin_UE4/Materials/M_MannequinUE4_ChestLogo"
 			]
 		},
 		{
