@@ -16,5 +16,8 @@ class HORDESHOOTER_API AMSDLobbyGameMode : public AGameMode
 
 public:
 	virtual void PostLogin(APlayerController* NewPlayer) override;
+
+	UFUNCTION(BlueprintCallable)
+	void StartMission();
 	
 };

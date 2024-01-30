@@ -14,6 +14,8 @@ class HORDESHOOTER_API UMSDGameInstance : public UAdvancedFriendsGameInstance
 {
 	GENERATED_BODY()
 
-	
-	
+	UFUNCTION(BlueprintCallable)
+	void LoadCharacterClassesForEquipScreen();
+
+	void CharacterClassesForEquipLoadedCallback();
 };

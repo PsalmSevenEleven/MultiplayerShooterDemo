@@ -22,10 +22,21 @@ public:
 	UFUNCTION(BlueprintCallable)
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
+	virtual void CopyProperties(APlayerState* PlayerState) override;
 
-protected:
+	virtual void OverrideWith(APlayerState* PlayerState) override;
+
+	void SetCharacterClass(FPrimaryAssetId NewCharacterClass);
+
+	UFUNCTION(BlueprintCallable)
+	FPrimaryAssetId GetCharacterClass() const { return CharacterClass; }
 	
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+	
+protected:
 	UPROPERTY()
 	UAbilitySystemComponent* AbilitySystemComponent;
-	
+
+	UPROPERTY()
+	FPrimaryAssetId CharacterClass;
 };

@@ -10,3 +10,10 @@ void AMSDLobbyGameMode::PostLogin(APlayerController* NewPlayer)
 	Super::PostLogin(NewPlayer);
 	
 }
+
+void AMSDLobbyGameMode::StartMission()
+{
+	GetWorld()->ServerTravel("/Game/Maps/PlaceholderMatchMap?listen");
+}
+
+

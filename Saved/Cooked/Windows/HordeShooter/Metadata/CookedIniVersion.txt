@@ -1,6 +1,7 @@
 [UsedSettings]
-Windows.Game:/Script/Engine.AssetManagerSettings:PrimaryAssetTypesToScan:0=(PrimaryAssetType="Map",AssetBaseClass=/Script/Engine.World,bHasBlueprintClasses=False,bIsEditorOnly=True,Directories=((Path="/Game/Maps")),SpecificAssets=,Rules=(Priority=-1,ChunkId=-1,bApplyRecursively=True,CookRule=Unknown))
-Windows.Game:/Script/Engine.AssetManagerSettings:PrimaryAssetTypesToScan:1=(PrimaryAssetType="PrimaryAssetLabel",AssetBaseClass=/Script/Engine.PrimaryAssetLabel,bHasBlueprintClasses=False,bIsEditorOnly=True,Directories=((Path="/Game")),SpecificAssets=,Rules=(Priority=-1,ChunkId=-1,bApplyRecursively=True,CookRule=Unknown))
+Windows.Game:/Script/Engine.AssetManagerSettings:PrimaryAssetTypesToScan:0=(PrimaryAssetType="Map",AssetBaseClass="/Script/Engine.World",bHasBlueprintClasses=False,bIsEditorOnly=True,Directories=((Path="/Game/Maps")),SpecificAssets=,Rules=(Priority=-1,ChunkId=-1,bApplyRecursively=True,CookRule=Unknown))
+Windows.Game:/Script/Engine.AssetManagerSettings:PrimaryAssetTypesToScan:1=(PrimaryAssetType="PrimaryAssetLabel",AssetBaseClass="/Script/Engine.PrimaryAssetLabel",bHasBlueprintClasses=False,bIsEditorOnly=True,Directories=((Path="/Game")),SpecificAssets=,Rules=(Priority=-1,ChunkId=-1,bApplyRecursively=True,CookRule=Unknown))
+Windows.Game:/Script/Engine.AssetManagerSettings:PrimaryAssetTypesToScan:2=(PrimaryAssetType="CharacterClassDefinition",AssetBaseClass="/Script/HordeShooter.MSD_CharacterClassDefinition",bHasBlueprintClasses=False,bIsEditorOnly=False,Directories=((Path="/Game/Classes/ClassDefs")),SpecificAssets=,Rules=(Priority=-1,ChunkId=-1,bApplyRecursively=True,CookRule=Unknown))
 Windows.Engine:/Script/EngineSettings.GameMapsSettings:GameInstanceClass:0=/Game/BP_MSDGameInstance.BP_MSDGameInstance_C
 Windows.Engine:/Script/EngineSettings.GameMapsSettings:GameDefaultMap:0=/Game/Maps/MainMenuLevel.MainMenuLevel
 Windows.Engine:/Script/EngineSettings.GameMapsSettings:ServerDefaultMap:0=/Engine/Maps/Entry
@@ -154,7 +155,7 @@ Engine:/Script/Engine.GameEngine:GlobalNetTravelCount:0=1
 Engine:/Script/Engine.GameEngine:MaxDeltaTime:0=0
 Engine:/Script/Engine.GameEngine:ServerFlushLogInterval:0=30
 Engine:/Script/EngineSettings.GameMapsSettings:GameInstanceClass:0=/Game/BP_MSDGameInstance.BP_MSDGameInstance_C
-Engine:/Script/EngineSettings.GameMapsSettings:EditorStartupMap:0=/Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap
+Engine:/Script/EngineSettings.GameMapsSettings:EditorStartupMap:0=/Game/Maps/MainMenuLevel.MainMenuLevel
 Engine:/Script/EngineSettings.GameMapsSettings:GameDefaultMap:0=/Game/Maps/MainMenuLevel.MainMenuLevel
 Engine:/Script/EngineSettings.GameMapsSettings:ServerDefaultMap:0=/Engine/Maps/Entry
 Engine:/Script/EngineSettings.GameMapsSettings:GlobalDefaultGameMode:0=/Script/HordeShooter.HordeShooterGameMode
@@ -782,8 +783,15 @@ Game:/Script/AIModule.EnvQueryManager:MaxAllowedTestingTime:0=0.01
 Game:/Script/AIModule.EnvQueryManager:bTestQueriesUsingBreadth:0=true
 Game:/Script/AIModule.EnvQueryManager:QueryCountWarningThreshold:0=0
 Game:/Script/AIModule.EnvQueryManager:QueryCountWarningInterval:0=30.0
-Game:/Script/Engine.AssetManagerSettings:PrimaryAssetTypesToScan:0=(PrimaryAssetType="Map",AssetBaseClass=/Script/Engine.World,bHasBlueprintClasses=False,bIsEditorOnly=True,Directories=((Path="/Game/Maps")),SpecificAssets=,Rules=(Priority=-1,ChunkId=-1,bApplyRecursively=True,CookRule=Unknown))
-Game:/Script/Engine.AssetManagerSettings:PrimaryAssetTypesToScan:1=(PrimaryAssetType="PrimaryAssetLabel",AssetBaseClass=/Script/Engine.PrimaryAssetLabel,bHasBlueprintClasses=False,bIsEditorOnly=True,Directories=((Path="/Game")),SpecificAssets=,Rules=(Priority=-1,ChunkId=-1,bApplyRecursively=True,CookRule=Unknown))
+Game:/Script/Engine.AssetManagerSettings:PrimaryAssetTypesToScan:0=(PrimaryAssetType="Map",AssetBaseClass="/Script/Engine.World",bHasBlueprintClasses=False,bIsEditorOnly=True,Directories=((Path="/Game/Maps")),SpecificAssets=,Rules=(Priority=-1,ChunkId=-1,bApplyRecursively=True,CookRule=Unknown))
+Game:/Script/Engine.AssetManagerSettings:PrimaryAssetTypesToScan:1=(PrimaryAssetType="PrimaryAssetLabel",AssetBaseClass="/Script/Engine.PrimaryAssetLabel",bHasBlueprintClasses=False,bIsEditorOnly=True,Directories=((Path="/Game")),SpecificAssets=,Rules=(Priority=-1,ChunkId=-1,bApplyRecursively=True,CookRule=Unknown))
+Game:/Script/Engine.AssetManagerSettings:PrimaryAssetTypesToScan:2=(PrimaryAssetType="CharacterClassDefinition",AssetBaseClass="/Script/HordeShooter.MSD_CharacterClassDefinition",bHasBlueprintClasses=False,bIsEditorOnly=False,Directories=((Path="/Game/Classes/ClassDefs")),SpecificAssets=,Rules=(Priority=-1,ChunkId=-1,bApplyRecursively=True,CookRule=Unknown))
+Game:/Script/Engine.AssetManagerSettings:bOnlyCookProductionAssets:0=False
+Game:/Script/Engine.AssetManagerSettings:bShouldManagerDetermineTypeAndName:0=False
+Game:/Script/Engine.AssetManagerSettings:bShouldGuessTypeAndNameInEditor:0=True
+Game:/Script/Engine.AssetManagerSettings:bShouldAcquireMissingChunksOnLoad:0=False
+Game:/Script/Engine.AssetManagerSettings:bShouldWarnAboutInvalidAssets:0=True
+Game:/Script/Engine.AssetManagerSettings:MetaDataTagsForAssetRegistry:0=()
 Input:/Script/Engine.InputSettings:bEnableMouseSmoothing:0=True
 Input:/Script/Engine.InputSettings:bEnableFOVScaling:0=True
 Input:/Script/Engine.InputSettings:FOVScale:0=0.011110

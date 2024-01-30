@@ -18,10 +18,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Plugins/Runtime/GameplayAbilities/Intermediate/Build/Win64/UnrealEditor/Inc/GameplayAbilities/UHT/GameplayAbility.gen.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Source/Runtime/Engine/Private/Character.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -31,8 +27,9 @@
     <setting file="file://$PROJECT_DIR$/Source/HordeShooter/Character/Input/MSDPlayerController.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/HordeShooter/Character/MSDCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/HordeShooter/Character/MSDCharacter.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/HordeShooter/GameModes/HordeShooterGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/HordeShooter/GameModes/MSDLobbyGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/HordeShooter/GameModes/MSDMissionGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Source/HordeShooter/GameModes/MSDMissionGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="Toolset" />
@@ -560,6 +557,13 @@
       <workItem from="1705608347847" duration="3761000" />
       <workItem from="1705680463276" duration="11544000" />
       <workItem from="1705938464667" duration="3921000" />
+      <workItem from="1705959982286" duration="2370000" />
+      <workItem from="1706025112618" duration="1882000" />
+      <workItem from="1706114174963" duration="12587000" />
+      <workItem from="1706198607032" duration="12073000" />
+      <workItem from="1706284029583" duration="791000" />
+      <workItem from="1706544886424" duration="15255000" />
+      <workItem from="1706637935956" duration="1953000" />
     </task>
     <servers />
   </component>

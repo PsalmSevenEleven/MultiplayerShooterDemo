@@ -18,7 +18,7 @@ public:
 	void SetupEnhancedInputContext();
 
 	class UInputMappingContext* GetPlayerInputMappingContext() const { return PlayerInputMappingContext; }
-	
+
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
 	UInputMappingContext* PlayerInputMappingContext;

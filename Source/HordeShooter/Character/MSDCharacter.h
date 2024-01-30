@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Ability System/MSD_AbilitySet.h"
+#include "AbilitySystem/MSD_AbilitySet.h"
 
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
@@ -34,6 +34,7 @@ class AMSDCharacter : public ACharacter
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Mesh, meta = (AllowPrivateAccess = "true"))
 	USkeletalMeshComponent* HandsMesh;
+
 	
 	/** MappingContext */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
@@ -52,6 +53,9 @@ class AMSDCharacter : public ACharacter
 public:
 	AMSDCharacter();
 
+	USkeletalMeshComponent* GetHandsMesh() const;
+
+	
 protected:
 
 	//native code for character movement
@@ -68,6 +72,10 @@ public:
 	//TODO - move this to an interface
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	FInputActionValue GetEnhancedInputActionValue(UInputAction* InAction);
+
+	//probably also this
+	UFUNCTION(BlueprintCallable, Server, Reliable, WithValidation)
+	void ChangeClass(FPrimaryAssetId NewClass);
 
 protected:
 
@@ -97,6 +105,17 @@ private:
 	//change this to edit all characters' base abilities
 	UPROPERTY(EditDefaultsOnly)
 	TObjectPtr<const UMSD_AbilitySet> DefaultAbilities;
+
+
+	UPROPERTY(ReplicatedUsing=OnRep_CharacterClass, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	FPrimaryAssetId CharacterClass;
+
+	
+	void ChangeClassLoadedCallback(FPrimaryAssetId NewClass);
+
+	UFUNCTION()
+	void OnRep_CharacterClass();
+	
 	
 };
 

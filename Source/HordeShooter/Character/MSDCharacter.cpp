@@ -1,6 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "MSDCharacter.h"
+
 #include "Engine/LocalPlayer.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -10,9 +11,12 @@
 #include "EnhancedInputComponent.h"
 #include "InputActionValue.h"
 #include "InputMappingContext.h"
+#include "MSD_CharacterClassDefinition.h"
+#include "Engine/AssetManager.h"
 #include "HordeShooter/Character/MSDPlayerState.h"
 #include "HordeShooter/Character/Input/MSD_PlayerMappableKeySettings.h"
 #include "HordeShooter/Character/Input/MSDPlayerController.h"
+#include "Net/UnrealNetwork.h"
 
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
@@ -57,6 +61,12 @@ AMSDCharacter::AMSDCharacter()
 	
 }
 
+void AMSDCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const 
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	DOREPLIFETIME(AMSDCharacter, CharacterClass);
+}
+
 //A C++ version of the blueprint function that returns the player's input action value.
 //This is nice because it allows me to get the value I want based on a class variable,
 //instead of each InputAction having its own function like with the BP version
@@ -88,6 +98,11 @@ void AMSDCharacter::PossessedBy(AController* NewController)
 
 		ensure(DefaultAbilities);
 		DefaultAbilities->AddAbilitiesToASC(AbilitySystemComponent);
+
+		if(MSDPlayerState->GetCharacterClass().PrimaryAssetType != FPrimaryAssetType(FName("")))
+		{
+			ChangeClass(MSDPlayerState->GetCharacterClass());
+		}
 	}
 }
 
@@ -109,6 +124,11 @@ void AMSDCharacter::OnRep_PlayerState()
 			BindGASInputs(Controller->InputComponent);
 			BindNativeInputs(Controller->InputComponent);
 		}
+
+		if(PS->GetCharacterClass().PrimaryAssetType != FPrimaryAssetType(FName("")))
+		{
+			ChangeClass(PS->GetCharacterClass());
+		}
 	}
 }
 
@@ -124,6 +144,7 @@ void AMSDCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 		BindNativeInputs(PlayerInputComponent);
 	}
 }
+
 
 void AMSDCharacter::BindASCInputs()
 {
@@ -259,5 +280,71 @@ void AMSDCharacter::Look(const FInputActionValue& Value)
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
+}
+#pragma endregion
+
+USkeletalMeshComponent* AMSDCharacter::GetHandsMesh() const
+{
+	return HandsMesh;
+}
+
+#pragma region Character Class Utility
+void AMSDCharacter::ChangeClass_Implementation(FPrimaryAssetId NewClass)
+{
+	CharacterClass = NewClass;
+	if(GetNetMode() == NM_Client)
+	{
+		return;
+	}
+	
+	OnRep_CharacterClass();
+
+	AMSDPlayerState* MSDPlayerState = GetPlayerState<AMSDPlayerState>();
+	if(MSDPlayerState)
+	{
+		MSDPlayerState->SetCharacterClass(NewClass);
+	}
+}
+
+bool AMSDCharacter::ChangeClass_Validate(FPrimaryAssetId NewClass)
+{
+	//TODO - hook into a Steam DB to check if the player owns the class
+	//eventually there will be progression and unlocks, but for now just let anything work
+	return true;
+}
+
+void AMSDCharacter::ChangeClassLoadedCallback(FPrimaryAssetId NewClass)
+{
+	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
+	if(!AssetManager || !NewClass.IsValid())
+	{
+		return;
+	}
+	
+	UMSD_CharacterClassDefinition* ClassDefinition = AssetManager->GetPrimaryAssetObject<UMSD_CharacterClassDefinition>(NewClass);
+	if(!ClassDefinition)
+	{
+		return;
+	}
+
+	GetCapsuleComponent()->SetCapsuleSize(ClassDefinition->CapsuleRadius, ClassDefinition->CapsuleHalfHeight);
+	GetCharacterMovement()->MaxWalkSpeed = ClassDefinition->MoveSpeedWalking;
+	GetCharacterMovement()->MaxWalkSpeedCrouched = ClassDefinition->MoveSpeedWalking;
+	GetMesh()->SetSkeletalMesh(ClassDefinition->BodyMesh.Get());
+	GetHandsMesh()->SetSkeletalMesh(ClassDefinition->HandsMesh.Get());
+	CameraBoom->SetRelativeLocation(FVector(0,0,ClassDefinition->CameraHeight));
+
+	AssetManager->UnloadPrimaryAsset(NewClass);
+}
+
+void AMSDCharacter::OnRep_CharacterClass()
+{
+	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
+	if(!AssetManager || !CharacterClass.IsValid())
+	{
+		return;
+	}
+
+	AssetManager->LoadPrimaryAsset(CharacterClass, TArray<FName>({"HubAndMission", "HubOnly"}), FStreamableDelegate::CreateUObject(this, &AMSDCharacter::ChangeClassLoadedCallback, CharacterClass));
 }
 #pragma endregion
