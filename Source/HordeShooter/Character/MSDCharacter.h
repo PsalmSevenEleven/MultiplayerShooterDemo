@@ -75,7 +75,7 @@ public:
 
 	//probably also this
 	UFUNCTION(BlueprintCallable, Server, Reliable, WithValidation)
-	void ChangeClass(FPrimaryAssetId NewClass);
+	void ChangeClass(const FString& NewClass);
 
 protected:
 
@@ -108,10 +108,10 @@ private:
 
 
 	UPROPERTY(ReplicatedUsing=OnRep_CharacterClass, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	FPrimaryAssetId CharacterClass;
+	FString CharacterClass = "none";
 
 	
-	void ChangeClassLoadedCallback(FPrimaryAssetId NewClass);
+	void ChangeClassLoadedCallback(FString NewClass);
 
 	UFUNCTION()
 	void OnRep_CharacterClass();

@@ -26,10 +26,10 @@ public:
 
 	virtual void OverrideWith(APlayerState* PlayerState) override;
 
-	void SetCharacterClass(FPrimaryAssetId NewCharacterClass);
+	void SetCharacterClass(FString NewCharacterClass);
 
 	UFUNCTION(BlueprintCallable)
-	FPrimaryAssetId GetCharacterClass() const { return CharacterClass; }
+	FString GetCharacterClass() const { return CharacterClass; }
 	
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	
@@ -38,5 +38,5 @@ protected:
 	UAbilitySystemComponent* AbilitySystemComponent;
 
 	UPROPERTY()
-	FPrimaryAssetId CharacterClass;
+	FString CharacterClass = "none";
 };

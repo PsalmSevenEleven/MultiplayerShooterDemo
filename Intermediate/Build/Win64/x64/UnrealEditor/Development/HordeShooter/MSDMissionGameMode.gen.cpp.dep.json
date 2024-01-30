@@ -1,0 +1,19 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\intermediate\\build\\win64\\unrealeditor\\inc\\hordeshooter\\uht\\msdmissiongamemode.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\hordeshooter\\definitions.hordeshooter.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\source\\hordeshooter\\gamemodes\\msdmissiongamemode.h",
+            "c:\\unrealenginesource\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "c:\\unrealenginesource\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\intermediate\\build\\win64\\unrealeditor\\inc\\hordeshooter\\uht\\msdmissiongamemode.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

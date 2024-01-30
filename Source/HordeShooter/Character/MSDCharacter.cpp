@@ -99,7 +99,7 @@ void AMSDCharacter::PossessedBy(AController* NewController)
 		ensure(DefaultAbilities);
 		DefaultAbilities->AddAbilitiesToASC(AbilitySystemComponent);
 
-		if(MSDPlayerState->GetCharacterClass().PrimaryAssetType != FPrimaryAssetType(FName("")))
+		if(MSDPlayerState->GetCharacterClass() != "none")
 		{
 			ChangeClass(MSDPlayerState->GetCharacterClass());
 		}
@@ -125,7 +125,7 @@ void AMSDCharacter::OnRep_PlayerState()
 			BindNativeInputs(Controller->InputComponent);
 		}
 
-		if(PS->GetCharacterClass().PrimaryAssetType != FPrimaryAssetType(FName("")))
+		if(PS->GetCharacterClass() != "none")
 		{
 			ChangeClass(PS->GetCharacterClass());
 		}
@@ -289,7 +289,7 @@ USkeletalMeshComponent* AMSDCharacter::GetHandsMesh() const
 }
 
 #pragma region Character Class Utility
-void AMSDCharacter::ChangeClass_Implementation(FPrimaryAssetId NewClass)
+void AMSDCharacter::ChangeClass_Implementation(const FString& NewClass)
 {
 	CharacterClass = NewClass;
 	if(GetNetMode() == NM_Client)
@@ -306,22 +306,24 @@ void AMSDCharacter::ChangeClass_Implementation(FPrimaryAssetId NewClass)
 	}
 }
 
-bool AMSDCharacter::ChangeClass_Validate(FPrimaryAssetId NewClass)
+bool AMSDCharacter::ChangeClass_Validate(const FString& NewClass)
 {
 	//TODO - hook into a Steam DB to check if the player owns the class
 	//eventually there will be progression and unlocks, but for now just let anything work
 	return true;
 }
 
-void AMSDCharacter::ChangeClassLoadedCallback(FPrimaryAssetId NewClass)
+void AMSDCharacter::ChangeClassLoadedCallback(FString NewClass)
 {
 	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
-	if(!AssetManager || !NewClass.IsValid())
+	if(!AssetManager || NewClass == "none")
 	{
 		return;
 	}
+
+	FPrimaryAssetId NewClassId = FPrimaryAssetId("CharacterClassDefinition", FName(NewClass));
 	
-	UMSD_CharacterClassDefinition* ClassDefinition = AssetManager->GetPrimaryAssetObject<UMSD_CharacterClassDefinition>(NewClass);
+	UMSD_CharacterClassDefinition* ClassDefinition = AssetManager->GetPrimaryAssetObject<UMSD_CharacterClassDefinition>(NewClassId);
 	if(!ClassDefinition)
 	{
 		return;
@@ -334,17 +336,19 @@ void AMSDCharacter::ChangeClassLoadedCallback(FPrimaryAssetId NewClass)
 	GetHandsMesh()->SetSkeletalMesh(ClassDefinition->HandsMesh.Get());
 	CameraBoom->SetRelativeLocation(FVector(0,0,ClassDefinition->CameraHeight));
 
-	AssetManager->UnloadPrimaryAsset(NewClass);
+	AssetManager->UnloadPrimaryAsset(NewClassId);
 }
 
 void AMSDCharacter::OnRep_CharacterClass()
 {
 	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
-	if(!AssetManager || !CharacterClass.IsValid())
+	if(!AssetManager || CharacterClass == "none")
 	{
 		return;
 	}
-
-	AssetManager->LoadPrimaryAsset(CharacterClass, TArray<FName>({"HubAndMission", "HubOnly"}), FStreamableDelegate::CreateUObject(this, &AMSDCharacter::ChangeClassLoadedCallback, CharacterClass));
+	
+	FPrimaryAssetId NewClass = FPrimaryAssetId("CharacterClassDefinition", FName(CharacterClass));
+	
+	AssetManager->LoadPrimaryAsset(NewClass, TArray<FName>({"HubAndMission", "HubOnly"}), FStreamableDelegate::CreateUObject(this, &AMSDCharacter::ChangeClassLoadedCallback, CharacterClass));
 }
 #pragma endregion

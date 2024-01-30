@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "HordeShooter",
+			"Path": "..\\Source\\HordeShooter.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "HordeShooterEditor",
+			"Path": "..\\Source\\HordeShooterEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

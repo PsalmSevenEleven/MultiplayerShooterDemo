@@ -18,6 +18,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Plugins/Runtime/GameplayAbilities/Intermediate/Build/Win64/UnrealEditor/Inc/GameplayAbilities/UHT/GameplayAbility.gen.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Source/Runtime/Engine/Private/Character.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -29,7 +31,6 @@
     <setting file="file://$PROJECT_DIR$/Source/HordeShooter/Character/MSDCharacter.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/HordeShooter/GameModes/MSDLobbyGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/HordeShooter/GameModes/MSDMissionGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Caleb/Documents/Unreal Projects/HordeShooterRepo/HordeShooter/Source/HordeShooter/GameModes/MSDMissionGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="Toolset" />
@@ -563,7 +564,8 @@
       <workItem from="1706198607032" duration="12073000" />
       <workItem from="1706284029583" duration="791000" />
       <workItem from="1706544886424" duration="15255000" />
-      <workItem from="1706637935956" duration="1953000" />
+      <workItem from="1706637935956" duration="2312000" />
+      <workItem from="1706644397460" duration="3025000" />
     </task>
     <servers />
   </component>

@@ -50,7 +50,7 @@ void AMSDPlayerState::OverrideWith(APlayerState* PlayerState)
 	}
 }
 
-void AMSDPlayerState::SetCharacterClass(FPrimaryAssetId NewCharacterClass)
+void AMSDPlayerState::SetCharacterClass(FString NewCharacterClass)
 {
 	CharacterClass = NewCharacterClass;
 }
