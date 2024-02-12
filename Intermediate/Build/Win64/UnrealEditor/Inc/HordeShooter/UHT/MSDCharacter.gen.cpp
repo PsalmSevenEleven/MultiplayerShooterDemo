@@ -311,14 +311,8 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CameraBoom_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Camera boom positioning the camera behind the character */" },
-#endif
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Character/MSDCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Camera boom positioning the camera behind the character" },
-#endif
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CameraBoom = { "CameraBoom", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMSDCharacter, CameraBoom), Z_Construct_UClass_USpringArmComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CameraBoom_MetaData), Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CameraBoom_MetaData) };
@@ -326,14 +320,8 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMSDCharacter_Statics::NewProp_FollowCamera_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Follow camera */" },
-#endif
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Character/MSDCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Follow camera" },
-#endif
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMSDCharacter_Statics::NewProp_FollowCamera = { "FollowCamera", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMSDCharacter, FollowCamera), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDCharacter_Statics::NewProp_FollowCamera_MetaData), Z_Construct_UClass_AMSDCharacter_Statics::NewProp_FollowCamera_MetaData) };
@@ -350,13 +338,7 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMSDCharacter_Statics::NewProp_DefaultMappingContext_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Input" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/** MappingContext */" },
-#endif
 		{ "ModuleRelativePath", "Character/MSDCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "MappingContext" },
-#endif
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMSDCharacter_Statics::NewProp_DefaultMappingContext = { "DefaultMappingContext", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMSDCharacter, DefaultMappingContext), Z_Construct_UClass_UInputMappingContext_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDCharacter_Statics::NewProp_DefaultMappingContext_MetaData), Z_Construct_UClass_AMSDCharacter_Statics::NewProp_DefaultMappingContext_MetaData) };
@@ -365,11 +347,11 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Input" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Move Input Action */" },
+		{ "Comment", "//Input actions for stuff that is defined in this class (not GAS)\n" },
 #endif
 		{ "ModuleRelativePath", "Character/MSDCharacter.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Move Input Action" },
+		{ "ToolTip", "Input actions for stuff that is defined in this class (not GAS)" },
 #endif
 	};
 #endif
@@ -378,13 +360,7 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMSDCharacter_Statics::NewProp_LookAction_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Input" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Look Input Action */" },
-#endif
 		{ "ModuleRelativePath", "Character/MSDCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Look Input Action" },
-#endif
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMSDCharacter_Statics::NewProp_LookAction = { "LookAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMSDCharacter, LookAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDCharacter_Statics::NewProp_LookAction_MetaData), Z_Construct_UClass_AMSDCharacter_Statics::NewProp_LookAction_MetaData) };
@@ -400,12 +376,12 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMSDCharacter_Statics::NewProp_DefaultAbilities_MetaData[] = {
 		{ "Category", "MSDCharacter" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "//change this to edit all characters' base abilities\n" },
+		{ "Comment", "//change this to edit all characters' non-class-specific abilities\n" },
 #endif
 		{ "ModuleRelativePath", "Character/MSDCharacter.h" },
 		{ "NativeConstTemplateArg", "" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "change this to edit all characters' base abilities" },
+		{ "ToolTip", "change this to edit all characters' non-class-specific abilities" },
 #endif
 	};
 #endif
@@ -414,7 +390,13 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CharacterClass_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "MSDCharacter" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//This was originally an FPrimaryAssetId, but in the interest of saving bandwidth, I've changed it to a string\n//The process for using the variable is slightly more convoluted now,\n//but it shouldn't be that much worse in terms of perf\n" },
+#endif
 		{ "ModuleRelativePath", "Character/MSDCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "This was originally an FPrimaryAssetId, but in the interest of saving bandwidth, I've changed it to a string\nThe process for using the variable is slightly more convoluted now,\nbut it shouldn't be that much worse in terms of perf" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CharacterClass = { "CharacterClass", "OnRep_CharacterClass", (EPropertyFlags)0x0040000100000034, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMSDCharacter, CharacterClass), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CharacterClass_MetaData), Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CharacterClass_MetaData) };
@@ -477,9 +459,9 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMSDCharacter, AMSDCharacter::StaticClass, TEXT("AMSDCharacter"), &Z_Registration_Info_UClass_AMSDCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSDCharacter), 3239436217U) },
+		{ Z_Construct_UClass_AMSDCharacter, AMSDCharacter::StaticClass, TEXT("AMSDCharacter"), &Z_Registration_Info_UClass_AMSDCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSDCharacter), 61669737U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_765194482(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_4181751446(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

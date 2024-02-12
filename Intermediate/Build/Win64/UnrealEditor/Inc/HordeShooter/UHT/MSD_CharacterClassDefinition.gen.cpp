@@ -9,6 +9,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMSD_CharacterClassDefinition() {}
 // Cross Module References
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_UPrimaryDataAsset();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMesh_NoRegister();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSD_AbilitySet_NoRegister();
@@ -54,6 +55,10 @@ void EmptyLinkFunctionForGeneratedCodeMSD_CharacterClassDefinition() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CameraHeight_MetaData[];
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_CameraHeight;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_HandMeshLocalPosition_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_HandMeshLocalPosition;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_MoveSpeedWalking_MetaData[];
 #endif
@@ -106,7 +111,7 @@ void EmptyLinkFunctionForGeneratedCodeMSD_CharacterClassDefinition() {}
 	const UECodeGen_Private::FSoftObjectPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AbilitySet = { "AbilitySet", nullptr, (EPropertyFlags)0x0014000000010015, UECodeGen_Private::EPropertyGenFlags::SoftObject, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, AbilitySet), Z_Construct_UClass_UMSD_AbilitySet_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AbilitySet_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AbilitySet_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CapsuleHalfHeight_MetaData[] = {
-		{ "Category", "Character Stats" },
+		{ "Category", "Character Setup" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "//no need for bundle tags here, only soft pointers can make use of the bundling system\n" },
 #endif
@@ -119,18 +124,25 @@ void EmptyLinkFunctionForGeneratedCodeMSD_CharacterClassDefinition() {}
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CapsuleHalfHeight = { "CapsuleHalfHeight", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, CapsuleHalfHeight), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CapsuleHalfHeight_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CapsuleHalfHeight_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CapsuleRadius_MetaData[] = {
-		{ "Category", "Character Stats" },
+		{ "Category", "Character Setup" },
 		{ "ModuleRelativePath", "Character/MSD_CharacterClassDefinition.h" },
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CapsuleRadius = { "CapsuleRadius", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, CapsuleRadius), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CapsuleRadius_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CapsuleRadius_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CameraHeight_MetaData[] = {
-		{ "Category", "Character Stats" },
+		{ "Category", "Character Setup" },
 		{ "ModuleRelativePath", "Character/MSD_CharacterClassDefinition.h" },
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CameraHeight = { "CameraHeight", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, CameraHeight), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CameraHeight_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CameraHeight_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_HandMeshLocalPosition_MetaData[] = {
+		{ "Category", "Character Setup" },
+		{ "ModuleRelativePath", "Character/MSD_CharacterClassDefinition.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_HandMeshLocalPosition = { "HandMeshLocalPosition", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, HandMeshLocalPosition), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_HandMeshLocalPosition_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_HandMeshLocalPosition_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_MoveSpeedWalking_MetaData[] = {
 		{ "Category", "Character Stats" },
@@ -152,6 +164,7 @@ void EmptyLinkFunctionForGeneratedCodeMSD_CharacterClassDefinition() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CapsuleHalfHeight,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CapsuleRadius,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CameraHeight,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_HandMeshLocalPosition,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_MoveSpeedWalking,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_MoveSpeedRunning,
 	};
@@ -194,9 +207,9 @@ void EmptyLinkFunctionForGeneratedCodeMSD_CharacterClassDefinition() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSD_CharacterClassDefinition_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMSD_CharacterClassDefinition, UMSD_CharacterClassDefinition::StaticClass, TEXT("UMSD_CharacterClassDefinition"), &Z_Registration_Info_UClass_UMSD_CharacterClassDefinition, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSD_CharacterClassDefinition), 1021602550U) },
+		{ Z_Construct_UClass_UMSD_CharacterClassDefinition, UMSD_CharacterClassDefinition::StaticClass, TEXT("UMSD_CharacterClassDefinition"), &Z_Registration_Info_UClass_UMSD_CharacterClassDefinition, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSD_CharacterClassDefinition), 2890319275U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSD_CharacterClassDefinition_h_1093684168(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSD_CharacterClassDefinition_h_3737184502(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSD_CharacterClassDefinition_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSD_CharacterClassDefinition_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

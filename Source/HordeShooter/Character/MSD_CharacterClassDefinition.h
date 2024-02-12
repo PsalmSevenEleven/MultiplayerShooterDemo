@@ -29,18 +29,21 @@ public:
 	TSoftObjectPtr<UMSD_AbilitySet> AbilitySet;
 
 	//no need for bundle tags here, only soft pointers can make use of the bundling system
-	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Character Stats")
-	int32 CapsuleHalfHeight;
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Character Setup")
+	int32 CapsuleHalfHeight = 96;
 
-	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Character Stats")
-	int32 CapsuleRadius;
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Character Setup")
+	int32 CapsuleRadius = 34;
 
-	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Character Stats")
-	int32 CameraHeight;
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Character Setup")
+	int32 CameraHeight = 64;
+
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Character Setup")
+	FVector HandMeshLocalPosition = FVector(70,0,-20);
 	
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Character Stats")
-	int32 MoveSpeedWalking;
+	int32 MoveSpeedWalking = 400;
 
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Character Stats")
-	int32 MoveSpeedRunning;
+	int32 MoveSpeedRunning = 700;
 };

@@ -1,0 +1,39 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.HordeShooter.cpp.obj": [
+			"ClassSelectWidget.gen.cpp.obj",
+			"HordeShooter.gen.cpp.obj",
+			"MSDCharacterMenuViewer.gen.cpp.obj",
+			"MSDGameInstance.gen.cpp.obj",
+			"MSDGameplayAbility.gen.cpp.obj",
+			"MSDLobbyGameMode.gen.cpp.obj",
+			"MSDMissionGameMode.gen.cpp.obj",
+			"MSDPlayerController.gen.cpp.obj",
+			"MSDPlayerState.gen.cpp.obj",
+			"MSD_AbilitySet.gen.cpp.obj",
+			"MSD_CharacterClassDefinition.gen.cpp.obj",
+			"MSD_PlayerMappableKeySettings.gen.cpp.obj",
+			"MSDGameplayAbility.cpp.obj",
+			"MSD_AbilitySet.cpp.obj",
+			"MSDPlayerController.cpp.obj",
+			"MSD_PlayerMappableKeySettings.cpp.obj",
+			"MSDPlayerState.cpp.obj",
+			"MSD_CharacterClassDefinition.cpp.obj",
+			"MSD_LobbyCharacter.cpp.obj",
+			"MSD_MissionCharacter.cpp.obj",
+			"MSDLobbyGameMode.cpp.obj",
+			"MSDMissionGameMode.cpp.obj",
+			"HordeShooter.cpp.obj",
+			"MSDGameInstance.cpp.obj",
+			"MSDGameplayTags.cpp.obj",
+			"ClassSelectWidget.cpp.obj",
+			"MSDCharacterMenuViewer.cpp.obj",
+			"HordeShooter.init.gen.cpp.obj",
+			"MSDCharacter.gen.cpp.obj",
+			"MSD_LobbyCharacter.gen.cpp.obj",
+			"MSD_MissionCharacter.gen.cpp.obj",
+			"MSDCharacter.cpp.obj"
+		]
+	}
+}

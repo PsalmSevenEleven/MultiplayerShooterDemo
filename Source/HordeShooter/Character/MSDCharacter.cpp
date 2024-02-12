@@ -110,6 +110,14 @@ void AMSDCharacter::PossessedBy(AController* NewController)
 			ChangeClass(MSDPlayerState->GetCharacterClass());
 		}
 	}
+
+	//Normally this wouldn't be necessary, but in order to have a 3d menu pop up when the player joins the game,
+	//I had to disable auto view target handling in the character class
+	AMSDPlayerController* PC = GetController<AMSDPlayerController>();
+	if(PC)
+	{
+		PC->SetViewTarget(PC->GetPawn());
+	}
 }
 
 //Client-side setup
@@ -137,6 +145,14 @@ void AMSDCharacter::OnRep_PlayerState()
 		{
 			ChangeClass(PS->GetCharacterClass());
 		}
+	}
+
+	//Normally this wouldn't be necessary, but in order to have a 3d menu pop up when the player joins the game,
+	//I had to disable auto view target handling in the character class
+	AMSDPlayerController* PC = GetController<AMSDPlayerController>();
+	if(PC)
+	{
+		PC->SetViewTarget(PC->GetPawn());
 	}
 }
 
@@ -315,6 +331,8 @@ bool AMSDCharacter::ChangeClass_Validate(const FString& NewClass)
 	return true;
 }
 
+//This is called when the character classdef is loaded,
+//and is where we actually set variables and assign abilities (at some point)
 void AMSDCharacter::ChangeClassLoadedCallback(FString NewClass)
 {
 	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
@@ -336,6 +354,7 @@ void AMSDCharacter::ChangeClassLoadedCallback(FString NewClass)
 	GetCharacterMovement()->MaxWalkSpeedCrouched = ClassDefinition->MoveSpeedWalking;
 	GetMesh()->SetSkeletalMesh(ClassDefinition->BodyMesh.Get());
 	GetHandsMesh()->SetSkeletalMesh(ClassDefinition->HandsMesh.Get());
+	GetHandsMesh()->SetRelativeLocation(ClassDefinition->HandMeshLocalPosition);
 	CameraBoom->SetRelativeLocation(FVector(0,0,ClassDefinition->CameraHeight));
 
 	AssetManager->UnloadPrimaryAsset(NewClassId);
