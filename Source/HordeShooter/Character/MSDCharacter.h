@@ -23,12 +23,10 @@ UCLASS(config=Game)
 class AMSDCharacter : public ACharacter
 {
 	GENERATED_BODY()
-
-	/** Camera boom positioning the camera behind the character */
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	USpringArmComponent* CameraBoom;
-
-	/** Follow camera */
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FollowCamera;
 
@@ -36,16 +34,14 @@ class AMSDCharacter : public ACharacter
 	USkeletalMeshComponent* HandsMesh;
 
 	
-	/** MappingContext */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputMappingContext* DefaultMappingContext;
 	
 
-	/** Move Input Action */
+	//Input actions for stuff that is defined in this class (not GAS)
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* MoveAction;
-
-	/** Look Input Action */
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* LookAction;
 
@@ -55,7 +51,6 @@ public:
 
 	USkeletalMeshComponent* GetHandsMesh() const;
 
-	
 protected:
 
 	//native code for character movement
@@ -85,6 +80,7 @@ protected:
 	//This is where we want to do most of the server-side setup for the character based on my understanding
 	virtual void PossessedBy(AController* NewController) override;
 
+	//And this is for client-side setup
 	virtual void OnRep_PlayerState() override;
 	
 private:
@@ -97,25 +93,26 @@ private:
 
 	bool bNativeInputBound = false;
 	void BindNativeInputs(UInputComponent* PlayerInputComponent);
-
 	
 	UFUNCTION()
 	void ActivateGASAbility(int32 Index, bool bOn);
 
-	//change this to edit all characters' base abilities
+	//change this to edit all characters' non-class-specific abilities
 	UPROPERTY(EditDefaultsOnly)
 	TObjectPtr<const UMSD_AbilitySet> DefaultAbilities;
 
 
+	//This was originally an FPrimaryAssetId, but in the interest of saving bandwidth, I've changed it to a string
+	//The process for using the variable is slightly more convoluted now,
+	//but it shouldn't be that much worse in terms of perf
 	UPROPERTY(ReplicatedUsing=OnRep_CharacterClass, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	FString CharacterClass = "none";
 
-	
-	void ChangeClassLoadedCallback(FString NewClass);
-
 	UFUNCTION()
 	void OnRep_CharacterClass();
-	
-	
+
+	//Since I'm using primary assets for the classes, they'll be loaded at runtime.
+	//Therefore, callback function for when the class is loaded
+	void ChangeClassLoadedCallback(FString NewClass);
 };
 

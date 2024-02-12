@@ -14,7 +14,7 @@ UCLASS()
 class HORDESHOOTER_API AMSD_MissionCharacter : public AMSDCharacter
 {
 	GENERATED_BODY()
-
+	
 	UPROPERTY(EditDefaultsOnly, Category = "UI")
 	TSoftClassPtr<UUserWidget> ClassSelectWidgetClass;
 
@@ -22,7 +22,6 @@ class HORDESHOOTER_API AMSD_MissionCharacter : public AMSDCharacter
 	TSoftClassPtr<AMSDCharacterMenuViewer> ClassViewerClass;
 
 	virtual void OnRep_PlayerState() override;
-	
 };
 
 

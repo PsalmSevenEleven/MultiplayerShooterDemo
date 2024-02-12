@@ -26,7 +26,7 @@ AMSDCharacter::AMSDCharacter()
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 		
-	// Don't rotate when the controller rotates. Let that just affect the camera.
+	//This is here by default, will most likely remove later to reflect a first-person camera.
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
 	bUseControllerRotationRoll = false;
@@ -35,8 +35,7 @@ AMSDCharacter::AMSDCharacter()
 	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 500.0f, 0.0f); // ...at this rotation rate
 
-	// Note: For faster iteration times these variables, and many more, can be tweaked in the Character Blueprint
-	// instead of recompiling to adjust them
+	//also here by default, most of this will be handled by character class definition DA's
 	GetCharacterMovement()->JumpZVelocity = 700.f;
 	GetCharacterMovement()->AirControl = 0.35f;
 	GetCharacterMovement()->MaxWalkSpeed = 500.f;
@@ -44,23 +43,28 @@ AMSDCharacter::AMSDCharacter()
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 	GetCharacterMovement()->BrakingDecelerationFalling = 1500.0f;
 
-	// Create a camera boom (pulls in towards the player if there is a collision)
+	//Camera Boom
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
 	CameraBoom->TargetArmLength = 0.0f; // The camera follows at this distance behind the character	
 	CameraBoom->bUsePawnControlRotation = true; // Rotate the arm based on the controller
 
-	// Create a follow camera
+	//Camera
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
+	//Hands
+	//Not sure if this should be attached here,
+	//may end up having to fiddle with something when I implement weapon sway
 	HandsMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("HandsMesh"));
 	HandsMesh->SetupAttachment(CameraBoom);
+
+	//Only the local player needs to see the hands...
 	HandsMesh->SetOnlyOwnerSee(true);
 
+	//...and everyone but the local player needs to see the body.
 	GetMesh()->SetOwnerNoSee(true);
-	
 }
 
 void AMSDCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const 
@@ -112,18 +116,14 @@ void AMSDCharacter::PossessedBy(AController* NewController)
 void AMSDCharacter::OnRep_PlayerState()
 {
 	Super::OnRep_PlayerState();
-	// AMSDPlayerController* PC = GetController<AMSDPlayerController>();
-	// if(PC)
-	// {
-	// 	PC->SetViewTarget(this);
-	// }
 
 	AMSDPlayerState* PS = GetPlayerState<AMSDPlayerState>();
 	if (PS)
 	{
 		AbilitySystemComponent = PS->GetAbilitySystemComponent();
 		AbilitySystemComponent->InitAbilityActorInfo(PS, this);
-		
+
+		//Make sure we have a controller, then bind all of the input
 		if(ensure(IsValid(Cast<AMSDPlayerController>(Controller))))
 		{
 			Cast<AMSDPlayerController>(Controller)->SetupEnhancedInputContext();
@@ -132,6 +132,7 @@ void AMSDCharacter::OnRep_PlayerState()
 			BindNativeInputs(Controller->InputComponent);
 		}
 
+		//Initialize the character class
 		if(PS->GetCharacterClass() != "none")
 		{
 			ChangeClass(PS->GetCharacterClass());
@@ -141,6 +142,7 @@ void AMSDCharacter::OnRep_PlayerState()
 
 
 #pragma region Input Setup
+
 void AMSDCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	if(ensure(IsValid(Cast<AMSDPlayerController>(Controller))))
@@ -157,7 +159,6 @@ void AMSDCharacter::BindASCInputs()
 {
 	if (!bASCInputBound && AbilitySystemComponent && IsValid(InputComponent))
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Green, TEXT("Binding ASC Inputs"));
 
 		const FGameplayAbilityInputBinds Binds(
 				FString("Confirm"),
@@ -198,8 +199,7 @@ void AMSDCharacter::BindGASInputs(UInputComponent* PlayerInputComponent)
 		}
 		
 		bGASInputBound = true;
-		//TODO - add this delegate in case something cares about it
-		//OnGASInputBound.Broadcast();
+		//TODO (maybe) - add a delegate broadcast here in case something cares about it
 	}
 }
 
@@ -290,11 +290,6 @@ void AMSDCharacter::Look(const FInputActionValue& Value)
 }
 #pragma endregion
 
-USkeletalMeshComponent* AMSDCharacter::GetHandsMesh() const
-{
-	return HandsMesh;
-}
-
 #pragma region Character Class Utility
 void AMSDCharacter::ChangeClass_Implementation(const FString& NewClass)
 {
@@ -359,3 +354,8 @@ void AMSDCharacter::OnRep_CharacterClass()
 	AssetManager->LoadPrimaryAsset(NewClass, TArray<FName>({"HubAndMission", "HubOnly"}), FStreamableDelegate::CreateUObject(this, &AMSDCharacter::ChangeClassLoadedCallback, CharacterClass));
 }
 #pragma endregion
+
+USkeletalMeshComponent* AMSDCharacter::GetHandsMesh() const
+{
+	return HandsMesh;
+}
