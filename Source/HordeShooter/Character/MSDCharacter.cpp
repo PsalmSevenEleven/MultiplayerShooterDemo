@@ -56,8 +56,10 @@ AMSDCharacter::AMSDCharacter()
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
 	HandsMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("HandsMesh"));
-	HandsMesh->SetupAttachment(FollowCamera);
+	HandsMesh->SetupAttachment(CameraBoom);
 	HandsMesh->SetOnlyOwnerSee(true);
+
+	GetMesh()->SetOwnerNoSee(true);
 	
 }
 
@@ -110,6 +112,11 @@ void AMSDCharacter::PossessedBy(AController* NewController)
 void AMSDCharacter::OnRep_PlayerState()
 {
 	Super::OnRep_PlayerState();
+	// AMSDPlayerController* PC = GetController<AMSDPlayerController>();
+	// if(PC)
+	// {
+	// 	PC->SetViewTarget(this);
+	// }
 
 	AMSDPlayerState* PS = GetPlayerState<AMSDPlayerState>();
 	if (PS)

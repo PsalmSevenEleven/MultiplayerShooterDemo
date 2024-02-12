@@ -1,19 +1,16 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+
 
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/GameModeBase.h"
+#include "GameFramework/GameMode.h"
 #include "MSDMissionGameMode.generated.h"
-
-UCLASS(minimalapi)
-class AMSDMissionGameMode : public AGameModeBase
+UCLASS()
+class HORDESHOOTER_API AMSDMissionGameMode : public AGameMode
 {
 	GENERATED_BODY()
 
 public:
-	AMSDMissionGameMode();
-
 	virtual void PostLogin(APlayerController* NewPlayer) override;
 };
 

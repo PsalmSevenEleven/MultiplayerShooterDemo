@@ -37,6 +37,6 @@ protected:
 	UPROPERTY()
 	UAbilitySystemComponent* AbilitySystemComponent;
 
-	UPROPERTY()
+	UPROPERTY(Replicated)
 	FString CharacterClass = "none";
 };

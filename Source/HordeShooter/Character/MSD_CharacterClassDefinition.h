@@ -19,28 +19,28 @@ class HORDESHOOTER_API UMSD_CharacterClassDefinition : public UPrimaryDataAsset
 public:
 	virtual FPrimaryAssetId GetPrimaryAssetId() const override;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Models", meta = (AssetBundles = "HubAndMission"))
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Models", meta = (AssetBundles = "HubAndMission"))
 	TSoftObjectPtr<USkeletalMesh> BodyMesh;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Models", meta = (AssetBundles = "HubAndMission"))
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,Category = "Models", meta = (AssetBundles = "HubAndMission"))
 	TSoftObjectPtr<USkeletalMesh> HandsMesh;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Abilities", meta = (AssetBundles = "MissionOnly"))
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Abilities", meta = (AssetBundles = "MissionOnly"))
 	TSoftObjectPtr<UMSD_AbilitySet> AbilitySet;
 
 	//no need for bundle tags here, only soft pointers can make use of the bundling system
-	UPROPERTY(EditDefaultsOnly, Category = "Character Stats")
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Character Stats")
 	int32 CapsuleHalfHeight;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Character Stats")
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Character Stats")
 	int32 CapsuleRadius;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Character Stats")
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Character Stats")
 	int32 CameraHeight;
 	
-	UPROPERTY(EditDefaultsOnly, Category = "Character Stats")
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Character Stats")
 	int32 MoveSpeedWalking;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Character Stats")
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Character Stats")
 	int32 MoveSpeedRunning;
 };

@@ -18,7 +18,7 @@ struct FInputActionValue;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
-//This is the character class for use in an actual match; at some point i'll need a lobby character class
+
 UCLASS(config=Game)
 class AMSDCharacter : public ACharacter
 {

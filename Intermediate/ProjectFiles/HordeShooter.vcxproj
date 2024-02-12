@@ -618,6 +618,12 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\HordeShooter\Character\MSD_LobbyCharacter.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\MSD_MissionCharacter.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\MSD_MissionCharacter.h"/>
     <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSDGameplayAbility.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
@@ -654,6 +660,18 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\HordeShooter\GameModes\MSDMissionGameMode.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\UI\ClassSelectWidget.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\UI\ClassSelectWidget.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\UI\MSDCharacterMenuViewer.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\UI\MSDCharacterMenuViewer.h"/>
   </ItemGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>

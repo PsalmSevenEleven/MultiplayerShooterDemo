@@ -20,6 +20,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Plugins/Runtime/GameplayAbilities/Intermediate/Build/Win64/UnrealEditor/Inc/GameplayAbilities/UHT/GameplayAbility.gen.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Source/Runtime/Engine/Private/Character.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -566,6 +568,18 @@
       <workItem from="1706544886424" duration="15255000" />
       <workItem from="1706637935956" duration="2312000" />
       <workItem from="1706644397460" duration="3025000" />
+      <workItem from="1706648654398" duration="1754000" />
+      <workItem from="1706717156529" duration="6480000" />
+      <workItem from="1706803916287" duration="2970000" />
+      <workItem from="1706808030196" duration="4444000" />
+      <workItem from="1707149834381" duration="3048000" />
+      <workItem from="1707236690718" duration="10404000" />
+      <workItem from="1707321881266" duration="10898000" />
+      <workItem from="1707409494893" duration="11899000" />
+      <workItem from="1707494721346" duration="2238000" />
+      <workItem from="1707510887115" duration="1636000" />
+      <workItem from="1707585050561" duration="3417000" />
+      <workItem from="1707755519364" duration="769000" />
     </task>
     <servers />
   </component>
