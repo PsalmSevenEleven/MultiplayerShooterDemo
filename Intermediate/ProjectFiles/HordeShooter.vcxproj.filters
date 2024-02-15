@@ -349,6 +349,12 @@
     <ClInclude Include="..\..\Source\HordeShooter\MSDGameplayTags.h">
       <Filter>Source\HordeShooter</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\HordeShooter\MSDSaveGame.cpp">
+      <Filter>Source\HordeShooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\MSDSaveGame.h">
+      <Filter>Source\HordeShooter</Filter>
+    </ClInclude>
     <Filter Include="Source\HordeShooter\Character">
       <UniqueIdentifier>{76C94882-97E4-3299-A30F-3731F74CEA2C}</UniqueIdentifier>
     </Filter>
@@ -362,12 +368,6 @@
       <Filter>Source\HordeShooter\Character</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\HordeShooter\Character\MSDPlayerState.h">
-      <Filter>Source\HordeShooter\Character</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\HordeShooter\Character\MSD_CharacterClassDefinition.cpp">
-      <Filter>Source\HordeShooter\Character</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\HordeShooter\Character\MSD_CharacterClassDefinition.h">
       <Filter>Source\HordeShooter\Character</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\HordeShooter\Character\MSD_LobbyCharacter.cpp">
@@ -396,6 +396,21 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSD_AbilitySet.h">
       <Filter>Source\HordeShooter\Character\AbilitySystem</Filter>
+    </ClInclude>
+    <Filter Include="Source\HordeShooter\Character\Classes">
+      <UniqueIdentifier>{A596764C-CBA4-36AF-B08B-75670C90932F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\Classes\MSD_CharacterClassDefinition.cpp">
+      <Filter>Source\HordeShooter\Character\Classes</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\Classes\MSD_CharacterClassDefinition.h">
+      <Filter>Source\HordeShooter\Character\Classes</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\Classes\MSD_SubclassDefinition.cpp">
+      <Filter>Source\HordeShooter\Character\Classes</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\Classes\MSD_SubclassDefinition.h">
+      <Filter>Source\HordeShooter\Character\Classes</Filter>
     </ClInclude>
     <Filter Include="Source\HordeShooter\Character\Input">
       <UniqueIdentifier>{CC3FBA38-E853-3C38-A4D8-927B03C09FCB}</UniqueIdentifier>
@@ -434,6 +449,18 @@
       <Filter>Source\HordeShooter\UI</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\HordeShooter\UI\ClassSelectWidget.h">
+      <Filter>Source\HordeShooter\UI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\HordeShooter\UI\ClassSelectWidgetEntry.cpp">
+      <Filter>Source\HordeShooter\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\UI\ClassSelectWidgetEntry.h">
+      <Filter>Source\HordeShooter\UI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\HordeShooter\UI\ClassSelectWidgetHub.cpp">
+      <Filter>Source\HordeShooter\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\UI\ClassSelectWidgetHub.h">
       <Filter>Source\HordeShooter\UI</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\HordeShooter\UI\MSDCharacterMenuViewer.cpp">

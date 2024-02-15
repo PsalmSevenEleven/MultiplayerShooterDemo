@@ -2,7 +2,6 @@
 
 #include "MSDCharacter.h"
 
-#include "Engine/LocalPlayer.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -11,7 +10,7 @@
 #include "EnhancedInputComponent.h"
 #include "InputActionValue.h"
 #include "InputMappingContext.h"
-#include "MSD_CharacterClassDefinition.h"
+#include "Classes/MSD_CharacterClassDefinition.h"
 #include "Engine/AssetManager.h"
 #include "HordeShooter/Character/MSDPlayerState.h"
 #include "HordeShooter/Character/Input/MSD_PlayerMappableKeySettings.h"
@@ -111,13 +110,12 @@ void AMSDCharacter::PossessedBy(AController* NewController)
 		}
 	}
 
-	//Normally this wouldn't be necessary, but in order to have a 3d menu pop up when the player joins the game,
-	//I had to disable auto view target handling in the character class
 	AMSDPlayerController* PC = GetController<AMSDPlayerController>();
 	if(PC)
 	{
 		PC->SetViewTarget(PC->GetPawn());
 	}
+	
 }
 
 //Client-side setup
@@ -352,8 +350,8 @@ void AMSDCharacter::ChangeClassLoadedCallback(FString NewClass)
 	GetCapsuleComponent()->SetCapsuleSize(ClassDefinition->CapsuleRadius, ClassDefinition->CapsuleHalfHeight);
 	GetCharacterMovement()->MaxWalkSpeed = ClassDefinition->MoveSpeedWalking;
 	GetCharacterMovement()->MaxWalkSpeedCrouched = ClassDefinition->MoveSpeedWalking;
-	GetMesh()->SetSkeletalMesh(ClassDefinition->BodyMesh.Get());
-	GetHandsMesh()->SetSkeletalMesh(ClassDefinition->HandsMesh.Get());
+	GetMesh()->SetSkeletalMesh(ClassDefinition->HubBodyMesh.Get());
+	GetHandsMesh()->SetSkeletalMesh(ClassDefinition->HubHandsMesh.Get());
 	GetHandsMesh()->SetRelativeLocation(ClassDefinition->HandMeshLocalPosition);
 	CameraBoom->SetRelativeLocation(FVector(0,0,ClassDefinition->CameraHeight));
 

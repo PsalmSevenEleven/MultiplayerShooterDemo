@@ -22,5 +22,5 @@ void AMSDPlayerController::SetupEnhancedInputContext()
 	ModifyOptions.bNotifyUserSettings = true;
 	
 	EnhancedInputSubsystem->AddMappingContext(PlayerInputMappingContext, 0, ModifyOptions);
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("SetupEnhancedInputContext"));
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("SetupEnhancedInputContext"));
 }

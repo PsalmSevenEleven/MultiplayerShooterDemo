@@ -68,6 +68,12 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	FInputActionValue GetEnhancedInputActionValue(UInputAction* InAction);
 
+	//This was originally an FPrimaryAssetId, but in the interest of saving bandwidth, I've changed it to a string
+	//The process for using the variable is slightly more convoluted now,
+	//but it shouldn't be that much worse in terms of perf
+	UPROPERTY(ReplicatedUsing=OnRep_CharacterClass, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	FString CharacterClass = "none";
+	
 	//probably also this
 	UFUNCTION(BlueprintCallable, Server, Reliable, WithValidation)
 	void ChangeClass(const FString& NewClass);
@@ -101,13 +107,7 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	TObjectPtr<const UMSD_AbilitySet> DefaultAbilities;
 
-
-	//This was originally an FPrimaryAssetId, but in the interest of saving bandwidth, I've changed it to a string
-	//The process for using the variable is slightly more convoluted now,
-	//but it shouldn't be that much worse in terms of perf
-	UPROPERTY(ReplicatedUsing=OnRep_CharacterClass, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	FString CharacterClass = "none";
-
+	
 	UFUNCTION()
 	void OnRep_CharacterClass();
 

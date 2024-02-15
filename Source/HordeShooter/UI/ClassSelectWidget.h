@@ -5,6 +5,11 @@
 #include "CoreMinimal.h"
 #include "MSDCharacterMenuViewer.h"
 #include "Blueprint/UserWidget.h"
+#include "Components/ScrollBox.h"
+#include "Components/Throbber.h"
+#include "HordeShooter/MSDSaveGame.h"
+#include "HordeShooter/Character/Classes/MSD_CharacterClassDefinition.h"
+#include "Kismet/GameplayStatics.h"
 #include "ClassSelectWidget.generated.h"
 
 /**
@@ -15,6 +20,7 @@ class HORDESHOOTER_API UClassSelectWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
+protected:
 	UPROPERTY(meta = (BindWidget))
 	class UButton* NextButton;
 
@@ -23,9 +29,27 @@ class HORDESHOOTER_API UClassSelectWidget : public UUserWidget
 
 	UPROPERTY(meta = (BindWidget))
 	UButton* SelectClassButton;
-
 	
 
+	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess))
+	int32 SelectedClassIndex;
+	
+	UPROPERTY()
+	UMSD_CharacterClassDefinition* SelectedClassDef;
+
+	UFUNCTION()
+	virtual void NextButtonClicked();
+	
+	UFUNCTION()
+	virtual void PreviousButtonClicked();
+	
+	UFUNCTION()
+	virtual void SelectButtonClicked();
+	
+	void LoadClassCallback(FPrimaryAssetId AssetId);
+	void LoadSubclassCallback(FPrimaryAssetId AssetId);
+
+	virtual void NativeConstruct() override;
 	virtual void NativeDestruct() override;
 
 public:
@@ -33,9 +57,30 @@ public:
 	UFUNCTION(BlueprintCallable)
 	virtual void InitMenu();
 	
+
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UThrobber* LoadingThrobber;
+
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UScrollBox* SubclassScrollBox;
+	
+	UPROPERTY(BlueprintReadWrite)
+	UMSDSaveGame* SaveGame;
+
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
+	TArray<FPrimaryAssetId> ClassIds;
+
+	
 	UPROPERTY(BlueprintReadWrite, meta = (ExposeOnSpawn))
 	AMSDCharacterMenuViewer* CharacterMenuViewer;
 
 	
+	UFUNCTION(BlueprintCallable)
+	void LoadClass();
+	
+	UFUNCTION(BlueprintCallable)
+	void LoadSubclass(int32 SubclassIndex);
 	
 };
+
+

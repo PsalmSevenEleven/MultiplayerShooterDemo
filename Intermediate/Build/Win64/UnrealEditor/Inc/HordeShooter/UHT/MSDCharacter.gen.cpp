@@ -273,6 +273,10 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_LookAction;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CharacterClass_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_CharacterClass;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AbilitySystemComponent_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_AbilitySystemComponent;
@@ -280,10 +284,6 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_DefaultAbilities_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_DefaultAbilities;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_CharacterClass_MetaData[];
-#endif
-		static const UECodeGen_Private::FStrPropertyParams NewProp_CharacterClass;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -365,6 +365,20 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMSDCharacter_Statics::NewProp_LookAction = { "LookAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMSDCharacter, LookAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDCharacter_Statics::NewProp_LookAction_MetaData), Z_Construct_UClass_AMSDCharacter_Statics::NewProp_LookAction_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CharacterClass_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "MSDCharacter" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//This was originally an FPrimaryAssetId, but in the interest of saving bandwidth, I've changed it to a string\n//The process for using the variable is slightly more convoluted now,\n//but it shouldn't be that much worse in terms of perf\n" },
+#endif
+		{ "ModuleRelativePath", "Character/MSDCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "This was originally an FPrimaryAssetId, but in the interest of saving bandwidth, I've changed it to a string\nThe process for using the variable is slightly more convoluted now,\nbut it shouldn't be that much worse in terms of perf" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CharacterClass = { "CharacterClass", "OnRep_CharacterClass", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMSDCharacter, CharacterClass), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CharacterClass_MetaData), Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CharacterClass_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMSDCharacter_Statics::NewProp_AbilitySystemComponent_MetaData[] = {
 		{ "Category", "MSDCharacter" },
 		{ "EditInline", "true" },
@@ -386,20 +400,6 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AMSDCharacter_Statics::NewProp_DefaultAbilities = { "DefaultAbilities", nullptr, (EPropertyFlags)0x0044000000010001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMSDCharacter, DefaultAbilities), Z_Construct_UClass_UMSD_AbilitySet_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDCharacter_Statics::NewProp_DefaultAbilities_MetaData), Z_Construct_UClass_AMSDCharacter_Statics::NewProp_DefaultAbilities_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CharacterClass_MetaData[] = {
-		{ "AllowPrivateAccess", "true" },
-		{ "Category", "MSDCharacter" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "//This was originally an FPrimaryAssetId, but in the interest of saving bandwidth, I've changed it to a string\n//The process for using the variable is slightly more convoluted now,\n//but it shouldn't be that much worse in terms of perf\n" },
-#endif
-		{ "ModuleRelativePath", "Character/MSDCharacter.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "This was originally an FPrimaryAssetId, but in the interest of saving bandwidth, I've changed it to a string\nThe process for using the variable is slightly more convoluted now,\nbut it shouldn't be that much worse in terms of perf" },
-#endif
-	};
-#endif
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CharacterClass = { "CharacterClass", "OnRep_CharacterClass", (EPropertyFlags)0x0040000100000034, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMSDCharacter, CharacterClass), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CharacterClass_MetaData), Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CharacterClass_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMSDCharacter_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CameraBoom,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSDCharacter_Statics::NewProp_FollowCamera,
@@ -407,9 +407,9 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSDCharacter_Statics::NewProp_DefaultMappingContext,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSDCharacter_Statics::NewProp_MoveAction,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSDCharacter_Statics::NewProp_LookAction,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CharacterClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSDCharacter_Statics::NewProp_AbilitySystemComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSDCharacter_Statics::NewProp_DefaultAbilities,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSDCharacter_Statics::NewProp_CharacterClass,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMSDCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AMSDCharacter>::IsAbstract,
@@ -459,9 +459,9 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMSDCharacter, AMSDCharacter::StaticClass, TEXT("AMSDCharacter"), &Z_Registration_Info_UClass_AMSDCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSDCharacter), 61669737U) },
+		{ Z_Construct_UClass_AMSDCharacter, AMSDCharacter::StaticClass, TEXT("AMSDCharacter"), &Z_Registration_Info_UClass_AMSDCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSDCharacter), 3836940575U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_4181751446(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_513777050(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
