@@ -469,5 +469,11 @@
     <ClInclude Include="..\..\Source\HordeShooter\UI\MSDCharacterMenuViewer.h">
       <Filter>Source\HordeShooter\UI</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\HordeShooter\UI\SubclassButtonWidget.cpp">
+      <Filter>Source\HordeShooter\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\UI\SubclassButtonWidget.h">
+      <Filter>Source\HordeShooter\UI</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

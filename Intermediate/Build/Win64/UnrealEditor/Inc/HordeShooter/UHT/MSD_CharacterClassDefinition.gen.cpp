@@ -16,8 +16,96 @@ void EmptyLinkFunctionForGeneratedCodeMSD_CharacterClassDefinition() {}
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSD_AbilitySet_NoRegister();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSD_CharacterClassDefinition();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSD_CharacterClassDefinition_NoRegister();
+	HORDESHOOTER_API UScriptStruct* Z_Construct_UScriptStruct_FMSDPrimaryAssetID();
 	UPackage* Z_Construct_UPackage__Script_HordeShooter();
 // End Cross Module References
+	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_MSDPrimaryAssetID;
+class UScriptStruct* FMSDPrimaryAssetID::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_MSDPrimaryAssetID.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_MSDPrimaryAssetID.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FMSDPrimaryAssetID, (UObject*)Z_Construct_UPackage__Script_HordeShooter(), TEXT("MSDPrimaryAssetID"));
+	}
+	return Z_Registration_Info_UScriptStruct_MSDPrimaryAssetID.OuterSingleton;
+}
+template<> HORDESHOOTER_API UScriptStruct* StaticStruct<FMSDPrimaryAssetID>()
+{
+	return FMSDPrimaryAssetID::StaticStruct();
+}
+	struct Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DisplayName_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_DisplayName;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_PrimaryAssetId_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_PrimaryAssetId;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UECodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//This struct primarily exists to let me access a display name without having to load stuff\n" },
+#endif
+		{ "IsBlueprintBase", "true" },
+		{ "ModuleRelativePath", "Character/Classes/MSD_CharacterClassDefinition.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "This struct primarily exists to let me access a display name without having to load stuff" },
+#endif
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FMSDPrimaryAssetID>();
+	}
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewProp_DisplayName_MetaData[] = {
+		{ "Category", "MSDPrimaryAssetID" },
+		{ "ModuleRelativePath", "Character/Classes/MSD_CharacterClassDefinition.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewProp_DisplayName = { "DisplayName", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FMSDPrimaryAssetID, DisplayName), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewProp_DisplayName_MetaData), Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewProp_DisplayName_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewProp_PrimaryAssetId_MetaData[] = {
+		{ "Category", "MSDPrimaryAssetID" },
+		{ "ModuleRelativePath", "Character/Classes/MSD_CharacterClassDefinition.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewProp_PrimaryAssetId = { "PrimaryAssetId", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FMSDPrimaryAssetID, PrimaryAssetId), Z_Construct_UScriptStruct_FPrimaryAssetId, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewProp_PrimaryAssetId_MetaData), Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewProp_PrimaryAssetId_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewProp_DisplayName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewProp_PrimaryAssetId,
+	};
+	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_HordeShooter,
+		nullptr,
+		&NewStructOps,
+		"MSDPrimaryAssetID",
+		Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::PropPointers),
+		sizeof(FMSDPrimaryAssetID),
+		alignof(FMSDPrimaryAssetID),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000201),
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::Struct_MetaDataParams)
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::PropPointers) < 2048);
+	UScriptStruct* Z_Construct_UScriptStruct_FMSDPrimaryAssetID()
+	{
+		if (!Z_Registration_Info_UScriptStruct_MSDPrimaryAssetID.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_MSDPrimaryAssetID.InnerSingleton, Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::ReturnStructParams);
+		}
+		return Z_Registration_Info_UScriptStruct_MSDPrimaryAssetID.InnerSingleton;
+	}
 	void UMSD_CharacterClassDefinition::StaticRegisterNativesUMSD_CharacterClassDefinition()
 	{
 	}
@@ -84,9 +172,6 @@ void EmptyLinkFunctionForGeneratedCodeMSD_CharacterClassDefinition() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::DependentSingletons) < 16);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::Class_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n * \n */" },
-#endif
 		{ "IncludePath", "Character/Classes/MSD_CharacterClassDefinition.h" },
 		{ "ModuleRelativePath", "Character/Classes/MSD_CharacterClassDefinition.h" },
 	};
@@ -115,7 +200,7 @@ void EmptyLinkFunctionForGeneratedCodeMSD_CharacterClassDefinition() {}
 	};
 #endif
 	const UECodeGen_Private::FSoftObjectPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AbilitySet = { "AbilitySet", nullptr, (EPropertyFlags)0x0014000000010015, UECodeGen_Private::EPropertyGenFlags::SoftObject, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, AbilitySet), Z_Construct_UClass_UMSD_AbilitySet_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AbilitySet_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AbilitySet_MetaData) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_Inner = { "Subclasses", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FPrimaryAssetId, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_Inner = { "Subclasses", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FMSDPrimaryAssetID, METADATA_PARAMS(0, nullptr) }; // 1131031238
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_MetaData[] = {
 		{ "Category", "Abilities" },
@@ -128,7 +213,7 @@ void EmptyLinkFunctionForGeneratedCodeMSD_CharacterClassDefinition() {}
 #endif
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses = { "Subclasses", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, Subclasses), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_MetaData) };
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses = { "Subclasses", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, Subclasses), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_MetaData) }; // 1131031238
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CapsuleHalfHeight_MetaData[] = {
 		{ "Category", "Character Setup" },
@@ -226,13 +311,17 @@ void EmptyLinkFunctionForGeneratedCodeMSD_CharacterClassDefinition() {}
 	UMSD_CharacterClassDefinition::~UMSD_CharacterClassDefinition() {}
 	struct Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics
 	{
+		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMSD_CharacterClassDefinition, UMSD_CharacterClassDefinition::StaticClass, TEXT("UMSD_CharacterClassDefinition"), &Z_Registration_Info_UClass_UMSD_CharacterClassDefinition, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSD_CharacterClassDefinition), 3648946568U) },
+	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ScriptStructInfo[] = {
+		{ FMSDPrimaryAssetID::StaticStruct, Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewStructOps, TEXT("MSDPrimaryAssetID"), &Z_Registration_Info_UScriptStruct_MSDPrimaryAssetID, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FMSDPrimaryAssetID), 1131031238U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_1772039614(TEXT("/Script/HordeShooter"),
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UMSD_CharacterClassDefinition, UMSD_CharacterClassDefinition::StaticClass, TEXT("UMSD_CharacterClassDefinition"), &Z_Registration_Info_UClass_UMSD_CharacterClassDefinition, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSD_CharacterClassDefinition), 3003929883U) },
+	};
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_2565257792(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ClassInfo),
-		nullptr, 0,
+		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ScriptStructInfo),
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

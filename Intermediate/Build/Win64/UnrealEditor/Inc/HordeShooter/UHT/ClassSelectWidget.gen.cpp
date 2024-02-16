@@ -9,12 +9,14 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeClassSelectWidget() {}
 // Cross Module References
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FPrimaryAssetId();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_AMSDCharacterMenuViewer_NoRegister();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UClassSelectWidget();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UClassSelectWidget_NoRegister();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSD_CharacterClassDefinition_NoRegister();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSDSaveGame_NoRegister();
+	HORDESHOOTER_API UClass* Z_Construct_UClass_USubclassButtonWidget_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UButton_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UScrollBox_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UThrobber_NoRegister();
@@ -234,6 +236,10 @@ void EmptyLinkFunctionForGeneratedCodeClassSelectWidget() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SubclassButtonClass_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_SubclassButtonClass;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_NextButton_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_NextButton;
@@ -301,6 +307,13 @@ void EmptyLinkFunctionForGeneratedCodeClassSelectWidget() {}
 		{ "ModuleRelativePath", "UI/ClassSelectWidget.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SubclassButtonClass_MetaData[] = {
+		{ "Category", "ClassSelectWidget" },
+		{ "ModuleRelativePath", "UI/ClassSelectWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SubclassButtonClass = { "SubclassButtonClass", nullptr, (EPropertyFlags)0x0024080000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UClassSelectWidget, SubclassButtonClass), Z_Construct_UClass_UClass, Z_Construct_UClass_USubclassButtonWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SubclassButtonClass_MetaData), Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SubclassButtonClass_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_NextButton_MetaData[] = {
 		{ "BindWidget", "" },
@@ -381,6 +394,7 @@ void EmptyLinkFunctionForGeneratedCodeClassSelectWidget() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_CharacterMenuViewer = { "CharacterMenuViewer", nullptr, (EPropertyFlags)0x0011000000000004, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UClassSelectWidget, CharacterMenuViewer), Z_Construct_UClass_AMSDCharacterMenuViewer_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_CharacterMenuViewer_MetaData), Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_CharacterMenuViewer_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UClassSelectWidget_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SubclassButtonClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_NextButton,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_PreviousButton,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SelectClassButton,
@@ -432,9 +446,9 @@ void EmptyLinkFunctionForGeneratedCodeClassSelectWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_UI_ClassSelectWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UClassSelectWidget, UClassSelectWidget::StaticClass, TEXT("UClassSelectWidget"), &Z_Registration_Info_UClass_UClassSelectWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UClassSelectWidget), 2988970935U) },
+		{ Z_Construct_UClass_UClassSelectWidget, UClassSelectWidget::StaticClass, TEXT("UClassSelectWidget"), &Z_Registration_Info_UClass_UClassSelectWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UClassSelectWidget), 296074213U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_UI_ClassSelectWidget_h_659604596(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_UI_ClassSelectWidget_h_657805124(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_UI_ClassSelectWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_UI_ClassSelectWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

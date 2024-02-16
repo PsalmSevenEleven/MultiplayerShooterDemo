@@ -3,6 +3,7 @@
 
 #include "ClassSelectWidget.h"
 
+#include "SubclassButtonWidget.h"
 #include "Components/Button.h"
 #include "Engine/AssetManager.h"
 #include "HordeShooter/Character/Classes/MSD_SubclassDefinition.h"
@@ -76,9 +77,12 @@ void UClassSelectWidget::LoadClassCallback(FPrimaryAssetId AssetId)
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Failed to load class definition"));
 		return;
 	}
-
+	
 	int32 SubclassIndex = SaveGame->SelectedSubclassIndices[SelectedClassIndex];
 	LoadSubclass(SubclassIndex);
+
+	ReconstructSubclassButtons();
+
 }
 
 
@@ -97,9 +101,20 @@ void UClassSelectWidget::LoadSubclass(int32 SubclassIndex)
 		return;
 	}
 	
-	AssetManager->LoadPrimaryAsset(SelectedClassDef->Subclasses[SubclassIndex], 
+	AssetManager->LoadPrimaryAsset(SelectedClassDef->Subclasses[SubclassIndex].PrimaryAssetId, 
 		TArray<FName>({FName("HubAndMission"), FName("HubOnly")}),
-		FStreamableDelegate::CreateUObject(this, &UClassSelectWidget::LoadSubclassCallback, SelectedClassDef->Subclasses[SubclassIndex]));
+		FStreamableDelegate::CreateUObject(this, &UClassSelectWidget::LoadSubclassCallback, SelectedClassDef->Subclasses[SubclassIndex].PrimaryAssetId));
+}
+
+void UClassSelectWidget::ReconstructSubclassButtons()
+{
+	SubclassScrollBox->ClearChildren();
+	for(int32 i = 0; i < SelectedClassDef->Subclasses.Num(); i++)
+	{
+		USubclassButtonWidget* NewButton = CreateWidget<USubclassButtonWidget>(this, SubclassButtonClass);
+		NewButton->InitSubclassButton(this, i, SelectedClassDef->Subclasses[i].DisplayName);
+		SubclassScrollBox->AddChild(NewButton);
+	}
 }
 
 void UClassSelectWidget::LoadSubclassCallback(FPrimaryAssetId AssetId)

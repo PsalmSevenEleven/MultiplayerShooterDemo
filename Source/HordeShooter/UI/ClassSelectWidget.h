@@ -21,6 +21,11 @@ class HORDESHOOTER_API UClassSelectWidget : public UUserWidget
 	GENERATED_BODY()
 
 protected:
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<class USubclassButtonWidget> SubclassButtonClass;
+	
+	
 	UPROPERTY(meta = (BindWidget))
 	class UButton* NextButton;
 
@@ -80,6 +85,8 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
 	void LoadSubclass(int32 SubclassIndex);
+
+	void ReconstructSubclassButtons();
 	
 };
 
