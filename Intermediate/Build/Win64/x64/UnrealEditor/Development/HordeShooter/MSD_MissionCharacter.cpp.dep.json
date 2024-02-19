@@ -144,9 +144,7 @@
             "c:\\unrealenginesource\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystaticstypes.h",
             "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gameplaystaticstypes.generated.h",
             "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gameplaystatics.generated.h",
-            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\intermediate\\build\\win64\\unrealeditor\\inc\\hordeshooter\\uht\\classselectwidget.generated.h",
-            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\source\\hordeshooter\\character\\input\\msdplayercontroller.h",
-            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\intermediate\\build\\win64\\unrealeditor\\inc\\hordeshooter\\uht\\msdplayercontroller.generated.h"
+            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\intermediate\\build\\win64\\unrealeditor\\inc\\hordeshooter\\uht\\classselectwidget.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

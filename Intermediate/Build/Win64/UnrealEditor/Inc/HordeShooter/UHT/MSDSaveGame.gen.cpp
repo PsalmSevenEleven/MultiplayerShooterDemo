@@ -32,6 +32,10 @@ void EmptyLinkFunctionForGeneratedCodeMSDSaveGame() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SelectedClassIndex_MetaData[];
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_SelectedClassIndex;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SelectedClassName_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_SelectedClassName;
 		static const UECodeGen_Private::FIntPropertyParams NewProp_SelectedSubclassIndices_Inner;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SelectedSubclassIndices_MetaData[];
@@ -57,11 +61,28 @@ void EmptyLinkFunctionForGeneratedCodeMSDSaveGame() {}
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedClassIndex_MetaData[] = {
-		{ "Category", "MSDSaveGame" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//Please use SetClass to set these values\n" },
+#endif
 		{ "ModuleRelativePath", "MSDSaveGame.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Please use SetClass to set these values" },
+#endif
 	};
 #endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedClassIndex = { "SelectedClassIndex", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSDSaveGame, SelectedClassIndex), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedClassIndex_MetaData), Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedClassIndex_MetaData) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedClassIndex = { "SelectedClassIndex", nullptr, (EPropertyFlags)0x0040000001000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSDSaveGame, SelectedClassIndex), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedClassIndex_MetaData), Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedClassIndex_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedClassName_MetaData[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//Please use SetClass to set these values\n" },
+#endif
+		{ "ModuleRelativePath", "MSDSaveGame.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Please use SetClass to set these values" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedClassName = { "SelectedClassName", nullptr, (EPropertyFlags)0x0040000001000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSDSaveGame, SelectedClassName), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedClassName_MetaData), Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedClassName_MetaData) };
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedSubclassIndices_Inner = { "SelectedSubclassIndices", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedSubclassIndices_MetaData[] = {
@@ -75,9 +96,10 @@ void EmptyLinkFunctionForGeneratedCodeMSDSaveGame() {}
 #endif
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedSubclassIndices = { "SelectedSubclassIndices", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSDSaveGame, SelectedSubclassIndices), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedSubclassIndices_MetaData), Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedSubclassIndices_MetaData) };
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedSubclassIndices = { "SelectedSubclassIndices", nullptr, (EPropertyFlags)0x0010000001000004, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSDSaveGame, SelectedSubclassIndices), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedSubclassIndices_MetaData), Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedSubclassIndices_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMSDSaveGame_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedClassIndex,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedClassName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedSubclassIndices_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSDSaveGame_Statics::NewProp_SelectedSubclassIndices,
 	};
@@ -120,9 +142,9 @@ void EmptyLinkFunctionForGeneratedCodeMSDSaveGame() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_MSDSaveGame_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMSDSaveGame, UMSDSaveGame::StaticClass, TEXT("UMSDSaveGame"), &Z_Registration_Info_UClass_UMSDSaveGame, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSDSaveGame), 2402620558U) },
+		{ Z_Construct_UClass_UMSDSaveGame, UMSDSaveGame::StaticClass, TEXT("UMSDSaveGame"), &Z_Registration_Info_UClass_UMSDSaveGame, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSDSaveGame), 564686035U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_MSDSaveGame_h_656454467(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_MSDSaveGame_h_3865559172(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_MSDSaveGame_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_MSDSaveGame_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

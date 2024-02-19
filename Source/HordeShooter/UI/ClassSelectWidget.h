@@ -38,6 +38,10 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess))
 	int32 SelectedClassIndex;
+
+	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess))
+	int32 SelectedSubclassIndex;
+
 	
 	UPROPERTY()
 	UMSD_CharacterClassDefinition* SelectedClassDef;

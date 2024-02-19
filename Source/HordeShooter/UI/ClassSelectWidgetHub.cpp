@@ -8,18 +8,15 @@ void UClassSelectWidgetHub::NativeConstruct()
 {
 	Super::NativeConstruct();
 	
-	AMSDCharacter* Player = GetOwningPlayerPawn<AMSDCharacter>();
-
-	for (int i = 0; i<ClassIds.Num(); i++)
+	if(!SaveGame)
 	{
-		if(ClassIds[i].PrimaryAssetName.ToString() == Player->CharacterClass)
-		{
-			SelectedClassIndex = i;
-			LoadClass();
-			break;
-		}
+		SaveGame = Cast<UMSDSaveGame>(UGameplayStatics::CreateSaveGameObject(UMSDSaveGame::StaticClass()));
 	}
-	
+
+	SelectedClassIndex = SaveGame->GetClassIndex();
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("SelectedClassIndex: %d"), SelectedClassIndex));
+
+	LoadClass();
 }
 
 void UClassSelectWidgetHub::SelectButtonClicked()
@@ -37,4 +34,15 @@ void UClassSelectWidgetHub::SelectButtonClicked()
 	Player->ChangeClass(ClassId);
 
 	//TODO - save the player's class to the save game
+
+	if(!SaveGame)
+	{
+		SaveGame = Cast<UMSDSaveGame>(UGameplayStatics::CreateSaveGameObject(UMSDSaveGame::StaticClass()));
+	}
+
+	SaveGame->SetClass(SelectedClassIndex, ClassIds[SelectedClassIndex].PrimaryAssetName.ToString());
+	
+	SaveGame->SelectedSubclassIndices[SelectedClassIndex] = SelectedSubclassIndex;
+
+	UGameplayStatics::SaveGameToSlot(SaveGame, "SaveGame", 0);
 }

@@ -12,9 +12,11 @@
 #include "InputMappingContext.h"
 #include "Classes/MSD_CharacterClassDefinition.h"
 #include "Engine/AssetManager.h"
+#include "HordeShooter/MSDSaveGame.h"
 #include "HordeShooter/Character/MSDPlayerState.h"
 #include "HordeShooter/Character/Input/MSD_PlayerMappableKeySettings.h"
 #include "HordeShooter/Character/Input/MSDPlayerController.h"
+#include "Kismet/GameplayStatics.h"
 #include "Net/UnrealNetwork.h"
 
 
@@ -108,12 +110,24 @@ void AMSDCharacter::PossessedBy(AController* NewController)
 		{
 			ChangeClass(MSDPlayerState->GetCharacterClass());
 		}
+		else
+		{
+			UMSDSaveGame* SaveGame = Cast<UMSDSaveGame>(UGameplayStatics::LoadGameFromSlot("SaveGame", 0));
+
+			if(SaveGame)
+			{
+				ChangeClass(SaveGame->GetClassName());
+			}
+		}
 	}
 
-	AMSDPlayerController* PC = GetController<AMSDPlayerController>();
-	if(PC)
+	if(GetNetMode() == NM_ListenServer || GetNetMode() == NM_Standalone)
 	{
-		PC->SetViewTarget(PC->GetPawn());
+		AMSDPlayerController* PC = GetController<AMSDPlayerController>();
+		if(PC)
+		{
+			PC->SetViewTarget(PC->GetPawn());
+		}
 	}
 	
 }
@@ -324,7 +338,7 @@ void AMSDCharacter::ChangeClass_Implementation(const FString& NewClass)
 
 bool AMSDCharacter::ChangeClass_Validate(const FString& NewClass)
 {
-	//TODO - hook into a Steam DB to check if the player owns the class
+	//TODO - check if the player owns the class in their save game
 	//eventually there will be progression and unlocks, but for now just let anything work
 	return true;
 }

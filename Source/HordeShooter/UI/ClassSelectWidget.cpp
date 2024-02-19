@@ -100,6 +100,8 @@ void UClassSelectWidget::LoadSubclass(int32 SubclassIndex)
 	{
 		return;
 	}
+
+	SelectedSubclassIndex = SubclassIndex;
 	
 	AssetManager->LoadPrimaryAsset(SelectedClassDef->Subclasses[SubclassIndex].PrimaryAssetId, 
 		TArray<FName>({FName("HubAndMission"), FName("HubOnly")}),
@@ -114,6 +116,7 @@ void UClassSelectWidget::ReconstructSubclassButtons()
 		USubclassButtonWidget* NewButton = CreateWidget<USubclassButtonWidget>(this, SubclassButtonClass);
 		NewButton->InitSubclassButton(this, i, SelectedClassDef->Subclasses[i].DisplayName);
 		SubclassScrollBox->AddChild(NewButton);
+		NewButton->SetPadding(FMargin(10,10));
 	}
 }
 
@@ -148,7 +151,11 @@ void UClassSelectWidget::NativeConstruct()
 
 void UClassSelectWidget::NativeDestruct()
 {
-	GetOwningPlayer()->SetViewTarget(GetOwningPlayerPawn());
+	if(GetOwningPlayer() && GetOwningPlayerPawn())
+	{
+		GetOwningPlayer()->SetViewTarget(GetOwningPlayerPawn());
+	}
+	
 	if(CharacterMenuViewer)
 	{
 		CharacterMenuViewer->Destroy();

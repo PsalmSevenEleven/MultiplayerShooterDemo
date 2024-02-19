@@ -32,5 +32,18 @@ void UClassSelectWidgetEntry::SelectButtonClicked()
 
 	PlayerController->SetInputMode(FInputModeGameOnly());
 	PlayerController->bShowMouseCursor = false;
+
+	SaveGame = Cast<UMSDSaveGame>(UGameplayStatics::LoadGameFromSlot("SaveGame", 0));
+
+	if(!SaveGame)
+	{
+		SaveGame = Cast<UMSDSaveGame>(UGameplayStatics::CreateSaveGameObject(UMSDSaveGame::StaticClass()));
+	}
+
+	SaveGame->SetClass(SelectedClassIndex, ClassIds[SelectedClassIndex].PrimaryAssetName.ToString());
+	SaveGame->SelectedSubclassIndices[SelectedClassIndex] = SelectedSubclassIndex;
+
+	UGameplayStatics::SaveGameToSlot(SaveGame, "SaveGame", 0);
+	
 	RemoveFromParent();
 }

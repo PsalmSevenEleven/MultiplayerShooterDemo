@@ -5,7 +5,6 @@
 #include "MSDPlayerState.h"
 #include "Blueprint/UserWidget.h"
 #include "HordeShooter/UI/ClassSelectWidget.h"
-#include "Input/MSDPlayerController.h"
 
 //At the moment, this is the only real difference between a "mission" character and a "lobby" character.
 void AMSD_MissionCharacter::OnRep_PlayerState()
@@ -27,8 +26,6 @@ void AMSD_MissionCharacter::OnRep_PlayerState()
 		//The code below is really only meant to handle a player joining a mission in progress
 		return;
 	}
-
-	
 
 	//Make sure we have a widget class to use
 	TSubclassOf<UUserWidget> WidgetClass = ClassSelectWidgetClass.LoadSynchronous();
