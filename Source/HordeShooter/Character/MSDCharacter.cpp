@@ -68,6 +68,11 @@ AMSDCharacter::AMSDCharacter()
 	GetMesh()->SetOwnerNoSee(true);
 }
 
+USpringArmComponent* AMSDCharacter::GetCameraBoom() const
+{
+	return CameraBoom;
+}
+
 void AMSDCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const 
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
@@ -108,7 +113,7 @@ void AMSDCharacter::PossessedBy(AController* NewController)
 
 		if(MSDPlayerState->GetCharacterClass() != "none")
 		{
-			ChangeClass(MSDPlayerState->GetCharacterClass());
+			ChangeClass(MSDPlayerState->GetCharacterClass(), MSDPlayerState->GetSubclassIndex());
 		}
 		else
 		{
@@ -116,7 +121,7 @@ void AMSDCharacter::PossessedBy(AController* NewController)
 
 			if(SaveGame)
 			{
-				ChangeClass(SaveGame->GetClassName());
+				ChangeClass(SaveGame->GetClassName(), SaveGame->SelectedSubclassIndices[SaveGame->GetClassIndex()]);
 			}
 		}
 	}
@@ -155,7 +160,7 @@ void AMSDCharacter::OnRep_PlayerState()
 		//Initialize the character class
 		if(PS->GetCharacterClass() != "none")
 		{
-			ChangeClass(PS->GetCharacterClass());
+			ChangeClass(PS->GetCharacterClass(), PS->GetSubclassIndex());
 		}
 	}
 
@@ -319,9 +324,11 @@ void AMSDCharacter::Look(const FInputActionValue& Value)
 #pragma endregion
 
 #pragma region Character Class Utility
-void AMSDCharacter::ChangeClass_Implementation(const FString& NewClass)
+void AMSDCharacter::ChangeClass_Implementation(const FString& NewClass, int32 NewSubclass)
 {
+
 	CharacterClass = NewClass;
+	CharacterSubclass = NewSubclass;
 	if(GetNetMode() == NM_Client)
 	{
 		return;
@@ -333,10 +340,11 @@ void AMSDCharacter::ChangeClass_Implementation(const FString& NewClass)
 	if(MSDPlayerState)
 	{
 		MSDPlayerState->SetCharacterClass(NewClass);
+		MSDPlayerState->SetSubclassIndex(NewSubclass);
 	}
 }
 
-bool AMSDCharacter::ChangeClass_Validate(const FString& NewClass)
+bool AMSDCharacter::ChangeClass_Validate(const FString& NewClass, int32 NewSubclass)
 {
 	//TODO - check if the player owns the class in their save game
 	//eventually there will be progression and unlocks, but for now just let anything work
@@ -345,7 +353,7 @@ bool AMSDCharacter::ChangeClass_Validate(const FString& NewClass)
 
 //This is called when the character classdef is loaded,
 //and is where we actually set variables and assign abilities (at some point)
-void AMSDCharacter::ChangeClassLoadedCallback(FString NewClass)
+void AMSDCharacter::ChangeClassLoadedCallback(FString NewClass, int32 NewSubclass)
 {
 	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
 	if(!AssetManager || NewClass == "none")
@@ -368,7 +376,7 @@ void AMSDCharacter::ChangeClassLoadedCallback(FString NewClass)
 	GetHandsMesh()->SetSkeletalMesh(ClassDefinition->HubHandsMesh.Get());
 	GetHandsMesh()->SetRelativeLocation(ClassDefinition->HandMeshLocalPosition);
 	CameraBoom->SetRelativeLocation(FVector(0,0,ClassDefinition->CameraHeight));
-
+	
 	AssetManager->UnloadPrimaryAsset(NewClassId);
 }
 
@@ -382,7 +390,7 @@ void AMSDCharacter::OnRep_CharacterClass()
 	
 	FPrimaryAssetId NewClass = FPrimaryAssetId("CharacterClassDefinition", FName(CharacterClass));
 	
-	AssetManager->LoadPrimaryAsset(NewClass, TArray<FName>({"HubAndMission", "HubOnly"}), FStreamableDelegate::CreateUObject(this, &AMSDCharacter::ChangeClassLoadedCallback, CharacterClass));
+	AssetManager->LoadPrimaryAsset(NewClass, TArray<FName>({"HubAndMission", "HubOnly"}), FStreamableDelegate::CreateUObject(this, &AMSDCharacter::ChangeClassLoadedCallback, CharacterClass, CharacterSubclass));
 }
 #pragma endregion
 

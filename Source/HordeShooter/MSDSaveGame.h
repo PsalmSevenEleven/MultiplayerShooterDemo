@@ -36,6 +36,7 @@ public:
 	int32 GetClassIndex();
 	FString GetClassName();
 	
+	
 	//WARNING - This will need to be updated to contain at least the same number of 0s as the number of classes in the game
 	//When reading/writing to this array, maybe just include some checks to insure the index is valid and, if not,
 	//add 0s to the array until it is.

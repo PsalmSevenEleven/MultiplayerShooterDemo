@@ -20,6 +20,13 @@ void AMSDPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(AMSDPlayerState, CharacterClass);
+	DOREPLIFETIME(AMSDPlayerState, SubclassIndex);
+}
+
+
+void AMSDPlayerState::SetSubclassIndex(int32 NewSubclassIndex)
+{
+	this->SubclassIndex = NewSubclassIndex;
 }
 
 
@@ -36,6 +43,7 @@ void AMSDPlayerState::CopyProperties(APlayerState* PlayerState)
 	if(NewPlayerState)
 	{
 		NewPlayerState->CharacterClass = CharacterClass;
+		NewPlayerState->SubclassIndex = SubclassIndex;
 	}
 }
 
@@ -46,7 +54,8 @@ void AMSDPlayerState::OverrideWith(APlayerState* PlayerState)
 	AMSDPlayerState* OldPlayerState = Cast<AMSDPlayerState>(PlayerState);
 	if(OldPlayerState)
 	{
-		 CharacterClass = OldPlayerState->CharacterClass;
+		CharacterClass = OldPlayerState->CharacterClass;
+		SubclassIndex = OldPlayerState->SubclassIndex;
 	}
 }
 

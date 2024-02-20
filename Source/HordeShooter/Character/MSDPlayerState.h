@@ -30,6 +30,12 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	FString GetCharacterClass() const { return CharacterClass; }
+
+	void SetSubclassIndex(int32 NewSubclassIndex);
+	
+	UFUNCTION(BlueprintCallable)
+	int32 GetSubclassIndex() const {return SubclassIndex; };
+
 	
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	
@@ -39,4 +45,10 @@ protected:
 
 	UPROPERTY(Replicated)
 	FString CharacterClass = "none";
+
+	UPROPERTY(Replicated)
+	int32 SubclassIndex = 0;
+
+
+	
 };

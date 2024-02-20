@@ -22,6 +22,12 @@ class HORDESHOOTER_API AMSD_MissionCharacter : public AMSDCharacter
 	TSoftClassPtr<AMSDCharacterMenuViewer> ClassViewerClass;
 
 	virtual void OnRep_PlayerState() override;
+
+	virtual void OnRep_CharacterClass() override;
+
+	virtual void ChangeClassLoadedCallback(FString NewClass, int32 NewSubclass) override;
+
+	void ChangeSubclassLoadedCallback(const FPrimaryAssetId NewSubclass);
 };
 
 

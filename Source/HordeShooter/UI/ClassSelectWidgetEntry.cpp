@@ -22,7 +22,7 @@ void UClassSelectWidgetEntry::SelectButtonClicked()
 
 	FString ClassId = ClassIds[SelectedClassIndex].PrimaryAssetName.ToString();
 
-	Player->ChangeClass(ClassId);
+	Player->ChangeClass(ClassId, SelectedSubclassIndex);
 	
 	APlayerController* PlayerController = GetOwningPlayer();
 	if(!PlayerController)

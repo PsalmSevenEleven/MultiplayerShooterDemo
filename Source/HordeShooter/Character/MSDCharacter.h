@@ -49,6 +49,8 @@ class AMSDCharacter : public ACharacter
 public:
 	AMSDCharacter();
 
+	USpringArmComponent* GetCameraBoom() const;
+	
 	USkeletalMeshComponent* GetHandsMesh() const;
 
 protected:
@@ -70,13 +72,20 @@ public:
 
 	//This was originally an FPrimaryAssetId, but in the interest of saving bandwidth, I've changed it to a string
 	//The process for using the variable is slightly more convoluted now,
-	//but it shouldn't be that much worse in terms of perf
+	//but it shouldn't be noticeably worse in terms of perf
 	UPROPERTY(ReplicatedUsing=OnRep_CharacterClass, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	FString CharacterClass = "none";
 	
+	UPROPERTY(ReplicatedUsing=OnRep_CharacterClass, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	int32 CharacterSubclass = 0;
+	
 	//probably also this
 	UFUNCTION(BlueprintCallable, Server, Reliable, WithValidation)
-	void ChangeClass(const FString& NewClass);
+	void ChangeClass(const FString& NewClass, int32 NewSubclass);
+
+	//Since I'm using primary assets for the classes, they'll be loaded at runtime.
+	//Therefore, callback function for when the class is loaded
+	virtual void ChangeClassLoadedCallback(FString NewClass, int32 NewSubclass);
 
 protected:
 
@@ -88,6 +97,8 @@ protected:
 
 	//And this is for client-side setup
 	virtual void OnRep_PlayerState() override;
+
+
 	
 private:
 	
@@ -109,10 +120,8 @@ private:
 
 	
 	UFUNCTION()
-	void OnRep_CharacterClass();
+	virtual void OnRep_CharacterClass();
 
-	//Since I'm using primary assets for the classes, they'll be loaded at runtime.
-	//Therefore, callback function for when the class is loaded
-	void ChangeClassLoadedCallback(FString NewClass);
+	
 };
 

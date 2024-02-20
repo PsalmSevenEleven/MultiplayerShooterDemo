@@ -31,7 +31,7 @@ void UClassSelectWidgetHub::SelectButtonClicked()
 
 	FString ClassId = ClassIds[SelectedClassIndex].PrimaryAssetName.ToString();
 
-	Player->ChangeClass(ClassId);
+	Player->ChangeClass(ClassId, SelectedSubclassIndex);
 
 	//TODO - save the player's class to the save game
 
