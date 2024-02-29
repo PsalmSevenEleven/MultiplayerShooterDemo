@@ -4,10 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "MSDCharacterMenuViewer.h"
-#include "Blueprint/UserWidget.h"
+#include "MSDUserWidget.h"
 #include "Components/ScrollBox.h"
 #include "Components/Throbber.h"
-#include "HordeShooter/MSDSaveGame.h"
+#include "HordeShooter/Background_Infrastructure/MSDSaveGame.h"
 #include "HordeShooter/Character/Classes/MSD_CharacterClassDefinition.h"
 #include "Kismet/GameplayStatics.h"
 #include "ClassSelectWidget.generated.h"
@@ -16,7 +16,7 @@
  * 
  */
 UCLASS()
-class HORDESHOOTER_API UClassSelectWidget : public UUserWidget
+class HORDESHOOTER_API UClassSelectWidget : public UMSDUserWidget
 {
 	GENERATED_BODY()
 
@@ -91,7 +91,6 @@ public:
 	void LoadSubclass(int32 SubclassIndex);
 
 	void ReconstructSubclassButtons();
-	
 };
 
 

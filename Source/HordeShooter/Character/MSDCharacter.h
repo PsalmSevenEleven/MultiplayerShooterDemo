@@ -7,8 +7,11 @@
 
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
+#include "HordeShooter/Interfaces/InteractableInterface.h"
+#include "Input/MSDPlayerController.h"
 
 #include "MSDCharacter.generated.h"
+
 
 class USpringArmComponent;
 class UCameraComponent;
@@ -20,7 +23,7 @@ DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
 
 UCLASS(config=Game)
-class AMSDCharacter : public ACharacter
+class AMSDCharacter : public ACharacter, public IInteractableInterface
 {
 	GENERATED_BODY()
 	
@@ -45,7 +48,13 @@ class AMSDCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* LookAction;
 
-	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* InteractAction;
+
+
+	UPROPERTY(EditDefaultsOnly)
+	int32 InteractionDistance = 350;
+
 public:
 	AMSDCharacter();
 
@@ -61,6 +70,15 @@ protected:
 	//native code for camera movement
 	void Look(const FInputActionValue& Value);
 	
+	//Native code for interacting with anything that implements the interactable interface
+	void Interact();
+
+	//Need this for 'hold' style interaction
+	void ReleaseInteract();
+
+	UPROPERTY()
+	AActor* CurrentInteractable = nullptr;
+	
 	//This is where we're binding all of our input, GAS or otherwise
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -69,6 +87,10 @@ public:
 	//TODO - move this to an interface
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	FInputActionValue GetEnhancedInputActionValue(UInputAction* InAction);
+	
+	//probably also this
+	UFUNCTION(BlueprintCallable, Server, Reliable, WithValidation)
+	void ChangeClass(const FString& NewClass, int32 NewSubclass);
 
 	//This was originally an FPrimaryAssetId, but in the interest of saving bandwidth, I've changed it to a string
 	//The process for using the variable is slightly more convoluted now,
@@ -79,28 +101,35 @@ public:
 	UPROPERTY(ReplicatedUsing=OnRep_CharacterClass, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	int32 CharacterSubclass = 0;
 	
-	//probably also this
-	UFUNCTION(BlueprintCallable, Server, Reliable, WithValidation)
-	void ChangeClass(const FString& NewClass, int32 NewSubclass);
-
+	
 	//Since I'm using primary assets for the classes, they'll be loaded at runtime.
 	//Therefore, callback function for when the class is loaded
 	virtual void ChangeClassLoadedCallback(FString NewClass, int32 NewSubclass);
+	
+	//called every 30th of a second or so to see if a player is looking at an interactable object
+	virtual void InteractCheck();
+
 
 protected:
-
+	UPROPERTY()
+	class AMSDPlayerState* MSDPlayerState;
+	
 	UPROPERTY(BlueprintReadOnly)
 	UAbilitySystemComponent* AbilitySystemComponent;
+
+	UPROPERTY()
+	AMSDPlayerController* MSDPlayerController;
 
 	//This is where we want to do most of the server-side setup for the character based on my understanding
 	virtual void PossessedBy(AController* NewController) override;
 
 	//And this is for client-side setup
 	virtual void OnRep_PlayerState() override;
-
-
 	
 private:
+
+	bool bHudCreated = false;
+	void CreateHud();
 	
 	bool bASCInputBound = false;
 	void BindASCInputs();
@@ -122,6 +151,21 @@ private:
 	UFUNCTION()
 	virtual void OnRep_CharacterClass();
 
+	virtual void BeginPlay() override;
+
+public:
+
+	UFUNCTION()
+	void Interact_Implementation(APlayerController* InteractorController, APlayerState* InteractorState) override;
+
+	UFUNCTION()
+	void StopInteract_Implementation(APlayerController* InteractorController, APlayerState* InteractorState) override;
+
+	UFUNCTION()
+	void RetrieveInteractInfo_Implementation(FString& InteractText, EInteractionType& InteractionType) override;
+
+	UFUNCTION()
+	bool CanInteract_Implementation() override;
 	
 };
 

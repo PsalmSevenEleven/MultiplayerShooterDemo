@@ -24,3 +24,12 @@ void AMSDPlayerController::SetupEnhancedInputContext()
 	EnhancedInputSubsystem->AddMappingContext(PlayerInputMappingContext, 0, ModifyOptions);
 	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("SetupEnhancedInputContext"));
 }
+
+void AMSDPlayerController::SetupHud()
+{
+	HUD = CreateWidget<UMSDHud>(this, HUDClass);
+	if(HUD)
+	{
+		HUD->AddToViewport();
+	}
+}

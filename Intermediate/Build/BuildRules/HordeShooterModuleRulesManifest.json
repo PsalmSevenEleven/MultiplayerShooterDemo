@@ -1,0 +1,11 @@
+{
+	"SourceFiles": [
+		"C:\\Users\\Caleb\\Documents\\Unreal Projects\\HordeShooterRepo\\HordeShooter\\Source\\HordeShooter.Build.cs",
+		"C:\\Users\\Caleb\\Documents\\Unreal Projects\\HordeShooterRepo\\HordeShooter\\Plugins\\AdvancedSessions\\Source\\AdvancedSessions\\AdvancedSessions.Build.cs",
+		"C:\\Users\\Caleb\\Documents\\Unreal Projects\\HordeShooterRepo\\HordeShooter\\Plugins\\AdvancedSteamSessions\\Source\\AdvancedSteamSessions\\AdvancedSteamSessions.Build.cs",
+		"C:\\Users\\Caleb\\Documents\\Unreal Projects\\HordeShooterRepo\\HordeShooter\\Plugins\\MultiplayerSessions\\Source\\MultiplayerSessions\\MultiplayerSessions.Build.cs",
+		"C:\\Users\\Caleb\\Documents\\Unreal Projects\\HordeShooterRepo\\HordeShooter\\Source\\HordeShooter.Target.cs",
+		"C:\\Users\\Caleb\\Documents\\Unreal Projects\\HordeShooterRepo\\HordeShooter\\Source\\HordeShooterEditor.Target.cs"
+	],
+	"EngineVersion": "5.3.2"
+}

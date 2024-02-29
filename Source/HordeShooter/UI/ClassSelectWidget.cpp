@@ -3,10 +3,12 @@
 
 #include "ClassSelectWidget.h"
 
+#include "AbilitySystemBlueprintLibrary.h"
 #include "SubclassButtonWidget.h"
 #include "Components/Button.h"
 #include "Engine/AssetManager.h"
 #include "HordeShooter/Character/Classes/MSD_SubclassDefinition.h"
+#include "HordeShooter/Character/Input/MSDPlayerController.h"
 
 void UClassSelectWidget::InitMenu()
 {
@@ -120,6 +122,7 @@ void UClassSelectWidget::ReconstructSubclassButtons()
 	}
 }
 
+
 void UClassSelectWidget::LoadSubclassCallback(FPrimaryAssetId AssetId)
 {
 	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
@@ -154,6 +157,8 @@ void UClassSelectWidget::NativeDestruct()
 	if(GetOwningPlayer() && GetOwningPlayerPawn())
 	{
 		GetOwningPlayer()->SetViewTarget(GetOwningPlayerPawn());
+		GetOwningPlayer()->SetInputMode(FInputModeGameOnly());
+		GetOwningPlayer()->bShowMouseCursor = false;
 	}
 	
 	if(CharacterMenuViewer)

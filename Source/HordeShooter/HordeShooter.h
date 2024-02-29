@@ -13,12 +13,12 @@ enum class EPlayerAbilityInputID: uint8
 	Look UMETA(DisplayName = "Look"),
 	Jump UMETA(DisplayName = "Jump"),
 	Pause UMETA(DisplayName = "Pause"),
+	Interact UMETA(DisplayName = "Interact"),
 	// PrimaryFire UMETA(DisplayName = "PrimaryFire"),
 	// SecondaryFire UMETA(DisplayName = "SecondaryFire"),
 	// SupportAbility UMETA(DisplayName = "SupportAbility"),
 	// MovementAbility UMETA(DisplayName = "MovementAbility"),
 	// Ping UMETA(DisplayName = "Ping"),
-	// Interact UMETA(DisplayName = "Interact"),
 	// PlantSeed1 UMETA(DisplayName = "PlantSeed"),
 	// PlantSeed2 UMETA(DisplayName = "PlantSeed2"),
 };

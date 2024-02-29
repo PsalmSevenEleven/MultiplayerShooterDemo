@@ -2,6 +2,7 @@
 
 #include "MSDCharacter.h"
 
+#include "AsyncTreeDifferences.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -10,12 +11,18 @@
 #include "EnhancedInputComponent.h"
 #include "InputActionValue.h"
 #include "InputMappingContext.h"
+#include "PropertyEditorCopyPaste.h"
+#include "Binding/DynamicPropertyPath.h"
 #include "Classes/MSD_CharacterClassDefinition.h"
+#include "Components/ProgressBar.h"
+#include "Components/TextBlock.h"
 #include "Engine/AssetManager.h"
-#include "HordeShooter/MSDSaveGame.h"
+#include "HordeShooter/Background_Infrastructure/MSDGameplayTags.h"
+#include "HordeShooter/Background_Infrastructure/MSDSaveGame.h"
 #include "HordeShooter/Character/MSDPlayerState.h"
 #include "HordeShooter/Character/Input/MSD_PlayerMappableKeySettings.h"
 #include "HordeShooter/Character/Input/MSDPlayerController.h"
+#include "HordeShooter/UI/InteractPrompt.h"
 #include "Kismet/GameplayStatics.h"
 #include "Net/UnrealNetwork.h"
 
@@ -102,7 +109,7 @@ void AMSDCharacter::PossessedBy(AController* NewController)
 	// storing the ASC in a member variable is technically not necessary,
 	// but it's significantly more readable than copy-pasting the code to get it every time I want to access it
 	
-	AMSDPlayerState* MSDPlayerState = GetPlayerState<AMSDPlayerState>();
+	MSDPlayerState = GetPlayerState<AMSDPlayerState>();
 	if(MSDPlayerState)
 	{
 		AbilitySystemComponent = MSDPlayerState->GetAbilitySystemComponent();
@@ -128,13 +135,14 @@ void AMSDCharacter::PossessedBy(AController* NewController)
 
 	if(GetNetMode() == NM_ListenServer || GetNetMode() == NM_Standalone)
 	{
-		AMSDPlayerController* PC = GetController<AMSDPlayerController>();
-		if(PC)
+		MSDPlayerController = GetController<AMSDPlayerController>();
+		if(MSDPlayerController)
 		{
-			PC->SetViewTarget(PC->GetPawn());
+			MSDPlayerController->SetViewTarget(MSDPlayerController->GetPawn());
 		}
 	}
-	
+
+	CreateHud();
 }
 
 //Client-side setup
@@ -164,12 +172,27 @@ void AMSDCharacter::OnRep_PlayerState()
 		}
 	}
 
-	//Normally this wouldn't be necessary, but in order to have a 3d menu pop up when the player joins the game,
-	//I had to disable auto view target handling in the character class
-	AMSDPlayerController* PC = GetController<AMSDPlayerController>();
-	if(PC)
+	MSDPlayerController = GetController<AMSDPlayerController>();
+	if(MSDPlayerController)
 	{
-		PC->SetViewTarget(PC->GetPawn());
+		//Normally this wouldn't be necessary, but in order to have a 3d menu pop up when the player joins the game,
+		//I had to disable auto view target handling in the character class
+		MSDPlayerController->SetViewTarget(MSDPlayerController->GetPawn());
+	}
+
+	CreateHud();
+}
+
+void AMSDCharacter::CreateHud()
+{
+	if(!bHudCreated)
+	{
+		AMSDPlayerController* PC = GetController<AMSDPlayerController>();
+		if(PC)
+		{
+			PC->SetupHud();
+			bHudCreated = true;
+		}
 	}
 }
 
@@ -186,7 +209,6 @@ void AMSDCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 		BindNativeInputs(PlayerInputComponent);
 	}
 }
-
 
 void AMSDCharacter::BindASCInputs()
 {
@@ -252,6 +274,8 @@ void AMSDCharacter::BindNativeInputs(UInputComponent* PlayerInputComponent)
 	{
 		PlayerEnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ThisClass::Move);
 		PlayerEnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ThisClass::Look);
+		PlayerEnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &ThisClass::Interact);
+		PlayerEnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Completed, this, &ThisClass::ReleaseInteract);
 	}
 	bNativeInputBound = true;
 }
@@ -321,6 +345,31 @@ void AMSDCharacter::Look(const FInputActionValue& Value)
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
 }
+
+//If for some reason I need to disable the player's ability to interact with something,
+//I'll probably refer to an attribute set that I can manipulate with GAS, same as movement speed and looking around
+void AMSDCharacter::Interact()
+{
+	if(!CurrentInteractable
+		|| MSDPlayerState->GetAbilitySystemComponent()->HasMatchingGameplayTag(TAG_Player_Status_Menu))
+	{
+		return;
+	}
+	
+
+	IInteractableInterface::Execute_Interact(CurrentInteractable, Cast<APlayerController>(Controller), GetPlayerState());
+}
+
+void AMSDCharacter::ReleaseInteract()
+{
+	if(!CurrentInteractable)
+	{
+		return;
+	}
+
+	//If the object isn't a 'hold' interactable, we just won't implement the StopInteract() function
+	IInteractableInterface::Execute_StopInteract(CurrentInteractable, Cast<APlayerController>(Controller), GetPlayerState());
+}
 #pragma endregion
 
 #pragma region Character Class Utility
@@ -336,7 +385,7 @@ void AMSDCharacter::ChangeClass_Implementation(const FString& NewClass, int32 Ne
 	
 	OnRep_CharacterClass();
 
-	AMSDPlayerState* MSDPlayerState = GetPlayerState<AMSDPlayerState>();
+	MSDPlayerState = GetPlayerState<AMSDPlayerState>();
 	if(MSDPlayerState)
 	{
 		MSDPlayerState->SetCharacterClass(NewClass);
@@ -392,9 +441,104 @@ void AMSDCharacter::OnRep_CharacterClass()
 	
 	AssetManager->LoadPrimaryAsset(NewClass, TArray<FName>({"HubAndMission", "HubOnly"}), FStreamableDelegate::CreateUObject(this, &AMSDCharacter::ChangeClassLoadedCallback, CharacterClass, CharacterSubclass));
 }
+
+void AMSDCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+
+	//Tick is an abomination given to designers by God to punish programmers for their hubris
+	//Therefore, looping timer
+	FTimerHandle InteractTimerHandle;
+	GetWorld()->GetTimerManager().SetTimer(InteractTimerHandle, this, &AMSDCharacter::InteractCheck, 0.03f, true);
+}
+
+
 #pragma endregion
+
+void AMSDCharacter::InteractCheck()
+{
+	if(MSDPlayerState->GetAbilitySystemComponent()->HasMatchingGameplayTag(TAG_Player_Status_Menu))
+	{
+		return;
+	}
+	
+	FHitResult HitResult;
+	//const FName TraceTag("InteractTraceTag");
+	//GetWorld()->DebugDrawTraceTag = TraceTag;
+
+	FCollisionQueryParams CollisionParams;
+	//CollisionParams.TraceTag = TraceTag;
+	
+	GetWorld()->LineTraceSingleByChannel(HitResult, FollowCamera->GetComponentLocation(), FollowCamera->GetComponentLocation() + FollowCamera->GetForwardVector() * InteractionDistance, ECollisionChannel::ECC_GameTraceChannel1, CollisionParams);
+	
+	if(!HitResult.GetActor() || !HitResult.GetActor()->Implements<UInteractableInterface>())
+	{
+		CurrentInteractable = nullptr;
+
+		if(MSDPlayerController->HUD->InteractPrompt->GetVisibility() == ESlateVisibility::Visible)
+		{
+			MSDPlayerController->HUD->InteractPrompt->SetVisibility(ESlateVisibility::Collapsed);
+		}
+		
+		return;
+	}
+
+	CurrentInteractable = HitResult.GetActor();
+
+	UInteractPrompt* InteractPrompt = MSDPlayerController->HUD->InteractPrompt;
+
+	if(InteractPrompt->GetVisibility() == ESlateVisibility::Collapsed)
+	{
+		InteractPrompt->SetVisibility(ESlateVisibility::Visible);
+			
+		FString InteractText;
+		EInteractionType InteractionType;
+		IInteractableInterface::Execute_RetrieveInteractInfo(CurrentInteractable, InteractText, InteractionType);
+
+		InteractPrompt->PromptText->SetText(FText::FromString(InteractText));
+
+		if(InteractionType == EInteractionType::InteractionType_Hold)
+		{
+			InteractPrompt->ProgressBar->SetVisibility(ESlateVisibility::Visible);
+			InteractPrompt->ProgressBar->PercentDelegate.BindUFunction(CurrentInteractable, "GetPercentComplete");
+			InteractPrompt->ProgressBar->SynchronizeProperties();
+		}
+		else
+		{
+			InteractPrompt->ProgressBar->SetVisibility(ESlateVisibility::Collapsed);
+		}
+	}
+}
+
 
 USkeletalMeshComponent* AMSDCharacter::GetHandsMesh() const
 {
 	return HandsMesh;
 }
+
+#pragma region Interactable Interface
+
+void AMSDCharacter::Interact_Implementation(APlayerController* InteractorController, APlayerState* InteractorState)
+{
+	//Increase the revive rate, likely with a multiplier to encourage multiple people rezzing at once
+}
+
+void AMSDCharacter::StopInteract_Implementation(APlayerController* InteractorController, APlayerState* InteractorState)
+{
+	//Set the revive rate to... whatever it was before this interaction.
+	//Multiply by reciprocal of multiplier, divide by multiplier, whichever
+}
+
+void AMSDCharacter::RetrieveInteractInfo_Implementation(FString& InteractText, EInteractionType& InteractionType)
+{
+	InteractText = "Cultivate";
+	InteractionType = EInteractionType::InteractionType_Hold;
+}
+
+bool AMSDCharacter::CanInteract_Implementation()
+{
+	//When the player is downed they will become an interactable,
+	//but at the moment they don't even have health... soooo...
+	return false;
+}
+#pragma endregion

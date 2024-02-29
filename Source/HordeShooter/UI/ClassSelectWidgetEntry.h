@@ -17,4 +17,7 @@ class HORDESHOOTER_API UClassSelectWidgetEntry : public UClassSelectWidget
 	virtual void NativeConstruct() override;
 
 	virtual void SelectButtonClicked() override;
+
+public:
+	virtual void BackOut() override;
 };

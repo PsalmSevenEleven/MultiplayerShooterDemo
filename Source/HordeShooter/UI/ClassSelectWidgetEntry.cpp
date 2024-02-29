@@ -47,3 +47,8 @@ void UClassSelectWidgetEntry::SelectButtonClicked()
 	
 	RemoveFromParent();
 }
+
+void UClassSelectWidgetEntry::BackOut()
+{
+	//Don't let the player close the menu without choosing a class
+}

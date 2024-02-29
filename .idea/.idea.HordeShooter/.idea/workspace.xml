@@ -22,14 +22,8 @@
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Plugins/Runtime/GameplayAbilities/Intermediate/Build/Win64/UnrealEditor/Inc/GameplayAbilities/UHT/GameplayAbility.gen.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Source/Runtime/Engine/Private/Character.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Source/Runtime/Engine/Private/UnrealEngine.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Plugins/MultiplayerSessions/Source/MultiplayerSessions/Private/LobbyGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -37,8 +31,14 @@
     <setting file="file://$PROJECT_DIR$/Source/HordeShooter/Character/Input/MSDPlayerController.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/HordeShooter/Character/MSDCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/HordeShooter/Character/MSDCharacter.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/HordeShooter/Character/MSDPlayerState.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/HordeShooter/Character/MSDPlayerState.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/HordeShooter/Character/MSD_MissionCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/HordeShooter/Character/MSD_MissionCharacter.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/HordeShooter/GameModes/MSDLobbyGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/HordeShooter/GameModes/MSDMissionGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/HordeShooter/UI/ClassSelectWidgetEntry.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/HordeShooter/UI/ClassSelectWidgetHub.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="Toolset" />
@@ -593,6 +593,17 @@
       <workItem from="1708099400348" duration="5644000" />
       <workItem from="1708366842447" duration="8757000" />
       <workItem from="1708456534040" duration="8540000" />
+      <workItem from="1708469971800" duration="315000" />
+      <workItem from="1708540175338" duration="99000" />
+      <workItem from="1708540285889" duration="7937000" />
+      <workItem from="1708620947641" duration="13905000" />
+      <workItem from="1708653327157" duration="148000" />
+      <workItem from="1708653501920" duration="28000" />
+      <workItem from="1708717725358" duration="3408000" />
+      <workItem from="1708981184847" duration="5867000" />
+      <workItem from="1709059320798" duration="3459000" />
+      <workItem from="1709154859709" duration="3090000" />
+      <workItem from="1709229926273" duration="10732000" />
     </task>
     <servers />
   </component>
