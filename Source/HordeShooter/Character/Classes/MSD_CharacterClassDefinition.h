@@ -42,6 +42,9 @@ public:
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Abilities", meta = (AssetBundles = "MissionOnly"))
 	TSoftObjectPtr<UMSD_AbilitySet> AbilitySet;
 
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Abilities", meta = (AssetBundles = "HubAndMission"))
+	TSoftClassPtr<UGameplayEffect> AttributesEffect;
+
 	//maybe eventually I'll swap these over to FStrings for a tiny memory optimization,
 	//but at the moment the extra complexity isn't worth it, not to mention the added pitfalls of entering strings wrong
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, Category = "Abilities")

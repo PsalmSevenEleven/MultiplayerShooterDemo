@@ -4,6 +4,7 @@
 #include "MSDPlayerState.h"
 
 #include "AbilitySystemComponent.h"
+#include "AbilitySystem/MSDPlayerAttributeSet.h"
 #include "Net/UnrealNetwork.h"
 
 AMSDPlayerState::AMSDPlayerState()
@@ -12,6 +13,10 @@ AMSDPlayerState::AMSDPlayerState()
 	AbilitySystemComponent->SetIsReplicated(true);
 
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
+
+	//From what I know, this will automatically register itself with the AbilitySystemComponent
+	//because this playerstate is the ASC's owner
+	AttributeSet = CreateDefaultSubobject<UMSDPlayerAttributeSet>(TEXT("AttributeSet"));
 
 	NetUpdateFrequency = 50.0f;
 }

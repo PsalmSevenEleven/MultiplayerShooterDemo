@@ -116,6 +116,7 @@ void AMSD_MissionCharacter::ChangeSubclassLoadedCallback(const FPrimaryAssetId N
 	
 	GetMesh()->SetSkeletalMesh(SubclassDefinition->BodyMesh.Get());
 	GetHandsMesh()->SetSkeletalMesh(SubclassDefinition->HandsMesh.Get());
+	SubclassDefinition->AbilitySet->AddAbilitiesToASC(AbilitySystemComponent);
 	
 	AssetManager->UnloadPrimaryAsset(NewSubclass);
 }

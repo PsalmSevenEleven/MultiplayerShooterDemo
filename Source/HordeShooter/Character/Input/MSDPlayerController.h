@@ -4,15 +4,17 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "HordeShooter/Interfaces/PlayerInterface.h"
 #include "HordeShooter/UI/MSDHud.h"
 #include "HordeShooter/UI/MSDUserWidget.h"
+
 #include "MSDPlayerController.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class HORDESHOOTER_API AMSDPlayerController : public APlayerController
+class HORDESHOOTER_API AMSDPlayerController : public APlayerController, public IPlayerInterface
 {
 	GENERATED_BODY()
 
@@ -37,6 +39,12 @@ public:
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
 	UInputMappingContext* PlayerInputMappingContext;
+
+	UFUNCTION()
+	UMSDUserWidget* GetCurrentWidget_Implementation() const override {return CurrentWidget;};
+
+	UFUNCTION()
+	void SetCurrentWidget_Implementation(UMSDUserWidget* NewWidget) override {CurrentWidget = NewWidget;};
 };
 
 

@@ -3,11 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AbilitySystemInterface.h"
 #include "AbilitySystem/MSD_AbilitySet.h"
 
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
 #include "HordeShooter/Interfaces/InteractableInterface.h"
+#include "HordeShooter/Interfaces/PlayerInterface.h"
 #include "Input/MSDPlayerController.h"
 
 #include "MSDCharacter.generated.h"
@@ -23,7 +25,8 @@ DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
 
 UCLASS(config=Game)
-class AMSDCharacter : public ACharacter, public IInteractableInterface
+class AMSDCharacter : public ACharacter,
+public IInteractableInterface, public IAbilitySystemInterface, public IPlayerInterface
 {
 	GENERATED_BODY()
 	
@@ -117,6 +120,9 @@ protected:
 	UPROPERTY(BlueprintReadOnly)
 	UAbilitySystemComponent* AbilitySystemComponent;
 
+	UPROPERTY(BlueprintReadOnly)
+	mutable const class UMSDPlayerAttributeSet* AttributeSet;
+
 	UPROPERTY()
 	AMSDPlayerController* MSDPlayerController;
 
@@ -155,6 +161,9 @@ private:
 
 public:
 
+#pragma region Interface Implementations
+
+	//Interact Interface
 	UFUNCTION()
 	void Interact_Implementation(APlayerController* InteractorController, APlayerState* InteractorState) override;
 
@@ -166,6 +175,24 @@ public:
 
 	UFUNCTION()
 	bool CanInteract_Implementation() override;
+
+
+	//Ability System Interface
+	UFUNCTION()
+	UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+
+
+	//Player Interface
+	UFUNCTION()
+	UCameraComponent* GetCameraComponent_Implementation() const override;
+
+	UFUNCTION()
+	UMSDUserWidget* GetCurrentWidget_Implementation() const override;
+
+	UFUNCTION()
+	void SetCurrentWidget_Implementation(UMSDUserWidget* NewWidget) override;
+	
+#pragma endregion
 	
 };
 

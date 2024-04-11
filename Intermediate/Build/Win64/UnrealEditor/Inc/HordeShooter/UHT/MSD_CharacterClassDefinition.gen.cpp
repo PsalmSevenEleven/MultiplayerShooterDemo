@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeMSD_CharacterClassDefinition() {}
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_UPrimaryDataAsset();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMesh_NoRegister();
+	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayEffect_NoRegister();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSD_AbilitySet_NoRegister();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSD_CharacterClassDefinition();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSD_CharacterClassDefinition_NoRegister();
@@ -132,6 +133,10 @@ template<> HORDESHOOTER_API UScriptStruct* StaticStruct<FMSDPrimaryAssetID>()
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AbilitySet_MetaData[];
 #endif
 		static const UECodeGen_Private::FSoftObjectPropertyParams NewProp_AbilitySet;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttributesEffect_MetaData[];
+#endif
+		static const UECodeGen_Private::FSoftClassPropertyParams NewProp_AttributesEffect;
 		static const UECodeGen_Private::FStructPropertyParams NewProp_Subclasses_Inner;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Subclasses_MetaData[];
@@ -200,6 +205,14 @@ template<> HORDESHOOTER_API UScriptStruct* StaticStruct<FMSDPrimaryAssetID>()
 	};
 #endif
 	const UECodeGen_Private::FSoftObjectPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AbilitySet = { "AbilitySet", nullptr, (EPropertyFlags)0x0014000000010015, UECodeGen_Private::EPropertyGenFlags::SoftObject, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, AbilitySet), Z_Construct_UClass_UMSD_AbilitySet_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AbilitySet_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AbilitySet_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AttributesEffect_MetaData[] = {
+		{ "AssetBundles", "HubAndMission" },
+		{ "Category", "Abilities" },
+		{ "ModuleRelativePath", "HordeShooter/Character/Classes/MSD_CharacterClassDefinition.h" },
+	};
+#endif
+	const UECodeGen_Private::FSoftClassPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AttributesEffect = { "AttributesEffect", nullptr, (EPropertyFlags)0x0014000000010015, UECodeGen_Private::EPropertyGenFlags::SoftClass, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, AttributesEffect), Z_Construct_UClass_UGameplayEffect_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AttributesEffect_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AttributesEffect_MetaData) };
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_Inner = { "Subclasses", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FMSDPrimaryAssetID, METADATA_PARAMS(0, nullptr) }; // 2343172896
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_MetaData[] = {
@@ -266,6 +279,7 @@ template<> HORDESHOOTER_API UScriptStruct* StaticStruct<FMSDPrimaryAssetID>()
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_HubBodyMesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_HubHandsMesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AbilitySet,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AttributesEffect,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CapsuleHalfHeight,
@@ -318,9 +332,9 @@ template<> HORDESHOOTER_API UScriptStruct* StaticStruct<FMSDPrimaryAssetID>()
 		{ FMSDPrimaryAssetID::StaticStruct, Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewStructOps, TEXT("MSDPrimaryAssetID"), &Z_Registration_Info_UScriptStruct_MSDPrimaryAssetID, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FMSDPrimaryAssetID), 2343172896U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMSD_CharacterClassDefinition, UMSD_CharacterClassDefinition::StaticClass, TEXT("UMSD_CharacterClassDefinition"), &Z_Registration_Info_UClass_UMSD_CharacterClassDefinition, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSD_CharacterClassDefinition), 825360947U) },
+		{ Z_Construct_UClass_UMSD_CharacterClassDefinition, UMSD_CharacterClassDefinition::StaticClass, TEXT("UMSD_CharacterClassDefinition"), &Z_Registration_Info_UClass_UMSD_CharacterClassDefinition, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSD_CharacterClassDefinition), 3937311696U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_3223433157(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_3624093519(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ScriptStructInfo),
 		nullptr, 0);

@@ -26,7 +26,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(EPlayerAbilityInputID::Look) \
 	op(EPlayerAbilityInputID::Jump) \
 	op(EPlayerAbilityInputID::Pause) \
-	op(EPlayerAbilityInputID::Interact) 
+	op(EPlayerAbilityInputID::Interact) \
+	op(EPlayerAbilityInputID::PrimaryFire) 
 
 enum class EPlayerAbilityInputID : uint8;
 template<> struct TIsUEnumClass<EPlayerAbilityInputID> { enum { Value = true }; };

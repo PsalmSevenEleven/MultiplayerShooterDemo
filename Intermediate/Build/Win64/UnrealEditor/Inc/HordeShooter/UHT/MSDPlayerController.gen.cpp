@@ -16,10 +16,116 @@ void EmptyLinkFunctionForGeneratedCodeMSDPlayerController() {}
 	HORDESHOOTER_API UClass* Z_Construct_UClass_AMSDPlayerController_NoRegister();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSDHud_NoRegister();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSDUserWidget_NoRegister();
+	HORDESHOOTER_API UClass* Z_Construct_UClass_UPlayerInterface_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_HordeShooter();
 // End Cross Module References
+	DEFINE_FUNCTION(AMSDPlayerController::execSetCurrentWidget_Implementation)
+	{
+		P_GET_OBJECT(UMSDUserWidget,Z_Param_NewWidget);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetCurrentWidget_Implementation(Z_Param_NewWidget);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMSDPlayerController::execGetCurrentWidget_Implementation)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(UMSDUserWidget**)Z_Param__Result=P_THIS->GetCurrentWidget_Implementation();
+		P_NATIVE_END;
+	}
 	void AMSDPlayerController::StaticRegisterNativesAMSDPlayerController()
 	{
+		UClass* Class = AMSDPlayerController::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "GetCurrentWidget_Implementation", &AMSDPlayerController::execGetCurrentWidget_Implementation },
+			{ "SetCurrentWidget_Implementation", &AMSDPlayerController::execSetCurrentWidget_Implementation },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics
+	{
+		struct MSDPlayerController_eventGetCurrentWidget_Implementation_Parms
+		{
+			UMSDUserWidget* ReturnValue;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ReturnValue_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics::NewProp_ReturnValue_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MSDPlayerController_eventGetCurrentWidget_Implementation_Parms, ReturnValue), Z_Construct_UClass_UMSDUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics::NewProp_ReturnValue_MetaData), Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics::NewProp_ReturnValue_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Character/Input/MSDPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMSDPlayerController, nullptr, "GetCurrentWidget_Implementation", nullptr, nullptr, Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics::MSDPlayerController_eventGetCurrentWidget_Implementation_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics::MSDPlayerController_eventGetCurrentWidget_Implementation_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics
+	{
+		struct MSDPlayerController_eventSetCurrentWidget_Implementation_Parms
+		{
+			UMSDUserWidget* NewWidget;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_NewWidget_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_NewWidget;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics::NewProp_NewWidget_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics::NewProp_NewWidget = { "NewWidget", nullptr, (EPropertyFlags)0x0010000000080080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MSDPlayerController_eventSetCurrentWidget_Implementation_Parms, NewWidget), Z_Construct_UClass_UMSDUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics::NewProp_NewWidget_MetaData), Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics::NewProp_NewWidget_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics::NewProp_NewWidget,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Character/Input/MSDPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMSDPlayerController, nullptr, "SetCurrentWidget_Implementation", nullptr, nullptr, Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics::MSDPlayerController_eventSetCurrentWidget_Implementation_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics::MSDPlayerController_eventSetCurrentWidget_Implementation_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AMSDPlayerController);
 	UClass* Z_Construct_UClass_AMSDPlayerController_NoRegister()
@@ -29,6 +135,7 @@ void EmptyLinkFunctionForGeneratedCodeMSDPlayerController() {}
 	struct Z_Construct_UClass_AMSDPlayerController_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -49,6 +156,7 @@ void EmptyLinkFunctionForGeneratedCodeMSDPlayerController() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_PlayerInputMappingContext;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -57,6 +165,11 @@ void EmptyLinkFunctionForGeneratedCodeMSDPlayerController() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_HordeShooter,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDPlayerController_Statics::DependentSingletons) < 16);
+	const FClassFunctionLinkInfo Z_Construct_UClass_AMSDPlayerController_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AMSDPlayerController_GetCurrentWidget_Implementation, "GetCurrentWidget_Implementation" }, // 3689190978
+		{ &Z_Construct_UFunction_AMSDPlayerController_SetCurrentWidget_Implementation, "SetCurrentWidget_Implementation" }, // 3092330984
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDPlayerController_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMSDPlayerController_Statics::Class_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
@@ -108,6 +221,10 @@ void EmptyLinkFunctionForGeneratedCodeMSDPlayerController() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSDPlayerController_Statics::NewProp_CurrentWidget,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSDPlayerController_Statics::NewProp_PlayerInputMappingContext,
 	};
+		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_AMSDPlayerController_Statics::InterfaceParams[] = {
+			{ Z_Construct_UClass_UPlayerInterface_NoRegister, (int32)VTABLE_OFFSET(AMSDPlayerController, IPlayerInterface), false },  // 36778966
+		};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDPlayerController_Statics::InterfaceParams) < 64);
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMSDPlayerController_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AMSDPlayerController>::IsAbstract,
 	};
@@ -116,13 +233,13 @@ void EmptyLinkFunctionForGeneratedCodeMSDPlayerController() {}
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_AMSDPlayerController_Statics::PropPointers,
-		nullptr,
+		InterfaceParams,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_AMSDPlayerController_Statics::PropPointers),
-		0,
+		UE_ARRAY_COUNT(InterfaceParams),
 		0x009002A4u,
 		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDPlayerController_Statics::Class_MetaDataParams), Z_Construct_UClass_AMSDPlayerController_Statics::Class_MetaDataParams)
 	};
@@ -147,9 +264,9 @@ void EmptyLinkFunctionForGeneratedCodeMSDPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Input_MSDPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMSDPlayerController, AMSDPlayerController::StaticClass, TEXT("AMSDPlayerController"), &Z_Registration_Info_UClass_AMSDPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSDPlayerController), 221649720U) },
+		{ Z_Construct_UClass_AMSDPlayerController, AMSDPlayerController::StaticClass, TEXT("AMSDPlayerController"), &Z_Registration_Info_UClass_AMSDPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSDPlayerController), 706914718U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Input_MSDPlayerController_h_2436868237(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Input_MSDPlayerController_h_2169121629(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Input_MSDPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Input_MSDPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

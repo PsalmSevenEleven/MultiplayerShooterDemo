@@ -2,6 +2,7 @@
 
 #include "MSDCharacter.h"
 
+#include "AbilitySystemGlobals.h"
 #include "AsyncTreeDifferences.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -9,9 +10,11 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/Controller.h"
 #include "EnhancedInputComponent.h"
+#include "GameplayAbilitiesModule.h"
 #include "InputActionValue.h"
 #include "InputMappingContext.h"
 #include "PropertyEditorCopyPaste.h"
+#include "AbilitySystem/MSDPlayerAttributeSet.h"
 #include "Binding/DynamicPropertyPath.h"
 #include "Classes/MSD_CharacterClassDefinition.h"
 #include "Components/ProgressBar.h"
@@ -114,6 +117,9 @@ void AMSDCharacter::PossessedBy(AController* NewController)
 	{
 		AbilitySystemComponent = MSDPlayerState->GetAbilitySystemComponent();
 		AbilitySystemComponent->InitAbilityActorInfo(MSDPlayerState, this);
+		
+		AttributeSet = AbilitySystemComponent->GetSet<UMSDPlayerAttributeSet>();
+		
 
 		ensure(DefaultAbilities);
 		DefaultAbilities->AddAbilitiesToASC(AbilitySystemComponent);
@@ -155,6 +161,11 @@ void AMSDCharacter::OnRep_PlayerState()
 	{
 		AbilitySystemComponent = PS->GetAbilitySystemComponent();
 		AbilitySystemComponent->InitAbilityActorInfo(PS, this);
+		
+		if(AbilitySystemComponent)
+		{
+			AttributeSet = AbilitySystemComponent->GetSet<UMSDPlayerAttributeSet>();
+		}
 
 		//Make sure we have a controller, then bind all of the input
 		if(ensure(IsValid(Cast<AMSDPlayerController>(Controller))))
@@ -400,6 +411,19 @@ bool AMSDCharacter::ChangeClass_Validate(const FString& NewClass, int32 NewSubcl
 	return true;
 }
 
+void AMSDCharacter::OnRep_CharacterClass()
+{
+	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
+	if(!AssetManager || CharacterClass == "none")
+	{
+		return;
+	}
+	
+	FPrimaryAssetId NewClass = FPrimaryAssetId("CharacterClassDefinition", FName(CharacterClass));
+	
+	AssetManager->LoadPrimaryAsset(NewClass, TArray<FName>({"HubAndMission", "HubOnly"}), FStreamableDelegate::CreateUObject(this, &AMSDCharacter::ChangeClassLoadedCallback, CharacterClass, CharacterSubclass));
+}
+
 //This is called when the character classdef is loaded,
 //and is where we actually set variables and assign abilities (at some point)
 void AMSDCharacter::ChangeClassLoadedCallback(FString NewClass, int32 NewSubclass)
@@ -425,22 +449,24 @@ void AMSDCharacter::ChangeClassLoadedCallback(FString NewClass, int32 NewSubclas
 	GetHandsMesh()->SetSkeletalMesh(ClassDefinition->HubHandsMesh.Get());
 	GetHandsMesh()->SetRelativeLocation(ClassDefinition->HandMeshLocalPosition);
 	CameraBoom->SetRelativeLocation(FVector(0,0,ClassDefinition->CameraHeight));
-	
-	AssetManager->UnloadPrimaryAsset(NewClassId);
-}
 
-void AMSDCharacter::OnRep_CharacterClass()
-{
-	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
-	if(!AssetManager || CharacterClass == "none")
+	
+	if(!ClassDefinition->AttributesEffect.Get())
 	{
 		return;
 	}
 	
-	FPrimaryAssetId NewClass = FPrimaryAssetId("CharacterClassDefinition", FName(CharacterClass));
+	FGameplayEffectContextHandle EffectContext = AbilitySystemComponent->MakeEffectContext();
+	EffectContext.AddSourceObject(this);
 	
-	AssetManager->LoadPrimaryAsset(NewClass, TArray<FName>({"HubAndMission", "HubOnly"}), FStreamableDelegate::CreateUObject(this, &AMSDCharacter::ChangeClassLoadedCallback, CharacterClass, CharacterSubclass));
+	FGameplayEffectSpecHandle AttributesEffectHandle = AbilitySystemComponent->MakeOutgoingSpec(ClassDefinition->AttributesEffect.Get(), 1, EffectContext);
+	if (AttributesEffectHandle.IsValid())
+	{
+		AbilitySystemComponent->ApplyGameplayEffectSpecToTarget(*AttributesEffectHandle.Data.Get(), AbilitySystemComponent);
+	}
+	
 }
+
 
 void AMSDCharacter::BeginPlay()
 {
@@ -516,8 +542,8 @@ USkeletalMeshComponent* AMSDCharacter::GetHandsMesh() const
 	return HandsMesh;
 }
 
-#pragma region Interactable Interface
 
+#pragma region Interface Functions
 void AMSDCharacter::Interact_Implementation(APlayerController* InteractorController, APlayerState* InteractorState)
 {
 	//Increase the revive rate, likely with a multiplier to encourage multiple people rezzing at once
@@ -538,7 +564,30 @@ void AMSDCharacter::RetrieveInteractInfo_Implementation(FString& InteractText, E
 bool AMSDCharacter::CanInteract_Implementation()
 {
 	//When the player is downed they will become an interactable,
-	//but at the moment they don't even have health... soooo...
+	//but at the moment they don't even have health soooo...
 	return false;
 }
+
+//Ability System Interface
+UAbilitySystemComponent* AMSDCharacter::GetAbilitySystemComponent() const
+{
+	return AbilitySystemComponent;
+}
+
+//Player Interface
+UCameraComponent* AMSDCharacter::GetCameraComponent_Implementation() const
+{
+	return FollowCamera;
+}
+
+UMSDUserWidget* AMSDCharacter::GetCurrentWidget_Implementation() const
+{
+	return MSDPlayerController->CurrentWidget;
+}
+
+void AMSDCharacter::SetCurrentWidget_Implementation(UMSDUserWidget* NewWidget)
+{
+	MSDPlayerController->CurrentWidget = NewWidget;
+}
+
 #pragma endregion

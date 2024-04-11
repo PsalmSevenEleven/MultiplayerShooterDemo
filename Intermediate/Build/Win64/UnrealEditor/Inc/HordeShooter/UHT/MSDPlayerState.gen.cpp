@@ -14,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeMSDPlayerState() {}
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemInterface_NoRegister();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_AMSDPlayerState();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_AMSDPlayerState_NoRegister();
+	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSDPlayerAttributeSet_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_HordeShooter();
 // End Cross Module References
 	DEFINE_FUNCTION(AMSDPlayerState::execGetSubclassIndex)
@@ -174,6 +175,10 @@ void EmptyLinkFunctionForGeneratedCodeMSDPlayerState() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_AbilitySystemComponent;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttributeSet_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_AttributeSet;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CharacterClass_MetaData[];
 #endif
 		static const UECodeGen_Private::FStrPropertyParams NewProp_CharacterClass;
@@ -216,6 +221,13 @@ void EmptyLinkFunctionForGeneratedCodeMSDPlayerState() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMSDPlayerState_Statics::NewProp_AbilitySystemComponent = { "AbilitySystemComponent", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMSDPlayerState, AbilitySystemComponent), Z_Construct_UClass_UAbilitySystemComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDPlayerState_Statics::NewProp_AbilitySystemComponent_MetaData), Z_Construct_UClass_AMSDPlayerState_Statics::NewProp_AbilitySystemComponent_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMSDPlayerState_Statics::NewProp_AttributeSet_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "HordeShooter/Character/MSDPlayerState.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMSDPlayerState_Statics::NewProp_AttributeSet = { "AttributeSet", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMSDPlayerState, AttributeSet), Z_Construct_UClass_UMSDPlayerAttributeSet_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDPlayerState_Statics::NewProp_AttributeSet_MetaData), Z_Construct_UClass_AMSDPlayerState_Statics::NewProp_AttributeSet_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMSDPlayerState_Statics::NewProp_CharacterClass_MetaData[] = {
 		{ "ModuleRelativePath", "HordeShooter/Character/MSDPlayerState.h" },
 	};
@@ -229,6 +241,7 @@ void EmptyLinkFunctionForGeneratedCodeMSDPlayerState() {}
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AMSDPlayerState_Statics::NewProp_SubclassIndex = { "SubclassIndex", nullptr, (EPropertyFlags)0x0020080000000020, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMSDPlayerState, SubclassIndex), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDPlayerState_Statics::NewProp_SubclassIndex_MetaData), Z_Construct_UClass_AMSDPlayerState_Statics::NewProp_SubclassIndex_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMSDPlayerState_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSDPlayerState_Statics::NewProp_AbilitySystemComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSDPlayerState_Statics::NewProp_AttributeSet,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSDPlayerState_Statics::NewProp_CharacterClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSDPlayerState_Statics::NewProp_SubclassIndex,
 	};
@@ -286,9 +299,9 @@ void EmptyLinkFunctionForGeneratedCodeMSDPlayerState() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDPlayerState_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMSDPlayerState, AMSDPlayerState::StaticClass, TEXT("AMSDPlayerState"), &Z_Registration_Info_UClass_AMSDPlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSDPlayerState), 2270593197U) },
+		{ Z_Construct_UClass_AMSDPlayerState, AMSDPlayerState::StaticClass, TEXT("AMSDPlayerState"), &Z_Registration_Info_UClass_AMSDPlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSDPlayerState), 2922647437U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDPlayerState_h_2713645616(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDPlayerState_h_3518478316(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDPlayerState_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDPlayerState_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

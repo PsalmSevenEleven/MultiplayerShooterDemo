@@ -43,6 +43,9 @@ protected:
 	UPROPERTY()
 	UAbilitySystemComponent* AbilitySystemComponent;
 
+	UPROPERTY()
+	class UMSDPlayerAttributeSet* AttributeSet;
+
 	UPROPERTY(Replicated)
 	FString CharacterClass = "none";
 
