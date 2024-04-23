@@ -6,7 +6,13 @@
 #include "HordeShooter/HordeShooter.h"
 #include "Abilities/GameplayAbility.h"
 #include "MSDGameplayAbility.generated.h"
-
+UENUM()
+enum class EAbilityActivationType
+{
+	ActivateWhileHeld UMETA(DisplayName = "Activate While Held"),
+	ActivateOnPressed UMETA(DisplayName = "Activate On Pressed"),
+	ActivateOnGranted UMETA(DisplayName = "Activate On Granted"),
+};
 /**
  * 
  */
@@ -18,5 +24,10 @@ class HORDESHOOTER_API UMSDGameplayAbility : public UGameplayAbility
 public:
 	UPROPERTY(EditDefaultsOnly)
 	EPlayerAbilityInputID AbilityInputID;
-	
+
+	UPROPERTY(EditDefaultsOnly)
+	EAbilityActivationType ActivationType;
+
+	EAbilityActivationType GetActivationType() const { return ActivationType; }
+
 };

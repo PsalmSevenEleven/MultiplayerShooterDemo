@@ -98,6 +98,26 @@ void AMSD_MissionCharacter::ChangeClassLoadedCallback(FString NewClass, int32 Ne
 	AssetManager->LoadPrimaryAsset(ClassDefinition->Subclasses[NewSubclass].PrimaryAssetId, TArray<FName>({"MissionOnly", "HubAndMission"}), FStreamableDelegate::CreateUObject(this, &AMSD_MissionCharacter::ChangeSubclassLoadedCallback, ClassDefinition->Subclasses[NewSubclass].PrimaryAssetId));
 
 	AssetManager->UnloadPrimaryAsset(NewClassId);
+
+	if(!ClassDefinition->AttributesEffect.Get())
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("No Attributes Effect found in class definition"));
+		return;
+	}
+	
+	FGameplayEffectContextHandle EffectContext = AbilitySystemComponent->MakeEffectContext();
+	EffectContext.AddSourceObject(this);
+	
+	FGameplayEffectSpecHandle AttributesEffectHandle = AbilitySystemComponent->MakeOutgoingSpec(ClassDefinition->AttributesEffect.Get(), 1, EffectContext);
+	if (AttributesEffectHandle.IsValid())
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Applying Attributes Effect to player"));
+
+		if(AbilitySystemComponent->ApplyGameplayEffectSpecToTarget(*AttributesEffectHandle.Data.Get(), AbilitySystemComponent).IsValid())
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Applied Attributes Effect to player Successfully"));
+		}
+	}
 }
 
 void AMSD_MissionCharacter::ChangeSubclassLoadedCallback(const FPrimaryAssetId NewSubclass)

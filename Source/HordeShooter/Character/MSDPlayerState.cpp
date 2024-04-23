@@ -5,11 +5,12 @@
 
 #include "AbilitySystemComponent.h"
 #include "AbilitySystem/MSDPlayerAttributeSet.h"
+#include "AbilitySystem/MSD_AbilitySystemComponent.h"
 #include "Net/UnrealNetwork.h"
 
 AMSDPlayerState::AMSDPlayerState()
 {
-	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
+	AbilitySystemComponent = CreateDefaultSubobject<UMSD_AbilitySystemComponent>(TEXT("AbilitySystemComponent"));
 	AbilitySystemComponent->SetIsReplicated(true);
 
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);

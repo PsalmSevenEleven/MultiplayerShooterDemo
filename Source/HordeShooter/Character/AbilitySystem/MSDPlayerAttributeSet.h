@@ -16,6 +16,7 @@ class HORDESHOOTER_API UMSDPlayerAttributeSet : public UAttributeSet
 	GENERATED_BODY()
 
 public:
+	virtual void PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue) override;
 	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Attributes")
@@ -76,4 +77,6 @@ public:
 	FGameplayAttributeData CultivateMultiplier;
 	GAMEPLAYATTRIBUTE_VALUE_GETTER(CultivateMultiplier);
 	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UMSDPlayerAttributeSet, CultivateMultiplier);
+
+	
 };

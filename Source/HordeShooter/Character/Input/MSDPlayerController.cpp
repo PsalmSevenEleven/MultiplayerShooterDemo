@@ -4,6 +4,8 @@
 #include "MSDPlayerController.h"
 
 #include "EnhancedInputSubsystems.h"
+#include "HordeShooter/Character/MSDPlayerState.h"
+#include "HordeShooter/Character/AbilitySystem/MSD_AbilitySystemComponent.h"
 
 
 void AMSDPlayerController::SetupEnhancedInputContext()
@@ -25,6 +27,16 @@ void AMSDPlayerController::SetupEnhancedInputContext()
 	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("SetupEnhancedInputContext"));
 }
 
+void AMSDPlayerController::PostProcessInput(const float DeltaTime, const bool bGamePaused)
+{
+	Super::PostProcessInput(DeltaTime, bGamePaused);
+
+	if(UMSD_AbilitySystemComponent* AbilitySystemComponent = Cast<UMSD_AbilitySystemComponent>(GetAbilitySystemComponent()))
+	{
+		AbilitySystemComponent->HandleQueuedAbilities();
+	}
+}
+
 void AMSDPlayerController::SetupHud()
 {
 	HUD = CreateWidget<UMSDHud>(this, HUDClass);
@@ -32,4 +44,9 @@ void AMSDPlayerController::SetupHud()
 	{
 		HUD->AddToViewport();
 	}
+}
+
+UAbilitySystemComponent* AMSDPlayerController::GetAbilitySystemComponent() const
+{
+	return GetPlayerState<AMSDPlayerState>()->GetAbilitySystemComponent();
 }

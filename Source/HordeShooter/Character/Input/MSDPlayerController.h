@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AbilitySystemInterface.h"
 #include "GameFramework/PlayerController.h"
 #include "HordeShooter/Interfaces/PlayerInterface.h"
 #include "HordeShooter/UI/MSDHud.h"
@@ -14,7 +15,7 @@
  * 
  */
 UCLASS()
-class HORDESHOOTER_API AMSDPlayerController : public APlayerController, public IPlayerInterface
+class HORDESHOOTER_API AMSDPlayerController : public APlayerController, public IPlayerInterface, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
@@ -23,7 +24,11 @@ public:
 
 	class UInputMappingContext* GetPlayerInputMappingContext() const { return PlayerInputMappingContext; }
 
+	
+	//Overridden to allow input to pe processed in batches
+	virtual void PostProcessInput(const float DeltaTime, const bool bGamePaused) override;
 
+	
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<UMSDHud> HUDClass;
 	
@@ -36,15 +41,17 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	UMSDUserWidget* CurrentWidget = nullptr;
 
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
 	UInputMappingContext* PlayerInputMappingContext;
 
 	UFUNCTION()
-	UMSDUserWidget* GetCurrentWidget_Implementation() const override {return CurrentWidget;};
+	UMSDUserWidget* GetCurrentWidget_Implementation() const override {return CurrentWidget;}
 
 	UFUNCTION()
-	void SetCurrentWidget_Implementation(UMSDUserWidget* NewWidget) override {CurrentWidget = NewWidget;};
+	void SetCurrentWidget_Implementation(UMSDUserWidget* NewWidget) override {CurrentWidget = NewWidget;}
 };
 
 

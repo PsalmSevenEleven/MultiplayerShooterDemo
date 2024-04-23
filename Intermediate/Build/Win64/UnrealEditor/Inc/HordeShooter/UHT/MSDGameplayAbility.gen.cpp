@@ -12,9 +12,67 @@ void EmptyLinkFunctionForGeneratedCodeMSDGameplayAbility() {}
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayAbility();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSDGameplayAbility();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSDGameplayAbility_NoRegister();
+	HORDESHOOTER_API UEnum* Z_Construct_UEnum_HordeShooter_EAbilityActivationType();
 	HORDESHOOTER_API UEnum* Z_Construct_UEnum_HordeShooter_EPlayerAbilityInputID();
 	UPackage* Z_Construct_UPackage__Script_HordeShooter();
 // End Cross Module References
+	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EAbilityActivationType;
+	static UEnum* EAbilityActivationType_StaticEnum()
+	{
+		if (!Z_Registration_Info_UEnum_EAbilityActivationType.OuterSingleton)
+		{
+			Z_Registration_Info_UEnum_EAbilityActivationType.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_HordeShooter_EAbilityActivationType, (UObject*)Z_Construct_UPackage__Script_HordeShooter(), TEXT("EAbilityActivationType"));
+		}
+		return Z_Registration_Info_UEnum_EAbilityActivationType.OuterSingleton;
+	}
+	template<> HORDESHOOTER_API UEnum* StaticEnum<EAbilityActivationType>()
+	{
+		return EAbilityActivationType_StaticEnum();
+	}
+	struct Z_Construct_UEnum_HordeShooter_EAbilityActivationType_Statics
+	{
+		static const UECodeGen_Private::FEnumeratorParam Enumerators[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FEnumParams EnumParams;
+	};
+	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_HordeShooter_EAbilityActivationType_Statics::Enumerators[] = {
+		{ "EAbilityActivationType::ActivateWhileHeld", (int64)EAbilityActivationType::ActivateWhileHeld },
+		{ "EAbilityActivationType::ActivateOnPressed", (int64)EAbilityActivationType::ActivateOnPressed },
+		{ "EAbilityActivationType::ActivateOnGranted", (int64)EAbilityActivationType::ActivateOnGranted },
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_HordeShooter_EAbilityActivationType_Statics::Enum_MetaDataParams[] = {
+		{ "ActivateOnGranted.DisplayName", "Activate On Granted" },
+		{ "ActivateOnGranted.Name", "EAbilityActivationType::ActivateOnGranted" },
+		{ "ActivateOnPressed.DisplayName", "Activate On Pressed" },
+		{ "ActivateOnPressed.Name", "EAbilityActivationType::ActivateOnPressed" },
+		{ "ActivateWhileHeld.DisplayName", "Activate While Held" },
+		{ "ActivateWhileHeld.Name", "EAbilityActivationType::ActivateWhileHeld" },
+		{ "ModuleRelativePath", "HordeShooter/Character/AbilitySystem/MSDGameplayAbility.h" },
+	};
+#endif
+	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_HordeShooter_EAbilityActivationType_Statics::EnumParams = {
+		(UObject*(*)())Z_Construct_UPackage__Script_HordeShooter,
+		nullptr,
+		"EAbilityActivationType",
+		"EAbilityActivationType",
+		Z_Construct_UEnum_HordeShooter_EAbilityActivationType_Statics::Enumerators,
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		UE_ARRAY_COUNT(Z_Construct_UEnum_HordeShooter_EAbilityActivationType_Statics::Enumerators),
+		EEnumFlags::None,
+		(uint8)UEnum::ECppForm::EnumClass,
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_HordeShooter_EAbilityActivationType_Statics::Enum_MetaDataParams), Z_Construct_UEnum_HordeShooter_EAbilityActivationType_Statics::Enum_MetaDataParams)
+	};
+	UEnum* Z_Construct_UEnum_HordeShooter_EAbilityActivationType()
+	{
+		if (!Z_Registration_Info_UEnum_EAbilityActivationType.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_EAbilityActivationType.InnerSingleton, Z_Construct_UEnum_HordeShooter_EAbilityActivationType_Statics::EnumParams);
+		}
+		return Z_Registration_Info_UEnum_EAbilityActivationType.InnerSingleton;
+	}
 	void UMSDGameplayAbility::StaticRegisterNativesUMSDGameplayAbility()
 	{
 	}
@@ -34,6 +92,11 @@ void EmptyLinkFunctionForGeneratedCodeMSDGameplayAbility() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AbilityInputID_MetaData[];
 #endif
 		static const UECodeGen_Private::FEnumPropertyParams NewProp_AbilityInputID;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ActivationType_Underlying;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ActivationType_MetaData[];
+#endif
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_ActivationType;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -60,9 +123,19 @@ void EmptyLinkFunctionForGeneratedCodeMSDGameplayAbility() {}
 	};
 #endif
 	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UMSDGameplayAbility_Statics::NewProp_AbilityInputID = { "AbilityInputID", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSDGameplayAbility, AbilityInputID), Z_Construct_UEnum_HordeShooter_EPlayerAbilityInputID, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSDGameplayAbility_Statics::NewProp_AbilityInputID_MetaData), Z_Construct_UClass_UMSDGameplayAbility_Statics::NewProp_AbilityInputID_MetaData) }; // 3022764784
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMSDGameplayAbility_Statics::NewProp_ActivationType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSDGameplayAbility_Statics::NewProp_ActivationType_MetaData[] = {
+		{ "Category", "MSDGameplayAbility" },
+		{ "ModuleRelativePath", "HordeShooter/Character/AbilitySystem/MSDGameplayAbility.h" },
+	};
+#endif
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UMSDGameplayAbility_Statics::NewProp_ActivationType = { "ActivationType", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSDGameplayAbility, ActivationType), Z_Construct_UEnum_HordeShooter_EAbilityActivationType, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSDGameplayAbility_Statics::NewProp_ActivationType_MetaData), Z_Construct_UClass_UMSDGameplayAbility_Statics::NewProp_ActivationType_MetaData) }; // 3329227095
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMSDGameplayAbility_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSDGameplayAbility_Statics::NewProp_AbilityInputID_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSDGameplayAbility_Statics::NewProp_AbilityInputID,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSDGameplayAbility_Statics::NewProp_ActivationType_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSDGameplayAbility_Statics::NewProp_ActivationType,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UMSDGameplayAbility_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UMSDGameplayAbility>::IsAbstract,
@@ -100,13 +173,17 @@ void EmptyLinkFunctionForGeneratedCodeMSDGameplayAbility() {}
 	UMSDGameplayAbility::~UMSDGameplayAbility() {}
 	struct Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSDGameplayAbility_h_Statics
 	{
+		static const FEnumRegisterCompiledInInfo EnumInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSDGameplayAbility_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMSDGameplayAbility, UMSDGameplayAbility::StaticClass, TEXT("UMSDGameplayAbility"), &Z_Registration_Info_UClass_UMSDGameplayAbility, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSDGameplayAbility), 3053611416U) },
+	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSDGameplayAbility_h_Statics::EnumInfo[] = {
+		{ EAbilityActivationType_StaticEnum, TEXT("EAbilityActivationType"), &Z_Registration_Info_UEnum_EAbilityActivationType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3329227095U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSDGameplayAbility_h_1080448620(TEXT("/Script/HordeShooter"),
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSDGameplayAbility_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UMSDGameplayAbility, UMSDGameplayAbility::StaticClass, TEXT("UMSDGameplayAbility"), &Z_Registration_Info_UClass_UMSDGameplayAbility, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSDGameplayAbility), 548193287U) },
+	};
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSDGameplayAbility_h_3692455280(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSDGameplayAbility_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSDGameplayAbility_h_Statics::ClassInfo),
 		nullptr, 0,
-		nullptr, 0);
+		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSDGameplayAbility_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSDGameplayAbility_h_Statics::EnumInfo));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

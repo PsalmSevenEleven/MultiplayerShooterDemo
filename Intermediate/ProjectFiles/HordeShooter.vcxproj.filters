@@ -337,18 +337,6 @@
     <ClInclude Include="..\..\Source\HordeShooter\HordeShooter.h">
       <Filter>Source\HordeShooter</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\HordeShooter\MSD_ObjectPoolComponent.cpp">
-      <Filter>Source\HordeShooter</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\HordeShooter\MSD_ObjectPoolComponent.h">
-      <Filter>Source\HordeShooter</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\HordeShooter\MSD_PooledObject.cpp">
-      <Filter>Source\HordeShooter</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\HordeShooter\MSD_PooledObject.h">
-      <Filter>Source\HordeShooter</Filter>
-    </ClInclude>
     <Filter Include="Source\HordeShooter\Background_Infrastructure">
       <UniqueIdentifier>{7E8DEC0B-A10E-3EDA-A440-B2403C735AD5}</UniqueIdentifier>
     </Filter>
@@ -418,6 +406,18 @@
     <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSD_AbilitySet.h">
       <Filter>Source\HordeShooter\Character\AbilitySystem</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSD_AbilitySystemComponent.cpp">
+      <Filter>Source\HordeShooter\Character\AbilitySystem</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSD_AbilitySystemComponent.h">
+      <Filter>Source\HordeShooter\Character\AbilitySystem</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSD_ProjectileAbility.cpp">
+      <Filter>Source\HordeShooter\Character\AbilitySystem</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSD_ProjectileAbility.h">
+      <Filter>Source\HordeShooter\Character\AbilitySystem</Filter>
+    </ClInclude>
     <Filter Include="Source\HordeShooter\Character\Classes">
       <UniqueIdentifier>{A596764C-CBA4-36AF-B08B-75670C90932F}</UniqueIdentifier>
     </Filter>
@@ -477,6 +477,27 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\HordeShooter\Interfaces\PlayerInterface.h">
       <Filter>Source\HordeShooter\Interfaces</Filter>
+    </ClInclude>
+    <Filter Include="Source\HordeShooter\Pooled_Objects">
+      <UniqueIdentifier>{E400B5CF-F97D-3305-AEE3-2903023184F8}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\HordeShooter\Pooled_Objects\MSD_ObjectPoolComponent.cpp">
+      <Filter>Source\HordeShooter\Pooled_Objects</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Pooled_Objects\MSD_ObjectPoolComponent.h">
+      <Filter>Source\HordeShooter\Pooled_Objects</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\HordeShooter\Pooled_Objects\MSD_PooledObject.cpp">
+      <Filter>Source\HordeShooter\Pooled_Objects</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Pooled_Objects\MSD_PooledObject.h">
+      <Filter>Source\HordeShooter\Pooled_Objects</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\HordeShooter\Pooled_Objects\MSD_Projectile.cpp">
+      <Filter>Source\HordeShooter\Pooled_Objects</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Pooled_Objects\MSD_Projectile.h">
+      <Filter>Source\HordeShooter\Pooled_Objects</Filter>
     </ClInclude>
     <Filter Include="Source\HordeShooter\UI">
       <UniqueIdentifier>{4DCA37A3-1EFB-35B9-9737-84A212DF81DD}</UniqueIdentifier>

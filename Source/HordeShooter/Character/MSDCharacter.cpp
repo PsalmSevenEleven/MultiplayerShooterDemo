@@ -15,6 +15,7 @@
 #include "InputMappingContext.h"
 #include "PropertyEditorCopyPaste.h"
 #include "AbilitySystem/MSDPlayerAttributeSet.h"
+#include "AbilitySystem/MSD_AbilitySystemComponent.h"
 #include "Binding/DynamicPropertyPath.h"
 #include "Classes/MSD_CharacterClassDefinition.h"
 #include "Components/ProgressBar.h"
@@ -303,16 +304,17 @@ void AMSDCharacter::ActivateGASAbility(int32 Index, bool bOn)
 	}
 	
 	UEnhancedInputComponent* PlayerEnhancedInputComponent = Cast<UEnhancedInputComponent>(GetController()->InputComponent);
+	UMSD_AbilitySystemComponent* ASC = Cast<UMSD_AbilitySystemComponent>(AbilitySystemComponent);
 	
-	if (IsValid(PlayerEnhancedInputComponent) && AbilitySystemComponent)
+	if (IsValid(PlayerEnhancedInputComponent) && ASC)
 	{
 		if(bOn)
 		{
-			AbilitySystemComponent->PressInputID(Index);
+			ASC->QueueAbilityPressed(Index);
 		}
 		else
 		{
-			AbilitySystemComponent->ReleaseInputID(Index);
+			ASC->QueueAbilityReleased(Index);
 		}
 	}
 }
@@ -464,7 +466,6 @@ void AMSDCharacter::ChangeClassLoadedCallback(FString NewClass, int32 NewSubclas
 	{
 		AbilitySystemComponent->ApplyGameplayEffectSpecToTarget(*AttributesEffectHandle.Data.Get(), AbilitySystemComponent);
 	}
-	
 }
 
 
