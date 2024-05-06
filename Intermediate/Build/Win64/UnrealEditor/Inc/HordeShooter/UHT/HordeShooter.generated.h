@@ -20,6 +20,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 
 #define FOREACH_ENUM_EPLAYERABILITYINPUTID(op) \
+	op(EPlayerAbilityInputID::None) \
 	op(EPlayerAbilityInputID::Confirm) \
 	op(EPlayerAbilityInputID::Cancel) \
 	op(EPlayerAbilityInputID::Move) \
@@ -27,6 +28,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(EPlayerAbilityInputID::Jump) \
 	op(EPlayerAbilityInputID::Pause) \
 	op(EPlayerAbilityInputID::Interact) \
+	op(EPlayerAbilityInputID::Reload) \
 	op(EPlayerAbilityInputID::PrimaryFire) 
 
 enum class EPlayerAbilityInputID : uint8;

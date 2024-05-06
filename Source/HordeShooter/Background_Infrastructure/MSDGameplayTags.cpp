@@ -6,7 +6,6 @@
 
 
 UE_DEFINE_GAMEPLAY_TAG(TAG_Player, "Player")
-
 #pragma region Player Status
 
 UE_DEFINE_GAMEPLAY_TAG(TAG_Player_Status, "Player.Status")
@@ -18,7 +17,6 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Player_Status_Menu, "Player.Status.Menu")
 #pragma endregion
 
 UE_DEFINE_GAMEPLAY_TAG(TAG_Effect, "Effect")
-
 #pragma region Effects
 
 UE_DEFINE_GAMEPLAY_TAG(TAG_Effect_Damage, "Effect.Damage")
@@ -32,9 +30,9 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Effect_Taunt, "Effect.Taunt")
 #pragma endregion
 
 UE_DEFINE_GAMEPLAY_TAG(TAG_Ability, "Ability")
-
 #pragma region Ability Tags
 
 UE_DEFINE_GAMEPLAY_TAG(TAG_Ability_Firing, "Ability.Firing")
+UE_DEFINE_GAMEPLAY_TAG(TAG_Ability_Reload, "Ability.Reload")
 
 #pragma endregion

@@ -1,7 +1,7 @@
 {
-	"BuildId": "c5d3fbf2-774c-4eab-9f76-332852eecd07",
+	"BuildId": "b4075bd2-8e91-4b6a-9aa8-289a31ce1145",
 	"Modules": 
 	{
-		"HordeShooter": "UnrealEditor-HordeShooter-0008.dll"
+		"HordeShooter": "UnrealEditor-HordeShooter.dll"
 	}
 }

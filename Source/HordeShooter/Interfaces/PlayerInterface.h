@@ -28,6 +28,13 @@ public:
 	UCameraComponent* GetCameraComponent() const;
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	USkeletalMeshComponent* RetrieveHandsMesh() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	USkeletalMeshComponent* RetrieveBodyMesh() const;
+	
+	
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	UMSDUserWidget* GetCurrentWidget() const;
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)

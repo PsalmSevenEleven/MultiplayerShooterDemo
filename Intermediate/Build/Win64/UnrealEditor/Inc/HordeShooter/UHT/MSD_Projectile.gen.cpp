@@ -206,10 +206,6 @@ void EmptyLinkFunctionForGeneratedCodeMSD_Projectile() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_ParticleSystem;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ProjectileMovementComponent_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_ProjectileMovementComponent;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CollisionComponent_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_CollisionComponent;
@@ -221,6 +217,10 @@ void EmptyLinkFunctionForGeneratedCodeMSD_Projectile() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Velocity_MetaData[];
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_Velocity;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ProjectileMovementComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ProjectileMovementComponent;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Damage_MetaData[];
 #endif
@@ -272,14 +272,6 @@ void EmptyLinkFunctionForGeneratedCodeMSD_Projectile() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_ParticleSystem = { "ParticleSystem", nullptr, (EPropertyFlags)0x0040000000090009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMSD_Projectile, ParticleSystem), Z_Construct_UClass_UNiagaraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_ParticleSystem_MetaData), Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_ParticleSystem_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_ProjectileMovementComponent_MetaData[] = {
-		{ "Category", "Projectile" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "HordeShooter/Pooled_Objects/MSD_Projectile.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_ProjectileMovementComponent = { "ProjectileMovementComponent", nullptr, (EPropertyFlags)0x0040000000090009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMSD_Projectile, ProjectileMovementComponent), Z_Construct_UClass_UProjectileMovementComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_ProjectileMovementComponent_MetaData), Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_ProjectileMovementComponent_MetaData) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_CollisionComponent_MetaData[] = {
 		{ "Category", "Projectile" },
 		{ "EditInline", "true" },
@@ -302,6 +294,14 @@ void EmptyLinkFunctionForGeneratedCodeMSD_Projectile() {}
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_Velocity = { "Velocity", nullptr, (EPropertyFlags)0x0040000000010001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMSD_Projectile, Velocity), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_Velocity_MetaData), Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_Velocity_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_ProjectileMovementComponent_MetaData[] = {
+		{ "Category", "Projectile" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "HordeShooter/Pooled_Objects/MSD_Projectile.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_ProjectileMovementComponent = { "ProjectileMovementComponent", nullptr, (EPropertyFlags)0x001000000009000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMSD_Projectile, ProjectileMovementComponent), Z_Construct_UClass_UProjectileMovementComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_ProjectileMovementComponent_MetaData), Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_ProjectileMovementComponent_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_Damage_MetaData[] = {
 		{ "Category", "Projectile" },
 		{ "ModuleRelativePath", "HordeShooter/Pooled_Objects/MSD_Projectile.h" },
@@ -312,10 +312,10 @@ void EmptyLinkFunctionForGeneratedCodeMSD_Projectile() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_SceneComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_MeshComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_ParticleSystem,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_ProjectileMovementComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_CollisionComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_Lifetime,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_Velocity,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_ProjectileMovementComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMSD_Projectile_Statics::NewProp_Damage,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMSD_Projectile_Statics::StaticCppClassTypeInfo = {
@@ -356,9 +356,9 @@ void EmptyLinkFunctionForGeneratedCodeMSD_Projectile() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Pooled_Objects_MSD_Projectile_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMSD_Projectile, AMSD_Projectile::StaticClass, TEXT("AMSD_Projectile"), &Z_Registration_Info_UClass_AMSD_Projectile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSD_Projectile), 3075048523U) },
+		{ Z_Construct_UClass_AMSD_Projectile, AMSD_Projectile::StaticClass, TEXT("AMSD_Projectile"), &Z_Registration_Info_UClass_AMSD_Projectile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSD_Projectile), 2983236505U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Pooled_Objects_MSD_Projectile_h_2743675515(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Pooled_Objects_MSD_Projectile_h_25193319(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Pooled_Objects_MSD_Projectile_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Pooled_Objects_MSD_Projectile_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

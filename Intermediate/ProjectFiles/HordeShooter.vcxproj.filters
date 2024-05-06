@@ -388,12 +388,6 @@
     <Filter Include="Source\HordeShooter\Character\AbilitySystem">
       <UniqueIdentifier>{2683D477-6009-3D9B-9CB7-C4F69CBC24FA}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSDGameplayAbility.cpp">
-      <Filter>Source\HordeShooter\Character\AbilitySystem</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSDGameplayAbility.h">
-      <Filter>Source\HordeShooter\Character\AbilitySystem</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSDPlayerAttributeSet.cpp">
       <Filter>Source\HordeShooter\Character\AbilitySystem</Filter>
     </ClCompile>
@@ -412,11 +406,62 @@
     <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSD_AbilitySystemComponent.h">
       <Filter>Source\HordeShooter\Character\AbilitySystem</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSD_ProjectileAbility.cpp">
-      <Filter>Source\HordeShooter\Character\AbilitySystem</Filter>
+    <Filter Include="Source\HordeShooter\Character\AbilitySystem\Abilities">
+      <UniqueIdentifier>{A1F83C2C-ADD2-3F2C-8286-EDBE7AD9DE2F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\Abilities\MSDGameplayAbility.cpp">
+      <Filter>Source\HordeShooter\Character\AbilitySystem\Abilities</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSD_ProjectileAbility.h">
-      <Filter>Source\HordeShooter\Character\AbilitySystem</Filter>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\Abilities\MSDGameplayAbility.h">
+      <Filter>Source\HordeShooter\Character\AbilitySystem\Abilities</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\Abilities\MSDReloadAbility.cpp">
+      <Filter>Source\HordeShooter\Character\AbilitySystem\Abilities</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\Abilities\MSDReloadAbility.h">
+      <Filter>Source\HordeShooter\Character\AbilitySystem\Abilities</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\Abilities\MSD_PrimaryFireAbility.cpp">
+      <Filter>Source\HordeShooter\Character\AbilitySystem\Abilities</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\Abilities\MSD_PrimaryFireAbility.h">
+      <Filter>Source\HordeShooter\Character\AbilitySystem\Abilities</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\Abilities\MSD_ProjectileAbility.cpp">
+      <Filter>Source\HordeShooter\Character\AbilitySystem\Abilities</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\Abilities\MSD_ProjectileAbility.h">
+      <Filter>Source\HordeShooter\Character\AbilitySystem\Abilities</Filter>
+    </ClInclude>
+    <Filter Include="Source\HordeShooter\Character\AbilitySystem\AbilityTasks">
+      <UniqueIdentifier>{6AC8F226-A625-3E65-8ACC-165F15369241}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\AbilityTasks\AbilityTask_PlayMontageOnSM.cpp">
+      <Filter>Source\HordeShooter\Character\AbilitySystem\AbilityTasks</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\AbilityTasks\AbilityTask_PlayMontageOnSM.h">
+      <Filter>Source\HordeShooter\Character\AbilitySystem\AbilityTasks</Filter>
+    </ClInclude>
+    <Filter Include="Source\HordeShooter\Character\AbilitySystem\MMCs">
+      <UniqueIdentifier>{B177D9CD-3DAF-3F6C-916A-ACF04807E597}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\MMCs\PrimaryFireAbilityRoundsCalc.cpp">
+      <Filter>Source\HordeShooter\Character\AbilitySystem\MMCs</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\MMCs\PrimaryFireAbilityRoundsCalc.h">
+      <Filter>Source\HordeShooter\Character\AbilitySystem\MMCs</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\MMCs\ReloadCostMagnitudeCalc.cpp">
+      <Filter>Source\HordeShooter\Character\AbilitySystem\MMCs</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\MMCs\ReloadCostMagnitudeCalc.h">
+      <Filter>Source\HordeShooter\Character\AbilitySystem\MMCs</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\MMCs\ReloadRoundsMagnitudeCalc.cpp">
+      <Filter>Source\HordeShooter\Character\AbilitySystem\MMCs</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\MMCs\ReloadRoundsMagnitudeCalc.h">
+      <Filter>Source\HordeShooter\Character\AbilitySystem\MMCs</Filter>
     </ClInclude>
     <Filter Include="Source\HordeShooter\Character\Classes">
       <UniqueIdentifier>{A596764C-CBA4-36AF-B08B-75670C90932F}</UniqueIdentifier>

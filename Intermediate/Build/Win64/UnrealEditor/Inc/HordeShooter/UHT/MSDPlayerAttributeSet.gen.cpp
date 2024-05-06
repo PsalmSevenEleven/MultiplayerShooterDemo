@@ -47,6 +47,14 @@ void EmptyLinkFunctionForGeneratedCodeMSDPlayerAttributeSet() {}
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_MaxMana;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_RemainingRounds_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_RemainingRounds;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MaxRounds_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_MaxRounds;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_WalkSpeed_MetaData[];
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_WalkSpeed;
@@ -113,6 +121,20 @@ void EmptyLinkFunctionForGeneratedCodeMSDPlayerAttributeSet() {}
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_MaxMana = { "MaxMana", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSDPlayerAttributeSet, MaxMana), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_MaxMana_MetaData), Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_MaxMana_MetaData) }; // 2151517668
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_RemainingRounds_MetaData[] = {
+		{ "Category", "Attributes" },
+		{ "ModuleRelativePath", "HordeShooter/Character/AbilitySystem/MSDPlayerAttributeSet.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_RemainingRounds = { "RemainingRounds", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSDPlayerAttributeSet, RemainingRounds), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_RemainingRounds_MetaData), Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_RemainingRounds_MetaData) }; // 2151517668
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_MaxRounds_MetaData[] = {
+		{ "Category", "Attributes" },
+		{ "ModuleRelativePath", "HordeShooter/Character/AbilitySystem/MSDPlayerAttributeSet.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_MaxRounds = { "MaxRounds", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSDPlayerAttributeSet, MaxRounds), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_MaxRounds_MetaData), Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_MaxRounds_MetaData) }; // 2151517668
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_WalkSpeed_MetaData[] = {
 		{ "Category", "Attributes" },
 		{ "ModuleRelativePath", "HordeShooter/Character/AbilitySystem/MSDPlayerAttributeSet.h" },
@@ -152,6 +174,8 @@ void EmptyLinkFunctionForGeneratedCodeMSDPlayerAttributeSet() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_MaxHealth,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_CurrentMana,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_MaxMana,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_RemainingRounds,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_MaxRounds,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_WalkSpeed,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_SprintSpeed,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMSDPlayerAttributeSet_Statics::NewProp_JumpHeight,
@@ -197,9 +221,9 @@ void EmptyLinkFunctionForGeneratedCodeMSDPlayerAttributeSet() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSDPlayerAttributeSet_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMSDPlayerAttributeSet, UMSDPlayerAttributeSet::StaticClass, TEXT("UMSDPlayerAttributeSet"), &Z_Registration_Info_UClass_UMSDPlayerAttributeSet, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSDPlayerAttributeSet), 3877306946U) },
+		{ Z_Construct_UClass_UMSDPlayerAttributeSet, UMSDPlayerAttributeSet::StaticClass, TEXT("UMSDPlayerAttributeSet"), &Z_Registration_Info_UClass_UMSDPlayerAttributeSet, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSDPlayerAttributeSet), 3337963875U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSDPlayerAttributeSet_h_4219152840(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSDPlayerAttributeSet_h_1564657449(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSDPlayerAttributeSet_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSDPlayerAttributeSet_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

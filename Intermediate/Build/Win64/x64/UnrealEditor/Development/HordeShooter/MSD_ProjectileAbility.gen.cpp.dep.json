@@ -6,8 +6,8 @@
         "PCH": "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
         "Includes": [
             "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\hordeshooter\\definitions.hordeshooter.h",
-            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\source\\hordeshooter\\character\\abilitysystem\\msd_projectileability.h",
-            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\source\\hordeshooter\\character\\abilitysystem\\msdgameplayability.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\source\\hordeshooter\\character\\abilitysystem\\abilities\\msd_projectileability.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\source\\hordeshooter\\character\\abilitysystem\\abilities\\msdgameplayability.h",
             "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\source\\hordeshooter\\hordeshooter.h",
             "c:\\unrealenginesource\\engine\\plugins\\runtime\\gameplayabilities\\source\\gameplayabilities\\public\\abilities\\gameplayability.h",
             "c:\\unrealenginesource\\engine\\source\\runtime\\gameplaytags\\classes\\gameplaytagcontainer.h",

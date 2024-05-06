@@ -66,9 +66,13 @@
             "c:\\unrealenginesource\\engine\\plugins\\runtime\\gameplayabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\gameplayabilities\\uht\\abilitysystemreplicationproxyinterface.generated.h",
             "c:\\unrealenginesource\\engine\\plugins\\runtime\\gameplayabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\gameplayabilities\\uht\\abilitysystemcomponent.generated.h",
             "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\intermediate\\build\\win64\\unrealeditor\\inc\\hordeshooter\\uht\\msd_abilitysystemcomponent.generated.h",
-            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\source\\hordeshooter\\character\\abilitysystem\\msdgameplayability.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\source\\hordeshooter\\character\\abilitysystem\\abilities\\msd_primaryfireability.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\source\\hordeshooter\\character\\abilitysystem\\abilities\\msd_projectileability.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\source\\hordeshooter\\character\\abilitysystem\\abilities\\msdgameplayability.h",
             "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\source\\hordeshooter\\hordeshooter.h",
-            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\intermediate\\build\\win64\\unrealeditor\\inc\\hordeshooter\\uht\\msdgameplayability.generated.h"
+            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\intermediate\\build\\win64\\unrealeditor\\inc\\hordeshooter\\uht\\msdgameplayability.generated.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\intermediate\\build\\win64\\unrealeditor\\inc\\hordeshooter\\uht\\msd_projectileability.generated.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\intermediate\\build\\win64\\unrealeditor\\inc\\hordeshooter\\uht\\msd_primaryfireability.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

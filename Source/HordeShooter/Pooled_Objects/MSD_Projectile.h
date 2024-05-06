@@ -33,11 +33,7 @@ class HORDESHOOTER_API AMSD_Projectile : public AMSD_PooledObject
 
 	UPROPERTY(EditDefaultsOnly, Category = "Visuals")
 	UNiagaraComponent* ParticleSystem;
-
 	
-	UPROPERTY(EditDefaultsOnly, Category = "Projectile")
-	class UProjectileMovementComponent* ProjectileMovementComponent;
-
 	UPROPERTY(EditDefaultsOnly, Category = "Projectile")
 	class USphereComponent* CollisionComponent;
 
@@ -50,7 +46,9 @@ class HORDESHOOTER_API AMSD_Projectile : public AMSD_PooledObject
 	
 
 public:
-	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Projectile")
+	class UProjectileMovementComponent* ProjectileMovementComponent;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Projectile")
 	int32 Damage = 10;
 	

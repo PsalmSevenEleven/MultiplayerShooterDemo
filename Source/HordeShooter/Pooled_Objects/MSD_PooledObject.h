@@ -16,10 +16,18 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	virtual void Activate();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void OnActivate();
+
 	
 	UFUNCTION(BlueprintCallable)
 	virtual void Deactivate();
 
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void OnDeactivate();
+
+	
 	virtual void SetIsActive(bool bActive) { bIsActive = bActive; }
 	bool GetIsActive() const { return bIsActive; }
 	

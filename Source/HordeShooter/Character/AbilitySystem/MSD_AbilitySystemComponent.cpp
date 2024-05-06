@@ -3,8 +3,9 @@
 
 #include "HordeShooter/Character/AbilitySystem/MSD_AbilitySystemComponent.h"
 
-#include "MSDGameplayAbility.h"
-#include "HordeShooter/HordeShooter.h"
+#include "Abilities/MSD_PrimaryFireAbility.h"
+#include "HordeShooter/Character/AbilitySystem/Abilities/MSDGameplayAbility.h"
+
 
 void UMSD_AbilitySystemComponent::QueueAbilityPressed(int32 Index)
 {
@@ -182,4 +183,101 @@ void UMSD_AbilitySystemComponent::AbilitySpecInputReleased(FGameplayAbilitySpec&
 	{
 		InvokeReplicatedEvent(EAbilityGenericReplicatedEvent::InputReleased, Spec.Handle, Spec.ActivationInfo.GetActivationPredictionKey());
 	}
+}
+
+//Yoinked from AbilitySystemComponent_Abilities.cpp, with modifications to allow me to specify mesh
+float UMSD_AbilitySystemComponent::PlayMontageOnSkeletalMesh(UGameplayAbility* InAnimatingAbility,
+	FGameplayAbilityActivationInfo ActivationInfo, UAnimMontage* NewAnimMontage, USkeletalMeshComponent* InSkeletalMesh,
+	float InPlayRate, FName StartSectionName, float StartTimeSeconds)
+{
+
+	if(!InSkeletalMesh)
+	{
+		return -1.f;
+	}
+	
+	float Duration = -1.f;
+
+	UAnimInstance* AnimInstance = InSkeletalMesh->GetAnimInstance();
+
+	if (AnimInstance && NewAnimMontage)
+	{
+		Duration = AnimInstance->Montage_Play(NewAnimMontage, InPlayRate, EMontagePlayReturnType::MontageLength, StartTimeSeconds);
+		if (Duration > 0.f)
+		{
+			if (const UGameplayAbility* RawAnimatingAbility = LocalAnimMontageInfo.AnimatingAbility.Get())
+			{
+				if (RawAnimatingAbility != InAnimatingAbility)
+				{
+					
+				}
+			}
+
+			if (NewAnimMontage->HasRootMotion() && AnimInstance->GetOwningActor())
+			{
+				UE_LOG(LogRootMotion, Log, TEXT("UAbilitySystemComponent::PlayMontageOnSkeletalMesh %s, Role: %s")
+					, *GetNameSafe(NewAnimMontage)
+					, *UEnum::GetValueAsString(TEXT("Engine.ENetRole"), AnimInstance->GetOwningActor()->GetLocalRole())
+					);
+			}
+
+			LocalAnimMontageInfo.AnimMontage = NewAnimMontage;
+			LocalAnimMontageInfo.AnimatingAbility = InAnimatingAbility;
+			LocalAnimMontageInfo.PlayInstanceId = (LocalAnimMontageInfo.PlayInstanceId < UINT8_MAX ? LocalAnimMontageInfo.PlayInstanceId + 1 : 0);
+			
+			if (InAnimatingAbility)
+			{
+				InAnimatingAbility->SetCurrentMontage(NewAnimMontage);
+			}
+			
+			// Start at a given Section.
+			if (StartSectionName != NAME_None)
+			{
+				AnimInstance->Montage_JumpToSection(StartSectionName, NewAnimMontage);
+			}
+
+			// Replicate for non-owners and for replay recordings
+			// The data we set from GetRepAnimMontageInfo_Mutable() is used both by the server to replicate to clients and by clients to record replays.
+			// We need to set this data for recording clients because there exists network configurations where an abilities montage data will not replicate to some clients (for example: if the client is an autonomous proxy.)
+			if (ShouldRecordMontageReplication())
+			{
+				FGameplayAbilityRepAnimMontage& MutableRepAnimMontageInfo = GetRepAnimMontageInfo_Mutable();
+
+				// Those are static parameters, they are only set when the montage is played. They are not changed after that.
+				MutableRepAnimMontageInfo.AnimMontage = NewAnimMontage;
+				MutableRepAnimMontageInfo.PlayInstanceId = (MutableRepAnimMontageInfo.PlayInstanceId < UINT8_MAX ? MutableRepAnimMontageInfo.PlayInstanceId + 1 : 0);
+
+				MutableRepAnimMontageInfo.SectionIdToPlay = 0;
+				if (MutableRepAnimMontageInfo.AnimMontage && StartSectionName != NAME_None)
+				{
+					// we add one so INDEX_NONE can be used in the on rep
+					MutableRepAnimMontageInfo.SectionIdToPlay = MutableRepAnimMontageInfo.AnimMontage->GetSectionIndex(StartSectionName) + 1;
+				}
+
+				// Update parameters that change during Montage life time.
+				AnimMontage_UpdateReplicatedData();
+			}
+
+			// Replicate to non-owners
+			if (IsOwnerActorAuthoritative())
+			{
+				// Force net update on our avatar actor.
+				if (AbilityActorInfo->AvatarActor != nullptr)
+				{
+					AbilityActorInfo->AvatarActor->ForceNetUpdate();
+				}
+			}
+			else
+			{
+				// If this prediction key is rejected, we need to end the preview
+				FPredictionKey PredictionKey = GetPredictionKeyForNewAction();
+				if (PredictionKey.IsValidKey())
+				{
+					PredictionKey.NewRejectedDelegate().BindUObject(this, &UMSD_AbilitySystemComponent::OnPredictiveMontageRejected, NewAnimMontage);
+				}
+			}
+		}
+	}
+
+	return Duration;
 }

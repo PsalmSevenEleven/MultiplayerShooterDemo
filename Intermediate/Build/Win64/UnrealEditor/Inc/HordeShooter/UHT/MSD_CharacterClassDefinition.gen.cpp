@@ -70,7 +70,13 @@ template<> HORDESHOOTER_API UScriptStruct* StaticStruct<FMSDPrimaryAssetID>()
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewProp_DisplayName_MetaData[] = {
 		{ "Category", "MSDPrimaryAssetID" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//Display name for class select screens\n" },
+#endif
 		{ "ModuleRelativePath", "HordeShooter/Character/Classes/MSD_CharacterClassDefinition.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Display name for class select screens" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewProp_DisplayName = { "DisplayName", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FMSDPrimaryAssetID, DisplayName), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewProp_DisplayName_MetaData), Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewProp_DisplayName_MetaData) };
@@ -177,15 +183,27 @@ template<> HORDESHOOTER_API UScriptStruct* StaticStruct<FMSDPrimaryAssetID>()
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::DependentSingletons) < 16);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::Class_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//The set of variables that defines a character class.\n//When you make a new one of these, make sure to add it to the character select widgets' class arrays.\n" },
+#endif
 		{ "IncludePath", "HordeShooter/Character/Classes/MSD_CharacterClassDefinition.h" },
 		{ "ModuleRelativePath", "HordeShooter/Character/Classes/MSD_CharacterClassDefinition.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "The set of variables that defines a character class.\nWhen you make a new one of these, make sure to add it to the character select widgets' class arrays." },
+#endif
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_HubBodyMesh_MetaData[] = {
 		{ "AssetBundles", "HubOnly" },
 		{ "Category", "Models" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//The following two meshes are only used in the hub and do not change based on subclass.\n//The body mesh, only visible to the server and other clients.\n" },
+#endif
 		{ "ModuleRelativePath", "HordeShooter/Character/Classes/MSD_CharacterClassDefinition.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "The following two meshes are only used in the hub and do not change based on subclass.\nThe body mesh, only visible to the server and other clients." },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FSoftObjectPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_HubBodyMesh = { "HubBodyMesh", nullptr, (EPropertyFlags)0x0014000000010015, UECodeGen_Private::EPropertyGenFlags::SoftObject, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, HubBodyMesh), Z_Construct_UClass_USkeletalMesh_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_HubBodyMesh_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_HubBodyMesh_MetaData) };
@@ -193,7 +211,13 @@ template<> HORDESHOOTER_API UScriptStruct* StaticStruct<FMSDPrimaryAssetID>()
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_HubHandsMesh_MetaData[] = {
 		{ "AssetBundles", "HubOnly" },
 		{ "Category", "Models" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//The hands mesh, only visible to the owning client.\n" },
+#endif
 		{ "ModuleRelativePath", "HordeShooter/Character/Classes/MSD_CharacterClassDefinition.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "The hands mesh, only visible to the owning client." },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FSoftObjectPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_HubHandsMesh = { "HubHandsMesh", nullptr, (EPropertyFlags)0x0014000000010015, UECodeGen_Private::EPropertyGenFlags::SoftObject, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, HubHandsMesh), Z_Construct_UClass_USkeletalMesh_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_HubHandsMesh_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_HubHandsMesh_MetaData) };
@@ -201,7 +225,13 @@ template<> HORDESHOOTER_API UScriptStruct* StaticStruct<FMSDPrimaryAssetID>()
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AbilitySet_MetaData[] = {
 		{ "AssetBundles", "MissionOnly" },
 		{ "Category", "Abilities" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//Default abilities for the class, regardless of subclass\n" },
+#endif
 		{ "ModuleRelativePath", "HordeShooter/Character/Classes/MSD_CharacterClassDefinition.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Default abilities for the class, regardless of subclass" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FSoftObjectPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AbilitySet = { "AbilitySet", nullptr, (EPropertyFlags)0x0014000000010015, UECodeGen_Private::EPropertyGenFlags::SoftObject, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, AbilitySet), Z_Construct_UClass_UMSD_AbilitySet_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AbilitySet_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AbilitySet_MetaData) };
@@ -209,33 +239,39 @@ template<> HORDESHOOTER_API UScriptStruct* StaticStruct<FMSDPrimaryAssetID>()
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AttributesEffect_MetaData[] = {
 		{ "AssetBundles", "HubAndMission" },
 		{ "Category", "Abilities" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//The effect to set the class's attributes\n" },
+#endif
 		{ "ModuleRelativePath", "HordeShooter/Character/Classes/MSD_CharacterClassDefinition.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "The effect to set the class's attributes" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FSoftClassPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AttributesEffect = { "AttributesEffect", nullptr, (EPropertyFlags)0x0014000000010015, UECodeGen_Private::EPropertyGenFlags::SoftClass, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, AttributesEffect), Z_Construct_UClass_UGameplayEffect_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AttributesEffect_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_AttributesEffect_MetaData) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_Inner = { "Subclasses", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FMSDPrimaryAssetID, METADATA_PARAMS(0, nullptr) }; // 2343172896
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_Inner = { "Subclasses", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FMSDPrimaryAssetID, METADATA_PARAMS(0, nullptr) }; // 3029446217
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_MetaData[] = {
 		{ "Category", "Abilities" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "//maybe eventually I'll swap these over to FStrings for a tiny memory optimization,\n//but at the moment the extra complexity isn't worth it, not to mention the added pitfalls of entering strings wrong\n" },
+		{ "Comment", "//Maybe eventually I'll swap these over to FStrings for a tiny memory optimization\n//but at the moment the extra complexity isn't worth it,\n//not to mention the added pitfalls of entering strings wrong\n" },
 #endif
 		{ "ModuleRelativePath", "HordeShooter/Character/Classes/MSD_CharacterClassDefinition.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "maybe eventually I'll swap these over to FStrings for a tiny memory optimization,\nbut at the moment the extra complexity isn't worth it, not to mention the added pitfalls of entering strings wrong" },
+		{ "ToolTip", "Maybe eventually I'll swap these over to FStrings for a tiny memory optimization\nbut at the moment the extra complexity isn't worth it,\nnot to mention the added pitfalls of entering strings wrong" },
 #endif
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses = { "Subclasses", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, Subclasses), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_MetaData) }; // 2343172896
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses = { "Subclasses", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, Subclasses), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_Subclasses_MetaData) }; // 3029446217
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_CapsuleHalfHeight_MetaData[] = {
 		{ "Category", "Character Setup" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "//no need for bundle tags here, only soft pointers can make use of the bundling system\n" },
+		{ "Comment", "//No need for bundle tags here, only soft pointers can make use of the bundling system\n" },
 #endif
 		{ "ModuleRelativePath", "HordeShooter/Character/Classes/MSD_CharacterClassDefinition.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "no need for bundle tags here, only soft pointers can make use of the bundling system" },
+		{ "ToolTip", "No need for bundle tags here, only soft pointers can make use of the bundling system" },
 #endif
 	};
 #endif
@@ -264,7 +300,13 @@ template<> HORDESHOOTER_API UScriptStruct* StaticStruct<FMSDPrimaryAssetID>()
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_MoveSpeedWalking_MetaData[] = {
 		{ "Category", "Character Stats" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//TODO - remove these, they should be handled by the attributes effect to allow for easier slowing or quickening effects\n" },
+#endif
 		{ "ModuleRelativePath", "HordeShooter/Character/Classes/MSD_CharacterClassDefinition.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "TODO - remove these, they should be handled by the attributes effect to allow for easier slowing or quickening effects" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_MoveSpeedWalking = { "MoveSpeedWalking", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_CharacterClassDefinition, MoveSpeedWalking), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_MoveSpeedWalking_MetaData), Z_Construct_UClass_UMSD_CharacterClassDefinition_Statics::NewProp_MoveSpeedWalking_MetaData) };
@@ -329,12 +371,12 @@ template<> HORDESHOOTER_API UScriptStruct* StaticStruct<FMSDPrimaryAssetID>()
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ScriptStructInfo[] = {
-		{ FMSDPrimaryAssetID::StaticStruct, Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewStructOps, TEXT("MSDPrimaryAssetID"), &Z_Registration_Info_UScriptStruct_MSDPrimaryAssetID, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FMSDPrimaryAssetID), 2343172896U) },
+		{ FMSDPrimaryAssetID::StaticStruct, Z_Construct_UScriptStruct_FMSDPrimaryAssetID_Statics::NewStructOps, TEXT("MSDPrimaryAssetID"), &Z_Registration_Info_UScriptStruct_MSDPrimaryAssetID, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FMSDPrimaryAssetID), 3029446217U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMSD_CharacterClassDefinition, UMSD_CharacterClassDefinition::StaticClass, TEXT("UMSD_CharacterClassDefinition"), &Z_Registration_Info_UClass_UMSD_CharacterClassDefinition, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSD_CharacterClassDefinition), 3937311696U) },
+		{ Z_Construct_UClass_UMSD_CharacterClassDefinition, UMSD_CharacterClassDefinition::StaticClass, TEXT("UMSD_CharacterClassDefinition"), &Z_Registration_Info_UClass_UMSD_CharacterClassDefinition, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSD_CharacterClassDefinition), 1498235690U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_3624093519(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_3374468728(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Classes_MSD_CharacterClassDefinition_h_Statics::ScriptStructInfo),
 		nullptr, 0);

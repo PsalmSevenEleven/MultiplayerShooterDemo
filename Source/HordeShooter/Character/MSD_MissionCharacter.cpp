@@ -101,7 +101,6 @@ void AMSD_MissionCharacter::ChangeClassLoadedCallback(FString NewClass, int32 Ne
 
 	if(!ClassDefinition->AttributesEffect.Get())
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("No Attributes Effect found in class definition"));
 		return;
 	}
 	
@@ -111,12 +110,7 @@ void AMSD_MissionCharacter::ChangeClassLoadedCallback(FString NewClass, int32 Ne
 	FGameplayEffectSpecHandle AttributesEffectHandle = AbilitySystemComponent->MakeOutgoingSpec(ClassDefinition->AttributesEffect.Get(), 1, EffectContext);
 	if (AttributesEffectHandle.IsValid())
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Applying Attributes Effect to player"));
-
-		if(AbilitySystemComponent->ApplyGameplayEffectSpecToTarget(*AttributesEffectHandle.Data.Get(), AbilitySystemComponent).IsValid())
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Applied Attributes Effect to player Successfully"));
-		}
+		AbilitySystemComponent->ApplyGameplayEffectSpecToTarget(*AttributesEffectHandle.Data.Get(), AbilitySystemComponent);
 	}
 }
 
@@ -133,10 +127,22 @@ void AMSD_MissionCharacter::ChangeSubclassLoadedCallback(const FPrimaryAssetId N
 	{
 		return;
 	}
+
+	if(SubclassDefinition->BodyMesh.IsValid() && SubclassDefinition->BodyAnimBlueprint.IsValid())
+	{
+		GetMesh()->SetSkeletalMesh(SubclassDefinition->BodyMesh.Get());
+		GetMesh()->SetAnimClass(SubclassDefinition->BodyAnimBlueprint.Get()->GeneratedClass);
+	}
 	
-	GetMesh()->SetSkeletalMesh(SubclassDefinition->BodyMesh.Get());
-	GetHandsMesh()->SetSkeletalMesh(SubclassDefinition->HandsMesh.Get());
+	if(SubclassDefinition->HandsMesh.IsValid() && SubclassDefinition->HandsAnimBlueprint.IsValid())
+	{
+		GetHandsMesh()->SetSkeletalMesh(SubclassDefinition->HandsMesh.Get());
+		GetHandsMesh()->SetAnimClass(SubclassDefinition->HandsAnimBlueprint.Get()->GeneratedClass);
+	}
+	
 	SubclassDefinition->AbilitySet->AddAbilitiesToASC(AbilitySystemComponent);
+
+	AbilitySystemComponent->SetAvatarActor(this);
 	
 	AssetManager->UnloadPrimaryAsset(NewSubclass);
 }

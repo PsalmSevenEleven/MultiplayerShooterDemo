@@ -50,6 +50,20 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		*(UMSDUserWidget**)Z_Param__Result=P_THIS->GetCurrentWidget_Implementation();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AMSDCharacter::execRetrieveBodyMesh_Implementation)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(USkeletalMeshComponent**)Z_Param__Result=P_THIS->RetrieveBodyMesh_Implementation();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMSDCharacter::execRetrieveHandsMesh_Implementation)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(USkeletalMeshComponent**)Z_Param__Result=P_THIS->RetrieveHandsMesh_Implementation();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AMSDCharacter::execGetCameraComponent_Implementation)
 	{
 		P_FINISH;
@@ -162,6 +176,8 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 			{ "GetEnhancedInputActionValue", &AMSDCharacter::execGetEnhancedInputActionValue },
 			{ "Interact_Implementation", &AMSDCharacter::execInteract_Implementation },
 			{ "OnRep_CharacterClass", &AMSDCharacter::execOnRep_CharacterClass },
+			{ "RetrieveBodyMesh_Implementation", &AMSDCharacter::execRetrieveBodyMesh_Implementation },
+			{ "RetrieveHandsMesh_Implementation", &AMSDCharacter::execRetrieveHandsMesh_Implementation },
 			{ "RetrieveInteractInfo_Implementation", &AMSDCharacter::execRetrieveInteractInfo_Implementation },
 			{ "SetCurrentWidget_Implementation", &AMSDCharacter::execSetCurrentWidget_Implementation },
 			{ "StopInteract_Implementation", &AMSDCharacter::execStopInteract_Implementation },
@@ -545,6 +561,90 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics
+	{
+		struct MSDCharacter_eventRetrieveBodyMesh_Implementation_Parms
+		{
+			USkeletalMeshComponent* ReturnValue;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ReturnValue_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics::NewProp_ReturnValue_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MSDCharacter_eventRetrieveBodyMesh_Implementation_Parms, ReturnValue), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics::NewProp_ReturnValue_MetaData), Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics::NewProp_ReturnValue_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Character/MSDCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMSDCharacter, nullptr, "RetrieveBodyMesh_Implementation", nullptr, nullptr, Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics::MSDCharacter_eventRetrieveBodyMesh_Implementation_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics::MSDCharacter_eventRetrieveBodyMesh_Implementation_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics
+	{
+		struct MSDCharacter_eventRetrieveHandsMesh_Implementation_Parms
+		{
+			USkeletalMeshComponent* ReturnValue;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ReturnValue_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics::NewProp_ReturnValue_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MSDCharacter_eventRetrieveHandsMesh_Implementation_Parms, ReturnValue), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics::NewProp_ReturnValue_MetaData), Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics::NewProp_ReturnValue_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Character/MSDCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMSDCharacter, nullptr, "RetrieveHandsMesh_Implementation", nullptr, nullptr, Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics::MSDCharacter_eventRetrieveHandsMesh_Implementation_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics::MSDCharacter_eventRetrieveHandsMesh_Implementation_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AMSDCharacter_RetrieveInteractInfo_Implementation_Statics
 	{
 		struct MSDCharacter_eventRetrieveInteractInfo_Implementation_Parms
@@ -762,6 +862,8 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		{ &Z_Construct_UFunction_AMSDCharacter_GetEnhancedInputActionValue, "GetEnhancedInputActionValue" }, // 3030841535
 		{ &Z_Construct_UFunction_AMSDCharacter_Interact_Implementation, "Interact_Implementation" }, // 3021310374
 		{ &Z_Construct_UFunction_AMSDCharacter_OnRep_CharacterClass, "OnRep_CharacterClass" }, // 639952702
+		{ &Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation, "RetrieveBodyMesh_Implementation" }, // 3741514812
+		{ &Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation, "RetrieveHandsMesh_Implementation" }, // 152316446
 		{ &Z_Construct_UFunction_AMSDCharacter_RetrieveInteractInfo_Implementation, "RetrieveInteractInfo_Implementation" }, // 2596121046
 		{ &Z_Construct_UFunction_AMSDCharacter_SetCurrentWidget_Implementation, "SetCurrentWidget_Implementation" }, // 278927122
 		{ &Z_Construct_UFunction_AMSDCharacter_StopInteract_Implementation, "StopInteract_Implementation" }, // 998568718
@@ -938,7 +1040,7 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_AMSDCharacter_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UInteractableInterface_NoRegister, (int32)VTABLE_OFFSET(AMSDCharacter, IInteractableInterface), false },  // 1417254257
 			{ Z_Construct_UClass_UAbilitySystemInterface_NoRegister, (int32)VTABLE_OFFSET(AMSDCharacter, IAbilitySystemInterface), false },  // 3195502011
-			{ Z_Construct_UClass_UPlayerInterface_NoRegister, (int32)VTABLE_OFFSET(AMSDCharacter, IPlayerInterface), false },  // 36778966
+			{ Z_Construct_UClass_UPlayerInterface_NoRegister, (int32)VTABLE_OFFSET(AMSDCharacter, IPlayerInterface), false },  // 1379622954
 		};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDCharacter_Statics::InterfaceParams) < 64);
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMSDCharacter_Statics::StaticCppClassTypeInfo = {
@@ -991,9 +1093,9 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMSDCharacter, AMSDCharacter::StaticClass, TEXT("AMSDCharacter"), &Z_Registration_Info_UClass_AMSDCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSDCharacter), 2342119830U) },
+		{ Z_Construct_UClass_AMSDCharacter, AMSDCharacter::StaticClass, TEXT("AMSDCharacter"), &Z_Registration_Info_UClass_AMSDCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSDCharacter), 3846005964U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_4030914242(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_2238050015(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

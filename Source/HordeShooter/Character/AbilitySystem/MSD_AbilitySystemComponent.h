@@ -16,6 +16,11 @@ class HORDESHOOTER_API UMSD_AbilitySystemComponent : public UAbilitySystemCompon
 
 public:
 
+	template<class T>
+	T* GetAbilityOfClass();
+
+	
+
 	//Ability activation batching	
 	UPROPERTY()
 	TArray<struct FGameplayAbilitySpecHandle> HeldAbilityHandles;
@@ -33,5 +38,22 @@ public:
 
 	virtual void AbilitySpecInputPressed(FGameplayAbilitySpec& Spec) override;
 	virtual void AbilitySpecInputReleased(FGameplayAbilitySpec& Spec) override;
+
+	virtual float PlayMontageOnSkeletalMesh(UGameplayAbility* InAnimatingAbility, FGameplayAbilityActivationInfo ActivationInfo, UAnimMontage* NewAnimMontage, USkeletalMeshComponent* InSkeletalMesh, float InPlayRate, FName StartSectionName, float StartTimeSeconds);
+
 	
 };
+
+template <class T>
+inline T* UMSD_AbilitySystemComponent::GetAbilityOfClass()
+{
+	for (const FGameplayAbilitySpec& Spec : ActivatableAbilities.Items)
+	{
+		if (Spec.Ability->IsA(T::StaticClass()))
+		{
+			return Cast<T>(Spec.Ability);
+		}
+	}
+
+	return nullptr;
+}

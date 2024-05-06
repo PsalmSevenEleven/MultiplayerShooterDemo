@@ -11,11 +11,23 @@ AMSD_PooledObject::AMSD_PooledObject()
 void AMSD_PooledObject::Activate()
 {
 	bIsActive = true;
+	OnActivate();
+}
+
+void AMSD_PooledObject::OnActivate_Implementation()
+{
+	
 }
 
 void AMSD_PooledObject::Deactivate()
 {
 	bIsActive = false;
+	OnDeactivate();
 	OnDeactivateDelegate.Broadcast(this);
+}
+
+void AMSD_PooledObject::OnDeactivate_Implementation()
+{
+	
 }
 

@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "MSDGameplayAbility.h"
+#include "HordeShooter/Character/AbilitySystem/Abilities/MSDGameplayAbility.h"
 #include "Abilities/GameplayAbility.h"
 #include "Engine/DataAsset.h"
 #include "MSD_AbilitySet.generated.h"

@@ -4,7 +4,7 @@
 #include "MSD_AbilitySet.h"
 
 #include "AbilitySystemComponent.h"
-#include "MSDGameplayAbility.h"
+#include "HordeShooter/Character/AbilitySystem/Abilities/MSDGameplayAbility.h"
 
 void UMSD_AbilitySet::AddAbilitiesToASC(UAbilitySystemComponent* ASC) const
 {
@@ -21,7 +21,7 @@ void UMSD_AbilitySet::AddAbilitiesToASC(UAbilitySystemComponent* ASC) const
 			continue;
 		}
 
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("AddAbilitiesToASC"));
+		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("AddAbilitiesToASC"));
 		
 		FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(Abilities[i].GetDefaultObject(), 1, static_cast<int16>(Abilities[i].GetDefaultObject()->AbilityInputID));
 		ASC->GiveAbility(AbilitySpec);

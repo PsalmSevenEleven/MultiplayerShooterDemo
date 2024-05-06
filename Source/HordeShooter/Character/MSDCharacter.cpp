@@ -581,6 +581,16 @@ UCameraComponent* AMSDCharacter::GetCameraComponent_Implementation() const
 	return FollowCamera;
 }
 
+USkeletalMeshComponent* AMSDCharacter::RetrieveHandsMesh_Implementation() const
+{
+	return HandsMesh;
+}
+
+USkeletalMeshComponent* AMSDCharacter::RetrieveBodyMesh_Implementation() const
+{
+	return GetMesh();
+}
+
 UMSDUserWidget* AMSDCharacter::GetCurrentWidget_Implementation() const
 {
 	return MSDPlayerController->CurrentWidget;

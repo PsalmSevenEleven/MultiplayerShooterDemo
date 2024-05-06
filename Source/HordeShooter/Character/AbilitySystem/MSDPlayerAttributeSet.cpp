@@ -14,7 +14,7 @@ void UMSDPlayerAttributeSet::PreAttributeChange(const FGameplayAttribute& Attrib
 		NewValue = FMath::Clamp(NewValue, 0.0f, GetMaxMana());
 	}
 			
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("PreAttributeChange"));
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("PreAttributeChange"));
 	Super::PreAttributeChange(Attribute, NewValue);
 }
 

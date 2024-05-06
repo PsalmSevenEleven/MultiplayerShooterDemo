@@ -59,11 +59,25 @@ void FOnPooledObjectDeactivateDelegate_DelegateWrapper(const FMulticastScriptDel
 	Parms.PooledObject=PooledObject;
 	OnPooledObjectDeactivateDelegate.ProcessMulticastDelegate<UObject>(&Parms);
 }
+	DEFINE_FUNCTION(AMSD_PooledObject::execOnDeactivate)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnDeactivate_Implementation();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AMSD_PooledObject::execDeactivate)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->Deactivate();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMSD_PooledObject::execOnActivate)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnActivate_Implementation();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AMSD_PooledObject::execActivate)
@@ -73,12 +87,24 @@ void FOnPooledObjectDeactivateDelegate_DelegateWrapper(const FMulticastScriptDel
 		P_THIS->Activate();
 		P_NATIVE_END;
 	}
+	static FName NAME_AMSD_PooledObject_OnActivate = FName(TEXT("OnActivate"));
+	void AMSD_PooledObject::OnActivate()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AMSD_PooledObject_OnActivate),NULL);
+	}
+	static FName NAME_AMSD_PooledObject_OnDeactivate = FName(TEXT("OnDeactivate"));
+	void AMSD_PooledObject::OnDeactivate()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AMSD_PooledObject_OnDeactivate),NULL);
+	}
 	void AMSD_PooledObject::StaticRegisterNativesAMSD_PooledObject()
 	{
 		UClass* Class = AMSD_PooledObject::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "Activate", &AMSD_PooledObject::execActivate },
 			{ "Deactivate", &AMSD_PooledObject::execDeactivate },
+			{ "OnActivate", &AMSD_PooledObject::execOnActivate },
+			{ "OnDeactivate", &AMSD_PooledObject::execOnDeactivate },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -126,6 +152,50 @@ void FOnPooledObjectDeactivateDelegate_DelegateWrapper(const FMulticastScriptDel
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AMSD_PooledObject_OnActivate_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMSD_PooledObject_OnActivate_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Pooled_Objects/MSD_PooledObject.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMSD_PooledObject_OnActivate_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMSD_PooledObject, nullptr, "OnActivate", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSD_PooledObject_OnActivate_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMSD_PooledObject_OnActivate_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_AMSD_PooledObject_OnActivate()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMSD_PooledObject_OnActivate_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMSD_PooledObject_OnDeactivate_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMSD_PooledObject_OnDeactivate_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Pooled_Objects/MSD_PooledObject.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMSD_PooledObject_OnDeactivate_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMSD_PooledObject, nullptr, "OnDeactivate", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSD_PooledObject_OnDeactivate_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMSD_PooledObject_OnDeactivate_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_AMSD_PooledObject_OnDeactivate()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMSD_PooledObject_OnDeactivate_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AMSD_PooledObject);
 	UClass* Z_Construct_UClass_AMSD_PooledObject_NoRegister()
 	{
@@ -149,6 +219,8 @@ void FOnPooledObjectDeactivateDelegate_DelegateWrapper(const FMulticastScriptDel
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMSD_PooledObject_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AMSD_PooledObject_Activate, "Activate" }, // 2707706888
 		{ &Z_Construct_UFunction_AMSD_PooledObject_Deactivate, "Deactivate" }, // 3689238413
+		{ &Z_Construct_UFunction_AMSD_PooledObject_OnActivate, "OnActivate" }, // 4125089871
+		{ &Z_Construct_UFunction_AMSD_PooledObject_OnDeactivate, "OnDeactivate" }, // 703715555
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMSD_PooledObject_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -194,9 +266,9 @@ void FOnPooledObjectDeactivateDelegate_DelegateWrapper(const FMulticastScriptDel
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Pooled_Objects_MSD_PooledObject_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMSD_PooledObject, AMSD_PooledObject::StaticClass, TEXT("AMSD_PooledObject"), &Z_Registration_Info_UClass_AMSD_PooledObject, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSD_PooledObject), 3140600271U) },
+		{ Z_Construct_UClass_AMSD_PooledObject, AMSD_PooledObject::StaticClass, TEXT("AMSD_PooledObject"), &Z_Registration_Info_UClass_AMSD_PooledObject, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSD_PooledObject), 630650675U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Pooled_Objects_MSD_PooledObject_h_404510379(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Pooled_Objects_MSD_PooledObject_h_2441114166(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Pooled_Objects_MSD_PooledObject_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Pooled_Objects_MSD_PooledObject_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

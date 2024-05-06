@@ -50,6 +50,21 @@ public:
 	GAMEPLAYATTRIBUTE_VALUE_INITTER(MaxMana);
 	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UMSDPlayerAttributeSet, MaxMana);
 
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Attributes")
+	FGameplayAttributeData RemainingRounds;
+	GAMEPLAYATTRIBUTE_VALUE_GETTER(RemainingRounds);
+	GAMEPLAYATTRIBUTE_VALUE_SETTER(RemainingRounds);
+	GAMEPLAYATTRIBUTE_VALUE_INITTER(RemainingRounds);
+	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UMSDPlayerAttributeSet, RemainingRounds);
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Attributes")
+	FGameplayAttributeData MaxRounds;
+	GAMEPLAYATTRIBUTE_VALUE_GETTER(MaxRounds);
+	GAMEPLAYATTRIBUTE_VALUE_SETTER(MaxRounds);
+	GAMEPLAYATTRIBUTE_VALUE_INITTER(MaxRounds);
+	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UMSDPlayerAttributeSet, MaxRounds);
+
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Attributes")
 	FGameplayAttributeData WalkSpeed;

@@ -11,6 +11,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UCameraComponent;
 class UMSDUserWidget;
+class USkeletalMeshComponent;
 #ifdef HORDESHOOTER_PlayerInterface_generated_h
 #error "PlayerInterface.generated.h already included, missing '#pragma once' in PlayerInterface.h"
 #endif
@@ -22,10 +23,14 @@ class UMSDUserWidget;
 #define FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void SetCurrentWidget_Implementation(UMSDUserWidget* NewWidget) {}; \
 	virtual UMSDUserWidget* GetCurrentWidget_Implementation() const { return NULL; }; \
+	virtual USkeletalMeshComponent* RetrieveBodyMesh_Implementation() const { return NULL; }; \
+	virtual USkeletalMeshComponent* RetrieveHandsMesh_Implementation() const { return NULL; }; \
 	virtual UCameraComponent* GetCameraComponent_Implementation() const { return NULL; }; \
  \
 	DECLARE_FUNCTION(execSetCurrentWidget); \
 	DECLARE_FUNCTION(execGetCurrentWidget); \
+	DECLARE_FUNCTION(execRetrieveBodyMesh); \
+	DECLARE_FUNCTION(execRetrieveHandsMesh); \
 	DECLARE_FUNCTION(execGetCameraComponent);
 
 
@@ -70,6 +75,8 @@ public: \
 	typedef IPlayerInterface ThisClass; \
 	static UCameraComponent* Execute_GetCameraComponent(const UObject* O); \
 	static UMSDUserWidget* Execute_GetCurrentWidget(const UObject* O); \
+	static USkeletalMeshComponent* Execute_RetrieveBodyMesh(const UObject* O); \
+	static USkeletalMeshComponent* Execute_RetrieveHandsMesh(const UObject* O); \
 	static void Execute_SetCurrentWidget(UObject* O, UMSDUserWidget* NewWidget); \
 	virtual UObject* _getUObject() const { return nullptr; }
 

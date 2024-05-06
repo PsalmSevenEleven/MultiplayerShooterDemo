@@ -11,6 +11,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UInterface();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSDUserWidget_NoRegister();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UPlayerInterface();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UPlayerInterface_NoRegister();
@@ -29,6 +30,20 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		*(UMSDUserWidget**)Z_Param__Result=P_THIS->GetCurrentWidget_Implementation();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(IPlayerInterface::execRetrieveBodyMesh)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(USkeletalMeshComponent**)Z_Param__Result=P_THIS->RetrieveBodyMesh_Implementation();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(IPlayerInterface::execRetrieveHandsMesh)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(USkeletalMeshComponent**)Z_Param__Result=P_THIS->RetrieveHandsMesh_Implementation();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(IPlayerInterface::execGetCameraComponent)
@@ -58,6 +73,26 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		{
 		}
 	};
+	struct PlayerInterface_eventRetrieveBodyMesh_Parms
+	{
+		USkeletalMeshComponent* ReturnValue;
+
+		/** Constructor, initializes return property only **/
+		PlayerInterface_eventRetrieveBodyMesh_Parms()
+			: ReturnValue(NULL)
+		{
+		}
+	};
+	struct PlayerInterface_eventRetrieveHandsMesh_Parms
+	{
+		USkeletalMeshComponent* ReturnValue;
+
+		/** Constructor, initializes return property only **/
+		PlayerInterface_eventRetrieveHandsMesh_Parms()
+			: ReturnValue(NULL)
+		{
+		}
+	};
 	struct PlayerInterface_eventSetCurrentWidget_Parms
 	{
 		UMSDUserWidget* NewWidget;
@@ -74,6 +109,18 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		PlayerInterface_eventGetCurrentWidget_Parms Parms;
 		return Parms.ReturnValue;
 	}
+	USkeletalMeshComponent* IPlayerInterface::RetrieveBodyMesh() const
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_RetrieveBodyMesh instead.");
+		PlayerInterface_eventRetrieveBodyMesh_Parms Parms;
+		return Parms.ReturnValue;
+	}
+	USkeletalMeshComponent* IPlayerInterface::RetrieveHandsMesh() const
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_RetrieveHandsMesh instead.");
+		PlayerInterface_eventRetrieveHandsMesh_Parms Parms;
+		return Parms.ReturnValue;
+	}
 	void IPlayerInterface::SetCurrentWidget(UMSDUserWidget* NewWidget)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_SetCurrentWidget instead.");
@@ -84,6 +131,8 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "GetCameraComponent", &IPlayerInterface::execGetCameraComponent },
 			{ "GetCurrentWidget", &IPlayerInterface::execGetCurrentWidget },
+			{ "RetrieveBodyMesh", &IPlayerInterface::execRetrieveBodyMesh },
+			{ "RetrieveHandsMesh", &IPlayerInterface::execRetrieveHandsMesh },
 			{ "SetCurrentWidget", &IPlayerInterface::execSetCurrentWidget },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -164,6 +213,82 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ReturnValue_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh_Statics::NewProp_ReturnValue_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventRetrieveBodyMesh_Parms, ReturnValue), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh_Statics::NewProp_ReturnValue_MetaData), Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh_Statics::NewProp_ReturnValue_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Interfaces/PlayerInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerInterface, nullptr, "RetrieveBodyMesh", nullptr, nullptr, Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh_Statics::PropPointers), sizeof(PlayerInterface_eventRetrieveBodyMesh_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x5C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh_Statics::PropPointers) < 2048);
+	static_assert(sizeof(PlayerInterface_eventRetrieveBodyMesh_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ReturnValue_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh_Statics::NewProp_ReturnValue_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventRetrieveHandsMesh_Parms, ReturnValue), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh_Statics::NewProp_ReturnValue_MetaData), Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh_Statics::NewProp_ReturnValue_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Interfaces/PlayerInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerInterface, nullptr, "RetrieveHandsMesh", nullptr, nullptr, Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh_Statics::PropPointers), sizeof(PlayerInterface_eventRetrieveHandsMesh_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x5C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh_Statics::PropPointers) < 2048);
+	static_assert(sizeof(PlayerInterface_eventRetrieveHandsMesh_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UPlayerInterface_SetCurrentWidget_Statics
 	{
 #if WITH_METADATA
@@ -225,6 +350,8 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_UPlayerInterface_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UPlayerInterface_GetCameraComponent, "GetCameraComponent" }, // 429846494
 		{ &Z_Construct_UFunction_UPlayerInterface_GetCurrentWidget, "GetCurrentWidget" }, // 3221646278
+		{ &Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh, "RetrieveBodyMesh" }, // 2190333942
+		{ &Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh, "RetrieveHandsMesh" }, // 926375034
 		{ &Z_Construct_UFunction_UPlayerInterface_SetCurrentWidget, "SetCurrentWidget" }, // 3158008896
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInterface_Statics::FuncInfo) < 2048);
@@ -300,6 +427,40 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		}
 		return Parms.ReturnValue;
 	}
+	static FName NAME_UPlayerInterface_RetrieveBodyMesh = FName(TEXT("RetrieveBodyMesh"));
+	USkeletalMeshComponent* IPlayerInterface::Execute_RetrieveBodyMesh(const UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()));
+		PlayerInterface_eventRetrieveBodyMesh_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UPlayerInterface_RetrieveBodyMesh);
+		if (Func)
+		{
+			const_cast<UObject*>(O)->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (const IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
+		{
+			Parms.ReturnValue = I->RetrieveBodyMesh_Implementation();
+		}
+		return Parms.ReturnValue;
+	}
+	static FName NAME_UPlayerInterface_RetrieveHandsMesh = FName(TEXT("RetrieveHandsMesh"));
+	USkeletalMeshComponent* IPlayerInterface::Execute_RetrieveHandsMesh(const UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()));
+		PlayerInterface_eventRetrieveHandsMesh_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UPlayerInterface_RetrieveHandsMesh);
+		if (Func)
+		{
+			const_cast<UObject*>(O)->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (const IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
+		{
+			Parms.ReturnValue = I->RetrieveHandsMesh_Implementation();
+		}
+		return Parms.ReturnValue;
+	}
 	static FName NAME_UPlayerInterface_SetCurrentWidget = FName(TEXT("SetCurrentWidget"));
 	void IPlayerInterface::Execute_SetCurrentWidget(UObject* O, UMSDUserWidget* NewWidget)
 	{
@@ -322,9 +483,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPlayerInterface, UPlayerInterface::StaticClass, TEXT("UPlayerInterface"), &Z_Registration_Info_UClass_UPlayerInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerInterface), 36778966U) },
+		{ Z_Construct_UClass_UPlayerInterface, UPlayerInterface::StaticClass, TEXT("UPlayerInterface"), &Z_Registration_Info_UClass_UPlayerInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerInterface), 1379622954U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_3544659246(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_3701717851(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

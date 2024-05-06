@@ -7,6 +7,7 @@
 UENUM(Blueprintable)
 enum class EPlayerAbilityInputID: uint8
 {
+	None UMETA(DisplayName = "None"),
 	Confirm UMETA(DisplayName = "Confirm"),
 	Cancel UMETA(DisplayName = "Cancel"),
 	Move UMETA(DisplayName = "Move"),
@@ -14,6 +15,7 @@ enum class EPlayerAbilityInputID: uint8
 	Jump UMETA(DisplayName = "Jump"),
 	Pause UMETA(DisplayName = "Pause"),
 	Interact UMETA(DisplayName = "Interact"),
+	Reload UMETA(DisplayName = "Reload"),
 	PrimaryFire UMETA(DisplayName = "PrimaryFire"),
 	// SecondaryFire UMETA(DisplayName = "SecondaryFire"),
 	// SupportAbility UMETA(DisplayName = "SupportAbility"),

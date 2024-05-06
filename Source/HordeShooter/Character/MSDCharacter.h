@@ -187,6 +187,12 @@ public:
 	UCameraComponent* GetCameraComponent_Implementation() const override;
 
 	UFUNCTION()
+	USkeletalMeshComponent* RetrieveHandsMesh_Implementation() const override;
+
+	UFUNCTION()
+	USkeletalMeshComponent* RetrieveBodyMesh_Implementation() const override;
+
+	UFUNCTION()
 	UMSDUserWidget* GetCurrentWidget_Implementation() const override;
 
 	UFUNCTION()

@@ -15,6 +15,7 @@ class UAbilitySystemComponent;
 class UCameraComponent;
 class UInputAction;
 class UMSDUserWidget;
+class USkeletalMeshComponent;
 enum class EInteractionType : uint8;
 struct FInputActionValue;
 #ifdef HORDESHOOTER_MSDCharacter_generated_h
@@ -31,6 +32,8 @@ struct FInputActionValue;
  \
 	DECLARE_FUNCTION(execSetCurrentWidget_Implementation); \
 	DECLARE_FUNCTION(execGetCurrentWidget_Implementation); \
+	DECLARE_FUNCTION(execRetrieveBodyMesh_Implementation); \
+	DECLARE_FUNCTION(execRetrieveHandsMesh_Implementation); \
 	DECLARE_FUNCTION(execGetCameraComponent_Implementation); \
 	DECLARE_FUNCTION(execGetAbilitySystemComponent); \
 	DECLARE_FUNCTION(execCanInteract_Implementation); \
