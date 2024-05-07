@@ -14,7 +14,7 @@ void UClassSelectWidgetHub::NativeConstruct()
 	}
 
 	SelectedClassIndex = SaveGame->GetClassIndex();
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("SelectedClassIndex: %d"), SelectedClassIndex));
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("SelectedClassIndex: %d"), SelectedClassIndex));
 
 	LoadClass();
 }

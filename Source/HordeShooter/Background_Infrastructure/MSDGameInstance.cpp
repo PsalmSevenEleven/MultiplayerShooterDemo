@@ -23,7 +23,7 @@ void UMSDGameInstance::LoadCharacterClassesForEquipScreen()
 
 void UMSDGameInstance::CharacterClassesForEquipLoadedCallback()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("CharacterClassesForEquipLoadedCallback"));\
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("CharacterClassesForEquipLoadedCallback"));\
 
 	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
 	if(!AssetManager)

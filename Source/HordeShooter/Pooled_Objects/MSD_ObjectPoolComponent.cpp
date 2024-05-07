@@ -33,9 +33,7 @@ bool UMSD_ObjectPoolComponent::InitializePool()
 		{
 			PooledObject->SetIndex(i);
 			PooledObject->SetIsActive(false);
-			PooledObject->OnDeactivateDelegate.AddDynamic(this, &UMSD_ObjectPoolComponent::OnPooledObjectDespawned);\
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, GetOwner()->GetName());
-
+			PooledObject->OnDeactivateDelegate.AddDynamic(this, &UMSD_ObjectPoolComponent::OnPooledObjectDespawned);
 			PooledObject->SetInstigator(Cast<APlayerState>(GetOwner())->GetPawn());
 			ObjectPool.Add(PooledObject);
 		}
