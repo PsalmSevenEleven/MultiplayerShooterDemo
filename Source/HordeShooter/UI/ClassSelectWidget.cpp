@@ -14,6 +14,7 @@ void UClassSelectWidget::InitMenu()
 		return;
 	}
 	GetOwningPlayer()->SetViewTarget(CharacterMenuViewer);
+	
 }
 
 void UClassSelectWidget::LoadClass()
@@ -147,6 +148,28 @@ void UClassSelectWidget::NativeConstruct()
 	SelectClassButton->OnClicked.AddDynamic(this, &UClassSelectWidget::SelectButtonClicked);
 
 	SaveGame = Cast<UMSDSaveGame>(UGameplayStatics::LoadGameFromSlot("SaveGame", 0));
+
+	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
+	if(!AssetManager)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("AssetManager not initialized"));
+		return;
+	}
+
+	TArray<FAssetData> AssetData;
+	if(!AssetManager->GetPrimaryAssetDataList(FPrimaryAssetType("CharacterClassDefinition"), AssetData))
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("No assets found"));
+		return;
+	}
+
+	ClassIds.Reset();
+	for (const FAssetData& Asset : AssetData)
+	{
+		FPrimaryAssetType Type = FPrimaryAssetType("CharacterClassDefinition");
+		FPrimaryAssetId ID = FPrimaryAssetId(Type, Asset.AssetName);
+		ClassIds.Add(ID);
+	}
 }
 
 void UClassSelectWidget::NativeDestruct()

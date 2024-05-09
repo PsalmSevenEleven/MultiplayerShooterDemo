@@ -58,7 +58,13 @@ void EmptyLinkFunctionForGeneratedCodeMSD_AbilitySet() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_AbilitySet_Statics::NewProp_Abilities_MetaData[] = {
 		{ "Category", "MSD_AbilitySet" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//TODO - maybe add specific variables for primary fire ability, melee ability, etc.\n//might make getting the abilities we want easier when referring to them later\n" },
+#endif
 		{ "ModuleRelativePath", "HordeShooter/Character/AbilitySystem/MSD_AbilitySet.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "TODO - maybe add specific variables for primary fire ability, melee ability, etc.\nmight make getting the abilities we want easier when referring to them later" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UMSD_AbilitySet_Statics::NewProp_Abilities = { "Abilities", nullptr, (EPropertyFlags)0x0014000000010011, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_AbilitySet, Abilities), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_AbilitySet_Statics::NewProp_Abilities_MetaData), Z_Construct_UClass_UMSD_AbilitySet_Statics::NewProp_Abilities_MetaData) };
@@ -105,9 +111,9 @@ void EmptyLinkFunctionForGeneratedCodeMSD_AbilitySet() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSD_AbilitySet_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMSD_AbilitySet, UMSD_AbilitySet::StaticClass, TEXT("UMSD_AbilitySet"), &Z_Registration_Info_UClass_UMSD_AbilitySet, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSD_AbilitySet), 4032546835U) },
+		{ Z_Construct_UClass_UMSD_AbilitySet, UMSD_AbilitySet::StaticClass, TEXT("UMSD_AbilitySet"), &Z_Registration_Info_UClass_UMSD_AbilitySet, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSD_AbilitySet), 257195700U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSD_AbilitySet_h_3967481943(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSD_AbilitySet_h_1830899610(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSD_AbilitySet_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSD_AbilitySet_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

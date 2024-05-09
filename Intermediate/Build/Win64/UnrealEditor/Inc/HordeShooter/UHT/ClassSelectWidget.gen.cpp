@@ -259,6 +259,11 @@ void EmptyLinkFunctionForGeneratedCodeClassSelectWidget() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SelectedSubclassIndex_MetaData[];
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_SelectedSubclassIndex;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ClassIds_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ClassIds_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_ClassIds;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SelectedClassDef_MetaData[];
 #endif
@@ -275,11 +280,6 @@ void EmptyLinkFunctionForGeneratedCodeClassSelectWidget() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SaveGame_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_SaveGame;
-		static const UECodeGen_Private::FStructPropertyParams NewProp_ClassIds_Inner;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ClassIds_MetaData[];
-#endif
-		static const UECodeGen_Private::FArrayPropertyParams NewProp_ClassIds;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CharacterMenuViewer_MetaData[];
 #endif
@@ -358,6 +358,13 @@ void EmptyLinkFunctionForGeneratedCodeClassSelectWidget() {}
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SelectedSubclassIndex = { "SelectedSubclassIndex", nullptr, (EPropertyFlags)0x0020080000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UClassSelectWidget, SelectedSubclassIndex), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SelectedSubclassIndex_MetaData), Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SelectedSubclassIndex_MetaData) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_ClassIds_Inner = { "ClassIds", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FPrimaryAssetId, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_ClassIds_MetaData[] = {
+		{ "ModuleRelativePath", "HordeShooter/UI/ClassSelectWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_ClassIds = { "ClassIds", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UClassSelectWidget, ClassIds), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_ClassIds_MetaData), Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_ClassIds_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SelectedClassDef_MetaData[] = {
 		{ "ModuleRelativePath", "HordeShooter/UI/ClassSelectWidget.h" },
@@ -389,14 +396,6 @@ void EmptyLinkFunctionForGeneratedCodeClassSelectWidget() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SaveGame = { "SaveGame", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UClassSelectWidget, SaveGame), Z_Construct_UClass_UMSDSaveGame_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SaveGame_MetaData), Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SaveGame_MetaData) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_ClassIds_Inner = { "ClassIds", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FPrimaryAssetId, METADATA_PARAMS(0, nullptr) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_ClassIds_MetaData[] = {
-		{ "Category", "ClassSelectWidget" },
-		{ "ModuleRelativePath", "HordeShooter/UI/ClassSelectWidget.h" },
-	};
-#endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_ClassIds = { "ClassIds", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UClassSelectWidget, ClassIds), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_ClassIds_MetaData), Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_ClassIds_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_CharacterMenuViewer_MetaData[] = {
 		{ "Category", "ClassSelectWidget" },
@@ -412,12 +411,12 @@ void EmptyLinkFunctionForGeneratedCodeClassSelectWidget() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SelectClassButton,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SelectedClassIndex,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SelectedSubclassIndex,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_ClassIds_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_ClassIds,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SelectedClassDef,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_LoadingThrobber,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SubclassScrollBox,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_SaveGame,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_ClassIds_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_ClassIds,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UClassSelectWidget_Statics::NewProp_CharacterMenuViewer,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UClassSelectWidget_Statics::StaticCppClassTypeInfo = {
@@ -459,9 +458,9 @@ void EmptyLinkFunctionForGeneratedCodeClassSelectWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_UI_ClassSelectWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UClassSelectWidget, UClassSelectWidget::StaticClass, TEXT("UClassSelectWidget"), &Z_Registration_Info_UClass_UClassSelectWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UClassSelectWidget), 986729380U) },
+		{ Z_Construct_UClass_UClassSelectWidget, UClassSelectWidget::StaticClass, TEXT("UClassSelectWidget"), &Z_Registration_Info_UClass_UClassSelectWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UClassSelectWidget), 390063050U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_UI_ClassSelectWidget_h_4140793718(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_UI_ClassSelectWidget_h_2429204698(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_UI_ClassSelectWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_UI_ClassSelectWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

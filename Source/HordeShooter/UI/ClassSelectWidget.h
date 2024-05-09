@@ -42,6 +42,8 @@ protected:
 	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess))
 	int32 SelectedSubclassIndex;
 
+	UPROPERTY()
+	TArray<FPrimaryAssetId> ClassIds;
 	
 	UPROPERTY()
 	UMSD_CharacterClassDefinition* SelectedClassDef;
@@ -75,10 +77,7 @@ public:
 	
 	UPROPERTY(BlueprintReadWrite)
 	UMSDSaveGame* SaveGame;
-
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
-	TArray<FPrimaryAssetId> ClassIds;
-
+	
 	
 	UPROPERTY(BlueprintReadWrite, meta = (ExposeOnSpawn))
 	AMSDCharacterMenuViewer* CharacterMenuViewer;

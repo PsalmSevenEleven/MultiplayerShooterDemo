@@ -67,13 +67,7 @@ void EmptyLinkFunctionForGeneratedCodeMSD_AbilitySystemComponent() {}
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMSD_AbilitySystemComponent_Statics::NewProp_HeldAbilityHandles_Inner = { "HeldAbilityHandles", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FGameplayAbilitySpecHandle, METADATA_PARAMS(0, nullptr) }; // 839298412
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMSD_AbilitySystemComponent_Statics::NewProp_HeldAbilityHandles_MetaData[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "//Ability activation batching\x09\n" },
-#endif
 		{ "ModuleRelativePath", "HordeShooter/Character/AbilitySystem/MSD_AbilitySystemComponent.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Ability activation batching" },
-#endif
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UMSD_AbilitySystemComponent_Statics::NewProp_HeldAbilityHandles = { "HeldAbilityHandles", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMSD_AbilitySystemComponent, HeldAbilityHandles), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMSD_AbilitySystemComponent_Statics::NewProp_HeldAbilityHandles_MetaData), Z_Construct_UClass_UMSD_AbilitySystemComponent_Statics::NewProp_HeldAbilityHandles_MetaData) }; // 839298412
@@ -138,9 +132,9 @@ void EmptyLinkFunctionForGeneratedCodeMSD_AbilitySystemComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSD_AbilitySystemComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMSD_AbilitySystemComponent, UMSD_AbilitySystemComponent::StaticClass, TEXT("UMSD_AbilitySystemComponent"), &Z_Registration_Info_UClass_UMSD_AbilitySystemComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSD_AbilitySystemComponent), 3902259299U) },
+		{ Z_Construct_UClass_UMSD_AbilitySystemComponent, UMSD_AbilitySystemComponent::StaticClass, TEXT("UMSD_AbilitySystemComponent"), &Z_Registration_Info_UClass_UMSD_AbilitySystemComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMSD_AbilitySystemComponent), 2251518033U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSD_AbilitySystemComponent_h_2284358341(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSD_AbilitySystemComponent_h_2554515372(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSD_AbilitySystemComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_MSD_AbilitySystemComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

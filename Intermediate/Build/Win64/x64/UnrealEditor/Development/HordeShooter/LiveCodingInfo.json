@@ -6,7 +6,6 @@
 			"ClassSelectWidgetEntry.gen.cpp.obj",
 			"ClassSelectWidgetHub.gen.cpp.obj",
 			"HordeShooter.gen.cpp.obj",
-			"HordeShooter.init.gen.cpp.obj",
 			"InteractableInterface.gen.cpp.obj",
 			"InteractPrompt.gen.cpp.obj",
 			"MSDCharacter.gen.cpp.obj",
@@ -22,8 +21,6 @@
 			"MSDReloadAbility.gen.cpp.obj",
 			"MSDSaveGame.gen.cpp.obj",
 			"MSDUserWidget.gen.cpp.obj",
-			"MSD_AbilitySet.gen.cpp.obj",
-			"MSD_AbilitySystemComponent.gen.cpp.obj",
 			"MSD_CharacterClassDefinition.gen.cpp.obj",
 			"MSD_LobbyCharacter.gen.cpp.obj",
 			"MSD_MissionCharacter.gen.cpp.obj",
@@ -70,13 +67,16 @@
 			"MSD_PooledObject.cpp.obj",
 			"MSD_Projectile.cpp.obj",
 			"ClassSelectWidgetEntry.cpp.obj",
+			"ClassSelectWidgetHub.cpp.obj",
 			"InteractPrompt.cpp.obj",
 			"MSDCharacterMenuViewer.cpp.obj",
 			"MSDHud.cpp.obj",
 			"MSDUserWidget.cpp.obj",
 			"SubclassButtonWidget.cpp.obj",
-			"ClassSelectWidget.cpp.obj",
-			"ClassSelectWidgetHub.cpp.obj"
+			"HordeShooter.init.gen.cpp.obj",
+			"MSD_AbilitySet.gen.cpp.obj",
+			"MSD_AbilitySystemComponent.gen.cpp.obj",
+			"ClassSelectWidget.cpp.obj"
 		]
 	}
 }

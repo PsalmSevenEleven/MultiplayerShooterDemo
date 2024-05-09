@@ -69,14 +69,14 @@
 			"MSD_ObjectPoolComponent.cpp.obj",
 			"MSD_PooledObject.cpp.obj",
 			"MSD_Projectile.cpp.obj",
-			"ClassSelectWidget.cpp.obj",
 			"ClassSelectWidgetEntry.cpp.obj",
 			"ClassSelectWidgetHub.cpp.obj",
 			"InteractPrompt.cpp.obj",
 			"MSDCharacterMenuViewer.cpp.obj",
 			"MSDHud.cpp.obj",
 			"MSDUserWidget.cpp.obj",
-			"SubclassButtonWidget.cpp.obj"
+			"SubclassButtonWidget.cpp.obj",
+			"ClassSelectWidget.cpp.obj"
 		]
 	}
 }

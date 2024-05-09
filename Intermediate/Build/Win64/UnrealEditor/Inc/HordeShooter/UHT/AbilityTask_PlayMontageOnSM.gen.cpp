@@ -401,10 +401,13 @@ void FMontageOnSMSimpleDelegate_DelegateWrapper(const FMulticastScriptDelegate& 
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityTask_PlayMontageOnSM_Statics::Class_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n * \n */" },
+		{ "Comment", "/**\n * \n *///This is basically just a copy of the original PlayMontageAndWaitForEvent task,\n//but with the ability to play a montage on a specific skeletal mesh component\n" },
 #endif
 		{ "IncludePath", "HordeShooter/Character/AbilitySystem/AbilityTasks/AbilityTask_PlayMontageOnSM.h" },
 		{ "ModuleRelativePath", "HordeShooter/Character/AbilitySystem/AbilityTasks/AbilityTask_PlayMontageOnSM.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "//This is basically just a copy of the original PlayMontageAndWaitForEvent task,\n//but with the ability to play a montage on a specific skeletal mesh component" },
+#endif
 	};
 #endif
 #if WITH_METADATA
@@ -541,9 +544,9 @@ void FMontageOnSMSimpleDelegate_DelegateWrapper(const FMulticastScriptDelegate& 
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_AbilityTasks_AbilityTask_PlayMontageOnSM_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UAbilityTask_PlayMontageOnSM, UAbilityTask_PlayMontageOnSM::StaticClass, TEXT("UAbilityTask_PlayMontageOnSM"), &Z_Registration_Info_UClass_UAbilityTask_PlayMontageOnSM, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilityTask_PlayMontageOnSM), 2832584064U) },
+		{ Z_Construct_UClass_UAbilityTask_PlayMontageOnSM, UAbilityTask_PlayMontageOnSM::StaticClass, TEXT("UAbilityTask_PlayMontageOnSM"), &Z_Registration_Info_UClass_UAbilityTask_PlayMontageOnSM, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilityTask_PlayMontageOnSM), 1810399411U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_AbilityTasks_AbilityTask_PlayMontageOnSM_h_2846017484(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_AbilityTasks_AbilityTask_PlayMontageOnSM_h_3162725597(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_AbilityTasks_AbilityTask_PlayMontageOnSM_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_AbilitySystem_AbilityTasks_AbilityTask_PlayMontageOnSM_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
