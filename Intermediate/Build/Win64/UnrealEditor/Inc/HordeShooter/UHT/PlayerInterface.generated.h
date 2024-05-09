@@ -12,6 +12,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UCameraComponent;
 class UMSDUserWidget;
 class USkeletalMeshComponent;
+enum class ESlateVisibility : uint8;
 #ifdef HORDESHOOTER_PlayerInterface_generated_h
 #error "PlayerInterface.generated.h already included, missing '#pragma once' in PlayerInterface.h"
 #endif
@@ -21,12 +22,14 @@ class USkeletalMeshComponent;
 #define FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_15_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_15_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void SetHudVisibility_Implementation(ESlateVisibility Visibility) {}; \
 	virtual void SetCurrentWidget_Implementation(UMSDUserWidget* NewWidget) {}; \
 	virtual UMSDUserWidget* GetCurrentWidget_Implementation() const { return NULL; }; \
 	virtual USkeletalMeshComponent* RetrieveBodyMesh_Implementation() const { return NULL; }; \
 	virtual USkeletalMeshComponent* RetrieveHandsMesh_Implementation() const { return NULL; }; \
 	virtual UCameraComponent* GetCameraComponent_Implementation() const { return NULL; }; \
  \
+	DECLARE_FUNCTION(execSetHudVisibility); \
 	DECLARE_FUNCTION(execSetCurrentWidget); \
 	DECLARE_FUNCTION(execGetCurrentWidget); \
 	DECLARE_FUNCTION(execRetrieveBodyMesh); \
@@ -78,6 +81,7 @@ public: \
 	static USkeletalMeshComponent* Execute_RetrieveBodyMesh(const UObject* O); \
 	static USkeletalMeshComponent* Execute_RetrieveHandsMesh(const UObject* O); \
 	static void Execute_SetCurrentWidget(UObject* O, UMSDUserWidget* NewWidget); \
+	static void Execute_SetHudVisibility(UObject* O, ESlateVisibility Visibility); \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 

@@ -6,6 +6,7 @@
 #include "Components/Button.h"
 #include "Engine/AssetManager.h"
 #include "HordeShooter/Character/Classes/MSD_SubclassDefinition.h"
+#include "HordeShooter/Interfaces/PlayerInterface.h"
 
 void UClassSelectWidget::InitMenu()
 {
@@ -146,6 +147,8 @@ void UClassSelectWidget::NativeConstruct()
 	NextButton->OnClicked.AddDynamic(this, &UClassSelectWidget::NextButtonClicked);
 	PreviousButton->OnClicked.AddDynamic(this, &UClassSelectWidget::PreviousButtonClicked);
 	SelectClassButton->OnClicked.AddDynamic(this, &UClassSelectWidget::SelectButtonClicked);
+	
+	IPlayerInterface::Execute_SetHudVisibility(GetOwningPlayer(), ESlateVisibility::Collapsed);
 
 	SaveGame = Cast<UMSDSaveGame>(UGameplayStatics::LoadGameFromSlot("SaveGame", 0));
 
@@ -185,6 +188,8 @@ void UClassSelectWidget::NativeDestruct()
 	{
 		CharacterMenuViewer->Destroy();
 	}
+	
+	IPlayerInterface::Execute_SetHudVisibility(GetOwningPlayer(), ESlateVisibility::Visible);
 	
 	Super::NativeDestruct();
 }

@@ -39,5 +39,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void SetCurrentWidget(UMSDUserWidget* NewWidget);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetHudVisibility(ESlateVisibility Visibility);
 	
 };

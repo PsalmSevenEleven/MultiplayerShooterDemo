@@ -23,7 +23,7 @@ void EmptyLinkFunctionForGeneratedCodeHordeShooter_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x900A256B,
+				0x1044AC7B,
 				0xA62ACA9A,
 				METADATA_PARAMS(0, nullptr)
 			};
@@ -31,5 +31,5 @@ void EmptyLinkFunctionForGeneratedCodeHordeShooter_init() {}
 		}
 		return Z_Registration_Info_UPackage__Script_HordeShooter.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_HordeShooter(Z_Construct_UPackage__Script_HordeShooter, TEXT("/Script/HordeShooter"), Z_Registration_Info_UPackage__Script_HordeShooter, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x900A256B, 0xA62ACA9A));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_HordeShooter(Z_Construct_UPackage__Script_HordeShooter, TEXT("/Script/HordeShooter"), Z_Registration_Info_UPackage__Script_HordeShooter, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x1044AC7B, 0xA62ACA9A));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

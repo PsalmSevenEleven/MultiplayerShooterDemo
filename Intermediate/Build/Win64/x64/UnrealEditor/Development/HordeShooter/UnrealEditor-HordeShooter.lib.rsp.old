@@ -8,6 +8,9 @@
 /NODEFAULTLIB
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.obj"
 "C:\Users\Caleb\Documents\Unreal Projects\HordeShooterRepo\HordeShooter\Intermediate\Build\Win64\x64\UnrealEditor\Development\HordeShooter\Module.HordeShooter.cpp.obj"
+"C:\Users\Caleb\Documents\Unreal Projects\HordeShooterRepo\HordeShooter\Intermediate\Build\Win64\x64\UnrealEditor\Development\HordeShooter\MSDPlayerController.cpp.obj"
+"C:\Users\Caleb\Documents\Unreal Projects\HordeShooterRepo\HordeShooter\Intermediate\Build\Win64\x64\UnrealEditor\Development\HordeShooter\PlayerInterface.cpp.obj"
 "C:\Users\Caleb\Documents\Unreal Projects\HordeShooterRepo\HordeShooter\Intermediate\Build\Win64\x64\UnrealEditor\Development\HordeShooter\ClassSelectWidget.cpp.obj"
+"C:\Users\Caleb\Documents\Unreal Projects\HordeShooterRepo\HordeShooter\Intermediate\Build\Win64\x64\UnrealEditor\Development\HordeShooter\ClassSelectWidgetEntry.cpp.obj"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Default.rc2.res"
 /OUT:"C:\Users\Caleb\Documents\Unreal Projects\HordeShooterRepo\HordeShooter\Intermediate\Build\Win64\x64\UnrealEditor\Development\HordeShooter\UnrealEditor-HordeShooter.lib"

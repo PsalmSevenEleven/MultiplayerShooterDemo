@@ -50,3 +50,11 @@ UAbilitySystemComponent* AMSDPlayerController::GetAbilitySystemComponent() const
 {
 	return GetPlayerState<AMSDPlayerState>()->GetAbilitySystemComponent();
 }
+
+void AMSDPlayerController::SetHudVisibility_Implementation(ESlateVisibility Visibility)
+{
+	if(HUD)
+	{
+		HUD->SetVisibility(Visibility);
+	}
+}

@@ -29,7 +29,7 @@ void UClassSelectWidgetEntry::SelectButtonClicked()
 	{
 		return;
 	}
-
+	
 	PlayerController->SetInputMode(FInputModeGameOnly());
 	PlayerController->bShowMouseCursor = false;
 
