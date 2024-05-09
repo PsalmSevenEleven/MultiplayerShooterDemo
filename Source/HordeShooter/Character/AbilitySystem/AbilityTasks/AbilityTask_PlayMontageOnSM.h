@@ -11,6 +11,9 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FMontageOnSMSimpleDelegate);
 /**
  * 
  */
+
+//This is basically just a copy of the original PlayMontageAndWaitForEvent task,
+//but with the ability to play a montage on a specific skeletal mesh component
 UCLASS()
 class HORDESHOOTER_API UAbilityTask_PlayMontageOnSM : public UAbilityTask
 {

@@ -14,8 +14,11 @@ UMSD_PrimaryFireAbility::UMSD_PrimaryFireAbility()
 
 void UMSD_PrimaryFireAbility::OnAvatarSet(const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilitySpec& Spec)
 {
+	//Call the super function to init the object pools
 	Super::OnAvatarSet(ActorInfo, Spec);
-	
+
+	//Apply an effect that sets the player's current and max rounds
+	//This effect shouldn't ever need to change because it does a bunch of automagic nonsense in the background
 	FGameplayEffectContextHandle EffectContext = ActorInfo->AbilitySystemComponent.Get()->MakeEffectContext();
 	EffectContext.AddSourceObject(this);
 	

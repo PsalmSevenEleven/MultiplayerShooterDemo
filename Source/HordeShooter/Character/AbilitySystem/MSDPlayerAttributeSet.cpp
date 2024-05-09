@@ -13,6 +13,8 @@ void UMSDPlayerAttributeSet::PreAttributeChange(const FGameplayAttribute& Attrib
 	{
 		NewValue = FMath::Clamp(NewValue, 0.0f, GetMaxMana());
 	}
+
+	//TODO - clamp all of the other attributes
 			
 	Super::PreAttributeChange(Attribute, NewValue);
 }

@@ -58,7 +58,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Inspections-C#&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -637,6 +637,8 @@
       <workItem from="1715012103901" duration="8843000" />
       <workItem from="1715103396574" duration="648000" />
       <workItem from="1715122529374" duration="1862000" />
+      <workItem from="1715186335240" duration="4216000" />
+      <workItem from="1715272542741" duration="2240000" />
     </task>
     <servers />
   </component>

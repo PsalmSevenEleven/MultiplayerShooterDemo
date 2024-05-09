@@ -18,6 +18,9 @@ class HORDESHOOTER_API UMSD_AbilitySet : public UDataAsset
 	GENERATED_BODY()
 
 public:
+	//TODO - maybe add specific variables for primary fire ability, melee ability, etc.
+	//might make getting the abilities we want easier when referring to them later
+	
 	UPROPERTY(EditDefaultsOnly)
 	TArray<TSubclassOf<UMSDGameplayAbility>> Abilities;
 	

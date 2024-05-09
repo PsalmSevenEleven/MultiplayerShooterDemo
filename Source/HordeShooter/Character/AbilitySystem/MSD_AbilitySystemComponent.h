@@ -16,12 +16,12 @@ class HORDESHOOTER_API UMSD_AbilitySystemComponent : public UAbilitySystemCompon
 
 public:
 
+	//Grabs the first activatable ability that this component has of the specified class
 	template<class T>
 	T* GetAbilityOfClass();
-
 	
-
-	//Ability activation batching	
+#pragma region Ability Input Batching
+	
 	UPROPERTY()
 	TArray<struct FGameplayAbilitySpecHandle> HeldAbilityHandles;
 
@@ -38,7 +38,9 @@ public:
 
 	virtual void AbilitySpecInputPressed(FGameplayAbilitySpec& Spec) override;
 	virtual void AbilitySpecInputReleased(FGameplayAbilitySpec& Spec) override;
-
+#pragma endregion
+	
+	//Yoinked from AbilitySystemComponent_Abilities.cpp, with modifications to allow me to specify mesh
 	virtual float PlayMontageOnSkeletalMesh(UGameplayAbility* InAnimatingAbility, FGameplayAbilityActivationInfo ActivationInfo, UAnimMontage* NewAnimMontage, USkeletalMeshComponent* InSkeletalMesh, float InPlayRate, FName StartSectionName, float StartTimeSeconds);
 
 	

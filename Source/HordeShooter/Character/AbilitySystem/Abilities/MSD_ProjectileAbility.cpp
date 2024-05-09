@@ -11,6 +11,7 @@ void UMSD_ProjectileAbility::OnAvatarSet(const FGameplayAbilityActorInfo* ActorI
 {
 	Super::OnAvatarSet(ActorInfo, Spec);
 
+	//Create an object pool for projectiles and initialize its values
 	ProjectilePool = Cast<UMSD_ObjectPoolComponent>(
 		ActorInfo->OwnerActor->AddComponentByClass(UMSD_ObjectPoolComponent::StaticClass(),
 		false,
@@ -25,5 +26,6 @@ void UMSD_ProjectileAbility::OnAvatarSet(const FGameplayAbilityActorInfo* ActorI
 		ProjectilePool->InitializePool();
 	}
 
+	//TODO - add decal pool
 	
 }

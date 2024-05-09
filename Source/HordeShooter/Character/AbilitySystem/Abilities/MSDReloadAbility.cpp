@@ -20,19 +20,15 @@ void UMSDReloadAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
 
 	int Cost = 0;
 	//Since there shouldn't ever be more than one primary fire ability, we can just grab the first one we find
-	for (auto Ability : ActorInfo->AbilitySystemComponent->GetActivatableAbilities())
+	UMSD_PrimaryFireAbility* PFA = Cast<UMSD_AbilitySystemComponent>(ActorInfo->AbilitySystemComponent)->GetAbilityOfClass<UMSD_PrimaryFireAbility>();
+	if(PFA)
 	{
-		UMSD_PrimaryFireAbility* PFA = Cast<UMSD_PrimaryFireAbility>(Ability.Ability);
-		if(PFA)
-		{
-			Cost = PFA->ReloadCost;
-			break;
-		}
+		Cost = PFA->ReloadCost;
 	}
-
 	
 	const UMSDPlayerAttributeSet* PlayerAttributeSet = Cast<UMSDPlayerAttributeSet>(ActorInfo->AbilitySystemComponent->GetAttributeSet(UMSDPlayerAttributeSet::StaticClass()));
-
+	//Here we check the PlayerAttributeSet both to see if it exists and to make sure the player actually should be able to reload.
+	//If you have full ammo, you dont need to be able to reload
 	if(PlayerAttributeSet
 		&& PlayerAttributeSet->RemainingRounds.GetCurrentValue() == PlayerAttributeSet->MaxRounds.GetCurrentValue())
 	{
@@ -49,14 +45,15 @@ void UMSDReloadAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
 
 	USkeletalMeshComponent* Hands = Cast<AMSDCharacter>(ActorInfo->AvatarActor)->GetHandsMesh();
 
+	//Make sure we have a montage to play
 	UAnimMontage* Montage = Cast<UMSD_AbilitySystemComponent>(ActorInfo->AbilitySystemComponent)->GetAbilityOfClass<UMSD_PrimaryFireAbility>()->Montage;
-
 	if(!Montage)
 	{
 		K2_EndAbility();
 		return;
 	}
-	
+
+	//If we don't have the mana to reload, play the failed montage and end the ability
 	if(Budget < Cost)
 	{
 		UAbilityTask_PlayMontageOnSM* Task = UAbilityTask_PlayMontageOnSM::CreatePlayMontageOnSMProxy(this, "Reload", Montage, Hands,1.0f, FName("FailedReload"));
@@ -66,6 +63,7 @@ void UMSDReloadAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
 		Task->OnInterrupted.AddDynamic(this, &UMSDReloadAbility::K2_EndAbility);
 		Task->ReadyForActivation();
 	}
+	//Otherwise, we have the required resources and can play the reload montage
 	else
 	{
 	
@@ -84,18 +82,17 @@ void UMSDReloadAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
 
 void UMSDReloadAbility::CompletedCallback()
 {
-
+	//If we successfully reloaded we can apply the reload effect
 	FGameplayEffectContextHandle EffectContext = GetActorInfo().AbilitySystemComponent->MakeEffectContext();
 	EffectContext.AddSourceObject(this);
 
 	FGameplayEffectSpecHandle EffectSpec = GetActorInfo().AbilitySystemComponent->MakeOutgoingSpec(ReloadEffect, 1.0f, GetActorInfo().AbilitySystemComponent->MakeEffectContext());
-	
 	if (EffectSpec.IsValid())
 	{
 		GetActorInfo().AbilitySystemComponent->ApplyGameplayEffectSpecToTarget(*EffectSpec.Data.Get(), GetActorInfo().AbilitySystemComponent.Get());
 	}
-	
-	
+
+	//Ends the ability
 	CancelledCallback();
 }
 

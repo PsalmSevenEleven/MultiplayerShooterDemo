@@ -8,6 +8,7 @@
 
 void UMSD_AbilitySet::AddAbilitiesToASC(UAbilitySystemComponent* ASC) const
 {
+	//Make sure the ASC exists and that it actually has the authority to give abilities
 	ensure(ASC);
 	if(!ASC->IsOwnerActorAuthoritative())
 	{
