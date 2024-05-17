@@ -43,6 +43,11 @@ public:
 
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
+
+	UPROPERTY(BlueprintReadWrite)
+	FVector2D MouseDirection = FVector2D::ZeroVector;
+
+
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
 	UInputMappingContext* PlayerInputMappingContext;
@@ -55,6 +60,9 @@ protected:
 
 	UFUNCTION()
 	void SetHudVisibility_Implementation(ESlateVisibility Visibility) override;
+
+	UFUNCTION()
+	FVector2D GetMouseDirection_Implementation() override;
 };
 
 

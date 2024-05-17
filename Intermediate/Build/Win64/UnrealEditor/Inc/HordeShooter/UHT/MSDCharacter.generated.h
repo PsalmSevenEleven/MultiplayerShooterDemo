@@ -30,6 +30,7 @@ struct FInputActionValue;
 	virtual bool ChangeClass_Validate(const FString& , int32 ); \
 	virtual void ChangeClass_Implementation(const FString& NewClass, int32 NewSubclass); \
  \
+	DECLARE_FUNCTION(execGetInputActionValue_Implementation); \
 	DECLARE_FUNCTION(execSetCurrentWidget_Implementation); \
 	DECLARE_FUNCTION(execGetCurrentWidget_Implementation); \
 	DECLARE_FUNCTION(execRetrieveBodyMesh_Implementation); \

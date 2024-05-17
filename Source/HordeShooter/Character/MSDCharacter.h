@@ -197,6 +197,9 @@ public:
 
 	UFUNCTION()
 	void SetCurrentWidget_Implementation(UMSDUserWidget* NewWidget) override;
+
+	UFUNCTION()
+	FInputActionValue GetInputActionValue_Implementation(UInputAction* InAction) override;
 	
 #pragma endregion
 	

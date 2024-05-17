@@ -331,6 +331,12 @@
     <Filter Include="Source\HordeShooter">
       <UniqueIdentifier>{17977FE6-0ACE-3064-BF27-3AE1861325A1}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\HordeShooter\ANS_MeleeTrace.cpp">
+      <Filter>Source\HordeShooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\ANS_MeleeTrace.h">
+      <Filter>Source\HordeShooter</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\HordeShooter\HordeShooter.cpp">
       <Filter>Source\HordeShooter</Filter>
     </ClCompile>
@@ -511,6 +517,12 @@
     <Filter Include="Source\HordeShooter\Interfaces">
       <UniqueIdentifier>{EDEC85DF-FF85-3F9D-A8BF-9AF7B7362867}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\HordeShooter\Interfaces\CombatInterface.cpp">
+      <Filter>Source\HordeShooter\Interfaces</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Interfaces\CombatInterface.h">
+      <Filter>Source\HordeShooter\Interfaces</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\HordeShooter\Interfaces\InteractableInterface.cpp">
       <Filter>Source\HordeShooter\Interfaces</Filter>
     </ClCompile>

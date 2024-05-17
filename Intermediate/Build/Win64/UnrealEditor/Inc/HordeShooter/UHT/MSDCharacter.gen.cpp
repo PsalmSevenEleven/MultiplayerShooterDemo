@@ -35,6 +35,14 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 	HORDESHOOTER_API UEnum* Z_Construct_UEnum_HordeShooter_EInteractionType();
 	UPackage* Z_Construct_UPackage__Script_HordeShooter();
 // End Cross Module References
+	DEFINE_FUNCTION(AMSDCharacter::execGetInputActionValue_Implementation)
+	{
+		P_GET_OBJECT(UInputAction,Z_Param_InAction);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FInputActionValue*)Z_Param__Result=P_THIS->GetInputActionValue_Implementation(Z_Param_InAction);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AMSDCharacter::execSetCurrentWidget_Implementation)
 	{
 		P_GET_OBJECT(UMSDUserWidget,Z_Param_NewWidget);
@@ -174,6 +182,7 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 			{ "GetCameraComponent_Implementation", &AMSDCharacter::execGetCameraComponent_Implementation },
 			{ "GetCurrentWidget_Implementation", &AMSDCharacter::execGetCurrentWidget_Implementation },
 			{ "GetEnhancedInputActionValue", &AMSDCharacter::execGetEnhancedInputActionValue },
+			{ "GetInputActionValue_Implementation", &AMSDCharacter::execGetInputActionValue_Implementation },
 			{ "Interact_Implementation", &AMSDCharacter::execInteract_Implementation },
 			{ "OnRep_CharacterClass", &AMSDCharacter::execOnRep_CharacterClass },
 			{ "RetrieveBodyMesh_Implementation", &AMSDCharacter::execRetrieveBodyMesh_Implementation },
@@ -492,6 +501,44 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMSDCharacter_GetEnhancedInputActionValue_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation_Statics
+	{
+		struct MSDCharacter_eventGetInputActionValue_Implementation_Parms
+		{
+			UInputAction* InAction;
+			FInputActionValue ReturnValue;
+		};
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_InAction;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation_Statics::NewProp_InAction = { "InAction", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MSDCharacter_eventGetInputActionValue_Implementation_Parms, InAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MSDCharacter_eventGetInputActionValue_Implementation_Parms, ReturnValue), Z_Construct_UScriptStruct_FInputActionValue, METADATA_PARAMS(0, nullptr) }; // 1693336646
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation_Statics::NewProp_InAction,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Character/MSDCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMSDCharacter, nullptr, "GetInputActionValue_Implementation", nullptr, nullptr, Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation_Statics::MSDCharacter_eventGetInputActionValue_Implementation_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation_Statics::MSDCharacter_eventGetInputActionValue_Implementation_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -860,6 +907,7 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		{ &Z_Construct_UFunction_AMSDCharacter_GetCameraComponent_Implementation, "GetCameraComponent_Implementation" }, // 1609821890
 		{ &Z_Construct_UFunction_AMSDCharacter_GetCurrentWidget_Implementation, "GetCurrentWidget_Implementation" }, // 560997788
 		{ &Z_Construct_UFunction_AMSDCharacter_GetEnhancedInputActionValue, "GetEnhancedInputActionValue" }, // 3030841535
+		{ &Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation, "GetInputActionValue_Implementation" }, // 4061020708
 		{ &Z_Construct_UFunction_AMSDCharacter_Interact_Implementation, "Interact_Implementation" }, // 3021310374
 		{ &Z_Construct_UFunction_AMSDCharacter_OnRep_CharacterClass, "OnRep_CharacterClass" }, // 639952702
 		{ &Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation, "RetrieveBodyMesh_Implementation" }, // 3741514812
@@ -1040,7 +1088,7 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_AMSDCharacter_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UInteractableInterface_NoRegister, (int32)VTABLE_OFFSET(AMSDCharacter, IInteractableInterface), false },  // 1417254257
 			{ Z_Construct_UClass_UAbilitySystemInterface_NoRegister, (int32)VTABLE_OFFSET(AMSDCharacter, IAbilitySystemInterface), false },  // 3195502011
-			{ Z_Construct_UClass_UPlayerInterface_NoRegister, (int32)VTABLE_OFFSET(AMSDCharacter, IPlayerInterface), false },  // 886856652
+			{ Z_Construct_UClass_UPlayerInterface_NoRegister, (int32)VTABLE_OFFSET(AMSDCharacter, IPlayerInterface), false },  // 573591994
 		};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDCharacter_Statics::InterfaceParams) < 64);
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMSDCharacter_Statics::StaticCppClassTypeInfo = {
@@ -1093,9 +1141,9 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMSDCharacter, AMSDCharacter::StaticClass, TEXT("AMSDCharacter"), &Z_Registration_Info_UClass_AMSDCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSDCharacter), 3064327236U) },
+		{ Z_Construct_UClass_AMSDCharacter, AMSDCharacter::StaticClass, TEXT("AMSDCharacter"), &Z_Registration_Info_UClass_AMSDCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSDCharacter), 1310288237U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_3018505744(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_1092561003(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

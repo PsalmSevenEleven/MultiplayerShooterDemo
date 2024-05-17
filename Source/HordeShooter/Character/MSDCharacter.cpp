@@ -28,6 +28,7 @@
 #include "HordeShooter/Character/Input/MSDPlayerController.h"
 #include "HordeShooter/UI/InteractPrompt.h"
 #include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "Net/UnrealNetwork.h"
 
 
@@ -347,15 +348,15 @@ void AMSDCharacter::Move(const FInputActionValue& Value)
 }
 
 void AMSDCharacter::Look(const FInputActionValue& Value)
-{
-	// input is a Vector2D
-	FVector2D LookAxisVector = Value.Get<FVector2D>();
-
-	if (Controller != nullptr)
+{	
+	if (MSDPlayerController != nullptr)
 	{
+		MSDPlayerController->MouseDirection = Value.Get<FVector2D>();
 		// add yaw and pitch input to controller
-		AddControllerYawInput(LookAxisVector.X);
-		AddControllerPitchInput(LookAxisVector.Y);
+		AddControllerYawInput(MSDPlayerController->MouseDirection.X);
+		AddControllerPitchInput(MSDPlayerController->MouseDirection.Y);
+
+		MSDPlayerController->HUD->UpdateDirectionIndicator(MSDPlayerController->MouseDirection);
 	}
 }
 
@@ -599,6 +600,16 @@ UMSDUserWidget* AMSDCharacter::GetCurrentWidget_Implementation() const
 void AMSDCharacter::SetCurrentWidget_Implementation(UMSDUserWidget* NewWidget)
 {
 	MSDPlayerController->CurrentWidget = NewWidget;
+}
+
+FInputActionValue AMSDCharacter::GetInputActionValue_Implementation(UInputAction* InAction)
+{
+	UEnhancedInputComponent* PlayerEnhancedInputComponent = Cast<UEnhancedInputComponent>(GetController()->InputComponent);
+	if(!PlayerEnhancedInputComponent || !InAction)
+	{
+		return FInputActionValue();
+	}
+	return PlayerEnhancedInputComponent->BindActionValue(InAction).GetValue();
 }
 
 #pragma endregion

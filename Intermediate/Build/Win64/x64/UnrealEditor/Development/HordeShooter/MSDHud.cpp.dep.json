@@ -34,7 +34,16 @@
             "c:\\unrealenginesource\\engine\\source\\runtime\\umg\\public\\animation\\widgetanimationevents.h",
             "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\widgetanimationevents.generated.h",
             "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\userwidget.generated.h",
-            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\intermediate\\build\\win64\\unrealeditor\\inc\\hordeshooter\\uht\\msdhud.generated.h"
+            "c:\\users\\caleb\\documents\\unreal projects\\hordeshooterrepo\\hordeshooter\\intermediate\\build\\win64\\unrealeditor\\inc\\hordeshooter\\uht\\msdhud.generated.h",
+            "c:\\unrealenginesource\\engine\\source\\runtime\\umg\\public\\components\\image.h",
+            "c:\\unrealenginesource\\engine\\source\\runtime\\engine\\public\\slate\\slatetextureatlasinterface.h",
+            "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\slatetextureatlasinterface.generated.h",
+            "c:\\unrealenginesource\\engine\\source\\runtime\\engine\\classes\\engine\\streamablemanager.h",
+            "c:\\unrealenginesource\\engine\\source\\runtime\\coreuobject\\public\\misc\\packageaccesstracking.h",
+            "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\image.generated.h",
+            "c:\\unrealenginesource\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetmathlibrary.h",
+            "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\kismetmathlibrary.generated.h",
+            "c:\\unrealenginesource\\engine\\source\\runtime\\engine\\classes\\kismet\\kismetmathlibrary.inl"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

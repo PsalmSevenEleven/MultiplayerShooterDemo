@@ -6,18 +6,37 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "HordeShooter/Interfaces/PlayerInterface.h"
+#include "InputActionValue.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UInterface();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
+	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
+	ENHANCEDINPUT_API UScriptStruct* Z_Construct_UScriptStruct_FInputActionValue();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSDUserWidget_NoRegister();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UPlayerInterface();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UPlayerInterface_NoRegister();
 	UMG_API UEnum* Z_Construct_UEnum_UMG_ESlateVisibility();
 	UPackage* Z_Construct_UPackage__Script_HordeShooter();
 // End Cross Module References
+	DEFINE_FUNCTION(IPlayerInterface::execGetMouseDirection)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FVector2D*)Z_Param__Result=P_THIS->GetMouseDirection_Implementation();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(IPlayerInterface::execGetInputActionValue)
+	{
+		P_GET_OBJECT(UInputAction,Z_Param_InAction);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FInputActionValue*)Z_Param__Result=P_THIS->GetInputActionValue_Implementation(Z_Param_InAction);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(IPlayerInterface::execSetHudVisibility)
 	{
 		P_GET_ENUM(ESlateVisibility,Z_Param_Visibility);
@@ -82,6 +101,21 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		{
 		}
 	};
+	struct PlayerInterface_eventGetInputActionValue_Parms
+	{
+		UInputAction* InAction;
+		FInputActionValue ReturnValue;
+	};
+	struct PlayerInterface_eventGetMouseDirection_Parms
+	{
+		FVector2D ReturnValue;
+
+		/** Constructor, initializes return property only **/
+		PlayerInterface_eventGetMouseDirection_Parms()
+			: ReturnValue(ForceInit)
+		{
+		}
+	};
 	struct PlayerInterface_eventRetrieveBodyMesh_Parms
 	{
 		USkeletalMeshComponent* ReturnValue;
@@ -122,6 +156,18 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		PlayerInterface_eventGetCurrentWidget_Parms Parms;
 		return Parms.ReturnValue;
 	}
+	FInputActionValue IPlayerInterface::GetInputActionValue(UInputAction* InAction)
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetInputActionValue instead.");
+		PlayerInterface_eventGetInputActionValue_Parms Parms;
+		return Parms.ReturnValue;
+	}
+	FVector2D IPlayerInterface::GetMouseDirection()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetMouseDirection instead.");
+		PlayerInterface_eventGetMouseDirection_Parms Parms;
+		return Parms.ReturnValue;
+	}
 	USkeletalMeshComponent* IPlayerInterface::RetrieveBodyMesh() const
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_RetrieveBodyMesh instead.");
@@ -148,6 +194,8 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "GetCameraComponent", &IPlayerInterface::execGetCameraComponent },
 			{ "GetCurrentWidget", &IPlayerInterface::execGetCurrentWidget },
+			{ "GetInputActionValue", &IPlayerInterface::execGetInputActionValue },
+			{ "GetMouseDirection", &IPlayerInterface::execGetMouseDirection },
 			{ "RetrieveBodyMesh", &IPlayerInterface::execRetrieveBodyMesh },
 			{ "RetrieveHandsMesh", &IPlayerInterface::execRetrieveHandsMesh },
 			{ "SetCurrentWidget", &IPlayerInterface::execSetCurrentWidget },
@@ -228,6 +276,69 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_GetCurrentWidget_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UPlayerInterface_GetInputActionValue_Statics
+	{
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_InAction;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UPlayerInterface_GetInputActionValue_Statics::NewProp_InAction = { "InAction", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventGetInputActionValue_Parms, InAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UPlayerInterface_GetInputActionValue_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventGetInputActionValue_Parms, ReturnValue), Z_Construct_UScriptStruct_FInputActionValue, METADATA_PARAMS(0, nullptr) }; // 1693336646
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerInterface_GetInputActionValue_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_GetInputActionValue_Statics::NewProp_InAction,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_GetInputActionValue_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_GetInputActionValue_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Interfaces/PlayerInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerInterface_GetInputActionValue_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerInterface, nullptr, "GetInputActionValue", nullptr, nullptr, Z_Construct_UFunction_UPlayerInterface_GetInputActionValue_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetInputActionValue_Statics::PropPointers), sizeof(PlayerInterface_eventGetInputActionValue_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetInputActionValue_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPlayerInterface_GetInputActionValue_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetInputActionValue_Statics::PropPointers) < 2048);
+	static_assert(sizeof(PlayerInterface_eventGetInputActionValue_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UPlayerInterface_GetInputActionValue()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_GetInputActionValue_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UPlayerInterface_GetMouseDirection_Statics
+	{
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UPlayerInterface_GetMouseDirection_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventGetMouseDirection_Parms, ReturnValue), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerInterface_GetMouseDirection_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_GetMouseDirection_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_GetMouseDirection_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Interfaces/PlayerInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerInterface_GetMouseDirection_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerInterface, nullptr, "GetMouseDirection", nullptr, nullptr, Z_Construct_UFunction_UPlayerInterface_GetMouseDirection_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetMouseDirection_Statics::PropPointers), sizeof(PlayerInterface_eventGetMouseDirection_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C820C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetMouseDirection_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPlayerInterface_GetMouseDirection_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetMouseDirection_Statics::PropPointers) < 2048);
+	static_assert(sizeof(PlayerInterface_eventGetMouseDirection_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UPlayerInterface_GetMouseDirection()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_GetMouseDirection_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -401,6 +512,8 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_UPlayerInterface_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UPlayerInterface_GetCameraComponent, "GetCameraComponent" }, // 429846494
 		{ &Z_Construct_UFunction_UPlayerInterface_GetCurrentWidget, "GetCurrentWidget" }, // 3221646278
+		{ &Z_Construct_UFunction_UPlayerInterface_GetInputActionValue, "GetInputActionValue" }, // 2690264959
+		{ &Z_Construct_UFunction_UPlayerInterface_GetMouseDirection, "GetMouseDirection" }, // 4201592563
 		{ &Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh, "RetrieveBodyMesh" }, // 2190333942
 		{ &Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh, "RetrieveHandsMesh" }, // 926375034
 		{ &Z_Construct_UFunction_UPlayerInterface_SetCurrentWidget, "SetCurrentWidget" }, // 3158008896
@@ -479,6 +592,41 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		}
 		return Parms.ReturnValue;
 	}
+	static FName NAME_UPlayerInterface_GetInputActionValue = FName(TEXT("GetInputActionValue"));
+	FInputActionValue IPlayerInterface::Execute_GetInputActionValue(UObject* O, UInputAction* InAction)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()));
+		PlayerInterface_eventGetInputActionValue_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UPlayerInterface_GetInputActionValue);
+		if (Func)
+		{
+			Parms.InAction=InAction;
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetInputActionValue_Implementation(InAction);
+		}
+		return Parms.ReturnValue;
+	}
+	static FName NAME_UPlayerInterface_GetMouseDirection = FName(TEXT("GetMouseDirection"));
+	FVector2D IPlayerInterface::Execute_GetMouseDirection(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()));
+		PlayerInterface_eventGetMouseDirection_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UPlayerInterface_GetMouseDirection);
+		if (Func)
+		{
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetMouseDirection_Implementation();
+		}
+		return Parms.ReturnValue;
+	}
 	static FName NAME_UPlayerInterface_RetrieveBodyMesh = FName(TEXT("RetrieveBodyMesh"));
 	USkeletalMeshComponent* IPlayerInterface::Execute_RetrieveBodyMesh(const UObject* O)
 	{
@@ -552,9 +700,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPlayerInterface, UPlayerInterface::StaticClass, TEXT("UPlayerInterface"), &Z_Registration_Info_UClass_UPlayerInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerInterface), 886856652U) },
+		{ Z_Construct_UClass_UPlayerInterface, UPlayerInterface::StaticClass, TEXT("UPlayerInterface"), &Z_Registration_Info_UClass_UPlayerInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerInterface), 573591994U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_2900801142(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_387013491(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

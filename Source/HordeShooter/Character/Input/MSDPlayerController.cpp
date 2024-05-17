@@ -58,3 +58,8 @@ void AMSDPlayerController::SetHudVisibility_Implementation(ESlateVisibility Visi
 		HUD->SetVisibility(Visibility);
 	}
 }
+
+FVector2D AMSDPlayerController::GetMouseDirection_Implementation()
+{
+	return MouseDirection;
+}

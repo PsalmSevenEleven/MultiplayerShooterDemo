@@ -44,6 +44,7 @@ void EmptyLinkFunctionForGeneratedCodeHordeShooter() {}
 		{ "EPlayerAbilityInputID::Interact", (int64)EPlayerAbilityInputID::Interact },
 		{ "EPlayerAbilityInputID::Reload", (int64)EPlayerAbilityInputID::Reload },
 		{ "EPlayerAbilityInputID::PrimaryFire", (int64)EPlayerAbilityInputID::PrimaryFire },
+		{ "EPlayerAbilityInputID::SecondaryFire", (int64)EPlayerAbilityInputID::SecondaryFire },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_HordeShooter_EPlayerAbilityInputID_Statics::Enum_MetaDataParams[] = {
@@ -70,6 +71,8 @@ void EmptyLinkFunctionForGeneratedCodeHordeShooter() {}
 		{ "PrimaryFire.Name", "EPlayerAbilityInputID::PrimaryFire" },
 		{ "Reload.DisplayName", "Reload" },
 		{ "Reload.Name", "EPlayerAbilityInputID::Reload" },
+		{ "SecondaryFire.DisplayName", "SecondaryFire" },
+		{ "SecondaryFire.Name", "EPlayerAbilityInputID::SecondaryFire" },
 	};
 #endif
 	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_HordeShooter_EPlayerAbilityInputID_Statics::EnumParams = {
@@ -97,9 +100,9 @@ void EmptyLinkFunctionForGeneratedCodeHordeShooter() {}
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_HordeShooter_h_Statics::EnumInfo[] = {
-		{ EPlayerAbilityInputID_StaticEnum, TEXT("EPlayerAbilityInputID"), &Z_Registration_Info_UEnum_EPlayerAbilityInputID, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3997389252U) },
+		{ EPlayerAbilityInputID_StaticEnum, TEXT("EPlayerAbilityInputID"), &Z_Registration_Info_UEnum_EPlayerAbilityInputID, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4261161581U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_HordeShooter_h_1332750935(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_HordeShooter_h_1532352289(TEXT("/Script/HordeShooter"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_HordeShooter_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_HordeShooter_h_Statics::EnumInfo));
