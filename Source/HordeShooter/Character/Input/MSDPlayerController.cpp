@@ -61,5 +61,5 @@ void AMSDPlayerController::SetHudVisibility_Implementation(ESlateVisibility Visi
 
 FVector2D AMSDPlayerController::GetMouseDirection_Implementation()
 {
-	return MouseDirection;
+	return LastMouseDirection;
 }

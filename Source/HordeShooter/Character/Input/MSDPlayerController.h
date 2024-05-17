@@ -45,7 +45,7 @@ public:
 
 
 	UPROPERTY(BlueprintReadWrite)
-	FVector2D MouseDirection = FVector2D::ZeroVector;
+	FVector2D LastMouseDirection = FVector2D::ZeroVector;
 
 
 protected:

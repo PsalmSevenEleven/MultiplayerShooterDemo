@@ -9,7 +9,7 @@
 int UMSDHud::UpdateDirectionIndicator_Implementation(const FVector2D& Direction)
 {
 	//Smoothing because the twitchy indicator bothers me
-	SmoothedDirection = UKismetMathLibrary::Vector2DInterpTo_Constant(SmoothedDirection, Direction, GetWorld()->GetDeltaSeconds(), Direction.Length() * 5);
+	SmoothedDirection = UKismetMathLibrary::Vector2DInterpTo_Constant(SmoothedDirection, Direction, GetWorld()->GetDeltaSeconds(), Direction.Length() * 10);
 	
 	//First find the angle of the direction vector
 	float Angle = UKismetMathLibrary::Atan2(-Direction.Y, -Direction.X);
@@ -31,8 +31,9 @@ int UMSDHud::UpdateDirectionIndicator_Implementation(const FVector2D& Direction)
 	
 	//Set to increments of 60 degrees
 	Angle *= 60.f;
-
-	Angle = UKismetMathLibrary::FInterpTo_Constant(DirectionIndicator->GetRenderTransformAngle(), Angle - 30.f, GetWorld()->GetDeltaSeconds(), 1000.f);
+	
+	Angle = UKismetMathLibrary::RInterpTo_Constant(FRotator(0.f, 0.f, DirectionIndicator->GetRenderTransformAngle()), FRotator(0.f, 0.f, Angle - 30.f), GetWorld()->GetDeltaSeconds(), 1500.f).Roll;
+	//Angle = UKismetMathLibrary::FInterpTo_Constant(DirectionIndicator->GetRenderTransformAngle(), Angle - 30.f, GetWorld()->GetDeltaSeconds(), 700.f);
 	
 	DirectionIndicator->SetRenderTransformAngle(Angle);
 	return Angle;

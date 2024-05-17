@@ -351,12 +351,12 @@ void AMSDCharacter::Look(const FInputActionValue& Value)
 {	
 	if (MSDPlayerController != nullptr)
 	{
-		MSDPlayerController->MouseDirection = Value.Get<FVector2D>();
+		MSDPlayerController->LastMouseDirection = Value.Get<FVector2D>();
 		// add yaw and pitch input to controller
-		AddControllerYawInput(MSDPlayerController->MouseDirection.X);
-		AddControllerPitchInput(MSDPlayerController->MouseDirection.Y);
+		AddControllerYawInput(MSDPlayerController->LastMouseDirection.X);
+		AddControllerPitchInput(MSDPlayerController->LastMouseDirection.Y);
 
-		MSDPlayerController->HUD->UpdateDirectionIndicator(MSDPlayerController->MouseDirection);
+		MSDPlayerController->HUD->UpdateDirectionIndicator(MSDPlayerController->LastMouseDirection);
 	}
 }
 
