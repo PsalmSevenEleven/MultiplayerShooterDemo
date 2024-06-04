@@ -10,6 +10,11 @@ public class HordeShooter : ModuleRules
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput", 
-			"OnlineSubsystemSteam", "OnlineSubsystem","GameplayTags", "GameplayAbilities" , "GameplayTasks", "GameplayTasksEditor"});
+			"OnlineSubsystemSteam", "OnlineSubsystem","GameplayTags", "GameplayAbilities" , "GameplayTasks"});
+
+		if (Target.bBuildEditor == true)
+		{
+			PublicDependencyModuleNames.AddRange(new string[] {"GameplayTasksEditor", "AssetTools", "ContentBrowser", "AssetRegistry", "UnrealEd"});
+		}
 	}
 }

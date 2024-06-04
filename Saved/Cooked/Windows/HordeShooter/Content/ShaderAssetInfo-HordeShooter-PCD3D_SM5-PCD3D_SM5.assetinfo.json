@@ -140,6 +140,12 @@
 			]
 		},
 		{
+			"ShaderMapHash": "DCC4AE190DDDE9ABC4325B58CA374F002EBED08B",
+			"Assets": [
+				"/Niagara/DefaultAssets/DefaultRIbbonMaterial"
+			]
+		},
+		{
 			"ShaderMapHash": "3BB43C1BD1DE8D66FCE4D7F47FA7E493DD8D0038",
 			"Assets": [
 				"/Interchange/gltf/MaterialInstances/MI_Unlit_Blend"

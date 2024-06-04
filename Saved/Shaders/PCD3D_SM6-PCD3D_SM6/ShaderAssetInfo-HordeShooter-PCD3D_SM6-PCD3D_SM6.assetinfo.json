@@ -733,6 +733,12 @@
 			]
 		},
 		{
+			"ShaderMapHash": "ED57EDCA3C81E8EBB137B2EAB6AF7F0E46249CF7",
+			"Assets": [
+				"/Niagara/DefaultAssets/DefaultRIbbonMaterial"
+			]
+		},
+		{
 			"ShaderMapHash": "50C76DCBA6D7FED0DF2D3B030E81E0189C9E6243",
 			"Assets": [
 				"/Engine/EngineSky/VolumetricClouds/m_SimpleVolumetricCloud"
