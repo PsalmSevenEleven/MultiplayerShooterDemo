@@ -36,11 +36,11 @@ AMSDCharacter::AMSDCharacter()
 		
 	//This is here by default, will most likely remove later to reflect a first-person camera.
 	bUseControllerRotationPitch = false;
-	bUseControllerRotationYaw = false;
+	bUseControllerRotationYaw = true;
 	bUseControllerRotationRoll = false;
 
 	// Configure character movement
-	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
+	GetCharacterMovement()->bOrientRotationToMovement = false; 	
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 500.0f, 0.0f); // ...at this rotation rate
 
 	//also here by default, most of this will be handled by character class definition DA's
@@ -63,7 +63,7 @@ AMSDCharacter::AMSDCharacter()
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
 	//Hands
-	//Not sure if this should be attached here,
+	//Not sure if this should be attached to the camera boom,
 	//may end up having to fiddle with something when I implement weapon sway
 	HandsMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("HandsMesh"));
 	HandsMesh->SetupAttachment(CameraBoom);
@@ -86,19 +86,6 @@ void AMSDCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLif
 	DOREPLIFETIME(AMSDCharacter, CharacterClass);
 }
 
-//A C++ version of the blueprint function that returns the player's input action value.
-//This is nice because it allows me to get the value I want based on a class variable,
-//instead of each InputAction having its own function like with the BP version
-//TODO - I should probably move this to an interface to save unnecessary casting in my GAS abilities.
-FInputActionValue AMSDCharacter::GetEnhancedInputActionValue(UInputAction* InAction)
-{
-	UEnhancedInputComponent* PlayerEnhancedInputComponent = Cast<UEnhancedInputComponent>(GetController()->InputComponent);
-	if(!PlayerEnhancedInputComponent || !InAction)
-	{
-		return FInputActionValue();
-	}
-	return PlayerEnhancedInputComponent->BindActionValue(InAction).GetValue();
-}
 
 //From what I can tell, This is where we want to most of our server-side setup for the character.
 //The client's end should be handled in OnRep_PlayerState().
@@ -605,6 +592,16 @@ FInputActionValue AMSDCharacter::GetInputActionValue_Implementation(UInputAction
 		return FInputActionValue();
 	}
 	return PlayerEnhancedInputComponent->BindActionValue(InAction).GetValue();
+}
+
+FVector2D AMSDCharacter::GetMouseDirection_Implementation()
+{
+	return MSDPlayerController->LastMouseDirection;
+}
+
+UMSD_MeleeAttackProfile* AMSDCharacter::GetMeleeProfile_Implementation() const
+{
+	return MeleeProfile;
 }
 
 #pragma endregion

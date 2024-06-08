@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Invalid|x64">
+      <Configuration>Invalid</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_Editor|x64">
+      <Configuration>Debug_Editor</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugGame|x64">
+      <Configuration>DebugGame</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugGame_Editor|x64">
+      <Configuration>DebugGame_Editor</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Development|x64">
+      <Configuration>Development</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Development_Editor|x64">
+      <Configuration>Development_Editor</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Test|x64">
+      <Configuration>Test</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Shipping|x64">
+      <Configuration>Shipping</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CCE181AB-121D-3309-BB21-D1343B747F2D}</ProjectGuid>
+    <RootNamespace>HordeShooter</RootNamespace>
+  </PropertyGroup>
+  <Import Project="UECommon.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <NMakeBuildCommandLine>$(BuildBatchScript) HordeShooter Win64 Debug -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(RebuildBatchScript) HordeShooter Win64 Debug -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>$(CleanBatchScript) HordeShooter Win64 Debug -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild</NMakeCleanCommandLine>
+    <NMakeOutput>..\..\Binaries\Win64\HordeShooter-Win64-Debug.exe</NMakeOutput>
+    <AdditionalOptions>/std:c++20  /DSAL_NO_ATTRIBUTE_DECLARATIONS=1 /permissive- /Zc:strictStrings- /Zc:__cplusplus</AdditionalOptions>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <NMakeCompile>
+      <NMakeCompileFileCommandLine>$(BuildBatchScript) HordeShooter Win64 Debug -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild -WorkingDir=$(MSBuildProjectDirectory) -Files=$(SelectedFiles)</NMakeCompileFileCommandLine>
+    </NMakeCompile>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Editor|x64'">
+    <NMakeBuildCommandLine>$(BuildBatchScript) -Target="HordeShooterEditor Win64 Debug -Project=\"$(SolutionDir)HordeShooter.uproject\"" -Target="ShaderCompileWorker Win64 Development -Quiet" -WaitMutex -FromMsBuild</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(RebuildBatchScript) -Target="HordeShooterEditor Win64 Debug -Project=\"$(SolutionDir)HordeShooter.uproject\"" -Target="ShaderCompileWorker Win64 Development -Quiet" -WaitMutex -FromMsBuild</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>$(CleanBatchScript) -Target="HordeShooterEditor Win64 Debug -Project=\"$(SolutionDir)HordeShooter.uproject\"" -Target="ShaderCompileWorker Win64 Development -Quiet" -WaitMutex -FromMsBuild</NMakeCleanCommandLine>
+    <NMakeOutput>C:\UnrealEngineSource\Engine\Binaries\Win64\UnrealEditor-Win64-Debug.exe</NMakeOutput>
+    <AdditionalOptions>/std:c++20  /DSAL_NO_ATTRIBUTE_DECLARATIONS=1 /permissive- /Zc:strictStrings- /Zc:__cplusplus</AdditionalOptions>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Editor|x64'">
+    <NMakeCompile>
+      <NMakeCompileFileCommandLine>$(BuildBatchScript) -Target="HordeShooterEditor Win64 Debug -Project=\"$(SolutionDir)HordeShooter.uproject\"" -Target="ShaderCompileWorker Win64 Development -Quiet" -WaitMutex -FromMsBuild -WorkingDir=$(MSBuildProjectDirectory) -Files=$(SelectedFiles)</NMakeCompileFileCommandLine>
+    </NMakeCompile>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugGame|x64'">
+    <NMakeBuildCommandLine>$(BuildBatchScript) HordeShooter Win64 DebugGame -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(RebuildBatchScript) HordeShooter Win64 DebugGame -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>$(CleanBatchScript) HordeShooter Win64 DebugGame -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild</NMakeCleanCommandLine>
+    <NMakeOutput>..\..\Binaries\Win64\HordeShooter-Win64-DebugGame.exe</NMakeOutput>
+    <AdditionalOptions>/std:c++20  /DSAL_NO_ATTRIBUTE_DECLARATIONS=1 /permissive- /Zc:strictStrings- /Zc:__cplusplus</AdditionalOptions>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugGame|x64'">
+    <NMakeCompile>
+      <NMakeCompileFileCommandLine>$(BuildBatchScript) HordeShooter Win64 DebugGame -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild -WorkingDir=$(MSBuildProjectDirectory) -Files=$(SelectedFiles)</NMakeCompileFileCommandLine>
+    </NMakeCompile>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugGame_Editor|x64'">
+    <NMakeBuildCommandLine>$(BuildBatchScript) -Target="HordeShooterEditor Win64 DebugGame -Project=\"$(SolutionDir)HordeShooter.uproject\"" -Target="ShaderCompileWorker Win64 Development -Quiet" -WaitMutex -FromMsBuild</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(RebuildBatchScript) -Target="HordeShooterEditor Win64 DebugGame -Project=\"$(SolutionDir)HordeShooter.uproject\"" -Target="ShaderCompileWorker Win64 Development -Quiet" -WaitMutex -FromMsBuild</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>$(CleanBatchScript) -Target="HordeShooterEditor Win64 DebugGame -Project=\"$(SolutionDir)HordeShooter.uproject\"" -Target="ShaderCompileWorker Win64 Development -Quiet" -WaitMutex -FromMsBuild</NMakeCleanCommandLine>
+    <NMakeOutput>C:\UnrealEngineSource\Engine\Binaries\Win64\UnrealEditor-Win64-DebugGame.exe</NMakeOutput>
+    <AdditionalOptions>/std:c++20  /DSAL_NO_ATTRIBUTE_DECLARATIONS=1 /permissive- /Zc:strictStrings- /Zc:__cplusplus</AdditionalOptions>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugGame_Editor|x64'">
+    <NMakeCompile>
+      <NMakeCompileFileCommandLine>$(BuildBatchScript) -Target="HordeShooterEditor Win64 DebugGame -Project=\"$(SolutionDir)HordeShooter.uproject\"" -Target="ShaderCompileWorker Win64 Development -Quiet" -WaitMutex -FromMsBuild -WorkingDir=$(MSBuildProjectDirectory) -Files=$(SelectedFiles)</NMakeCompileFileCommandLine>
+    </NMakeCompile>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|x64'">
+    <NMakeBuildCommandLine>$(BuildBatchScript) HordeShooter Win64 Development -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(RebuildBatchScript) HordeShooter Win64 Development -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>$(CleanBatchScript) HordeShooter Win64 Development -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild</NMakeCleanCommandLine>
+    <NMakeOutput>..\..\Binaries\Win64\HordeShooter.exe</NMakeOutput>
+    <AdditionalOptions>/std:c++20  /DSAL_NO_ATTRIBUTE_DECLARATIONS=1 /permissive- /Zc:strictStrings- /Zc:__cplusplus</AdditionalOptions>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Development|x64'">
+    <NMakeCompile>
+      <NMakeCompileFileCommandLine>$(BuildBatchScript) HordeShooter Win64 Development -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild -WorkingDir=$(MSBuildProjectDirectory) -Files=$(SelectedFiles)</NMakeCompileFileCommandLine>
+    </NMakeCompile>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development_Editor|x64'">
+    <NMakeBuildCommandLine>$(BuildBatchScript) -Target="HordeShooterEditor Win64 Development -Project=\"$(SolutionDir)HordeShooter.uproject\"" -Target="ShaderCompileWorker Win64 Development -Quiet" -WaitMutex -FromMsBuild</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(RebuildBatchScript) -Target="HordeShooterEditor Win64 Development -Project=\"$(SolutionDir)HordeShooter.uproject\"" -Target="ShaderCompileWorker Win64 Development -Quiet" -WaitMutex -FromMsBuild</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>$(CleanBatchScript) -Target="HordeShooterEditor Win64 Development -Project=\"$(SolutionDir)HordeShooter.uproject\"" -Target="ShaderCompileWorker Win64 Development -Quiet" -WaitMutex -FromMsBuild</NMakeCleanCommandLine>
+    <NMakeOutput>C:\UnrealEngineSource\Engine\Binaries\Win64\UnrealEditor.exe</NMakeOutput>
+    <AdditionalOptions>/std:c++20  /DSAL_NO_ATTRIBUTE_DECLARATIONS=1 /permissive- /Zc:strictStrings- /Zc:__cplusplus</AdditionalOptions>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Development_Editor|x64'">
+    <NMakeCompile>
+      <NMakeCompileFileCommandLine>$(BuildBatchScript) -Target="HordeShooterEditor Win64 Development -Project=\"$(SolutionDir)HordeShooter.uproject\"" -Target="ShaderCompileWorker Win64 Development -Quiet" -WaitMutex -FromMsBuild -WorkingDir=$(MSBuildProjectDirectory) -Files=$(SelectedFiles)</NMakeCompileFileCommandLine>
+    </NMakeCompile>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
+    <NMakeBuildCommandLine>$(BuildBatchScript) HordeShooter Win64 Test -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(RebuildBatchScript) HordeShooter Win64 Test -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>$(CleanBatchScript) HordeShooter Win64 Test -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild</NMakeCleanCommandLine>
+    <NMakeOutput>..\..\Binaries\Win64\HordeShooter-Win64-Test.exe</NMakeOutput>
+    <AdditionalOptions>/std:c++20  /DSAL_NO_ATTRIBUTE_DECLARATIONS=1 /permissive- /Zc:strictStrings- /Zc:__cplusplus</AdditionalOptions>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
+    <NMakeCompile>
+      <NMakeCompileFileCommandLine>$(BuildBatchScript) HordeShooter Win64 Test -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild -WorkingDir=$(MSBuildProjectDirectory) -Files=$(SelectedFiles)</NMakeCompileFileCommandLine>
+    </NMakeCompile>
+  </ItemDefinitionGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Shipping|x64'">
+    <NMakeBuildCommandLine>$(BuildBatchScript) HordeShooter Win64 Shipping -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(RebuildBatchScript) HordeShooter Win64 Shipping -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>$(CleanBatchScript) HordeShooter Win64 Shipping -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild</NMakeCleanCommandLine>
+    <NMakeOutput>..\..\Binaries\Win64\HordeShooter-Win64-Shipping.exe</NMakeOutput>
+    <AdditionalOptions>/std:c++20  /DSAL_NO_ATTRIBUTE_DECLARATIONS=1 /permissive- /Zc:strictStrings- /Zc:__cplusplus</AdditionalOptions>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Shipping|x64'">
+    <NMakeCompile>
+      <NMakeCompileFileCommandLine>$(BuildBatchScript) HordeShooter Win64 Shipping -Project="$(SolutionDir)HordeShooter.uproject" -WaitMutex -FromMsBuild -WorkingDir=$(MSBuildProjectDirectory) -Files=$(SelectedFiles)</NMakeCompileFileCommandLine>
+    </NMakeCompile>
+  </ItemDefinitionGroup>
+  <PropertyGroup>
+    <NMakePreprocessorDefinitions>$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <IncludePath>$(IncludePath);C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ActorPickerMode\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ActorPickerMode\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AnalyticsET\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AnalyticsET\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Analytics\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Analytics\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AnimationCore\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AnimationCore\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AnimationDataController\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AnimationDataController\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ApplicationCore\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ApplicationCore\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AssetDefinition\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AssetDefinition\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AssetRegistry\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AssetRegistry\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AssetTagsEditor\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AssetTagsEditor\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AssetTools\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AssetTools\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AudioEditor\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AudioEditor\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AudioExtensions\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AudioExtensions\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AudioLinkCore\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AudioLinkCore\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AudioLinkEngine\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AudioLinkEngine\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AudioMixerCore\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AudioMixerCore\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AudioMixerXAudio2\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AudioMixerXAudio2\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AudioMixer\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AudioMixer\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AudioPlatformConfiguration\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AudioPlatformConfiguration\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AutomationController\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AutomationController\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AutomationTest\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\AutomationTest\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\BlueprintGraph\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\BlueprintGraph\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ChaosCore\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ChaosCore\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ChaosSolverEngine\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ChaosSolverEngine\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Chaos\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Chaos\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ClassViewer\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ClassViewer\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ClothSysRuntimeIntrfc\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ClothSysRuntimeIntrfc\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CollectionManager\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CollectionManager\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CommonMenuExtensions\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CommonMenuExtensions\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Constraints\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Constraints\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ContentBrowserData\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ContentBrowserData\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ContentBrowser\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ContentBrowser\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CookOnTheFly\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CookOnTheFly\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CoreOnline\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CoreOnline\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Core\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Core\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\DataflowCore\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\DataflowCore\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\DataflowEngine\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\DataflowEngine\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\DesktopPlatform\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\DesktopPlatform\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\DetailCustomizations\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\DetailCustomizations\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\DeveloperSettings\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\DeveloperSettings\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\DeveloperToolSettings\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\DeveloperToolSettings\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\DirectoryWatcher\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\DirectoryWatcher\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Documentation\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Documentation\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\EditorConfig\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\EditorConfig\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\EditorFramework\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\EditorFramework\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\EditorSubsystem\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\EditorSubsystem\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\EngineMessages\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\EngineMessages\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\EngineSettings\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\EngineSettings\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Engine\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Engine\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\FieldNotification\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\FieldNotification\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\FieldSystemEngine\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\FieldSystemEngine\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\FunctionalTesting\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\FunctionalTesting\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\GameplayTags\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\GameplayTags\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\GameplayTasks\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\GameplayTasks\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\GeometryCollectionEngine\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\GeometryCollectionEngine\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\GeometryCore\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\GeometryCore\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\GraphEditor\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\GraphEditor\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\HeadMountedDisplay\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\HeadMountedDisplay\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Horde\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Horde\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\HTTP\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\HTTP\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ImageCore\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ImageCore\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ImageWrapper\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ImageWrapper\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\InputCore\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\InputCore\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\InteractiveToolsFramework\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\InteractiveToolsFramework\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\InterchangeCore\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\InterchangeCore\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\InterchangeEngine\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\InterchangeEngine\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\IoStoreOnDemand\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\IoStoreOnDemand\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\IrisCore\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\IrisCore\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\JsonUtilities\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\JsonUtilities\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Json\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Json\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\KismetCompiler\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\KismetCompiler\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Kismet\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Kismet\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Landscape\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Landscape\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\LevelEditor\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\LevelEditor\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Localization\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Localization\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MainFrame\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MainFrame\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MaterialUtilities\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MaterialUtilities\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Merge\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Merge\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MeshBuilder\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MeshBuilder\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MeshDescription\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MeshDescription\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MeshMergeUtilities\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MeshMergeUtilities\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MeshReductionInterface\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MeshReductionInterface\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MeshUtilitiesCommon\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MeshUtilitiesCommon\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MeshUtilities\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MeshUtilities\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MessagingCommon\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MessagingCommon\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Messaging\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Messaging\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MovieSceneCapture\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MovieSceneCapture\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MovieSceneTracks\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MovieSceneTracks\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MovieScene\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MovieScene\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MSQS\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\MSQS\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\NavigationSystem\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\NavigationSystem\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\NetCommon\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\NetCommon\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\NetCore\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\NetCore\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\NetworkFileSystem\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\NetworkFileSystem\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Networking\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Networking\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\NetworkReplayStreaming\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\NetworkReplayStreaming\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\PacketHandler\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\PacketHandler\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\PakFile\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\PakFile\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\PhysicsCore\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\PhysicsCore\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\PhysicsUtilities\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\PhysicsUtilities\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Projects\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Projects\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\PropertyEditor\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\PropertyEditor\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\PropertyPath\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\PropertyPath\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\RawMesh\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\RawMesh\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ReliableHComp\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ReliableHComp\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\RenderCore\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\RenderCore\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Renderer\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Renderer\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\RHI\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\RHI\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\RSA\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\RSA\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SandboxFile\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SandboxFile\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SceneDepthPickerMode\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SceneDepthPickerMode\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Settings\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Settings\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SignalProcessing\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SignalProcessing\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SkeletalMeshDescription\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SkeletalMeshDescription\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SlateCore\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SlateCore\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Slate\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Slate\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Sockets\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Sockets\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SourceControl\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SourceControl\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\StaticMeshDescription\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\StaticMeshDescription\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\StatusBar\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\StatusBar\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\StructViewer\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\StructViewer\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SubobjectDataInterface\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SubobjectDataInterface\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SubobjectEditor\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SubobjectEditor\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SynthBenchmark\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\SynthBenchmark\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\TargetPlatform\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\TargetPlatform\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\TextureBuildUtilities\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\TextureBuildUtilities\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\TextureFormat\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\TextureFormat\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\TimeManagement\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\TimeManagement\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ToolMenusEditor\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ToolMenusEditor\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ToolMenus\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ToolMenus\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ToolWidgets\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ToolWidgets\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\TraceLog\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\TraceLog\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\TypedElementFramework\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\TypedElementFramework\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\TypedElementRuntime\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\TypedElementRuntime\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\UELibSampleRate\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\UELibSampleRate\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\UMG\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\UMG\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\UncontrolledChangelists\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\UncontrolledChangelists\VNI;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\UnrealEdMessages\UHT;$(DefaultSystemIncludePaths);</IncludePath>
+    <NMakeForcedIncludes>$(NMakeForcedIncludes)</NMakeForcedIncludes>
+    <NMakeAssemblySearchPath>$(NMakeAssemblySearchPath)</NMakeAssemblySearchPath>
+    <AdditionalOptions>/std:c++20  /DSAL_NO_ATTRIBUTE_DECLARATIONS=1 /permissive- /Zc:strictStrings- /Zc:__cplusplus</AdditionalOptions>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ProjectAdditionalIncludeDirectories>..\..\Plugins\AdvancedSessions\Intermediate\Build\Win64\UnrealEditor\Inc\AdvancedSessions\UHT</ProjectAdditionalIncludeDirectories>
+    <ProjectAdditionalIncludeDirectories_1>..\..\Plugins\AdvancedSessions\Intermediate\Build\Win64\UnrealEditor\Inc\AdvancedSessions\VNI</ProjectAdditionalIncludeDirectories_1>
+    <ProjectAdditionalIncludeDirectories_2>..\..\Plugins\AdvancedSessions\Source</ProjectAdditionalIncludeDirectories_2>
+    <ProjectAdditionalIncludeDirectories_3>..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes</ProjectAdditionalIncludeDirectories_3>
+    <ProjectAdditionalIncludeDirectories_4>C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\UnrealEdMessages\VNI</ProjectAdditionalIncludeDirectories_4>
+    <ProjectAdditionalIncludeDirectories_5>C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\UnrealEd\UHT</ProjectAdditionalIncludeDirectories_5>
+    <ProjectAdditionalIncludeDirectories_6>C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\UnrealEd\VNI</ProjectAdditionalIncludeDirectories_6>
+    <ProjectAdditionalIncludeDirectories_7>C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\VREditor\UHT</ProjectAdditionalIncludeDirectories_7>
+    <ProjectAdditionalIncludeDirectories_8>C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\VREditor\VNI</ProjectAdditionalIncludeDirectories_8>
+    <ProjectAdditionalIncludeDirectories_9>C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ViewportInteraction\UHT</ProjectAdditionalIncludeDirectories_9>
+    <ProjectAdditionalIncludeDirectories_10>C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\ViewportInteraction\VNI</ProjectAdditionalIncludeDirectories_10>
+    <ProjectAdditionalIncludeDirectories_11>C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Voronoi\UHT</ProjectAdditionalIncludeDirectories_11>
+    <ProjectAdditionalIncludeDirectories_12>C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Voronoi\VNI</ProjectAdditionalIncludeDirectories_12>
+    <ProjectAdditionalIncludeDirectories_13>C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\WidgetRegistration\UHT</ProjectAdditionalIncludeDirectories_13>
+    <ProjectAdditionalIncludeDirectories_14>C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\WidgetRegistration\VNI</ProjectAdditionalIncludeDirectories_14>
+    <ProjectAdditionalIncludeDirectories_15>C:\UnrealEngineSource\Engine\Plugins\Online\OnlineBase\Intermediate\Build\Win64\UnrealEditor\Inc\OnlineBase\UHT</ProjectAdditionalIncludeDirectories_15>
+    <ProjectAdditionalIncludeDirectories_16>C:\UnrealEngineSource\Engine\Plugins\Online\OnlineBase\Intermediate\Build\Win64\UnrealEditor\Inc\OnlineBase\VNI</ProjectAdditionalIncludeDirectories_16>
+    <ProjectAdditionalIncludeDirectories_17>C:\UnrealEngineSource\Engine\Plugins\Online\OnlineBase\Source\Public</ProjectAdditionalIncludeDirectories_17>
+    <ProjectAdditionalIncludeDirectories_18>C:\UnrealEngineSource\Engine\Plugins\Online\OnlineSubsystemSteam\Intermediate\Build\Win64\UnrealEditor\Inc\OnlineSubsystemSteam\UHT</ProjectAdditionalIncludeDirectories_18>
+    <ProjectAdditionalIncludeDirectories_19>C:\UnrealEngineSource\Engine\Plugins\Online\OnlineSubsystemSteam\Intermediate\Build\Win64\UnrealEditor\Inc\OnlineSubsystemSteam\VNI</ProjectAdditionalIncludeDirectories_19>
+    <ProjectAdditionalIncludeDirectories_20>C:\UnrealEngineSource\Engine\Plugins\Online\OnlineSubsystemSteam\Source\Classes</ProjectAdditionalIncludeDirectories_20>
+    <ProjectAdditionalIncludeDirectories_21>C:\UnrealEngineSource\Engine\Plugins\Online\OnlineSubsystemSteam\Source\Public</ProjectAdditionalIncludeDirectories_21>
+    <ProjectAdditionalIncludeDirectories_22>C:\UnrealEngineSource\Engine\Plugins\Online\OnlineSubsystemUtils\Intermediate\Build\Win64\UnrealEditor\Inc\OnlineSubsystemUtils\UHT</ProjectAdditionalIncludeDirectories_22>
+    <ProjectAdditionalIncludeDirectories_23>C:\UnrealEngineSource\Engine\Plugins\Online\OnlineSubsystemUtils\Intermediate\Build\Win64\UnrealEditor\Inc\OnlineSubsystemUtils\VNI</ProjectAdditionalIncludeDirectories_23>
+    <ProjectAdditionalIncludeDirectories_24>C:\UnrealEngineSource\Engine\Plugins\Online\OnlineSubsystemUtils\Source\OnlineSubsystemUtils\Classes</ProjectAdditionalIncludeDirectories_24>
+    <ProjectAdditionalIncludeDirectories_25>C:\UnrealEngineSource\Engine\Plugins\Online\OnlineSubsystemUtils\Source\OnlineSubsystemUtils\Public</ProjectAdditionalIncludeDirectories_25>
+    <ProjectAdditionalIncludeDirectories_26>C:\UnrealEngineSource\Engine\Plugins\Online\OnlineSubsystem\Intermediate\Build\Win64\UnrealEditor\Inc\OnlineSubsystem\UHT</ProjectAdditionalIncludeDirectories_26>
+    <ProjectAdditionalIncludeDirectories_27>C:\UnrealEngineSource\Engine\Plugins\Online\OnlineSubsystem\Intermediate\Build\Win64\UnrealEditor\Inc\OnlineSubsystem\VNI</ProjectAdditionalIncludeDirectories_27>
+    <ProjectAdditionalIncludeDirectories_28>C:\UnrealEngineSource\Engine\Plugins\Online\OnlineSubsystem\Source\Public</ProjectAdditionalIncludeDirectories_28>
+    <ProjectAdditionalIncludeDirectories_29>C:\UnrealEngineSource\Engine\Plugins\Online\OnlineSubsystem\Source\Test</ProjectAdditionalIncludeDirectories_29>
+    <ProjectAdditionalIncludeDirectories_30>C:\UnrealEngineSource\Engine\Shaders\Shared</ProjectAdditionalIncludeDirectories_30>
+    <ProjectAdditionalIncludeDirectories_31>C:\UnrealEngineSource\Engine\Source</ProjectAdditionalIncludeDirectories_31>
+    <ProjectAdditionalIncludeDirectories_32>C:\UnrealEngineSource\Engine\Source\Developer\AnimationDataController\Public</ProjectAdditionalIncludeDirectories_32>
+    <ProjectAdditionalIncludeDirectories_33>C:\UnrealEngineSource\Engine\Source\Developer\AssetTools\Public</ProjectAdditionalIncludeDirectories_33>
+    <ProjectAdditionalIncludeDirectories_34>C:\UnrealEngineSource\Engine\Source\Developer\AutomationController\Public</ProjectAdditionalIncludeDirectories_34>
+    <ProjectAdditionalIncludeDirectories_35>C:\UnrealEngineSource\Engine\Source\Developer\CollectionManager\Public</ProjectAdditionalIncludeDirectories_35>
+    <ProjectAdditionalIncludeDirectories_36>C:\UnrealEngineSource\Engine\Source\Developer\DesktopPlatform\Internal</ProjectAdditionalIncludeDirectories_36>
+    <ProjectAdditionalIncludeDirectories_37>C:\UnrealEngineSource\Engine\Source\Developer\DesktopPlatform\Public</ProjectAdditionalIncludeDirectories_37>
+    <ProjectAdditionalIncludeDirectories_38>C:\UnrealEngineSource\Engine\Source\Developer\DeveloperToolSettings\Classes</ProjectAdditionalIncludeDirectories_38>
+    <ProjectAdditionalIncludeDirectories_39>C:\UnrealEngineSource\Engine\Source\Developer\DeveloperToolSettings\Public</ProjectAdditionalIncludeDirectories_39>
+    <ProjectAdditionalIncludeDirectories_40>C:\UnrealEngineSource\Engine\Source\Developer\DirectoryWatcher\Public</ProjectAdditionalIncludeDirectories_40>
+    <ProjectAdditionalIncludeDirectories_41>C:\UnrealEngineSource\Engine\Source\Developer\FunctionalTesting\Classes</ProjectAdditionalIncludeDirectories_41>
+    <ProjectAdditionalIncludeDirectories_42>C:\UnrealEngineSource\Engine\Source\Developer\FunctionalTesting\Public</ProjectAdditionalIncludeDirectories_42>
+    <ProjectAdditionalIncludeDirectories_43>C:\UnrealEngineSource\Engine\Source\Developer\Horde\Public</ProjectAdditionalIncludeDirectories_43>
+    <ProjectAdditionalIncludeDirectories_44>C:\UnrealEngineSource\Engine\Source\Developer\Localization\Public</ProjectAdditionalIncludeDirectories_44>
+    <ProjectAdditionalIncludeDirectories_45>C:\UnrealEngineSource\Engine\Source\Developer\MaterialUtilities\Public</ProjectAdditionalIncludeDirectories_45>
+    <ProjectAdditionalIncludeDirectories_46>C:\UnrealEngineSource\Engine\Source\Developer\Merge\Public</ProjectAdditionalIncludeDirectories_46>
+    <ProjectAdditionalIncludeDirectories_47>C:\UnrealEngineSource\Engine\Source\Developer\MeshBuilder\Public</ProjectAdditionalIncludeDirectories_47>
+    <ProjectAdditionalIncludeDirectories_48>C:\UnrealEngineSource\Engine\Source\Developer\MeshMergeUtilities\Public</ProjectAdditionalIncludeDirectories_48>
+    <ProjectAdditionalIncludeDirectories_49>C:\UnrealEngineSource\Engine\Source\Developer\MeshReductionInterface\Public</ProjectAdditionalIncludeDirectories_49>
+    <ProjectAdditionalIncludeDirectories_50>C:\UnrealEngineSource\Engine\Source\Developer\MeshUtilities\Public</ProjectAdditionalIncludeDirectories_50>
+    <ProjectAdditionalIncludeDirectories_51>C:\UnrealEngineSource\Engine\Source\Developer\PhysicsUtilities\Public</ProjectAdditionalIncludeDirectories_51>
+    <ProjectAdditionalIncludeDirectories_52>C:\UnrealEngineSource\Engine\Source\Developer\Settings\Public</ProjectAdditionalIncludeDirectories_52>
+    <ProjectAdditionalIncludeDirectories_53>C:\UnrealEngineSource\Engine\Source\Developer\SourceControl\Public</ProjectAdditionalIncludeDirectories_53>
+    <ProjectAdditionalIncludeDirectories_54>C:\UnrealEngineSource\Engine\Source\Developer\TargetPlatform\Public</ProjectAdditionalIncludeDirectories_54>
+    <ProjectAdditionalIncludeDirectories_55>C:\UnrealEngineSource\Engine\Source\Developer\TextureBuildUtilities\Public</ProjectAdditionalIncludeDirectories_55>
+    <ProjectAdditionalIncludeDirectories_56>C:\UnrealEngineSource\Engine\Source\Developer\TextureFormat\Public</ProjectAdditionalIncludeDirectories_56>
+    <ProjectAdditionalIncludeDirectories_57>C:\UnrealEngineSource\Engine\Source\Developer\ToolMenus\Public</ProjectAdditionalIncludeDirectories_57>
+    <ProjectAdditionalIncludeDirectories_58>C:\UnrealEngineSource\Engine\Source\Developer\ToolWidgets\Public</ProjectAdditionalIncludeDirectories_58>
+    <ProjectAdditionalIncludeDirectories_59>C:\UnrealEngineSource\Engine\Source\Developer\UncontrolledChangelists\Public</ProjectAdditionalIncludeDirectories_59>
+    <ProjectAdditionalIncludeDirectories_60>C:\UnrealEngineSource\Engine\Source\Developer\WidgetRegistration\Public</ProjectAdditionalIncludeDirectories_60>
+    <ProjectAdditionalIncludeDirectories_61>C:\UnrealEngineSource\Engine\Source\Editor\ActorPickerMode\Public</ProjectAdditionalIncludeDirectories_61>
+    <ProjectAdditionalIncludeDirectories_62>C:\UnrealEngineSource\Engine\Source\Editor\AssetDefinition\Public</ProjectAdditionalIncludeDirectories_62>
+    <ProjectAdditionalIncludeDirectories_63>C:\UnrealEngineSource\Engine\Source\Editor\AssetTagsEditor\Public</ProjectAdditionalIncludeDirectories_63>
+    <ProjectAdditionalIncludeDirectories_64>C:\UnrealEngineSource\Engine\Source\Editor\AudioEditor\Classes</ProjectAdditionalIncludeDirectories_64>
+    <ProjectAdditionalIncludeDirectories_65>C:\UnrealEngineSource\Engine\Source\Editor\AudioEditor\Public</ProjectAdditionalIncludeDirectories_65>
+    <ProjectAdditionalIncludeDirectories_66>C:\UnrealEngineSource\Engine\Source\Editor\BlueprintGraph\Classes</ProjectAdditionalIncludeDirectories_66>
+    <ProjectAdditionalIncludeDirectories_67>C:\UnrealEngineSource\Engine\Source\Editor\BlueprintGraph\Public</ProjectAdditionalIncludeDirectories_67>
+    <ProjectAdditionalIncludeDirectories_68>C:\UnrealEngineSource\Engine\Source\Editor\ClassViewer\Public</ProjectAdditionalIncludeDirectories_68>
+    <ProjectAdditionalIncludeDirectories_69>C:\UnrealEngineSource\Engine\Source\Editor\CommonMenuExtensions\Public</ProjectAdditionalIncludeDirectories_69>
+    <ProjectAdditionalIncludeDirectories_70>C:\UnrealEngineSource\Engine\Source\Editor\ContentBrowserData\Public</ProjectAdditionalIncludeDirectories_70>
+    <ProjectAdditionalIncludeDirectories_71>C:\UnrealEngineSource\Engine\Source\Editor\ContentBrowser\Public</ProjectAdditionalIncludeDirectories_71>
+    <ProjectAdditionalIncludeDirectories_72>C:\UnrealEngineSource\Engine\Source\Editor\DetailCustomizations\Public</ProjectAdditionalIncludeDirectories_72>
+    <ProjectAdditionalIncludeDirectories_73>C:\UnrealEngineSource\Engine\Source\Editor\Documentation\Public</ProjectAdditionalIncludeDirectories_73>
+    <ProjectAdditionalIncludeDirectories_74>C:\UnrealEngineSource\Engine\Source\Editor\EditorConfig\Public</ProjectAdditionalIncludeDirectories_74>
+    <ProjectAdditionalIncludeDirectories_75>C:\UnrealEngineSource\Engine\Source\Editor\EditorFramework\Public</ProjectAdditionalIncludeDirectories_75>
+    <ProjectAdditionalIncludeDirectories_76>C:\UnrealEngineSource\Engine\Source\Editor\EditorSubsystem\Public</ProjectAdditionalIncludeDirectories_76>
+    <ProjectAdditionalIncludeDirectories_77>C:\UnrealEngineSource\Engine\Source\Editor\GraphEditor\Public</ProjectAdditionalIncludeDirectories_77>
+    <ProjectAdditionalIncludeDirectories_78>C:\UnrealEngineSource\Engine\Source\Editor\KismetCompiler\Public</ProjectAdditionalIncludeDirectories_78>
+    <ProjectAdditionalIncludeDirectories_79>C:\UnrealEngineSource\Engine\Source\Editor\Kismet\Classes</ProjectAdditionalIncludeDirectories_79>
+    <ProjectAdditionalIncludeDirectories_80>C:\UnrealEngineSource\Engine\Source\Editor\Kismet\Public</ProjectAdditionalIncludeDirectories_80>
+    <ProjectAdditionalIncludeDirectories_81>C:\UnrealEngineSource\Engine\Source\Editor\LevelEditor\Public</ProjectAdditionalIncludeDirectories_81>
+    <ProjectAdditionalIncludeDirectories_82>C:\UnrealEngineSource\Engine\Source\Editor\MainFrame\Public</ProjectAdditionalIncludeDirectories_82>
+    <ProjectAdditionalIncludeDirectories_83>C:\UnrealEngineSource\Engine\Source\Editor\PropertyEditor\Internal</ProjectAdditionalIncludeDirectories_83>
+    <ProjectAdditionalIncludeDirectories_84>C:\UnrealEngineSource\Engine\Source\Editor\PropertyEditor\Public</ProjectAdditionalIncludeDirectories_84>
+    <ProjectAdditionalIncludeDirectories_85>C:\UnrealEngineSource\Engine\Source\Editor\SceneDepthPickerMode\Public</ProjectAdditionalIncludeDirectories_85>
+    <ProjectAdditionalIncludeDirectories_86>C:\UnrealEngineSource\Engine\Source\Editor\StatusBar\Public</ProjectAdditionalIncludeDirectories_86>
+    <ProjectAdditionalIncludeDirectories_87>C:\UnrealEngineSource\Engine\Source\Editor\StructViewer\Public</ProjectAdditionalIncludeDirectories_87>
+    <ProjectAdditionalIncludeDirectories_88>C:\UnrealEngineSource\Engine\Source\Editor\SubobjectDataInterface\Public</ProjectAdditionalIncludeDirectories_88>
+    <ProjectAdditionalIncludeDirectories_89>C:\UnrealEngineSource\Engine\Source\Editor\SubobjectEditor\Public</ProjectAdditionalIncludeDirectories_89>
+    <ProjectAdditionalIncludeDirectories_90>C:\UnrealEngineSource\Engine\Source\Editor\ToolMenusEditor\Public</ProjectAdditionalIncludeDirectories_90>
+    <ProjectAdditionalIncludeDirectories_91>C:\UnrealEngineSource\Engine\Source\Editor\UnrealEdMessages\Classes</ProjectAdditionalIncludeDirectories_91>
+    <ProjectAdditionalIncludeDirectories_92>C:\UnrealEngineSource\Engine\Source\Editor\UnrealEdMessages\Public</ProjectAdditionalIncludeDirectories_92>
+    <ProjectAdditionalIncludeDirectories_93>C:\UnrealEngineSource\Engine\Source\Editor\UnrealEd\Classes</ProjectAdditionalIncludeDirectories_93>
+    <ProjectAdditionalIncludeDirectories_94>C:\UnrealEngineSource\Engine\Source\Editor\UnrealEd\Internal</ProjectAdditionalIncludeDirectories_94>
+    <ProjectAdditionalIncludeDirectories_95>C:\UnrealEngineSource\Engine\Source\Editor\UnrealEd\Public</ProjectAdditionalIncludeDirectories_95>
+    <ProjectAdditionalIncludeDirectories_96>C:\UnrealEngineSource\Engine\Source\Editor\VREditor\Public</ProjectAdditionalIncludeDirectories_96>
+    <ProjectAdditionalIncludeDirectories_97>C:\UnrealEngineSource\Engine\Source\Editor\ViewportInteraction\Public</ProjectAdditionalIncludeDirectories_97>
+    <ProjectAdditionalIncludeDirectories_98>C:\UnrealEngineSource\Engine\Source\Programs\UnrealLightmass\Public</ProjectAdditionalIncludeDirectories_98>
+    <ProjectAdditionalIncludeDirectories_99>C:\UnrealEngineSource\Engine\Source\Runtime\Analytics\AnalyticsET\Public</ProjectAdditionalIncludeDirectories_99>
+    <ProjectAdditionalIncludeDirectories_100>C:\UnrealEngineSource\Engine\Source\Runtime\Analytics\Analytics\Public</ProjectAdditionalIncludeDirectories_100>
+    <ProjectAdditionalIncludeDirectories_101>C:\UnrealEngineSource\Engine\Source\Runtime\AnimationCore\Public</ProjectAdditionalIncludeDirectories_101>
+    <ProjectAdditionalIncludeDirectories_102>C:\UnrealEngineSource\Engine\Source\Runtime\ApplicationCore\Public</ProjectAdditionalIncludeDirectories_102>
+    <ProjectAdditionalIncludeDirectories_103>C:\UnrealEngineSource\Engine\Source\Runtime\AssetRegistry\Internal</ProjectAdditionalIncludeDirectories_103>
+    <ProjectAdditionalIncludeDirectories_104>C:\UnrealEngineSource\Engine\Source\Runtime\AssetRegistry\Public</ProjectAdditionalIncludeDirectories_104>
+    <ProjectAdditionalIncludeDirectories_105>C:\UnrealEngineSource\Engine\Source\Runtime\AudioExtensions\Public</ProjectAdditionalIncludeDirectories_105>
+    <ProjectAdditionalIncludeDirectories_106>C:\UnrealEngineSource\Engine\Source\Runtime\AudioLink\AudioLinkCore\Public</ProjectAdditionalIncludeDirectories_106>
+    <ProjectAdditionalIncludeDirectories_107>C:\UnrealEngineSource\Engine\Source\Runtime\AudioLink\AudioLinkEngine\Public</ProjectAdditionalIncludeDirectories_107>
+    <ProjectAdditionalIncludeDirectories_108>C:\UnrealEngineSource\Engine\Source\Runtime\AudioMixerCore\Public</ProjectAdditionalIncludeDirectories_108>
+    <ProjectAdditionalIncludeDirectories_109>C:\UnrealEngineSource\Engine\Source\Runtime\AudioMixer\Classes</ProjectAdditionalIncludeDirectories_109>
+    <ProjectAdditionalIncludeDirectories_110>C:\UnrealEngineSource\Engine\Source\Runtime\AudioMixer\Public</ProjectAdditionalIncludeDirectories_110>
+    <ProjectAdditionalIncludeDirectories_111>C:\UnrealEngineSource\Engine\Source\Runtime\AudioPlatformConfiguration\Public</ProjectAdditionalIncludeDirectories_111>
+    <ProjectAdditionalIncludeDirectories_112>C:\UnrealEngineSource\Engine\Source\Runtime\AutomationTest\Public</ProjectAdditionalIncludeDirectories_112>
+    <ProjectAdditionalIncludeDirectories_113>C:\UnrealEngineSource\Engine\Source\Runtime\ClothingSystemRuntimeInterface\Public</ProjectAdditionalIncludeDirectories_113>
+    <ProjectAdditionalIncludeDirectories_114>C:\UnrealEngineSource\Engine\Source\Runtime\CookOnTheFly\Internal</ProjectAdditionalIncludeDirectories_114>
+    <ProjectAdditionalIncludeDirectories_115>C:\UnrealEngineSource\Engine\Source\Runtime\CoreOnline\Public</ProjectAdditionalIncludeDirectories_115>
+    <ProjectAdditionalIncludeDirectories_116>C:\UnrealEngineSource\Engine\Source\Runtime\CoreUObject\Internal</ProjectAdditionalIncludeDirectories_116>
+    <ProjectAdditionalIncludeDirectories_117>C:\UnrealEngineSource\Engine\Source\Runtime\CoreUObject\Public</ProjectAdditionalIncludeDirectories_117>
+    <ProjectAdditionalIncludeDirectories_118>C:\UnrealEngineSource\Engine\Source\Runtime\Core\Internal</ProjectAdditionalIncludeDirectories_118>
+    <ProjectAdditionalIncludeDirectories_119>C:\UnrealEngineSource\Engine\Source\Runtime\Core\Public</ProjectAdditionalIncludeDirectories_119>
+    <ProjectAdditionalIncludeDirectories_120>C:\UnrealEngineSource\Engine\Source\Runtime\DeveloperSettings\Public</ProjectAdditionalIncludeDirectories_120>
+    <ProjectAdditionalIncludeDirectories_121>C:\UnrealEngineSource\Engine\Source\Runtime\EngineMessages\Public</ProjectAdditionalIncludeDirectories_121>
+    <ProjectAdditionalIncludeDirectories_122>C:\UnrealEngineSource\Engine\Source\Runtime\EngineSettings\Classes</ProjectAdditionalIncludeDirectories_122>
+    <ProjectAdditionalIncludeDirectories_123>C:\UnrealEngineSource\Engine\Source\Runtime\EngineSettings\Public</ProjectAdditionalIncludeDirectories_123>
+    <ProjectAdditionalIncludeDirectories_124>C:\UnrealEngineSource\Engine\Source\Runtime\Engine\Classes</ProjectAdditionalIncludeDirectories_124>
+    <ProjectAdditionalIncludeDirectories_125>C:\UnrealEngineSource\Engine\Source\Runtime\Engine\Internal</ProjectAdditionalIncludeDirectories_125>
+    <ProjectAdditionalIncludeDirectories_126>C:\UnrealEngineSource\Engine\Source\Runtime\Engine\Public</ProjectAdditionalIncludeDirectories_126>
+    <ProjectAdditionalIncludeDirectories_127>C:\UnrealEngineSource\Engine\Source\Runtime\Experimental\Animation\Constraints\Public</ProjectAdditionalIncludeDirectories_127>
+    <ProjectAdditionalIncludeDirectories_128>C:\UnrealEngineSource\Engine\Source\Runtime\Experimental\ChaosCore\Public</ProjectAdditionalIncludeDirectories_128>
+    <ProjectAdditionalIncludeDirectories_129>C:\UnrealEngineSource\Engine\Source\Runtime\Experimental\ChaosSolverEngine\Public</ProjectAdditionalIncludeDirectories_129>
+    <ProjectAdditionalIncludeDirectories_130>C:\UnrealEngineSource\Engine\Source\Runtime\Experimental\Chaos\Public</ProjectAdditionalIncludeDirectories_130>
+    <ProjectAdditionalIncludeDirectories_131>C:\UnrealEngineSource\Engine\Source\Runtime\Experimental\Dataflow\Core\Public</ProjectAdditionalIncludeDirectories_131>
+    <ProjectAdditionalIncludeDirectories_132>C:\UnrealEngineSource\Engine\Source\Runtime\Experimental\Dataflow\Engine\Public</ProjectAdditionalIncludeDirectories_132>
+    <ProjectAdditionalIncludeDirectories_133>C:\UnrealEngineSource\Engine\Source\Runtime\Experimental\FieldSystem\Source\FieldSystemEngine\Public</ProjectAdditionalIncludeDirectories_133>
+    <ProjectAdditionalIncludeDirectories_134>C:\UnrealEngineSource\Engine\Source\Runtime\Experimental\GeometryCollectionEngine\Public</ProjectAdditionalIncludeDirectories_134>
+    <ProjectAdditionalIncludeDirectories_135>C:\UnrealEngineSource\Engine\Source\Runtime\Experimental\IoStoreOnDemand\Public</ProjectAdditionalIncludeDirectories_135>
+    <ProjectAdditionalIncludeDirectories_136>C:\UnrealEngineSource\Engine\Source\Runtime\Experimental\Iris\Core\Public</ProjectAdditionalIncludeDirectories_136>
+    <ProjectAdditionalIncludeDirectories_137>C:\UnrealEngineSource\Engine\Source\Runtime\Experimental\Voronoi\Public</ProjectAdditionalIncludeDirectories_137>
+    <ProjectAdditionalIncludeDirectories_138>C:\UnrealEngineSource\Engine\Source\Runtime\FieldNotification\Public</ProjectAdditionalIncludeDirectories_138>
+    <ProjectAdditionalIncludeDirectories_139>C:\UnrealEngineSource\Engine\Source\Runtime\GameplayTags\Classes</ProjectAdditionalIncludeDirectories_139>
+    <ProjectAdditionalIncludeDirectories_140>C:\UnrealEngineSource\Engine\Source\Runtime\GameplayTags\Public</ProjectAdditionalIncludeDirectories_140>
+    <ProjectAdditionalIncludeDirectories_141>C:\UnrealEngineSource\Engine\Source\Runtime\GameplayTasks\Classes</ProjectAdditionalIncludeDirectories_141>
+    <ProjectAdditionalIncludeDirectories_142>C:\UnrealEngineSource\Engine\Source\Runtime\GameplayTasks\Public</ProjectAdditionalIncludeDirectories_142>
+    <ProjectAdditionalIncludeDirectories_143>C:\UnrealEngineSource\Engine\Source\Runtime\GeometryCore\Public</ProjectAdditionalIncludeDirectories_143>
+    <ProjectAdditionalIncludeDirectories_144>C:\UnrealEngineSource\Engine\Source\Runtime\HeadMountedDisplay\Public</ProjectAdditionalIncludeDirectories_144>
+    <ProjectAdditionalIncludeDirectories_145>C:\UnrealEngineSource\Engine\Source\Runtime\ImageCore\Public</ProjectAdditionalIncludeDirectories_145>
+    <ProjectAdditionalIncludeDirectories_146>C:\UnrealEngineSource\Engine\Source\Runtime\ImageWrapper\Public</ProjectAdditionalIncludeDirectories_146>
+    <ProjectAdditionalIncludeDirectories_147>C:\UnrealEngineSource\Engine\Source\Runtime\InputCore\Classes</ProjectAdditionalIncludeDirectories_147>
+    <ProjectAdditionalIncludeDirectories_148>C:\UnrealEngineSource\Engine\Source\Runtime\InputCore\Public</ProjectAdditionalIncludeDirectories_148>
+    <ProjectAdditionalIncludeDirectories_149>C:\UnrealEngineSource\Engine\Source\Runtime\InteractiveToolsFramework\Public</ProjectAdditionalIncludeDirectories_149>
+    <ProjectAdditionalIncludeDirectories_150>C:\UnrealEngineSource\Engine\Source\Runtime\Interchange\Core\Public</ProjectAdditionalIncludeDirectories_150>
+    <ProjectAdditionalIncludeDirectories_151>C:\UnrealEngineSource\Engine\Source\Runtime\Interchange\Engine\Public</ProjectAdditionalIncludeDirectories_151>
+    <ProjectAdditionalIncludeDirectories_152>C:\UnrealEngineSource\Engine\Source\Runtime\JsonUtilities\Public</ProjectAdditionalIncludeDirectories_152>
+    <ProjectAdditionalIncludeDirectories_153>C:\UnrealEngineSource\Engine\Source\Runtime\Json\Public</ProjectAdditionalIncludeDirectories_153>
+    <ProjectAdditionalIncludeDirectories_154>C:\UnrealEngineSource\Engine\Source\Runtime\Landscape\Classes</ProjectAdditionalIncludeDirectories_154>
+    <ProjectAdditionalIncludeDirectories_155>C:\UnrealEngineSource\Engine\Source\Runtime\Landscape\Public</ProjectAdditionalIncludeDirectories_155>
+    <ProjectAdditionalIncludeDirectories_156>C:\UnrealEngineSource\Engine\Source\Runtime\MaterialShaderQualitySettings\Classes</ProjectAdditionalIncludeDirectories_156>
+    <ProjectAdditionalIncludeDirectories_157>C:\UnrealEngineSource\Engine\Source\Runtime\MeshDescription\Public</ProjectAdditionalIncludeDirectories_157>
+    <ProjectAdditionalIncludeDirectories_158>C:\UnrealEngineSource\Engine\Source\Runtime\MeshUtilitiesCommon\Public</ProjectAdditionalIncludeDirectories_158>
+    <ProjectAdditionalIncludeDirectories_159>C:\UnrealEngineSource\Engine\Source\Runtime\MessagingCommon\Public</ProjectAdditionalIncludeDirectories_159>
+    <ProjectAdditionalIncludeDirectories_160>C:\UnrealEngineSource\Engine\Source\Runtime\Messaging\Public</ProjectAdditionalIncludeDirectories_160>
+    <ProjectAdditionalIncludeDirectories_161>C:\UnrealEngineSource\Engine\Source\Runtime\MovieSceneCapture\Public</ProjectAdditionalIncludeDirectories_161>
+    <ProjectAdditionalIncludeDirectories_162>C:\UnrealEngineSource\Engine\Source\Runtime\MovieSceneTracks\Public</ProjectAdditionalIncludeDirectories_162>
+    <ProjectAdditionalIncludeDirectories_163>C:\UnrealEngineSource\Engine\Source\Runtime\MovieScene\Public</ProjectAdditionalIncludeDirectories_163>
+    <ProjectAdditionalIncludeDirectories_164>C:\UnrealEngineSource\Engine\Source\Runtime\NavigationSystem\Public</ProjectAdditionalIncludeDirectories_164>
+    <ProjectAdditionalIncludeDirectories_165>C:\UnrealEngineSource\Engine\Source\Runtime\Net\Common\Public</ProjectAdditionalIncludeDirectories_165>
+    <ProjectAdditionalIncludeDirectories_166>C:\UnrealEngineSource\Engine\Source\Runtime\Net\Core\Classes</ProjectAdditionalIncludeDirectories_166>
+    <ProjectAdditionalIncludeDirectories_167>C:\UnrealEngineSource\Engine\Source\Runtime\Net\Core\Public</ProjectAdditionalIncludeDirectories_167>
+    <ProjectAdditionalIncludeDirectories_168>C:\UnrealEngineSource\Engine\Source\Runtime\NetworkFileSystem\Public</ProjectAdditionalIncludeDirectories_168>
+    <ProjectAdditionalIncludeDirectories_169>C:\UnrealEngineSource\Engine\Source\Runtime\NetworkReplayStreaming\NetworkReplayStreaming\Public</ProjectAdditionalIncludeDirectories_169>
+    <ProjectAdditionalIncludeDirectories_170>C:\UnrealEngineSource\Engine\Source\Runtime\Networking\Public</ProjectAdditionalIncludeDirectories_170>
+    <ProjectAdditionalIncludeDirectories_171>C:\UnrealEngineSource\Engine\Source\Runtime\Online\HTTP\Internal</ProjectAdditionalIncludeDirectories_171>
+    <ProjectAdditionalIncludeDirectories_172>C:\UnrealEngineSource\Engine\Source\Runtime\Online\HTTP\Public</ProjectAdditionalIncludeDirectories_172>
+    <ProjectAdditionalIncludeDirectories_173>C:\UnrealEngineSource\Engine\Source\Runtime\PacketHandlers\PacketHandler\Classes</ProjectAdditionalIncludeDirectories_173>
+    <ProjectAdditionalIncludeDirectories_174>C:\UnrealEngineSource\Engine\Source\Runtime\PacketHandlers\PacketHandler\Public</ProjectAdditionalIncludeDirectories_174>
+    <ProjectAdditionalIncludeDirectories_175>C:\UnrealEngineSource\Engine\Source\Runtime\PacketHandlers\ReliabilityHandlerComponent\Public</ProjectAdditionalIncludeDirectories_175>
+    <ProjectAdditionalIncludeDirectories_176>C:\UnrealEngineSource\Engine\Source\Runtime\PakFile\Internal</ProjectAdditionalIncludeDirectories_176>
+    <ProjectAdditionalIncludeDirectories_177>C:\UnrealEngineSource\Engine\Source\Runtime\PakFile\Public</ProjectAdditionalIncludeDirectories_177>
+    <ProjectAdditionalIncludeDirectories_178>C:\UnrealEngineSource\Engine\Source\Runtime\PhysicsCore\Public</ProjectAdditionalIncludeDirectories_178>
+    <ProjectAdditionalIncludeDirectories_179>C:\UnrealEngineSource\Engine\Source\Runtime\Projects\Public</ProjectAdditionalIncludeDirectories_179>
+    <ProjectAdditionalIncludeDirectories_180>C:\UnrealEngineSource\Engine\Source\Runtime\PropertyPath\Public</ProjectAdditionalIncludeDirectories_180>
+    <ProjectAdditionalIncludeDirectories_181>C:\UnrealEngineSource\Engine\Source\Runtime\RHI\Public</ProjectAdditionalIncludeDirectories_181>
+    <ProjectAdditionalIncludeDirectories_182>C:\UnrealEngineSource\Engine\Source\Runtime\RSA\Public</ProjectAdditionalIncludeDirectories_182>
+    <ProjectAdditionalIncludeDirectories_183>C:\UnrealEngineSource\Engine\Source\Runtime\RawMesh\Public</ProjectAdditionalIncludeDirectories_183>
+    <ProjectAdditionalIncludeDirectories_184>C:\UnrealEngineSource\Engine\Source\Runtime\RenderCore\Public</ProjectAdditionalIncludeDirectories_184>
+    <ProjectAdditionalIncludeDirectories_185>C:\UnrealEngineSource\Engine\Source\Runtime\Renderer\Public</ProjectAdditionalIncludeDirectories_185>
+    <ProjectAdditionalIncludeDirectories_186>C:\UnrealEngineSource\Engine\Source\Runtime\SandboxFile\Public</ProjectAdditionalIncludeDirectories_186>
+    <ProjectAdditionalIncludeDirectories_187>C:\UnrealEngineSource\Engine\Source\Runtime\SignalProcessing\Public</ProjectAdditionalIncludeDirectories_187>
+    <ProjectAdditionalIncludeDirectories_188>C:\UnrealEngineSource\Engine\Source\Runtime\SkeletalMeshDescription\Public</ProjectAdditionalIncludeDirectories_188>
+    <ProjectAdditionalIncludeDirectories_189>C:\UnrealEngineSource\Engine\Source\Runtime\SlateCore\Public</ProjectAdditionalIncludeDirectories_189>
+    <ProjectAdditionalIncludeDirectories_190>C:\UnrealEngineSource\Engine\Source\Runtime\Slate\Public</ProjectAdditionalIncludeDirectories_190>
+    <ProjectAdditionalIncludeDirectories_191>C:\UnrealEngineSource\Engine\Source\Runtime\Sockets\Public</ProjectAdditionalIncludeDirectories_191>
+    <ProjectAdditionalIncludeDirectories_192>C:\UnrealEngineSource\Engine\Source\Runtime\StaticMeshDescription\Public</ProjectAdditionalIncludeDirectories_192>
+    <ProjectAdditionalIncludeDirectories_193>C:\UnrealEngineSource\Engine\Source\Runtime\SynthBenchmark\Public</ProjectAdditionalIncludeDirectories_193>
+    <ProjectAdditionalIncludeDirectories_194>C:\UnrealEngineSource\Engine\Source\Runtime\TimeManagement\Public</ProjectAdditionalIncludeDirectories_194>
+    <ProjectAdditionalIncludeDirectories_195>C:\UnrealEngineSource\Engine\Source\Runtime\TraceLog\Public</ProjectAdditionalIncludeDirectories_195>
+    <ProjectAdditionalIncludeDirectories_196>C:\UnrealEngineSource\Engine\Source\Runtime\TypedElementFramework\Public</ProjectAdditionalIncludeDirectories_196>
+    <ProjectAdditionalIncludeDirectories_197>C:\UnrealEngineSource\Engine\Source\Runtime\TypedElementRuntime\Public</ProjectAdditionalIncludeDirectories_197>
+    <ProjectAdditionalIncludeDirectories_198>C:\UnrealEngineSource\Engine\Source\Runtime\UMG\Public</ProjectAdditionalIncludeDirectories_198>
+    <ProjectAdditionalIncludeDirectories_199>C:\UnrealEngineSource\Engine\Source\ThirdParty\LibTiff\Source</ProjectAdditionalIncludeDirectories_199>
+    <ProjectAdditionalIncludeDirectories_200>C:\UnrealEngineSource\Engine\Source\ThirdParty\LibTiff\Source\Win64</ProjectAdditionalIncludeDirectories_200>
+    <ProjectAdditionalIncludeDirectories_201>C:\UnrealEngineSource\Engine\Source\ThirdParty\libSampleRate\Public</ProjectAdditionalIncludeDirectories_201>
+    <ProjectAdditionalIncludeDirectories_202>C:\UnrealEngineSource\Engine\Source\ThirdParty\mimalloc\include</ProjectAdditionalIncludeDirectories_202>
+    <ClCompile_AdditionalIncludeDirectories>$(NMakeIncludeSearchPath);$(ProjectAdditionalIncludeDirectories_31);..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private;$(ProjectAdditionalIncludeDirectories);$(ProjectAdditionalIncludeDirectories_1);$(ProjectAdditionalIncludeDirectories_2);$(ProjectAdditionalIncludeDirectories_3);$(ProjectAdditionalIncludeDirectories_119);$(ProjectAdditionalIncludeDirectories_118);$(ProjectAdditionalIncludeDirectories_195);$(ProjectAdditionalIncludeDirectories_117);$(ProjectAdditionalIncludeDirectories_116);$(ProjectAdditionalIncludeDirectories_30);$(ProjectAdditionalIncludeDirectories_124);$(ProjectAdditionalIncludeDirectories_126);$(ProjectAdditionalIncludeDirectories_125);$(ProjectAdditionalIncludeDirectories_115);$(ProjectAdditionalIncludeDirectories_138);$(ProjectAdditionalIncludeDirectories_166);$(ProjectAdditionalIncludeDirectories_167);$(ProjectAdditionalIncludeDirectories_165);$(ProjectAdditionalIncludeDirectories_145);$(ProjectAdditionalIncludeDirectories_153);$(ProjectAdditionalIncludeDirectories_152);$(ProjectAdditionalIncludeDirectories_189);$(ProjectAdditionalIncludeDirectories_147);$(ProjectAdditionalIncludeDirectories_148);$(ProjectAdditionalIncludeDirectories_102);$(ProjectAdditionalIncludeDirectories_181);$(ProjectAdditionalIncludeDirectories_190);$(ProjectAdditionalIncludeDirectories_146);$(ProjectAdditionalIncludeDirectories_160);$(ProjectAdditionalIncludeDirectories_159);$(ProjectAdditionalIncludeDirectories_184);$(ProjectAdditionalIncludeDirectories_99);$(ProjectAdditionalIncludeDirectories_100);$(ProjectAdditionalIncludeDirectories_191);$(ProjectAdditionalIncludeDirectories_104);$(ProjectAdditionalIncludeDirectories_103);$(ProjectAdditionalIncludeDirectories_121);$(ProjectAdditionalIncludeDirectories_122);$(ProjectAdditionalIncludeDirectories_123);$(ProjectAdditionalIncludeDirectories_193);$(ProjectAdditionalIncludeDirectories_139);$(ProjectAdditionalIncludeDirectories_140);$(ProjectAdditionalIncludeDirectories_120);$(ProjectAdditionalIncludeDirectories_173);$(ProjectAdditionalIncludeDirectories_174);$(ProjectAdditionalIncludeDirectories_175);$(ProjectAdditionalIncludeDirectories_111);$(ProjectAdditionalIncludeDirectories_157);$(ProjectAdditionalIncludeDirectories_192);$(ProjectAdditionalIncludeDirectories_188);$(ProjectAdditionalIncludeDirectories_101);$(ProjectAdditionalIncludeDirectories_177);$(ProjectAdditionalIncludeDirectories_176);$(ProjectAdditionalIncludeDirectories_182);$(ProjectAdditionalIncludeDirectories_169);$(ProjectAdditionalIncludeDirectories_178);$(ProjectAdditionalIncludeDirectories_128);$(ProjectAdditionalIncludeDirectories_130);$(ProjectAdditionalIncludeDirectories_11);$(ProjectAdditionalIncludeDirectories_12);$(ProjectAdditionalIncludeDirectories_137);$(ProjectAdditionalIncludeDirectories_143);$(ProjectAdditionalIncludeDirectories_187);$(ProjectAdditionalIncludeDirectories_105);$(ProjectAdditionalIncludeDirectories_108);$(ProjectAdditionalIncludeDirectories_109);$(ProjectAdditionalIncludeDirectories_110);$(ProjectAdditionalIncludeDirectories_54);$(ProjectAdditionalIncludeDirectories_56);$(ProjectAdditionalIncludeDirectories_37);$(ProjectAdditionalIncludeDirectories_36);$(ProjectAdditionalIncludeDirectories_107);$(ProjectAdditionalIncludeDirectories_106);$(ProjectAdditionalIncludeDirectories_114);$(ProjectAdditionalIncludeDirectories_170);$(ProjectAdditionalIncludeDirectories_135);$(ProjectAdditionalIncludeDirectories_55);$(ProjectAdditionalIncludeDirectories_43);$(ProjectAdditionalIncludeDirectories_113);$(ProjectAdditionalIncludeDirectories_136);$(ProjectAdditionalIncludeDirectories_161);$(ProjectAdditionalIncludeDirectories_185);$(ProjectAdditionalIncludeDirectories_196);$(ProjectAdditionalIncludeDirectories_197);$(ProjectAdditionalIncludeDirectories_32);$(ProjectAdditionalIncludeDirectories_150);$(ProjectAdditionalIncludeDirectories_79);$(ProjectAdditionalIncludeDirectories_80);$(ProjectAdditionalIncludeDirectories_57);$(ProjectAdditionalIncludeDirectories_5);$(ProjectAdditionalIncludeDirectories_6);$(ProjectAdditionalIncludeDirectories_98);$(ProjectAdditionalIncludeDirectories_93);$(ProjectAdditionalIncludeDirectories_95);$(ProjectAdditionalIncludeDirectories_94);$(ProjectAdditionalIncludeDirectories_63);$(ProjectAdditionalIncludeDirectories_35);$(ProjectAdditionalIncludeDirectories_71);$(ProjectAdditionalIncludeDirectories_33);$(ProjectAdditionalIncludeDirectories_62);$(ProjectAdditionalIncludeDirectories_76);$(ProjectAdditionalIncludeDirectories_46);$(ProjectAdditionalIncludeDirectories_75);$(ProjectAdditionalIncludeDirectories_149);$(ProjectAdditionalIncludeDirectories_70);$(ProjectAdditionalIncludeDirectories_179);$(ProjectAdditionalIncludeDirectories_50);$(ProjectAdditionalIncludeDirectories_48);$(ProjectAdditionalIncludeDirectories_49);$(ProjectAdditionalIncludeDirectories_183);$(ProjectAdditionalIncludeDirectories_45);$(ProjectAdditionalIncludeDirectories_78);$(ProjectAdditionalIncludeDirectories_141);$(ProjectAdditionalIncludeDirectories_142);$(ProjectAdditionalIncludeDirectories_84);$(ProjectAdditionalIncludeDirectories_83);$(ProjectAdditionalIncludeDirectories_74);$(ProjectAdditionalIncludeDirectories_61);$(ProjectAdditionalIncludeDirectories_85);$(ProjectAdditionalIncludeDirectories_68);$(ProjectAdditionalIncludeDirectories_40);$(ProjectAdditionalIncludeDirectories_73);$(ProjectAdditionalIncludeDirectories_82);$(ProjectAdditionalIncludeDirectories_186);$(ProjectAdditionalIncludeDirectories_53);$(ProjectAdditionalIncludeDirectories_59);$(ProjectAdditionalIncludeDirectories_4);$(ProjectAdditionalIncludeDirectories_91);$(ProjectAdditionalIncludeDirectories_92);$(ProjectAdditionalIncludeDirectories_66);$(ProjectAdditionalIncludeDirectories_67);$(ProjectAdditionalIncludeDirectories_172);$(ProjectAdditionalIncludeDirectories_171);$(ProjectAdditionalIncludeDirectories_41);$(ProjectAdditionalIncludeDirectories_42);$(ProjectAdditionalIncludeDirectories_34);$(ProjectAdditionalIncludeDirectories_112);$(ProjectAdditionalIncludeDirectories_44);$(ProjectAdditionalIncludeDirectories_64);$(ProjectAdditionalIncludeDirectories_65);$(ProjectAdditionalIncludeDirectories_201);$(ProjectAdditionalIncludeDirectories_81);$(ProjectAdditionalIncludeDirectories_69);$(ProjectAdditionalIncludeDirectories_52);$(ProjectAdditionalIncludeDirectories_58);$(ProjectAdditionalIncludeDirectories_7);$(ProjectAdditionalIncludeDirectories_8);$(ProjectAdditionalIncludeDirectories_96);$(ProjectAdditionalIncludeDirectories_9);$(ProjectAdditionalIncludeDirectories_10);$(ProjectAdditionalIncludeDirectories_97);$(ProjectAdditionalIncludeDirectories_144);$(ProjectAdditionalIncludeDirectories_154);$(ProjectAdditionalIncludeDirectories_155);$(ProjectAdditionalIncludeDirectories_72);$(ProjectAdditionalIncludeDirectories_77);$(ProjectAdditionalIncludeDirectories_87);$(ProjectAdditionalIncludeDirectories_168);$(ProjectAdditionalIncludeDirectories_198);$(ProjectAdditionalIncludeDirectories_163);$(ProjectAdditionalIncludeDirectories_194);$(ProjectAdditionalIncludeDirectories_162);$(ProjectAdditionalIncludeDirectories_127);$(ProjectAdditionalIncludeDirectories_180);$(ProjectAdditionalIncludeDirectories_164);$(ProjectAdditionalIncludeDirectories_134);$(ProjectAdditionalIncludeDirectories_133);$(ProjectAdditionalIncludeDirectories_129);$(ProjectAdditionalIncludeDirectories_131);$(ProjectAdditionalIncludeDirectories_132);$(ProjectAdditionalIncludeDirectories_47);$(ProjectAdditionalIncludeDirectories_158);$(ProjectAdditionalIncludeDirectories_156);$(ProjectAdditionalIncludeDirectories_90);$(ProjectAdditionalIncludeDirectories_86);$(ProjectAdditionalIncludeDirectories_151);$(ProjectAdditionalIncludeDirectories_38);$(ProjectAdditionalIncludeDirectories_39);$(ProjectAdditionalIncludeDirectories_88);$(ProjectAdditionalIncludeDirectories_89);$(ProjectAdditionalIncludeDirectories_51);$(ProjectAdditionalIncludeDirectories_13);$(ProjectAdditionalIncludeDirectories_14);$(ProjectAdditionalIncludeDirectories_60);$(ProjectAdditionalIncludeDirectories_26);$(ProjectAdditionalIncludeDirectories_27);$(ProjectAdditionalIncludeDirectories_29);$(ProjectAdditionalIncludeDirectories_28);$(ProjectAdditionalIncludeDirectories_15);$(ProjectAdditionalIncludeDirectories_16);$(ProjectAdditionalIncludeDirectories_17);$(ProjectAdditionalIncludeDirectories_22);$(ProjectAdditionalIncludeDirectories_23);$(ProjectAdditionalIncludeDirectories_24);$(ProjectAdditionalIncludeDirectories_25);$(ProjectAdditionalIncludeDirectories_202);$(ProjectAdditionalIncludeDirectories_200);$(ProjectAdditionalIncludeDirectories_199)</ClCompile_AdditionalIncludeDirectories>
+    <ClCompile_AdditionalIncludeDirectories_1>$(NMakeIncludeSearchPath);$(ProjectAdditionalIncludeDirectories_31);..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private;$(ProjectAdditionalIncludeDirectories_26);$(ProjectAdditionalIncludeDirectories_27);$(ProjectAdditionalIncludeDirectories_29);$(ProjectAdditionalIncludeDirectories_28);$(ProjectAdditionalIncludeDirectories_153);$(ProjectAdditionalIncludeDirectories_119);$(ProjectAdditionalIncludeDirectories_118);$(ProjectAdditionalIncludeDirectories_195);$(ProjectAdditionalIncludeDirectories_115);$(ProjectAdditionalIncludeDirectories_117);$(ProjectAdditionalIncludeDirectories_116);$(ProjectAdditionalIncludeDirectories_15);$(ProjectAdditionalIncludeDirectories_16);$(ProjectAdditionalIncludeDirectories_17);$(ProjectAdditionalIncludeDirectories_191);$(ProjectAdditionalIncludeDirectories_165);$(ProjectAdditionalIncludeDirectories_187);$(ProjectAdditionalIncludeDirectories_170);$(ProjectAdditionalIncludeDirectories_22);$(ProjectAdditionalIncludeDirectories_23);$(ProjectAdditionalIncludeDirectories_24);$(ProjectAdditionalIncludeDirectories_25);$(ProjectAdditionalIncludeDirectories_30);$(ProjectAdditionalIncludeDirectories_124);$(ProjectAdditionalIncludeDirectories_126);$(ProjectAdditionalIncludeDirectories_125);$(ProjectAdditionalIncludeDirectories_138);$(ProjectAdditionalIncludeDirectories_166);$(ProjectAdditionalIncludeDirectories_167);$(ProjectAdditionalIncludeDirectories_145);$(ProjectAdditionalIncludeDirectories_152);$(ProjectAdditionalIncludeDirectories_189);$(ProjectAdditionalIncludeDirectories_147);$(ProjectAdditionalIncludeDirectories_148);$(ProjectAdditionalIncludeDirectories_102);$(ProjectAdditionalIncludeDirectories_181);$(ProjectAdditionalIncludeDirectories_190);$(ProjectAdditionalIncludeDirectories_146);$(ProjectAdditionalIncludeDirectories_160);$(ProjectAdditionalIncludeDirectories_159);$(ProjectAdditionalIncludeDirectories_184);$(ProjectAdditionalIncludeDirectories_99);$(ProjectAdditionalIncludeDirectories_100);$(ProjectAdditionalIncludeDirectories_104);$(ProjectAdditionalIncludeDirectories_103);$(ProjectAdditionalIncludeDirectories_121);$(ProjectAdditionalIncludeDirectories_122);$(ProjectAdditionalIncludeDirectories_123);$(ProjectAdditionalIncludeDirectories_193);$(ProjectAdditionalIncludeDirectories_139);$(ProjectAdditionalIncludeDirectories_140);$(ProjectAdditionalIncludeDirectories_120);$(ProjectAdditionalIncludeDirectories_173);$(ProjectAdditionalIncludeDirectories_174);$(ProjectAdditionalIncludeDirectories_175);$(ProjectAdditionalIncludeDirectories_111);$(ProjectAdditionalIncludeDirectories_157);$(ProjectAdditionalIncludeDirectories_192);$(ProjectAdditionalIncludeDirectories_188);$(ProjectAdditionalIncludeDirectories_101);$(ProjectAdditionalIncludeDirectories_177);$(ProjectAdditionalIncludeDirectories_176);$(ProjectAdditionalIncludeDirectories_182);$(ProjectAdditionalIncludeDirectories_169);$(ProjectAdditionalIncludeDirectories_178);$(ProjectAdditionalIncludeDirectories_128);$(ProjectAdditionalIncludeDirectories_130);$(ProjectAdditionalIncludeDirectories_11);$(ProjectAdditionalIncludeDirectories_12);$(ProjectAdditionalIncludeDirectories_137);$(ProjectAdditionalIncludeDirectories_143);$(ProjectAdditionalIncludeDirectories_105);$(ProjectAdditionalIncludeDirectories_108);$(ProjectAdditionalIncludeDirectories_109);$(ProjectAdditionalIncludeDirectories_110);$(ProjectAdditionalIncludeDirectories_54);$(ProjectAdditionalIncludeDirectories_56);$(ProjectAdditionalIncludeDirectories_37);$(ProjectAdditionalIncludeDirectories_36);$(ProjectAdditionalIncludeDirectories_107);$(ProjectAdditionalIncludeDirectories_106);$(ProjectAdditionalIncludeDirectories_114);$(ProjectAdditionalIncludeDirectories_135);$(ProjectAdditionalIncludeDirectories_55);$(ProjectAdditionalIncludeDirectories_43);$(ProjectAdditionalIncludeDirectories_113);$(ProjectAdditionalIncludeDirectories_136);$(ProjectAdditionalIncludeDirectories_161);$(ProjectAdditionalIncludeDirectories_185);$(ProjectAdditionalIncludeDirectories_196);$(ProjectAdditionalIncludeDirectories_197);$(ProjectAdditionalIncludeDirectories_32);$(ProjectAdditionalIncludeDirectories_150);$(ProjectAdditionalIncludeDirectories_79);$(ProjectAdditionalIncludeDirectories_80);$(ProjectAdditionalIncludeDirectories_57);$(ProjectAdditionalIncludeDirectories_5);$(ProjectAdditionalIncludeDirectories_6);$(ProjectAdditionalIncludeDirectories_98);$(ProjectAdditionalIncludeDirectories_93);$(ProjectAdditionalIncludeDirectories_95);$(ProjectAdditionalIncludeDirectories_94);$(ProjectAdditionalIncludeDirectories_63);$(ProjectAdditionalIncludeDirectories_35);$(ProjectAdditionalIncludeDirectories_71);$(ProjectAdditionalIncludeDirectories_33);$(ProjectAdditionalIncludeDirectories_62);$(ProjectAdditionalIncludeDirectories_76);$(ProjectAdditionalIncludeDirectories_46);$(ProjectAdditionalIncludeDirectories_75);$(ProjectAdditionalIncludeDirectories_149);$(ProjectAdditionalIncludeDirectories_70);$(ProjectAdditionalIncludeDirectories_179);$(ProjectAdditionalIncludeDirectories_50);$(ProjectAdditionalIncludeDirectories_48);$(ProjectAdditionalIncludeDirectories_49);$(ProjectAdditionalIncludeDirectories_183);$(ProjectAdditionalIncludeDirectories_45);$(ProjectAdditionalIncludeDirectories_78);$(ProjectAdditionalIncludeDirectories_141);$(ProjectAdditionalIncludeDirectories_142);$(ProjectAdditionalIncludeDirectories_84);$(ProjectAdditionalIncludeDirectories_83);$(ProjectAdditionalIncludeDirectories_74);$(ProjectAdditionalIncludeDirectories_61);$(ProjectAdditionalIncludeDirectories_85);$(ProjectAdditionalIncludeDirectories_68);$(ProjectAdditionalIncludeDirectories_40);$(ProjectAdditionalIncludeDirectories_73);$(ProjectAdditionalIncludeDirectories_82);$(ProjectAdditionalIncludeDirectories_186);$(ProjectAdditionalIncludeDirectories_53);$(ProjectAdditionalIncludeDirectories_59);$(ProjectAdditionalIncludeDirectories_4);$(ProjectAdditionalIncludeDirectories_91);$(ProjectAdditionalIncludeDirectories_92);$(ProjectAdditionalIncludeDirectories_66);$(ProjectAdditionalIncludeDirectories_67);$(ProjectAdditionalIncludeDirectories_172);$(ProjectAdditionalIncludeDirectories_171);$(ProjectAdditionalIncludeDirectories_41);$(ProjectAdditionalIncludeDirectories_42);$(ProjectAdditionalIncludeDirectories_34);$(ProjectAdditionalIncludeDirectories_112);$(ProjectAdditionalIncludeDirectories_44);$(ProjectAdditionalIncludeDirectories_64);$(ProjectAdditionalIncludeDirectories_65);$(ProjectAdditionalIncludeDirectories_201);$(ProjectAdditionalIncludeDirectories_81);$(ProjectAdditionalIncludeDirectories_69);$(ProjectAdditionalIncludeDirectories_52);$(ProjectAdditionalIncludeDirectories_58);$(ProjectAdditionalIncludeDirectories_7);$(ProjectAdditionalIncludeDirectories_8);$(ProjectAdditionalIncludeDirectories_96);$(ProjectAdditionalIncludeDirectories_9);$(ProjectAdditionalIncludeDirectories_10);$(ProjectAdditionalIncludeDirectories_97);$(ProjectAdditionalIncludeDirectories_144);$(ProjectAdditionalIncludeDirectories_154);$(ProjectAdditionalIncludeDirectories_155);$(ProjectAdditionalIncludeDirectories_72);$(ProjectAdditionalIncludeDirectories_77);$(ProjectAdditionalIncludeDirectories_87);$(ProjectAdditionalIncludeDirectories_168);$(ProjectAdditionalIncludeDirectories_198);$(ProjectAdditionalIncludeDirectories_163);$(ProjectAdditionalIncludeDirectories_194);$(ProjectAdditionalIncludeDirectories_162);$(ProjectAdditionalIncludeDirectories_127);$(ProjectAdditionalIncludeDirectories_180);$(ProjectAdditionalIncludeDirectories_164);$(ProjectAdditionalIncludeDirectories_134);$(ProjectAdditionalIncludeDirectories_133);$(ProjectAdditionalIncludeDirectories_129);$(ProjectAdditionalIncludeDirectories_131);$(ProjectAdditionalIncludeDirectories_132);$(ProjectAdditionalIncludeDirectories_47);$(ProjectAdditionalIncludeDirectories_158);$(ProjectAdditionalIncludeDirectories_156);$(ProjectAdditionalIncludeDirectories_90);$(ProjectAdditionalIncludeDirectories_86);$(ProjectAdditionalIncludeDirectories_151);$(ProjectAdditionalIncludeDirectories_38);$(ProjectAdditionalIncludeDirectories_39);$(ProjectAdditionalIncludeDirectories_88);$(ProjectAdditionalIncludeDirectories_89);$(ProjectAdditionalIncludeDirectories_51);$(ProjectAdditionalIncludeDirectories_13);$(ProjectAdditionalIncludeDirectories_14);$(ProjectAdditionalIncludeDirectories_60);..\..\Plugins\AdvancedSteamSessions\Intermediate\Build\Win64\UnrealEditor\Inc\AdvancedSteamSessions\UHT;..\..\Plugins\AdvancedSteamSessions\Intermediate\Build\Win64\UnrealEditor\Inc\AdvancedSteamSessions\VNI;..\..\Plugins\AdvancedSteamSessions\Source;..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes;$(ProjectAdditionalIncludeDirectories);$(ProjectAdditionalIncludeDirectories_1);$(ProjectAdditionalIncludeDirectories_2);$(ProjectAdditionalIncludeDirectories_3);$(ProjectAdditionalIncludeDirectories_202);$(ProjectAdditionalIncludeDirectories_200);$(ProjectAdditionalIncludeDirectories_199);C:\UnrealEngineSource\Engine\Source\ThirdParty\Steamworks\Steamv153\sdk\public</ClCompile_AdditionalIncludeDirectories_1>
+    <ClCompile_AdditionalIncludeDirectories_2>$(NMakeIncludeSearchPath);$(ProjectAdditionalIncludeDirectories_31);..\..\Plugins\MultiplayerSessions\Source\MultiplayerSessions\Private;$(ProjectAdditionalIncludeDirectories_117);$(ProjectAdditionalIncludeDirectories_116);$(ProjectAdditionalIncludeDirectories_119);$(ProjectAdditionalIncludeDirectories_118);$(ProjectAdditionalIncludeDirectories_195);$(ProjectAdditionalIncludeDirectories_30);$(ProjectAdditionalIncludeDirectories_124);$(ProjectAdditionalIncludeDirectories_126);$(ProjectAdditionalIncludeDirectories_125);$(ProjectAdditionalIncludeDirectories_115);$(ProjectAdditionalIncludeDirectories_138);$(ProjectAdditionalIncludeDirectories_166);$(ProjectAdditionalIncludeDirectories_167);$(ProjectAdditionalIncludeDirectories_165);$(ProjectAdditionalIncludeDirectories_145);$(ProjectAdditionalIncludeDirectories_153);$(ProjectAdditionalIncludeDirectories_152);$(ProjectAdditionalIncludeDirectories_189);$(ProjectAdditionalIncludeDirectories_147);$(ProjectAdditionalIncludeDirectories_148);$(ProjectAdditionalIncludeDirectories_102);$(ProjectAdditionalIncludeDirectories_181);$(ProjectAdditionalIncludeDirectories_190);$(ProjectAdditionalIncludeDirectories_146);$(ProjectAdditionalIncludeDirectories_160);$(ProjectAdditionalIncludeDirectories_159);$(ProjectAdditionalIncludeDirectories_184);$(ProjectAdditionalIncludeDirectories_99);$(ProjectAdditionalIncludeDirectories_100);$(ProjectAdditionalIncludeDirectories_191);$(ProjectAdditionalIncludeDirectories_104);$(ProjectAdditionalIncludeDirectories_103);$(ProjectAdditionalIncludeDirectories_121);$(ProjectAdditionalIncludeDirectories_122);$(ProjectAdditionalIncludeDirectories_123);$(ProjectAdditionalIncludeDirectories_193);$(ProjectAdditionalIncludeDirectories_139);$(ProjectAdditionalIncludeDirectories_140);$(ProjectAdditionalIncludeDirectories_120);$(ProjectAdditionalIncludeDirectories_173);$(ProjectAdditionalIncludeDirectories_174);$(ProjectAdditionalIncludeDirectories_175);$(ProjectAdditionalIncludeDirectories_111);$(ProjectAdditionalIncludeDirectories_157);$(ProjectAdditionalIncludeDirectories_192);$(ProjectAdditionalIncludeDirectories_188);$(ProjectAdditionalIncludeDirectories_101);$(ProjectAdditionalIncludeDirectories_177);$(ProjectAdditionalIncludeDirectories_176);$(ProjectAdditionalIncludeDirectories_182);$(ProjectAdditionalIncludeDirectories_169);$(ProjectAdditionalIncludeDirectories_178);$(ProjectAdditionalIncludeDirectories_128);$(ProjectAdditionalIncludeDirectories_130);$(ProjectAdditionalIncludeDirectories_11);$(ProjectAdditionalIncludeDirectories_12);$(ProjectAdditionalIncludeDirectories_137);$(ProjectAdditionalIncludeDirectories_143);$(ProjectAdditionalIncludeDirectories_187);$(ProjectAdditionalIncludeDirectories_105);$(ProjectAdditionalIncludeDirectories_108);$(ProjectAdditionalIncludeDirectories_109);$(ProjectAdditionalIncludeDirectories_110);$(ProjectAdditionalIncludeDirectories_54);$(ProjectAdditionalIncludeDirectories_56);$(ProjectAdditionalIncludeDirectories_37);$(ProjectAdditionalIncludeDirectories_36);$(ProjectAdditionalIncludeDirectories_107);$(ProjectAdditionalIncludeDirectories_106);$(ProjectAdditionalIncludeDirectories_114);$(ProjectAdditionalIncludeDirectories_170);$(ProjectAdditionalIncludeDirectories_135);$(ProjectAdditionalIncludeDirectories_55);$(ProjectAdditionalIncludeDirectories_43);$(ProjectAdditionalIncludeDirectories_113);$(ProjectAdditionalIncludeDirectories_136);$(ProjectAdditionalIncludeDirectories_161);$(ProjectAdditionalIncludeDirectories_185);$(ProjectAdditionalIncludeDirectories_196);$(ProjectAdditionalIncludeDirectories_197);$(ProjectAdditionalIncludeDirectories_32);$(ProjectAdditionalIncludeDirectories_150);$(ProjectAdditionalIncludeDirectories_79);$(ProjectAdditionalIncludeDirectories_80);$(ProjectAdditionalIncludeDirectories_57);$(ProjectAdditionalIncludeDirectories_5);$(ProjectAdditionalIncludeDirectories_6);$(ProjectAdditionalIncludeDirectories_98);$(ProjectAdditionalIncludeDirectories_93);$(ProjectAdditionalIncludeDirectories_95);$(ProjectAdditionalIncludeDirectories_94);$(ProjectAdditionalIncludeDirectories_63);$(ProjectAdditionalIncludeDirectories_35);$(ProjectAdditionalIncludeDirectories_71);$(ProjectAdditionalIncludeDirectories_33);$(ProjectAdditionalIncludeDirectories_62);$(ProjectAdditionalIncludeDirectories_76);$(ProjectAdditionalIncludeDirectories_46);$(ProjectAdditionalIncludeDirectories_75);$(ProjectAdditionalIncludeDirectories_149);$(ProjectAdditionalIncludeDirectories_70);$(ProjectAdditionalIncludeDirectories_179);$(ProjectAdditionalIncludeDirectories_50);$(ProjectAdditionalIncludeDirectories_48);$(ProjectAdditionalIncludeDirectories_49);$(ProjectAdditionalIncludeDirectories_183);$(ProjectAdditionalIncludeDirectories_45);$(ProjectAdditionalIncludeDirectories_78);$(ProjectAdditionalIncludeDirectories_141);$(ProjectAdditionalIncludeDirectories_142);$(ProjectAdditionalIncludeDirectories_84);$(ProjectAdditionalIncludeDirectories_83);$(ProjectAdditionalIncludeDirectories_74);$(ProjectAdditionalIncludeDirectories_61);$(ProjectAdditionalIncludeDirectories_85);$(ProjectAdditionalIncludeDirectories_68);$(ProjectAdditionalIncludeDirectories_40);$(ProjectAdditionalIncludeDirectories_73);$(ProjectAdditionalIncludeDirectories_82);$(ProjectAdditionalIncludeDirectories_186);$(ProjectAdditionalIncludeDirectories_53);$(ProjectAdditionalIncludeDirectories_59);$(ProjectAdditionalIncludeDirectories_4);$(ProjectAdditionalIncludeDirectories_91);$(ProjectAdditionalIncludeDirectories_92);$(ProjectAdditionalIncludeDirectories_66);$(ProjectAdditionalIncludeDirectories_67);$(ProjectAdditionalIncludeDirectories_172);$(ProjectAdditionalIncludeDirectories_171);$(ProjectAdditionalIncludeDirectories_41);$(ProjectAdditionalIncludeDirectories_42);$(ProjectAdditionalIncludeDirectories_34);$(ProjectAdditionalIncludeDirectories_112);$(ProjectAdditionalIncludeDirectories_44);$(ProjectAdditionalIncludeDirectories_64);$(ProjectAdditionalIncludeDirectories_65);$(ProjectAdditionalIncludeDirectories_201);$(ProjectAdditionalIncludeDirectories_81);$(ProjectAdditionalIncludeDirectories_69);$(ProjectAdditionalIncludeDirectories_52);$(ProjectAdditionalIncludeDirectories_58);$(ProjectAdditionalIncludeDirectories_7);$(ProjectAdditionalIncludeDirectories_8);$(ProjectAdditionalIncludeDirectories_96);$(ProjectAdditionalIncludeDirectories_9);$(ProjectAdditionalIncludeDirectories_10);$(ProjectAdditionalIncludeDirectories_97);$(ProjectAdditionalIncludeDirectories_144);$(ProjectAdditionalIncludeDirectories_154);$(ProjectAdditionalIncludeDirectories_155);$(ProjectAdditionalIncludeDirectories_72);$(ProjectAdditionalIncludeDirectories_77);$(ProjectAdditionalIncludeDirectories_87);$(ProjectAdditionalIncludeDirectories_168);$(ProjectAdditionalIncludeDirectories_198);$(ProjectAdditionalIncludeDirectories_163);$(ProjectAdditionalIncludeDirectories_194);$(ProjectAdditionalIncludeDirectories_162);$(ProjectAdditionalIncludeDirectories_127);$(ProjectAdditionalIncludeDirectories_180);$(ProjectAdditionalIncludeDirectories_164);$(ProjectAdditionalIncludeDirectories_134);$(ProjectAdditionalIncludeDirectories_133);$(ProjectAdditionalIncludeDirectories_129);$(ProjectAdditionalIncludeDirectories_131);$(ProjectAdditionalIncludeDirectories_132);$(ProjectAdditionalIncludeDirectories_47);$(ProjectAdditionalIncludeDirectories_158);$(ProjectAdditionalIncludeDirectories_156);$(ProjectAdditionalIncludeDirectories_90);$(ProjectAdditionalIncludeDirectories_86);$(ProjectAdditionalIncludeDirectories_151);$(ProjectAdditionalIncludeDirectories_38);$(ProjectAdditionalIncludeDirectories_39);$(ProjectAdditionalIncludeDirectories_88);$(ProjectAdditionalIncludeDirectories_89);$(ProjectAdditionalIncludeDirectories_51);$(ProjectAdditionalIncludeDirectories_13);$(ProjectAdditionalIncludeDirectories_14);$(ProjectAdditionalIncludeDirectories_60);..\..\Plugins\MultiplayerSessions\Intermediate\Build\Win64\UnrealEditor\Inc\MultiplayerSessions\UHT;..\..\Plugins\MultiplayerSessions\Intermediate\Build\Win64\UnrealEditor\Inc\MultiplayerSessions\VNI;..\..\Plugins\MultiplayerSessions\Source;..\..\Plugins\MultiplayerSessions\Source\MultiplayerSessions\Public;$(ProjectAdditionalIncludeDirectories_26);$(ProjectAdditionalIncludeDirectories_27);$(ProjectAdditionalIncludeDirectories_29);$(ProjectAdditionalIncludeDirectories_28);$(ProjectAdditionalIncludeDirectories_15);$(ProjectAdditionalIncludeDirectories_16);$(ProjectAdditionalIncludeDirectories_17);$(ProjectAdditionalIncludeDirectories_18);$(ProjectAdditionalIncludeDirectories_19);$(ProjectAdditionalIncludeDirectories_20);$(ProjectAdditionalIncludeDirectories_21);$(ProjectAdditionalIncludeDirectories_22);$(ProjectAdditionalIncludeDirectories_23);$(ProjectAdditionalIncludeDirectories_24);$(ProjectAdditionalIncludeDirectories_25);$(ProjectAdditionalIncludeDirectories_202);$(ProjectAdditionalIncludeDirectories_200);$(ProjectAdditionalIncludeDirectories_199)</ClCompile_AdditionalIncludeDirectories_2>
+    <ClCompile_AdditionalIncludeDirectories_3>$(NMakeIncludeSearchPath);$(ProjectAdditionalIncludeDirectories_31);C:\UnrealEngineSource\Engine\Plugins\FX\Niagara\Intermediate\Build\Win64\UnrealEditor\Inc\Niagara\UHT;C:\UnrealEngineSource\Engine\Plugins\FX\Niagara\Intermediate\Build\Win64\UnrealEditor\Inc\Niagara\VNI;C:\UnrealEngineSource\Engine\Plugins\FX\Niagara\Source\Niagara\Classes;C:\UnrealEngineSource\Engine\Plugins\FX\Niagara\Source\Niagara\Public;C:\UnrealEngineSource\Engine\Plugins\FX\Niagara\Source\Niagara\Internal;$(ProjectAdditionalIncludeDirectories_117);$(ProjectAdditionalIncludeDirectories_116);$(ProjectAdditionalIncludeDirectories_119);$(ProjectAdditionalIncludeDirectories_118);$(ProjectAdditionalIncludeDirectories_195);$(ProjectAdditionalIncludeDirectories_163);$(ProjectAdditionalIncludeDirectories_147);$(ProjectAdditionalIncludeDirectories_148);$(ProjectAdditionalIncludeDirectories_30);$(ProjectAdditionalIncludeDirectories_124);$(ProjectAdditionalIncludeDirectories_126);$(ProjectAdditionalIncludeDirectories_125);$(ProjectAdditionalIncludeDirectories_115);$(ProjectAdditionalIncludeDirectories_138);$(ProjectAdditionalIncludeDirectories_166);$(ProjectAdditionalIncludeDirectories_167);$(ProjectAdditionalIncludeDirectories_165);$(ProjectAdditionalIncludeDirectories_145);$(ProjectAdditionalIncludeDirectories_153);$(ProjectAdditionalIncludeDirectories_152);$(ProjectAdditionalIncludeDirectories_189);$(ProjectAdditionalIncludeDirectories_102);$(ProjectAdditionalIncludeDirectories_181);$(ProjectAdditionalIncludeDirectories_190);$(ProjectAdditionalIncludeDirectories_146);$(ProjectAdditionalIncludeDirectories_160);$(ProjectAdditionalIncludeDirectories_159);$(ProjectAdditionalIncludeDirectories_184);$(ProjectAdditionalIncludeDirectories_99);$(ProjectAdditionalIncludeDirectories_100);$(ProjectAdditionalIncludeDirectories_191);$(ProjectAdditionalIncludeDirectories_104);$(ProjectAdditionalIncludeDirectories_103);$(ProjectAdditionalIncludeDirectories_121);$(ProjectAdditionalIncludeDirectories_122);$(ProjectAdditionalIncludeDirectories_123);$(ProjectAdditionalIncludeDirectories_193);$(ProjectAdditionalIncludeDirectories_139);$(ProjectAdditionalIncludeDirectories_140);$(ProjectAdditionalIncludeDirectories_120);$(ProjectAdditionalIncludeDirectories_173);$(ProjectAdditionalIncludeDirectories_174);$(ProjectAdditionalIncludeDirectories_175);$(ProjectAdditionalIncludeDirectories_111);$(ProjectAdditionalIncludeDirectories_157);$(ProjectAdditionalIncludeDirectories_192);$(ProjectAdditionalIncludeDirectories_188);$(ProjectAdditionalIncludeDirectories_101);$(ProjectAdditionalIncludeDirectories_177);$(ProjectAdditionalIncludeDirectories_176);$(ProjectAdditionalIncludeDirectories_182);$(ProjectAdditionalIncludeDirectories_169);$(ProjectAdditionalIncludeDirectories_178);$(ProjectAdditionalIncludeDirectories_128);$(ProjectAdditionalIncludeDirectories_130);$(ProjectAdditionalIncludeDirectories_11);$(ProjectAdditionalIncludeDirectories_12);$(ProjectAdditionalIncludeDirectories_137);$(ProjectAdditionalIncludeDirectories_143);$(ProjectAdditionalIncludeDirectories_187);$(ProjectAdditionalIncludeDirectories_105);$(ProjectAdditionalIncludeDirectories_108);$(ProjectAdditionalIncludeDirectories_109);$(ProjectAdditionalIncludeDirectories_110);$(ProjectAdditionalIncludeDirectories_54);$(ProjectAdditionalIncludeDirectories_56);$(ProjectAdditionalIncludeDirectories_37);$(ProjectAdditionalIncludeDirectories_36);$(ProjectAdditionalIncludeDirectories_107);$(ProjectAdditionalIncludeDirectories_106);$(ProjectAdditionalIncludeDirectories_114);$(ProjectAdditionalIncludeDirectories_170);$(ProjectAdditionalIncludeDirectories_135);$(ProjectAdditionalIncludeDirectories_55);$(ProjectAdditionalIncludeDirectories_43);$(ProjectAdditionalIncludeDirectories_113);$(ProjectAdditionalIncludeDirectories_136);$(ProjectAdditionalIncludeDirectories_161);$(ProjectAdditionalIncludeDirectories_185);$(ProjectAdditionalIncludeDirectories_196);$(ProjectAdditionalIncludeDirectories_197);$(ProjectAdditionalIncludeDirectories_32);$(ProjectAdditionalIncludeDirectories_150);$(ProjectAdditionalIncludeDirectories_79);$(ProjectAdditionalIncludeDirectories_80);$(ProjectAdditionalIncludeDirectories_57);$(ProjectAdditionalIncludeDirectories_5);$(ProjectAdditionalIncludeDirectories_6);$(ProjectAdditionalIncludeDirectories_98);$(ProjectAdditionalIncludeDirectories_93);$(ProjectAdditionalIncludeDirectories_95);$(ProjectAdditionalIncludeDirectories_94);$(ProjectAdditionalIncludeDirectories_63);$(ProjectAdditionalIncludeDirectories_35);$(ProjectAdditionalIncludeDirectories_71);$(ProjectAdditionalIncludeDirectories_33);$(ProjectAdditionalIncludeDirectories_62);$(ProjectAdditionalIncludeDirectories_76);$(ProjectAdditionalIncludeDirectories_46);$(ProjectAdditionalIncludeDirectories_75);$(ProjectAdditionalIncludeDirectories_149);$(ProjectAdditionalIncludeDirectories_70);$(ProjectAdditionalIncludeDirectories_179);$(ProjectAdditionalIncludeDirectories_50);$(ProjectAdditionalIncludeDirectories_48);$(ProjectAdditionalIncludeDirectories_49);$(ProjectAdditionalIncludeDirectories_183);$(ProjectAdditionalIncludeDirectories_45);$(ProjectAdditionalIncludeDirectories_78);$(ProjectAdditionalIncludeDirectories_141);$(ProjectAdditionalIncludeDirectories_142);$(ProjectAdditionalIncludeDirectories_84);$(ProjectAdditionalIncludeDirectories_83);$(ProjectAdditionalIncludeDirectories_74);$(ProjectAdditionalIncludeDirectories_61);$(ProjectAdditionalIncludeDirectories_85);$(ProjectAdditionalIncludeDirectories_68);$(ProjectAdditionalIncludeDirectories_40);$(ProjectAdditionalIncludeDirectories_73);$(ProjectAdditionalIncludeDirectories_82);$(ProjectAdditionalIncludeDirectories_186);$(ProjectAdditionalIncludeDirectories_53);$(ProjectAdditionalIncludeDirectories_59);$(ProjectAdditionalIncludeDirectories_4);$(ProjectAdditionalIncludeDirectories_91);$(ProjectAdditionalIncludeDirectories_92);$(ProjectAdditionalIncludeDirectories_66);$(ProjectAdditionalIncludeDirectories_67);$(ProjectAdditionalIncludeDirectories_172);$(ProjectAdditionalIncludeDirectories_171);$(ProjectAdditionalIncludeDirectories_41);$(ProjectAdditionalIncludeDirectories_42);$(ProjectAdditionalIncludeDirectories_34);$(ProjectAdditionalIncludeDirectories_112);$(ProjectAdditionalIncludeDirectories_44);$(ProjectAdditionalIncludeDirectories_64);$(ProjectAdditionalIncludeDirectories_65);$(ProjectAdditionalIncludeDirectories_201);$(ProjectAdditionalIncludeDirectories_81);$(ProjectAdditionalIncludeDirectories_69);$(ProjectAdditionalIncludeDirectories_52);$(ProjectAdditionalIncludeDirectories_58);$(ProjectAdditionalIncludeDirectories_7);$(ProjectAdditionalIncludeDirectories_8);$(ProjectAdditionalIncludeDirectories_96);$(ProjectAdditionalIncludeDirectories_9);$(ProjectAdditionalIncludeDirectories_10);$(ProjectAdditionalIncludeDirectories_97);$(ProjectAdditionalIncludeDirectories_144);$(ProjectAdditionalIncludeDirectories_154);$(ProjectAdditionalIncludeDirectories_155);$(ProjectAdditionalIncludeDirectories_72);$(ProjectAdditionalIncludeDirectories_77);$(ProjectAdditionalIncludeDirectories_87);$(ProjectAdditionalIncludeDirectories_168);$(ProjectAdditionalIncludeDirectories_198);$(ProjectAdditionalIncludeDirectories_162);$(ProjectAdditionalIncludeDirectories_194);$(ProjectAdditionalIncludeDirectories_127);$(ProjectAdditionalIncludeDirectories_180);$(ProjectAdditionalIncludeDirectories_164);$(ProjectAdditionalIncludeDirectories_134);$(ProjectAdditionalIncludeDirectories_133);$(ProjectAdditionalIncludeDirectories_129);$(ProjectAdditionalIncludeDirectories_131);$(ProjectAdditionalIncludeDirectories_132);$(ProjectAdditionalIncludeDirectories_47);$(ProjectAdditionalIncludeDirectories_158);$(ProjectAdditionalIncludeDirectories_156);$(ProjectAdditionalIncludeDirectories_90);$(ProjectAdditionalIncludeDirectories_86);$(ProjectAdditionalIncludeDirectories_151);$(ProjectAdditionalIncludeDirectories_38);$(ProjectAdditionalIncludeDirectories_39);$(ProjectAdditionalIncludeDirectories_88);$(ProjectAdditionalIncludeDirectories_89);$(ProjectAdditionalIncludeDirectories_51);$(ProjectAdditionalIncludeDirectories_13);$(ProjectAdditionalIncludeDirectories_14);$(ProjectAdditionalIncludeDirectories_60);C:\UnrealEngineSource\Engine\Plugins\FX\Niagara\Intermediate\Build\Win64\UnrealEditor\Inc\NiagaraCore\UHT;C:\UnrealEngineSource\Engine\Plugins\FX\Niagara\Intermediate\Build\Win64\UnrealEditor\Inc\NiagaraCore\VNI;C:\UnrealEngineSource\Engine\Plugins\FX\Niagara\Source\NiagaraCore\Public;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\VectorVM\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\VectorVM\VNI;C:\UnrealEngineSource\Engine\Source\Runtime\VectorVM\Public;C:\UnrealEngineSource\Engine\Plugins\FX\Niagara\Intermediate\Build\Win64\UnrealEditor\Inc\NiagaraShader\UHT;C:\UnrealEngineSource\Engine\Plugins\FX\Niagara\Intermediate\Build\Win64\UnrealEditor\Inc\NiagaraShader\VNI;C:\UnrealEngineSource\Engine\Plugins\FX\Niagara\Source\NiagaraShader\Public;C:\UnrealEngineSource\Engine\Plugins\FX\Niagara\Intermediate\Build\Win64\UnrealEditor\Inc\NiagaraVertexFactories\UHT;C:\UnrealEngineSource\Engine\Plugins\FX\Niagara\Intermediate\Build\Win64\UnrealEditor\Inc\NiagaraVertexFactories\VNI;C:\UnrealEngineSource\Engine\Plugins\FX\Niagara\Source\NiagaraVertexFactories\Public;C:\UnrealEngineSource\Engine\Plugins\EnhancedInput\Intermediate\Build\Win64\UnrealEditor\Inc\EnhancedInput\UHT;C:\UnrealEngineSource\Engine\Plugins\EnhancedInput\Intermediate\Build\Win64\UnrealEditor\Inc\EnhancedInput\VNI;C:\UnrealEngineSource\Engine\Plugins\EnhancedInput\Source\EnhancedInput\Public;C:\UnrealEngineSource\Engine\Plugins\Runtime\GameplayAbilities\Intermediate\Build\Win64\UnrealEditor\Inc\GameplayAbilities\UHT;C:\UnrealEngineSource\Engine\Plugins\Runtime\GameplayAbilities\Intermediate\Build\Win64\UnrealEditor\Inc\GameplayAbilities\VNI;C:\UnrealEngineSource\Engine\Plugins\Runtime\GameplayAbilities\Source\GameplayAbilities\Public;C:\UnrealEngineSource\Engine\Plugins\Runtime\DataRegistry\Intermediate\Build\Win64\UnrealEditor\Inc\DataRegistry\UHT;C:\UnrealEngineSource\Engine\Plugins\Runtime\DataRegistry\Intermediate\Build\Win64\UnrealEditor\Inc\DataRegistry\VNI;C:\UnrealEngineSource\Engine\Plugins\Runtime\DataRegistry\Source\DataRegistry\Public;$(ProjectAdditionalIncludeDirectories);$(ProjectAdditionalIncludeDirectories_1);$(ProjectAdditionalIncludeDirectories_2);$(ProjectAdditionalIncludeDirectories_3);$(ProjectAdditionalIncludeDirectories_26);$(ProjectAdditionalIncludeDirectories_27);$(ProjectAdditionalIncludeDirectories_29);$(ProjectAdditionalIncludeDirectories_28);$(ProjectAdditionalIncludeDirectories_15);$(ProjectAdditionalIncludeDirectories_16);$(ProjectAdditionalIncludeDirectories_17);$(ProjectAdditionalIncludeDirectories_22);$(ProjectAdditionalIncludeDirectories_23);$(ProjectAdditionalIncludeDirectories_24);$(ProjectAdditionalIncludeDirectories_25);C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Blutility\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\Blutility\VNI;C:\UnrealEngineSource\Engine\Source\Editor\Blutility\Classes;C:\UnrealEngineSource\Engine\Source\Editor\Blutility\Public;..\Build\Win64\UnrealEditor\Inc\HordeShooter\UHT;..\Build\Win64\UnrealEditor\Inc\HordeShooter\VNI;..\..\Source;$(ProjectAdditionalIncludeDirectories_18);$(ProjectAdditionalIncludeDirectories_19);$(ProjectAdditionalIncludeDirectories_20);$(ProjectAdditionalIncludeDirectories_21);C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\GameplayTasksEditor\UHT;C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\UnrealEditor\Inc\GameplayTasksEditor\VNI;C:\UnrealEngineSource\Engine\Source\Editor\GameplayTasksEditor\Classes;C:\UnrealEngineSource\Engine\Source\Editor\GameplayTasksEditor\Public;$(ProjectAdditionalIncludeDirectories_202);$(ProjectAdditionalIncludeDirectories_200);$(ProjectAdditionalIncludeDirectories_199)</ClCompile_AdditionalIncludeDirectories_3>
+    <ProjectForcedIncludeFiles>C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\x64\UnrealEditor\Development\Engine\SharedPCH.Engine.Cpp20.h</ProjectForcedIncludeFiles>
+    <ClCompile_ForcedIncludeFiles>$(ProjectForcedIncludeFiles);$(SolutionDir)Plugins\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealEditor\Development\AdvancedSessions\Definitions.AdvancedSessions.h</ClCompile_ForcedIncludeFiles>
+    <ClCompile_ForcedIncludeFiles_1>$(ProjectForcedIncludeFiles);$(SolutionDir)Plugins\AdvancedSteamSessions\Intermediate\Build\Win64\x64\UnrealEditor\Development\AdvancedSteamSessions\Definitions.AdvancedSteamSessions.h</ClCompile_ForcedIncludeFiles_1>
+    <ClCompile_ForcedIncludeFiles_2>$(ProjectForcedIncludeFiles);$(SolutionDir)Plugins\MultiplayerSessions\Intermediate\Build\Win64\x64\UnrealEditor\Development\MultiplayerSessions\Definitions.MultiplayerSessions.h</ClCompile_ForcedIncludeFiles_2>
+    <ClCompile_ForcedIncludeFiles_3>C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\x64\UnrealEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp20.h;$(SolutionDir)Intermediate\Build\Win64\x64\UnrealEditor\Development\HordeShooter\Definitions.HordeShooter.h</ClCompile_ForcedIncludeFiles_3>
+    <ClCompile_AdditionalOptions>$(AdditionalOptions) /Yu"C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\x64\UnrealEditor\Development\Engine\SharedPCH.Engine.Cpp20.h"</ClCompile_AdditionalOptions>
+    <ClCompile_AdditionalOptions_1>$(AdditionalOptions) /Yu"C:\UnrealEngineSource\Engine\Intermediate\Build\Win64\x64\UnrealEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp20.h"</ClCompile_AdditionalOptions_1>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\HordeShooter.uproject"/>
+    <None Include="..\..\Source\HordeShooter.Target.cs"/>
+    <None Include="..\..\Source\HordeShooterEditor.Target.cs"/>
+    <None Include="..\..\.gitattributes"/>
+    <None Include="..\..\.vsconfig"/>
+    <None Include="..\..\Config\DefaultEditor.ini"/>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini"/>
+    <None Include="..\..\Config\DefaultEngine.ini"/>
+    <None Include="..\..\Config\DefaultGame.ini"/>
+    <None Include="..\..\Config\DefaultInput.ini"/>
+    <None Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\AdvancedSessions.Build.cs"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\AdvancedExternalUILibrary.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\AdvancedFriendsGameInstance.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\AdvancedFriendsInterface.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\AdvancedFriendsLibrary.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\AdvancedGameSession.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\AdvancedIdentityLibrary.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\AdvancedSessions.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\AdvancedSessionsLibrary.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\AdvancedVoiceLibrary.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\AutoLoginUserCallbackProxy.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\BlueprintDataDefinitions.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\CancelFindSessionsCallbackProxy.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\CreateSessionCallbackProxyAdvanced.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\EndSessionCallbackProxy.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\FindFriendSessionCallbackProxy.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\FindSessionsCallbackProxyAdvanced.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\GetFriendsCallbackProxy.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\GetRecentPlayersCallbackProxy.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\GetUserPrivilegeCallbackProxy.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\LoginUserCallbackProxy.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\LogoutUserCallbackProxy.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\OnlineSubSystemHeader.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\SendFriendInviteCallbackProxy.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\StartSessionCallbackProxyAdvanced.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Classes\UpdateSessionCallbackProxyAdvanced.h"/>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\AdvancedExternalUILibrary.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\AdvancedFriendsGameInstance.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\AdvancedFriendsInterface.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\AdvancedFriendsLibrary.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\AdvancedIdentityLibrary.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\AdvancedSessions.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\AdvancedSessionsLibrary.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\AdvancedVoiceLibrary.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\AutoLoginUserCallbackProxy.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\CancelFindSessionsCallbackProxy.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\CreateSessionCallbackProxyAdvanced.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\EndSessionCallbackProxy.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\FindFriendSessionCallbackProxy.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\FindSessionsCallbackProxyAdvanced.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\GetFriendsCallbackProxy.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\GetRecentPlayersCallbackProxy.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\GetUserPrivilegeCallbackProxy.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\LoginUserCallbackProxy.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\LogoutUserCallbackProxy.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\SendFriendInviteCallbackProxy.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\StartSessionCallbackProxyAdvanced.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSessions\Source\AdvancedSessions\Private\UpdateSessionCallbackProxyAdvanced.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <None Include="..\..\Plugins\AdvancedSessions\AdvancedSessions.uplugin"/>
+    <None Include="..\..\Plugins\AdvancedSessions\Config\FilterPlugin.ini"/>
+    <None Include="..\..\Plugins\AdvancedSessions\Resources\Icon128.png"/>
+    <None Include="..\..\Plugins\AdvancedSteamSessions\AdvancedSteamSessions.uplugin"/>
+    <None Include="..\..\Plugins\AdvancedSteamSessions\Config\FilterPlugin.ini"/>
+    <None Include="..\..\Plugins\AdvancedSteamSessions\Resources\Icon128.png"/>
+    <None Include="..\..\Plugins\MultiplayerSessions\MultiplayerSessions.uplugin"/>
+    <None Include="..\..\Plugins\MultiplayerSessions\Resources\Icon128.png"/>
+    <None Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\AdvancedSteamSessions.Build.cs"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes\AdvancedSteamFriendsLibrary.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes\AdvancedSteamSessions.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes\AdvancedSteamWorkshopLibrary.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes\SteamNotificationsSubsystem.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes\SteamRequestGroupOfficersCallbackProxy.h"/>
+    <ClInclude Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes\SteamWSRequestUGCDetailsCallbackProxy.h"/>
+    <ClCompile Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private\AdvancedSteamFriendsLibrary.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_1)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_1)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private\AdvancedSteamSessions.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_1)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_1)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private\AdvancedSteamWorkshopLibrary.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_1)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_1)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private\SteamRequestGroupOfficersCallbackProxy.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_1)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_1)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private\SteamWSRequestUGCDetailsCallbackProxy.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_1)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_1)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <None Include="..\..\Plugins\MultiplayerSessions\Source\MultiplayerSessions\MultiplayerSessions.Build.cs"/>
+    <ClCompile Include="..\..\Plugins\MultiplayerSessions\Source\MultiplayerSessions\Private\LobbyGameMode.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\MultiplayerSessions\Source\MultiplayerSessions\Private\Menu.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\MultiplayerSessions\Source\MultiplayerSessions\Private\MultiplayerSessions.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\MultiplayerSessions\Source\MultiplayerSessions\Private\MultiplayerSessionsGISubsystem.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MultiplayerSessions\Source\MultiplayerSessions\Public\LobbyGameMode.h"/>
+    <ClInclude Include="..\..\Plugins\MultiplayerSessions\Source\MultiplayerSessions\Public\Menu.h"/>
+    <ClInclude Include="..\..\Plugins\MultiplayerSessions\Source\MultiplayerSessions\Public\MultiplayerSessions.h"/>
+    <ClInclude Include="..\..\Plugins\MultiplayerSessions\Source\MultiplayerSessions\Public\MultiplayerSessionsGISubsystem.h"/>
+    <None Include="..\..\Source\HordeShooter.Build.cs"/>
+    <ClCompile Include="..\..\Source\HordeShooter\ANS_MeleeTrace.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\ANS_MeleeTrace.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\HordeShooter.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\HordeShooter.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Background_Infrastructure\MSDGameInstance.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Background_Infrastructure\MSDGameInstance.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Background_Infrastructure\MSDGameplayTags.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Background_Infrastructure\MSDGameplayTags.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Background_Infrastructure\MSDSaveGame.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Background_Infrastructure\MSDSaveGame.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\MSDCharacter.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\MSDCharacter.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\MSDPlayerState.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\MSDPlayerState.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\MSD_LobbyCharacter.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\MSD_LobbyCharacter.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\MSD_MissionCharacter.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\MSD_MissionCharacter.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSDPlayerAttributeSet.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSDPlayerAttributeSet.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSD_AbilitySet.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSD_AbilitySet.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSD_AbilitySystemComponent.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\MSD_AbilitySystemComponent.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\Abilities\MSDGameplayAbility.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\Abilities\MSDGameplayAbility.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\Abilities\MSDReloadAbility.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\Abilities\MSDReloadAbility.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\Abilities\MSD_PrimaryFireAbility.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\Abilities\MSD_PrimaryFireAbility.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\Abilities\MSD_ProjectileAbility.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\Abilities\MSD_ProjectileAbility.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\AbilityTasks\AbilityTask_PlayMontageOnSM.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\AbilityTasks\AbilityTask_PlayMontageOnSM.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\MMCs\PrimaryFireAbilityRoundsCalc.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\MMCs\PrimaryFireAbilityRoundsCalc.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\MMCs\ReloadCostMagnitudeCalc.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\MMCs\ReloadCostMagnitudeCalc.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\AbilitySystem\MMCs\ReloadRoundsMagnitudeCalc.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\AbilitySystem\MMCs\ReloadRoundsMagnitudeCalc.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\Classes\MSD_CharacterClassDefinition.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\Classes\MSD_CharacterClassDefinition.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\Classes\MSD_MeleeAttackProfile.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\Classes\MSD_MeleeAttackProfile.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\Classes\MSD_SubclassDefinition.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\Classes\MSD_SubclassDefinition.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\Input\MSDPlayerController.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\Input\MSDPlayerController.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Character\Input\MSD_PlayerMappableKeySettings.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Character\Input\MSD_PlayerMappableKeySettings.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\GameModes\MSDLobbyGameMode.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\GameModes\MSDLobbyGameMode.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\GameModes\MSDMissionGameMode.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\GameModes\MSDMissionGameMode.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Interfaces\CombatInterface.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Interfaces\CombatInterface.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Interfaces\InteractableInterface.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Interfaces\InteractableInterface.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Interfaces\PlayerInterface.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Interfaces\PlayerInterface.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Pooled_Objects\MSD_ObjectPoolComponent.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Pooled_Objects\MSD_ObjectPoolComponent.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Pooled_Objects\MSD_PooledObject.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Pooled_Objects\MSD_PooledObject.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\Pooled_Objects\MSD_Projectile.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\Pooled_Objects\MSD_Projectile.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\UI\ClassSelectWidget.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\UI\ClassSelectWidget.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\UI\ClassSelectWidgetEntry.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\UI\ClassSelectWidgetEntry.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\UI\ClassSelectWidgetHub.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\UI\ClassSelectWidgetHub.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\UI\InteractPrompt.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\UI\InteractPrompt.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\UI\MSDCharacterMenuViewer.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\UI\MSDCharacterMenuViewer.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\UI\MSDHud.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\UI\MSDHud.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\UI\MSDUserWidget.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\UI\MSDUserWidget.h"/>
+    <ClCompile Include="..\..\Source\HordeShooter\UI\SubclassButtonWidget.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\HordeShooter\UI\SubclassButtonWidget.h"/>
+  </ItemGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <PropertyGroup>
+    <CleanDependsOn> $(CleanDependsOn); </CleanDependsOn>
+    <CppCleanDependsOn></CppCleanDependsOn>
+  </PropertyGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

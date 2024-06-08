@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "AbilitySystemInterface.h"
 #include "AbilitySystem/MSD_AbilitySet.h"
+#include "Classes/MSD_MeleeAttackProfile.h"
 
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
@@ -87,10 +88,6 @@ protected:
 
 public:
 	
-	//TODO - move this to an interface
-	UFUNCTION(BlueprintCallable, BlueprintPure)
-	FInputActionValue GetEnhancedInputActionValue(UInputAction* InAction);
-	
 	//probably also this
 	UFUNCTION(BlueprintCallable, Server, Reliable, WithValidation)
 	void ChangeClass(const FString& NewClass, int32 NewSubclass);
@@ -103,6 +100,9 @@ public:
 	
 	UPROPERTY(ReplicatedUsing=OnRep_CharacterClass, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	int32 CharacterSubclass = 0;
+
+	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<UMSD_MeleeAttackProfile> MeleeProfile;
 	
 	
 	//Since I'm using primary assets for the classes, they'll be loaded at runtime.
@@ -200,7 +200,12 @@ public:
 
 	UFUNCTION()
 	FInputActionValue GetInputActionValue_Implementation(UInputAction* InAction) override;
-	
+
+	UFUNCTION()
+	FVector2D GetMouseDirection_Implementation() override;
+
+	UFUNCTION()
+	UMSD_MeleeAttackProfile* GetMeleeProfile_Implementation() const override;
 #pragma endregion
 	
 };

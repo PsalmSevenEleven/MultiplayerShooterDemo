@@ -45,10 +45,16 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void SetHudVisibility(ESlateVisibility Visibility);
 
+	//A C++ version of the blueprint function that returns the player's input action value.
+	//This is nice because it allows me to get the value I want based on a class variable,
+	//instead of each InputAction having its own function like with the BP version
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	FInputActionValue GetInputActionValue(UInputAction* InAction);
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	FVector2D GetMouseDirection();
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UMSD_MeleeAttackProfile* GetMeleeProfile() const;
 	
 };

@@ -34,5 +34,6 @@ UE_DEFINE_GAMEPLAY_TAG(TAG_Ability, "Ability")
 
 UE_DEFINE_GAMEPLAY_TAG(TAG_Ability_Firing, "Ability.Firing")
 UE_DEFINE_GAMEPLAY_TAG(TAG_Ability_Reload, "Ability.Reload")
+UE_DEFINE_GAMEPLAY_TAG(TAG_Ability_MeleeStrike, "Ability.MeleeStrike")
 
 #pragma endregion

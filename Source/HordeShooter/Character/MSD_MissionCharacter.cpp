@@ -139,6 +139,11 @@ void AMSD_MissionCharacter::ChangeSubclassLoadedCallback(const FPrimaryAssetId N
 		GetHandsMesh()->SetSkeletalMesh(SubclassDefinition->HandsMesh.Get());
 		GetHandsMesh()->SetAnimClass(SubclassDefinition->HandsAnimBlueprint.Get()->GeneratedClass);
 	}
+
+	if(SubclassDefinition->MeleeProfile.IsValid())
+	{
+		MeleeProfile = SubclassDefinition->MeleeProfile.Get();
+	}
 	
 	SubclassDefinition->AbilitySet->AddAbilitiesToASC(AbilitySystemComponent);
 

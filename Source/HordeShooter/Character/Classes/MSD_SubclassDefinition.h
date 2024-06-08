@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "MSD_MeleeAttackProfile.h"
 
 #include "Engine/DataAsset.h"
 #include "HordeShooter/Character/AbilitySystem/MSD_AbilitySet.h"
@@ -22,6 +23,9 @@ public:
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Abilities", meta = (AssetBundles = "MissionOnly"))
 	TSoftObjectPtr<UMSD_AbilitySet> AbilitySet;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Abilities", meta = (AssetBundles = "HubAndMission"))
+	TSoftObjectPtr<UMSD_MeleeAttackProfile> MeleeProfile;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Models", meta = (AssetBundles = "HubAndMission"))
 	TSoftObjectPtr<USkeletalMesh> BodyMesh;
