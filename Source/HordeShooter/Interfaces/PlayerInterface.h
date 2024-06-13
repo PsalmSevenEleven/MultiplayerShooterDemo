@@ -56,5 +56,18 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	UMSD_MeleeAttackProfile* GetMeleeProfile() const;
+
+	
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	TArray<int32> GetComboStrikes();
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void AddStrikeToCombo(int32 Strike);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	FTimerHandle SetComboTimer( float Duration);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void ClearCombo();
 	
 };

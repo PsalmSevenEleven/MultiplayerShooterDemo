@@ -100,14 +100,15 @@ public:
 	
 	UPROPERTY(ReplicatedUsing=OnRep_CharacterClass, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	int32 CharacterSubclass = 0;
-
-	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<UMSD_MeleeAttackProfile> MeleeProfile;
-	
 	
 	//Since I'm using primary assets for the classes, they'll be loaded at runtime.
 	//Therefore, callback function for when the class is loaded
 	virtual void ChangeClassLoadedCallback(FString NewClass, int32 NewSubclass);
+
+
+	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<UMSD_MeleeAttackProfile> MeleeProfile;
+	
 	
 	//called every 30th of a second or so to see if a player is looking at an interactable object
 	virtual void InteractCheck();
@@ -206,6 +207,20 @@ public:
 
 	UFUNCTION()
 	UMSD_MeleeAttackProfile* GetMeleeProfile_Implementation() const override;
+
+	UFUNCTION()
+	FTimerHandle SetComboTimer_Implementation(float Duration) override;
+
+	UFUNCTION()
+	TArray<int32> GetComboStrikes_Implementation() override;
+
+	UFUNCTION()
+	void AddStrikeToCombo_Implementation(int32 Strike) override;
+
+	UFUNCTION()
+	void ClearCombo_Implementation() override;
+
+
 #pragma endregion
 	
 };

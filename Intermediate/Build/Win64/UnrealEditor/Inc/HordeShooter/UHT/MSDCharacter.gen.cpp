@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "HordeShooter/Character/MSDCharacter.h"
+#include "../../Source/Runtime/Engine/Classes/Engine/TimerHandle.h"
 #include "InputActionValue.h"
 #include "UObject/CoreNet.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
@@ -19,6 +20,7 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
+	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTimerHandle();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
 	ENHANCEDINPUT_API UScriptStruct* Z_Construct_UScriptStruct_FInputActionValue();
@@ -37,6 +39,36 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 	HORDESHOOTER_API UEnum* Z_Construct_UEnum_HordeShooter_EInteractionType();
 	UPackage* Z_Construct_UPackage__Script_HordeShooter();
 // End Cross Module References
+	DEFINE_FUNCTION(AMSDCharacter::execClearCombo_Implementation)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ClearCombo_Implementation();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMSDCharacter::execAddStrikeToCombo_Implementation)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_Strike);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AddStrikeToCombo_Implementation(Z_Param_Strike);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMSDCharacter::execGetComboStrikes_Implementation)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(TArray<int32>*)Z_Param__Result=P_THIS->GetComboStrikes_Implementation();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMSDCharacter::execSetComboTimer_Implementation)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_Duration);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FTimerHandle*)Z_Param__Result=P_THIS->SetComboTimer_Implementation(Z_Param_Duration);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AMSDCharacter::execGetMeleeProfile_Implementation)
 	{
 		P_FINISH;
@@ -184,10 +216,13 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		UClass* Class = AMSDCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ActivateGASAbility", &AMSDCharacter::execActivateGASAbility },
+			{ "AddStrikeToCombo_Implementation", &AMSDCharacter::execAddStrikeToCombo_Implementation },
 			{ "CanInteract_Implementation", &AMSDCharacter::execCanInteract_Implementation },
 			{ "ChangeClass", &AMSDCharacter::execChangeClass },
+			{ "ClearCombo_Implementation", &AMSDCharacter::execClearCombo_Implementation },
 			{ "GetAbilitySystemComponent", &AMSDCharacter::execGetAbilitySystemComponent },
 			{ "GetCameraComponent_Implementation", &AMSDCharacter::execGetCameraComponent_Implementation },
+			{ "GetComboStrikes_Implementation", &AMSDCharacter::execGetComboStrikes_Implementation },
 			{ "GetCurrentWidget_Implementation", &AMSDCharacter::execGetCurrentWidget_Implementation },
 			{ "GetInputActionValue_Implementation", &AMSDCharacter::execGetInputActionValue_Implementation },
 			{ "GetMeleeProfile_Implementation", &AMSDCharacter::execGetMeleeProfile_Implementation },
@@ -197,6 +232,7 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 			{ "RetrieveBodyMesh_Implementation", &AMSDCharacter::execRetrieveBodyMesh_Implementation },
 			{ "RetrieveHandsMesh_Implementation", &AMSDCharacter::execRetrieveHandsMesh_Implementation },
 			{ "RetrieveInteractInfo_Implementation", &AMSDCharacter::execRetrieveInteractInfo_Implementation },
+			{ "SetComboTimer_Implementation", &AMSDCharacter::execSetComboTimer_Implementation },
 			{ "SetCurrentWidget_Implementation", &AMSDCharacter::execSetCurrentWidget_Implementation },
 			{ "StopInteract_Implementation", &AMSDCharacter::execStopInteract_Implementation },
 		};
@@ -242,6 +278,40 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMSDCharacter_ActivateGASAbility_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMSDCharacter_AddStrikeToCombo_Implementation_Statics
+	{
+		struct MSDCharacter_eventAddStrikeToCombo_Implementation_Parms
+		{
+			int32 Strike;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_Strike;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AMSDCharacter_AddStrikeToCombo_Implementation_Statics::NewProp_Strike = { "Strike", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MSDCharacter_eventAddStrikeToCombo_Implementation_Parms, Strike), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMSDCharacter_AddStrikeToCombo_Implementation_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMSDCharacter_AddStrikeToCombo_Implementation_Statics::NewProp_Strike,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMSDCharacter_AddStrikeToCombo_Implementation_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Character/MSDCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMSDCharacter_AddStrikeToCombo_Implementation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMSDCharacter, nullptr, "AddStrikeToCombo_Implementation", nullptr, nullptr, Z_Construct_UFunction_AMSDCharacter_AddStrikeToCombo_Implementation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_AddStrikeToCombo_Implementation_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMSDCharacter_AddStrikeToCombo_Implementation_Statics::MSDCharacter_eventAddStrikeToCombo_Implementation_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_AddStrikeToCombo_Implementation_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMSDCharacter_AddStrikeToCombo_Implementation_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_AddStrikeToCombo_Implementation_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AMSDCharacter_AddStrikeToCombo_Implementation_Statics::MSDCharacter_eventAddStrikeToCombo_Implementation_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AMSDCharacter_AddStrikeToCombo_Implementation()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMSDCharacter_AddStrikeToCombo_Implementation_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -328,6 +398,28 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMSDCharacter_ChangeClass_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMSDCharacter_ClearCombo_Implementation_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMSDCharacter_ClearCombo_Implementation_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Character/MSDCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMSDCharacter_ClearCombo_Implementation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMSDCharacter, nullptr, "ClearCombo_Implementation", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_ClearCombo_Implementation_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMSDCharacter_ClearCombo_Implementation_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_AMSDCharacter_ClearCombo_Implementation()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMSDCharacter_ClearCombo_Implementation_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -424,6 +516,43 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMSDCharacter_GetCameraComponent_Implementation_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation_Statics
+	{
+		struct MSDCharacter_eventGetComboStrikes_Implementation_Parms
+		{
+			TArray<int32> ReturnValue;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue_Inner;
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MSDCharacter_eventGetComboStrikes_Implementation_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation_Statics::NewProp_ReturnValue_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Character/MSDCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMSDCharacter, nullptr, "GetComboStrikes_Implementation", nullptr, nullptr, Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation_Statics::MSDCharacter_eventGetComboStrikes_Implementation_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation_Statics::MSDCharacter_eventGetComboStrikes_Implementation_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -766,6 +895,44 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation_Statics
+	{
+		struct MSDCharacter_eventSetComboTimer_Implementation_Parms
+		{
+			float Duration;
+			FTimerHandle ReturnValue;
+		};
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_Duration;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation_Statics::NewProp_Duration = { "Duration", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MSDCharacter_eventSetComboTimer_Implementation_Parms, Duration), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MSDCharacter_eventSetComboTimer_Implementation_Parms, ReturnValue), Z_Construct_UScriptStruct_FTimerHandle, METADATA_PARAMS(0, nullptr) }; // 3999327403
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation_Statics::NewProp_Duration,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Character/MSDCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMSDCharacter, nullptr, "SetComboTimer_Implementation", nullptr, nullptr, Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation_Statics::MSDCharacter_eventSetComboTimer_Implementation_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation_Statics::MSDCharacter_eventSetComboTimer_Implementation_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AMSDCharacter_SetCurrentWidget_Implementation_Statics
 	{
 		struct MSDCharacter_eventSetCurrentWidget_Implementation_Parms
@@ -938,10 +1105,13 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDCharacter_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMSDCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AMSDCharacter_ActivateGASAbility, "ActivateGASAbility" }, // 3028325636
+		{ &Z_Construct_UFunction_AMSDCharacter_AddStrikeToCombo_Implementation, "AddStrikeToCombo_Implementation" }, // 1119815553
 		{ &Z_Construct_UFunction_AMSDCharacter_CanInteract_Implementation, "CanInteract_Implementation" }, // 4240704365
 		{ &Z_Construct_UFunction_AMSDCharacter_ChangeClass, "ChangeClass" }, // 2516042370
+		{ &Z_Construct_UFunction_AMSDCharacter_ClearCombo_Implementation, "ClearCombo_Implementation" }, // 2943651329
 		{ &Z_Construct_UFunction_AMSDCharacter_GetAbilitySystemComponent, "GetAbilitySystemComponent" }, // 531802413
 		{ &Z_Construct_UFunction_AMSDCharacter_GetCameraComponent_Implementation, "GetCameraComponent_Implementation" }, // 1609821890
+		{ &Z_Construct_UFunction_AMSDCharacter_GetComboStrikes_Implementation, "GetComboStrikes_Implementation" }, // 1983321755
 		{ &Z_Construct_UFunction_AMSDCharacter_GetCurrentWidget_Implementation, "GetCurrentWidget_Implementation" }, // 560997788
 		{ &Z_Construct_UFunction_AMSDCharacter_GetInputActionValue_Implementation, "GetInputActionValue_Implementation" }, // 4061020708
 		{ &Z_Construct_UFunction_AMSDCharacter_GetMeleeProfile_Implementation, "GetMeleeProfile_Implementation" }, // 2387502741
@@ -951,6 +1121,7 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		{ &Z_Construct_UFunction_AMSDCharacter_RetrieveBodyMesh_Implementation, "RetrieveBodyMesh_Implementation" }, // 3741514812
 		{ &Z_Construct_UFunction_AMSDCharacter_RetrieveHandsMesh_Implementation, "RetrieveHandsMesh_Implementation" }, // 152316446
 		{ &Z_Construct_UFunction_AMSDCharacter_RetrieveInteractInfo_Implementation, "RetrieveInteractInfo_Implementation" }, // 2596121046
+		{ &Z_Construct_UFunction_AMSDCharacter_SetComboTimer_Implementation, "SetComboTimer_Implementation" }, // 840985975
 		{ &Z_Construct_UFunction_AMSDCharacter_SetCurrentWidget_Implementation, "SetCurrentWidget_Implementation" }, // 278927122
 		{ &Z_Construct_UFunction_AMSDCharacter_StopInteract_Implementation, "StopInteract_Implementation" }, // 998568718
 	};
@@ -1135,7 +1306,7 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_AMSDCharacter_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UInteractableInterface_NoRegister, (int32)VTABLE_OFFSET(AMSDCharacter, IInteractableInterface), false },  // 1417254257
 			{ Z_Construct_UClass_UAbilitySystemInterface_NoRegister, (int32)VTABLE_OFFSET(AMSDCharacter, IAbilitySystemInterface), false },  // 3195502011
-			{ Z_Construct_UClass_UPlayerInterface_NoRegister, (int32)VTABLE_OFFSET(AMSDCharacter, IPlayerInterface), false },  // 3312126980
+			{ Z_Construct_UClass_UPlayerInterface_NoRegister, (int32)VTABLE_OFFSET(AMSDCharacter, IPlayerInterface), false },  // 3953767536
 		};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMSDCharacter_Statics::InterfaceParams) < 64);
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMSDCharacter_Statics::StaticCppClassTypeInfo = {
@@ -1188,9 +1359,9 @@ void EmptyLinkFunctionForGeneratedCodeMSDCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMSDCharacter, AMSDCharacter::StaticClass, TEXT("AMSDCharacter"), &Z_Registration_Info_UClass_AMSDCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSDCharacter), 2290390004U) },
+		{ Z_Construct_UClass_AMSDCharacter, AMSDCharacter::StaticClass, TEXT("AMSDCharacter"), &Z_Registration_Info_UClass_AMSDCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMSDCharacter), 2073174871U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_2165835966(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_2762513676(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_MSDCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

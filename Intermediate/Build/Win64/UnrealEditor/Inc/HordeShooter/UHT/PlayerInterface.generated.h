@@ -16,6 +16,7 @@ class UMSDUserWidget;
 class USkeletalMeshComponent;
 enum class ESlateVisibility : uint8;
 struct FInputActionValue;
+struct FTimerHandle;
 #ifdef HORDESHOOTER_PlayerInterface_generated_h
 #error "PlayerInterface.generated.h already included, missing '#pragma once' in PlayerInterface.h"
 #endif
@@ -25,6 +26,10 @@ struct FInputActionValue;
 #define FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_17_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void ClearCombo_Implementation() {}; \
+	virtual FTimerHandle SetComboTimer_Implementation(float Duration) { return FTimerHandle(); }; \
+	virtual void AddStrikeToCombo_Implementation(int32 Strike) {}; \
+	virtual TArray<int32> GetComboStrikes_Implementation() { return TArray<int32>(); }; \
 	virtual UMSD_MeleeAttackProfile* GetMeleeProfile_Implementation() const { return NULL; }; \
 	virtual FVector2D GetMouseDirection_Implementation() { return FVector2D(ForceInit); }; \
 	virtual FInputActionValue GetInputActionValue_Implementation(UInputAction* InAction) { return FInputActionValue(); }; \
@@ -35,6 +40,10 @@ struct FInputActionValue;
 	virtual USkeletalMeshComponent* RetrieveHandsMesh_Implementation() const { return NULL; }; \
 	virtual UCameraComponent* GetCameraComponent_Implementation() const { return NULL; }; \
  \
+	DECLARE_FUNCTION(execClearCombo); \
+	DECLARE_FUNCTION(execSetComboTimer); \
+	DECLARE_FUNCTION(execAddStrikeToCombo); \
+	DECLARE_FUNCTION(execGetComboStrikes); \
 	DECLARE_FUNCTION(execGetMeleeProfile); \
 	DECLARE_FUNCTION(execGetMouseDirection); \
 	DECLARE_FUNCTION(execGetInputActionValue); \
@@ -85,13 +94,17 @@ protected: \
 public: \
 	typedef UPlayerInterface UClassType; \
 	typedef IPlayerInterface ThisClass; \
+	static void Execute_AddStrikeToCombo(UObject* O, int32 Strike); \
+	static void Execute_ClearCombo(UObject* O); \
 	static UCameraComponent* Execute_GetCameraComponent(const UObject* O); \
+	static TArray<int32> Execute_GetComboStrikes(UObject* O); \
 	static UMSDUserWidget* Execute_GetCurrentWidget(const UObject* O); \
 	static FInputActionValue Execute_GetInputActionValue(UObject* O, UInputAction* InAction); \
 	static UMSD_MeleeAttackProfile* Execute_GetMeleeProfile(const UObject* O); \
 	static FVector2D Execute_GetMouseDirection(UObject* O); \
 	static USkeletalMeshComponent* Execute_RetrieveBodyMesh(const UObject* O); \
 	static USkeletalMeshComponent* Execute_RetrieveHandsMesh(const UObject* O); \
+	static FTimerHandle Execute_SetComboTimer(UObject* O, float Duration); \
 	static void Execute_SetCurrentWidget(UObject* O, UMSDUserWidget* NewWidget); \
 	static void Execute_SetHudVisibility(UObject* O, ESlateVisibility Visibility); \
 	virtual UObject* _getUObject() const { return nullptr; }

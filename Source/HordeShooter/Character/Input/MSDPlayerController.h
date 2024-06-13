@@ -63,6 +63,18 @@ protected:
 
 	UFUNCTION()
 	FVector2D GetMouseDirection_Implementation() override;
+
+	UFUNCTION()
+	FTimerHandle SetComboTimer_Implementation(float Duration) override;
+
+	UFUNCTION()
+	TArray<int32> GetComboStrikes_Implementation() override;
+
+	UFUNCTION()
+	void AddStrikeToCombo_Implementation(int32 Strike) override;
+
+	UFUNCTION()
+	void ClearCombo_Implementation() override;
 };
 
 

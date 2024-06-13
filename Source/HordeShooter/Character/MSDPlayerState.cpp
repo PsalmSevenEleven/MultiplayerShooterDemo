@@ -29,6 +29,34 @@ void AMSDPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
 	DOREPLIFETIME(AMSDPlayerState, SubclassIndex);
 }
 
+void AMSDPlayerState::EndCombo()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Combo Ended"));
+	ComboStrikes.Reset();
+}
+
+TArray<int32> AMSDPlayerState::GetComboStrikes_Implementation()
+{
+	return ComboStrikes;
+}
+
+void AMSDPlayerState::AddStrikeToCombo_Implementation(int32 Strike)
+{
+	ComboStrikes.Add(Strike);
+}
+
+void AMSDPlayerState::ClearCombo_Implementation()
+{
+	ComboStrikes.Reset();
+}
+
+FTimerHandle AMSDPlayerState::SetComboTimer_Implementation(float Duration)
+{
+	ComboTimerHandle.Invalidate();
+	GetWorld()->GetTimerManager().SetTimer(ComboTimerHandle, this, &AMSDPlayerState::EndCombo, Duration, false);
+	return ComboTimerHandle;
+}
+
 
 void AMSDPlayerState::SetSubclassIndex(int32 NewSubclassIndex)
 {

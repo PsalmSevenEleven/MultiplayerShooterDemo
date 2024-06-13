@@ -63,3 +63,25 @@ FVector2D AMSDPlayerController::GetMouseDirection_Implementation()
 {
 	return LastMouseDirection;
 }
+
+FTimerHandle AMSDPlayerController::SetComboTimer_Implementation( float Duration)
+{
+	return IPlayerInterface::Execute_SetComboTimer(GetPlayerState<AMSDPlayerState>(), Duration);
+}
+
+TArray<int32> AMSDPlayerController::GetComboStrikes_Implementation()
+{
+	return GetPlayerState<AMSDPlayerState>()->ComboStrikes;
+}
+
+void AMSDPlayerController::AddStrikeToCombo_Implementation(int32 Strike)
+{
+	GetPlayerState<AMSDPlayerState>()->ComboStrikes.Add(Strike);
+}
+
+void AMSDPlayerController::ClearCombo_Implementation()
+{
+	GetPlayerState<AMSDPlayerState>()->ComboStrikes.Reset();
+}
+
+

@@ -11,6 +11,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UMSDUserWidget;
 enum class ESlateVisibility : uint8;
+struct FTimerHandle;
 #ifdef HORDESHOOTER_MSDPlayerController_generated_h
 #error "MSDPlayerController.generated.h already included, missing '#pragma once' in MSDPlayerController.h"
 #endif
@@ -21,6 +22,10 @@ enum class ESlateVisibility : uint8;
 #define FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Input_MSDPlayerController_h_20_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Character_Input_MSDPlayerController_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execClearCombo_Implementation); \
+	DECLARE_FUNCTION(execAddStrikeToCombo_Implementation); \
+	DECLARE_FUNCTION(execGetComboStrikes_Implementation); \
+	DECLARE_FUNCTION(execSetComboTimer_Implementation); \
 	DECLARE_FUNCTION(execGetMouseDirection_Implementation); \
 	DECLARE_FUNCTION(execSetHudVisibility_Implementation); \
 	DECLARE_FUNCTION(execSetCurrentWidget_Implementation); \

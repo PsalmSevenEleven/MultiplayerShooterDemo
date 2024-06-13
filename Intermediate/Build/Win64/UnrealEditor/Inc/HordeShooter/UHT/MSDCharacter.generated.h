@@ -19,6 +19,7 @@ class UMSDUserWidget;
 class USkeletalMeshComponent;
 enum class EInteractionType : uint8;
 struct FInputActionValue;
+struct FTimerHandle;
 #ifdef HORDESHOOTER_MSDCharacter_generated_h
 #error "MSDCharacter.generated.h already included, missing '#pragma once' in MSDCharacter.h"
 #endif
@@ -31,6 +32,10 @@ struct FInputActionValue;
 	virtual bool ChangeClass_Validate(const FString& , int32 ); \
 	virtual void ChangeClass_Implementation(const FString& NewClass, int32 NewSubclass); \
  \
+	DECLARE_FUNCTION(execClearCombo_Implementation); \
+	DECLARE_FUNCTION(execAddStrikeToCombo_Implementation); \
+	DECLARE_FUNCTION(execGetComboStrikes_Implementation); \
+	DECLARE_FUNCTION(execSetComboTimer_Implementation); \
 	DECLARE_FUNCTION(execGetMeleeProfile_Implementation); \
 	DECLARE_FUNCTION(execGetMouseDirection_Implementation); \
 	DECLARE_FUNCTION(execGetInputActionValue_Implementation); \

@@ -73,6 +73,7 @@ AMSDCharacter::AMSDCharacter()
 
 	//...and everyone but the local player needs to see the body.
 	GetMesh()->SetOwnerNoSee(true);
+	
 }
 
 USpringArmComponent* AMSDCharacter::GetCameraBoom() const
@@ -465,6 +466,7 @@ void AMSDCharacter::BeginPlay()
 
 #pragma endregion
 
+
 void AMSDCharacter::InteractCheck()
 {
 	if(MSDPlayerState->GetAbilitySystemComponent()->HasMatchingGameplayTag(TAG_Player_Status_Menu))
@@ -602,6 +604,40 @@ FVector2D AMSDCharacter::GetMouseDirection_Implementation()
 UMSD_MeleeAttackProfile* AMSDCharacter::GetMeleeProfile_Implementation() const
 {
 	return MeleeProfile;
+}
+
+FTimerHandle AMSDCharacter::SetComboTimer_Implementation(float Duration)
+{
+	if(MSDPlayerController->GetPlayerState<AMSDPlayerState>())
+	{
+		return IPlayerInterface::Execute_SetComboTimer(MSDPlayerController->GetPlayerState<AMSDPlayerState>(), Duration);
+	}
+	return FTimerHandle();
+}
+
+TArray<int32> AMSDCharacter::GetComboStrikes_Implementation()
+{
+	if(MSDPlayerController->GetPlayerState<AMSDPlayerState>())
+	{
+		return MSDPlayerController->GetPlayerState<AMSDPlayerState>()->ComboStrikes;
+	}
+	return TArray<int32>();
+}
+
+void AMSDCharacter::AddStrikeToCombo_Implementation(int32 Strike)
+{
+	if(MSDPlayerController->GetPlayerState<AMSDPlayerState>())
+	{
+		MSDPlayerController->GetPlayerState<AMSDPlayerState>()->ComboStrikes.Add(Strike);
+	}
+}
+
+void AMSDCharacter::ClearCombo_Implementation()
+{
+	if(MSDPlayerController->GetPlayerState<AMSDPlayerState>())
+	{
+		MSDPlayerController->GetPlayerState<AMSDPlayerState>()->ComboStrikes.Reset();
+	}
 }
 
 #pragma endregion

@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "HordeShooter/Interfaces/PlayerInterface.h"
+#include "../../Source/Runtime/Engine/Classes/Engine/TimerHandle.h"
 #include "InputActionValue.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
@@ -14,6 +15,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
+	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTimerHandle();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 	ENHANCEDINPUT_API UScriptStruct* Z_Construct_UScriptStruct_FInputActionValue();
 	HORDESHOOTER_API UClass* Z_Construct_UClass_UMSD_MeleeAttackProfile_NoRegister();
@@ -23,6 +25,36 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	UMG_API UEnum* Z_Construct_UEnum_UMG_ESlateVisibility();
 	UPackage* Z_Construct_UPackage__Script_HordeShooter();
 // End Cross Module References
+	DEFINE_FUNCTION(IPlayerInterface::execClearCombo)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ClearCombo_Implementation();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(IPlayerInterface::execSetComboTimer)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_Duration);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FTimerHandle*)Z_Param__Result=P_THIS->SetComboTimer_Implementation(Z_Param_Duration);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(IPlayerInterface::execAddStrikeToCombo)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_Strike);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AddStrikeToCombo_Implementation(Z_Param_Strike);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(IPlayerInterface::execGetComboStrikes)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(TArray<int32>*)Z_Param__Result=P_THIS->GetComboStrikes_Implementation();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(IPlayerInterface::execGetMeleeProfile)
 	{
 		P_FINISH;
@@ -89,6 +121,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		*(UCameraComponent**)Z_Param__Result=P_THIS->GetCameraComponent_Implementation();
 		P_NATIVE_END;
 	}
+	struct PlayerInterface_eventAddStrikeToCombo_Parms
+	{
+		int32 Strike;
+	};
 	struct PlayerInterface_eventGetCameraComponent_Parms
 	{
 		UCameraComponent* ReturnValue;
@@ -98,6 +134,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 			: ReturnValue(NULL)
 		{
 		}
+	};
+	struct PlayerInterface_eventGetComboStrikes_Parms
+	{
+		TArray<int32> ReturnValue;
 	};
 	struct PlayerInterface_eventGetCurrentWidget_Parms
 	{
@@ -154,6 +194,11 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		{
 		}
 	};
+	struct PlayerInterface_eventSetComboTimer_Parms
+	{
+		float Duration;
+		FTimerHandle ReturnValue;
+	};
 	struct PlayerInterface_eventSetCurrentWidget_Parms
 	{
 		UMSDUserWidget* NewWidget;
@@ -162,10 +207,24 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	{
 		ESlateVisibility Visibility;
 	};
+	void IPlayerInterface::AddStrikeToCombo(int32 Strike)
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_AddStrikeToCombo instead.");
+	}
+	void IPlayerInterface::ClearCombo()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_ClearCombo instead.");
+	}
 	UCameraComponent* IPlayerInterface::GetCameraComponent() const
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetCameraComponent instead.");
 		PlayerInterface_eventGetCameraComponent_Parms Parms;
+		return Parms.ReturnValue;
+	}
+	TArray<int32> IPlayerInterface::GetComboStrikes()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetComboStrikes instead.");
+		PlayerInterface_eventGetComboStrikes_Parms Parms;
 		return Parms.ReturnValue;
 	}
 	UMSDUserWidget* IPlayerInterface::GetCurrentWidget() const
@@ -204,6 +263,12 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		PlayerInterface_eventRetrieveHandsMesh_Parms Parms;
 		return Parms.ReturnValue;
 	}
+	FTimerHandle IPlayerInterface::SetComboTimer(float Duration)
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_SetComboTimer instead.");
+		PlayerInterface_eventSetComboTimer_Parms Parms;
+		return Parms.ReturnValue;
+	}
 	void IPlayerInterface::SetCurrentWidget(UMSDUserWidget* NewWidget)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_SetCurrentWidget instead.");
@@ -216,17 +281,73 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	{
 		UClass* Class = UPlayerInterface::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "AddStrikeToCombo", &IPlayerInterface::execAddStrikeToCombo },
+			{ "ClearCombo", &IPlayerInterface::execClearCombo },
 			{ "GetCameraComponent", &IPlayerInterface::execGetCameraComponent },
+			{ "GetComboStrikes", &IPlayerInterface::execGetComboStrikes },
 			{ "GetCurrentWidget", &IPlayerInterface::execGetCurrentWidget },
 			{ "GetInputActionValue", &IPlayerInterface::execGetInputActionValue },
 			{ "GetMeleeProfile", &IPlayerInterface::execGetMeleeProfile },
 			{ "GetMouseDirection", &IPlayerInterface::execGetMouseDirection },
 			{ "RetrieveBodyMesh", &IPlayerInterface::execRetrieveBodyMesh },
 			{ "RetrieveHandsMesh", &IPlayerInterface::execRetrieveHandsMesh },
+			{ "SetComboTimer", &IPlayerInterface::execSetComboTimer },
 			{ "SetCurrentWidget", &IPlayerInterface::execSetCurrentWidget },
 			{ "SetHudVisibility", &IPlayerInterface::execSetHudVisibility },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UPlayerInterface_AddStrikeToCombo_Statics
+	{
+		static const UECodeGen_Private::FIntPropertyParams NewProp_Strike;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UPlayerInterface_AddStrikeToCombo_Statics::NewProp_Strike = { "Strike", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventAddStrikeToCombo_Parms, Strike), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerInterface_AddStrikeToCombo_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_AddStrikeToCombo_Statics::NewProp_Strike,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_AddStrikeToCombo_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Interfaces/PlayerInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerInterface_AddStrikeToCombo_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerInterface, nullptr, "AddStrikeToCombo", nullptr, nullptr, Z_Construct_UFunction_UPlayerInterface_AddStrikeToCombo_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_AddStrikeToCombo_Statics::PropPointers), sizeof(PlayerInterface_eventAddStrikeToCombo_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_AddStrikeToCombo_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPlayerInterface_AddStrikeToCombo_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_AddStrikeToCombo_Statics::PropPointers) < 2048);
+	static_assert(sizeof(PlayerInterface_eventAddStrikeToCombo_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UPlayerInterface_AddStrikeToCombo()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_AddStrikeToCombo_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UPlayerInterface_ClearCombo_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_ClearCombo_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Interfaces/PlayerInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerInterface_ClearCombo_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerInterface, nullptr, "ClearCombo", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_ClearCombo_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPlayerInterface_ClearCombo_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_UPlayerInterface_ClearCombo()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_ClearCombo_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UPlayerInterface_GetCameraComponent_Statics
 	{
@@ -263,6 +384,39 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_GetCameraComponent_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UPlayerInterface_GetComboStrikes_Statics
+	{
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue_Inner;
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UPlayerInterface_GetComboStrikes_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UPlayerInterface_GetComboStrikes_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventGetComboStrikes_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerInterface_GetComboStrikes_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_GetComboStrikes_Statics::NewProp_ReturnValue_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_GetComboStrikes_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_GetComboStrikes_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Interfaces/PlayerInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerInterface_GetComboStrikes_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerInterface, nullptr, "GetComboStrikes", nullptr, nullptr, Z_Construct_UFunction_UPlayerInterface_GetComboStrikes_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetComboStrikes_Statics::PropPointers), sizeof(PlayerInterface_eventGetComboStrikes_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetComboStrikes_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPlayerInterface_GetComboStrikes_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetComboStrikes_Statics::PropPointers) < 2048);
+	static_assert(sizeof(PlayerInterface_eventGetComboStrikes_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UPlayerInterface_GetComboStrikes()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_GetComboStrikes_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -479,6 +633,39 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UPlayerInterface_SetComboTimer_Statics
+	{
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_Duration;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_UPlayerInterface_SetComboTimer_Statics::NewProp_Duration = { "Duration", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventSetComboTimer_Parms, Duration), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UPlayerInterface_SetComboTimer_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventSetComboTimer_Parms, ReturnValue), Z_Construct_UScriptStruct_FTimerHandle, METADATA_PARAMS(0, nullptr) }; // 3999327403
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerInterface_SetComboTimer_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_SetComboTimer_Statics::NewProp_Duration,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_SetComboTimer_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_SetComboTimer_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HordeShooter/Interfaces/PlayerInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerInterface_SetComboTimer_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerInterface, nullptr, "SetComboTimer", nullptr, nullptr, Z_Construct_UFunction_UPlayerInterface_SetComboTimer_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_SetComboTimer_Statics::PropPointers), sizeof(PlayerInterface_eventSetComboTimer_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_SetComboTimer_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPlayerInterface_SetComboTimer_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_SetComboTimer_Statics::PropPointers) < 2048);
+	static_assert(sizeof(PlayerInterface_eventSetComboTimer_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UPlayerInterface_SetComboTimer()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_SetComboTimer_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UPlayerInterface_SetCurrentWidget_Statics
 	{
 #if WITH_METADATA
@@ -571,13 +758,17 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInterface_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UPlayerInterface_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UPlayerInterface_AddStrikeToCombo, "AddStrikeToCombo" }, // 378665508
+		{ &Z_Construct_UFunction_UPlayerInterface_ClearCombo, "ClearCombo" }, // 1730584297
 		{ &Z_Construct_UFunction_UPlayerInterface_GetCameraComponent, "GetCameraComponent" }, // 429846494
+		{ &Z_Construct_UFunction_UPlayerInterface_GetComboStrikes, "GetComboStrikes" }, // 4221582984
 		{ &Z_Construct_UFunction_UPlayerInterface_GetCurrentWidget, "GetCurrentWidget" }, // 3221646278
 		{ &Z_Construct_UFunction_UPlayerInterface_GetInputActionValue, "GetInputActionValue" }, // 2143103177
 		{ &Z_Construct_UFunction_UPlayerInterface_GetMeleeProfile, "GetMeleeProfile" }, // 1682468582
 		{ &Z_Construct_UFunction_UPlayerInterface_GetMouseDirection, "GetMouseDirection" }, // 4201592563
 		{ &Z_Construct_UFunction_UPlayerInterface_RetrieveBodyMesh, "RetrieveBodyMesh" }, // 2190333942
 		{ &Z_Construct_UFunction_UPlayerInterface_RetrieveHandsMesh, "RetrieveHandsMesh" }, // 926375034
+		{ &Z_Construct_UFunction_UPlayerInterface_SetComboTimer, "SetComboTimer" }, // 4017948486
 		{ &Z_Construct_UFunction_UPlayerInterface_SetCurrentWidget, "SetCurrentWidget" }, // 3158008896
 		{ &Z_Construct_UFunction_UPlayerInterface_SetHudVisibility, "SetHudVisibility" }, // 4260090673
 	};
@@ -620,6 +811,38 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	UPlayerInterface::UPlayerInterface(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UPlayerInterface);
 	UPlayerInterface::~UPlayerInterface() {}
+	static FName NAME_UPlayerInterface_AddStrikeToCombo = FName(TEXT("AddStrikeToCombo"));
+	void IPlayerInterface::Execute_AddStrikeToCombo(UObject* O, int32 Strike)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()));
+		PlayerInterface_eventAddStrikeToCombo_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UPlayerInterface_AddStrikeToCombo);
+		if (Func)
+		{
+			Parms.Strike=Strike;
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
+		{
+			I->AddStrikeToCombo_Implementation(Strike);
+		}
+	}
+	static FName NAME_UPlayerInterface_ClearCombo = FName(TEXT("ClearCombo"));
+	void IPlayerInterface::Execute_ClearCombo(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()));
+		UFunction* const Func = O->FindFunction(NAME_UPlayerInterface_ClearCombo);
+		if (Func)
+		{
+			O->ProcessEvent(Func, NULL);
+		}
+		else if (auto I = (IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
+		{
+			I->ClearCombo_Implementation();
+		}
+	}
 	static FName NAME_UPlayerInterface_GetCameraComponent = FName(TEXT("GetCameraComponent"));
 	UCameraComponent* IPlayerInterface::Execute_GetCameraComponent(const UObject* O)
 	{
@@ -634,6 +857,23 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		else if (auto I = (const IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
 		{
 			Parms.ReturnValue = I->GetCameraComponent_Implementation();
+		}
+		return Parms.ReturnValue;
+	}
+	static FName NAME_UPlayerInterface_GetComboStrikes = FName(TEXT("GetComboStrikes"));
+	TArray<int32> IPlayerInterface::Execute_GetComboStrikes(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()));
+		PlayerInterface_eventGetComboStrikes_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UPlayerInterface_GetComboStrikes);
+		if (Func)
+		{
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetComboStrikes_Implementation();
 		}
 		return Parms.ReturnValue;
 	}
@@ -740,6 +980,24 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		}
 		return Parms.ReturnValue;
 	}
+	static FName NAME_UPlayerInterface_SetComboTimer = FName(TEXT("SetComboTimer"));
+	FTimerHandle IPlayerInterface::Execute_SetComboTimer(UObject* O, float Duration)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()));
+		PlayerInterface_eventSetComboTimer_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UPlayerInterface_SetComboTimer);
+		if (Func)
+		{
+			Parms.Duration=Duration;
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
+		{
+			Parms.ReturnValue = I->SetComboTimer_Implementation(Duration);
+		}
+		return Parms.ReturnValue;
+	}
 	static FName NAME_UPlayerInterface_SetCurrentWidget = FName(TEXT("SetCurrentWidget"));
 	void IPlayerInterface::Execute_SetCurrentWidget(UObject* O, UMSDUserWidget* NewWidget)
 	{
@@ -779,9 +1037,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPlayerInterface, UPlayerInterface::StaticClass, TEXT("UPlayerInterface"), &Z_Registration_Info_UClass_UPlayerInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerInterface), 3312126980U) },
+		{ Z_Construct_UClass_UPlayerInterface, UPlayerInterface::StaticClass, TEXT("UPlayerInterface"), &Z_Registration_Info_UClass_UPlayerInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerInterface), 3953767536U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_1513754923(TEXT("/Script/HordeShooter"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_807821732(TEXT("/Script/HordeShooter"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_HordeShooterRepo_HordeShooter_Source_HordeShooter_Interfaces_PlayerInterface_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
